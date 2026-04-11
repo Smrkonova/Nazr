@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazr | Premium Header</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body class=" min-h-screen ">
+    <!-- Header Container -->
+    <header class="w-full max-w-6xl absolute left-0 right-0 mx-auto z-50 mt-8">
+        <nav
+            class="bg-[#000000AD] border border-white/5 rounded-full px-6 py-3 flex items-center justify-between shadow-2xl backdrop-blur-md font-roboto">
+            <!-- Logo Section -->
+            <div class="flex items-center gap-2">
+                <a href="/" class=" overflow-hidden rounded-full flex items-center justify-center">
+                    <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-full object-cover scale-150">
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Link One</a>
+                <a href="#" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Link Two</a>
+                <a href="#" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Link Three</a>
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-1 text-gray-300 group-hover:text-white transition-colors text-sm font-medium">
+                        Link Four
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="w-4 h-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown (Hidden by default) -->
+                    <div
+                        class="absolute top-full right-0 mt-2 w-48 bg-[#1a021d] border border-white/10 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-xl">
+                        <a href="#"
+                            class="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors">Sublink
+                            Alpha</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors">Sublink
+                            Beta</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="hidden sm:flex items-center gap-3">
+                <button
+                    class="px-5 py-2.5 rounded-xl border border-white/20 text-white text-sm font-semibold hover:bg-white/5 transition-all">
+                    Join Discord
+                </button>
+                <a href="https://shop.nazrco.in/" target="_blank"
+                    class="px-6 py-2.5 rounded-xl bg-[#e91185] text-white text-sm font-bold shadow-lg shadow-[#e91185]/20 hover:bg-[#ff1a96] transition-all transform hover:scale-105 active:scale-95">
+                    Shop Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
+                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-black/60 backdrop-blur-lg z-40 md:hidden opacity-0 invisible transition-all duration-300">
+            <div class="flex flex-col items-center justify-center min-h-screen gap-8 p-6">
+                <a href="#"
+                    class="text-2xl font-semibold text-white hover:text-[#e91185] transition-colors font-roboto">Link
+                    One</a>
+                <a href="#"
+                    class="text-2xl font-semibold text-white hover:text-[#e91185] transition-colors font-roboto">Link
+                    Two</a>
+                <a href="#"
+                    class="text-2xl font-semibold text-white hover:text-[#e91185] transition-colors font-roboto">Link
+                    Three</a>
+                <a href="#"
+                    class="text-2xl font-semibold text-white hover:text-[#e91185] transition-colors font-roboto">Link
+                    Four</a>
+
+                <div class="flex flex-col w-full max-w-xs gap-4 mt-4">
+                    <button class="w-full py-4 rounded-2xl border border-white/20 text-white font-semibold">
+                        Button
+                    </button>
+                    <button
+                        class="w-full py-4 rounded-2xl bg-[#e91185] text-white font-bold shadow-xl shadow-[#e91185]/20">
+                        Button
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero-section"
+        class="relative bg-[url('/assets/images/banner.svg')] bg-cover bg-center min-h-screen flex items-center justify-center pt-24 pb-12 px-4 overflow-hidden">
+        <div class="w-full max-w-6xl flex flex-col items-center text-center">
+            <!-- Top Badge -->
+            <div class="mb-8 opacity-0 animate-fade-in-up"
+                style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+                <span
+                    class="inline-block border border-white/30 px-6 py-2 rounded-full text-[10px] sm:text-xs font-lexend text-white tracking-[0.2em] uppercase backdrop-blur-sm">
+                    A SAFETY ECOSYSTEM FOR THE MODERN WOMAN. BURI NAZAR SE FULL PROTECTION.
+                </span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="font-bebas text-[140px]  leading-[0.8] text-white flex flex-col items-center gap-0 opacity-0 animate-fade-in-up"
+                style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+                <div class="flex items-center gap-6 sm:gap-10">
+                    <span>READY</span>
+                    <!-- Image Slot -->
+                    <div class=" overflow-hidden shadow-2xl rotate-[-2deg] flex items-center justify-center">
+                        <img src="./assets/images/banner-1.png" alt="">
+                    </div>
+                    <span>BEFORE</span>
+                </div>
+                <div class="mt-2 text-[#fff]">YOU NEED TO BE</div>
+            </h1>
+
+            <!-- Subheading -->
+            <div class="mt-10 max-w-2xl opacity-0 animate-fade-in-up"
+                style="animation-delay: 0.6s; animation-fill-mode: forwards;">
+                <p class="font-lexend text-base sm:text-lg text-white/90 leading-relaxed uppercase tracking-wide">
+                    NAZR MAKES SAFETY AN EVERYDAY ACCESSORY - PEPPER SPRAY, ANTI-SPIKE STICKERS AND AN APP THAT YOU
+                    CARRY FOR PROTECTION
+                </p>
+            </div>
+
+            <!-- Button -->
+            <div class="mt-12 opacity-0 animate-fade-in-up"
+                style="animation-delay: 0.8s; animation-fill-mode: forwards;">
+                <button
+                    class="bg-white hover:bg-white/90 text-black font-lexend font-bold px-10 py-4 rounded-xl flex items-center gap-3 transition-all transform hover:scale-105 active:scale-95 shadow-2xl">
+                    OWN IT
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 translate-y-[-1px]" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- Marquee Section -->
+        <div class="absolute bottom-0 left-0 w-full py-4 marquee-container">
+            <div
+                class="marquee-content flex items-center gap-12 text-white font-bebas text-6xl tracking-wider uppercase">
+                <!-- Pattern 1 -->
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <!-- Pattern 2 -->
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <!-- Pattern 3 -->
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <!-- Pattern 4 -->
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+
+                <!-- Duplicate for infinite scroll loop -->
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opaciy-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+                <span class="text-[#FFFFFF99] text-[140px] uppercase">Buri Nazar</span>
+
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="w-[123px] h-[87px] brightness-0 invert opacity-80">
+            </div>
+        </div>
+
+        <!-- Pixel Transition Overlay — full-screen, direct child of hero section -->
+        <div id="pixel-grid" style="
+            position: absolute;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            pointer-events: none;
+            z-index: 20;
+            overflow: hidden;
+        "></div>
+
+    </section>
+
+    <!-- ===== NEXT SECTION ===== -->
+    <section id="next-section"
+        class="bg-black h-screen flex items-center justify-center fixed top-0 left-0 w-full opacity-0 pointer-events-none z-30 overflow-hidden">
+        <!-- Background Title (stays visible) -->
+        <div class="text-white font-bebas text-center absolute inset-0 flex items-center justify-center -z-10 select-none pointer-events-none"
+            id="next-title">
+            <h2 class="text-[#E6007E] text-[180px] leading-tight opacity-20 transform scale-110">Times you’ll want <br>
+                Nazr on you
+            </h2>
+        </div>
+
+        <!-- Scenario Cards Container -->
+        <div id="scenario-cards"
+            class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-20 px-6">
+
+            <!-- Card 1 -->
+            <div
+                class="scenario-card rounded-[48px] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl shadow-2xl absolute overflow-hidden group">
+                <div class="w-full md:w-1/2 flex flex-col items-start gap-8 z-10">
+                    <div class="w-20 md:w-24">
+                        <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0 invert">
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bebas text-white text-5xl md:text-7xl tracking-wide uppercase leading-none">
+                            SUBHEADING ONE</h3>
+                        <p class="font-lexend text-white/90 text-lg md:text-xl leading-relaxed max-w-lg">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
+                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                            commodo diam libero vitae erat.
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center md:justify-end">
+                    <div
+                        class="w-full max-w-[500px] aspect-[4/5] md:aspect-square rounded-[40px] border-[12px] border-white/20 overflow-hidden bg-white/10 relative shadow-inner text-white/20 font-lexend italic">
+                        <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+                class="scenario-card rounded-[48px] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl shadow-2xl absolute overflow-hidden group">
+                <div class="w-full md:w-1/2 flex flex-col items-start gap-8 z-10">
+                    <div class="w-20 md:w-24">
+                        <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0 invert">
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bebas text-white text-5xl md:text-7xl tracking-wide uppercase leading-none">
+                            SUBHEADING TWO</h3>
+                        <p class="font-lexend text-white/90 text-lg md:text-xl leading-relaxed max-w-lg">
+                            Late night rides or walking alone in busy streets. Nazr ensures you have a silent guardian
+                            ready to alert your tribe and authorities at a tap.
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center md:justify-end">
+                    <div
+                        class="w-full max-w-[500px] aspect-[4/5] md:aspect-square rounded-[40px] border-[12px] border-white/20 overflow-hidden bg-white/10 relative shadow-inner text-white/20 font-lexend italic">
+                        <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+                class="scenario-card rounded-[48px] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl shadow-2xl absolute overflow-hidden group">
+                <div class="w-full md:w-1/2 flex flex-col items-start gap-8 z-10">
+                    <div class="w-20 md:w-24">
+                        <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0 invert">
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="font-bebas text-white text-5xl md:text-7xl tracking-wide uppercase leading-none">
+                            SUBHEADING THREE</h3>
+                        <p class="font-lexend text-white/90 text-lg md:text-xl leading-relaxed max-w-lg">
+                            Exploring new cities and hidden gems. Your adventure shouldn't come with anxiety. Nazr
+                            handles
+                            the "What if" so you can focus on the "Wow".
+                        </p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center md:justify-end">
+                    <div
+                        class="w-full max-w-[500px] aspect-[4/5] md:aspect-square rounded-[40px] border-[12px] border-white/20 overflow-hidden bg-white/10 relative shadow-inner text-white/20 font-lexend italic">
+                        <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('invisible');
+
+            if (isOpen) {
+                // Close
+                mobileMenu.classList.add('opacity-0', 'invisible');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                document.body.classList.remove('mobile-menu-active');
+            } else {
+                // Open
+                mobileMenu.classList.remove('opacity-0', 'invisible');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                document.body.classList.add('mobile-menu-active');
+            }
+        });
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('opacity-0', 'invisible');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                document.body.classList.remove('mobile-menu-active');
+            });
+        });
+
+        // ============================================
+        // GSAP PIXEL GRID — RANDOM BUT BOTTOM → TOP FLOW
+        // ============================================
+        (function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const hero = document.getElementById('hero-section');
+            const grid = document.getElementById('pixel-grid');
+            const nextTitle = document.getElementById('next-title');
+
+            const PIXEL_SIZE = 20;
+            const cols = Math.ceil(window.innerWidth / PIXEL_SIZE);
+            const rows = Math.ceil(window.innerHeight / PIXEL_SIZE);
+            const total = cols * rows;
+
+            // Create pixels
+            const pixelEls = [];
+
+            for (let i = 0; i < total; i++) {
+                const box = document.createElement('div');
+                box.style.cssText = `
+            width: ${PIXEL_SIZE}px;
+            height: ${PIXEL_SIZE}px;
+            background: #000;
+            opacity: 0;
+            flex-shrink: 0;
+        `;
+                grid.appendChild(box);
+                pixelEls.push(box);
+            }
+
+            // ============================================
+            // 🔥 RANDOM ORDER WITH BOTTOM → TOP BIAS
+            // ============================================
+            const pixelsWithWeight = [];
+
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const index = row * cols + col;
+
+                    // bottom rows = smaller weight (animate earlier)
+                    const weight = row + Math.random() * 5;
+
+                    pixelsWithWeight.push({
+                        el: pixelEls[index],
+                        weight
+                    });
+                }
+            }
+
+            // sort by weight → gives bottom → top random flow
+            pixelsWithWeight.sort((a, b) => b.weight - a.weight);
+
+            const orderedPixels = pixelsWithWeight.map(p => p.el);
+
+            // ============================================
+            // GSAP Timeline
+            // ============================================
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: hero,
+                    start: 'top top',
+                    end: '+=600%',   // Increased for multi-card experience
+                    scrub: 1.5,
+                    pin: true,
+                }
+            });
+
+            tl.to({}, { duration: 0.3 });
+
+            // 🔥 RANDOM but flowing UP
+            tl.to(orderedPixels, {
+                opacity: 1,
+                duration: 1,
+                stagger: {
+                    each: 0.005,
+                },
+                ease: 'none',
+            });
+
+            tl.to({}, { duration: 0.2 });
+
+            // Show next section overlay
+            tl.fromTo("#next-section",
+                { scale: 1.1, opacity: 0 },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: "power4.out"
+                }
+            );
+
+            tl.fromTo(nextTitle.children,
+                { scale: 0.7, opacity: 0 },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "expo.out"
+                },
+                "-=0.4"
+            );
+
+            // Phase 4: Fade title out and bring in the Card
+            tl.to(nextTitle, {
+                opacity: 0,
+                y: -100,
+                duration: 0.6,
+                ease: "power2.inOut"
+            }, "+=0.2");
+
+            // Phase 4: Sequential Card "Throw Away" Reveal
+            const cards = document.querySelectorAll('.scenario-card');
+
+            // Show Cards Container
+            tl.to("#scenario-cards", {
+                opacity: 1,
+                pointerEvents: "auto",
+                duration: 0.5
+            }, "-=0.2");
+
+            cards.forEach((card, index) => {
+                // Initialize card in stack (GSAP setup)
+                const rot = index % 2 === 0 ? -2 : 2;
+                gsap.set(card, {
+                    rotationZ: rot * (index + 1),
+                    y: index * 10,
+                    x: index * -5,
+                    opacity: 0,
+                    scale: 0.9,
+                    zIndex: cards.length - index
+                });
+
+                // Card Entrance
+                tl.to(card, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: "power2.out"
+                }, "-=0.4");
+
+                // Pause for reading
+                tl.to({}, { duration: 2 });
+
+                // Card Throw Away (Exit)
+                // Except for the last card, which stays pinned
+                if (index < cards.length - 1) {
+                    tl.to(card, {
+                        x: 1500,        // Fly off screen right
+                        y: -500,        // And up
+                        rotationZ: 45,  // Twist
+                        opacity: 0,
+                        duration: 1.2,
+                        ease: "power2.in"
+                    });
+                } else {
+                    // Last card stay duration
+                    tl.to({}, { duration: 1 });
+                }
+            });
+
+        })();
+    </script>
+</body>
+
+</html>
