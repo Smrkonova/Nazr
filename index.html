@@ -436,6 +436,96 @@
                     </div>
                 </div>
 
+                <!-- Third Pixel Transition Overlay (Black) -->
+                <div id="pixel-grid-3" style="
+                    position: fixed;
+                    top: 0; left: 0;
+                    width: 100vw; height: 100vh;
+                    display: flex;
+                    flex-wrap: wrap;
+                    pointer-events: none;
+                    z-index: 400;
+                    overflow: hidden;
+                "></div>
+
+                <!-- HOW IT WORKS SECTION -->
+                <div id="how-it-works-content"
+                    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[350] px-6"
+                    style="transform: scale(0.8);">
+                    <div class="w-full max-w-7xl mx-auto">
+                        <div class="text-center mb-20">
+                            <h2 class="text-5xl md:text-7xl font-bebas tracking-wide uppercase text-white">HOW IT WORKS
+                            </h2>
+                        </div>
+                        <div class="flex flex-col gap-16">
+                            <!-- Timeline -->
+                            <div class="relative">
+                                <!-- Timeline Line -->
+                                <div
+                                    class="absolute top-12 left-0 w-full h-1 bg-gradient-to-r from-white/20 via-white/40 to-white/20">
+                                </div>
+
+                                <!-- Timeline Items -->
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                    <!-- Item 1 -->
+                                    <div class="flex flex-col items-center text-center">
+                                        <div
+                                            class="w-24 h-24 bg-gray-300 rounded-lg flex items-center justify-center mb-6 relative z-10 border-4 border-black">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-500"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                            </svg>
+                                        </div>
+                                        <div class="w-2 h-2 bg-white rounded-full relative z-10 -mt-8"></div>
+                                        <p class="font-bebas text-white text-xl uppercase mt-8 mb-4">Date</p>
+                                        <p class="font-lexend text-white/70 text-sm leading-relaxed">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                            enim in eros elementum tristique.
+                                        </p>
+                                    </div>
+
+                                    <!-- Item 2 -->
+                                    <div class="flex flex-col items-center text-center">
+                                        <div
+                                            class="w-24 h-24 bg-gray-300 rounded-lg flex items-center justify-center mb-6 relative z-10 border-4 border-black">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-500"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                            </svg>
+                                        </div>
+                                        <div class="w-2 h-2 bg-white rounded-full relative z-10 -mt-8"></div>
+                                        <p class="font-bebas text-white text-xl uppercase mt-8 mb-4">Date</p>
+                                        <p class="font-lexend text-white/70 text-sm leading-relaxed">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                            enim in eros elementum tristique.
+                                        </p>
+                                    </div>
+
+                                    <!-- Item 3 -->
+                                    <div class="flex flex-col items-center text-center">
+                                        <div
+                                            class="w-24 h-24 bg-gray-300 rounded-lg flex items-center justify-center mb-6 relative z-10 border-4 border-black">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-500"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                            </svg>
+                                        </div>
+                                        <div class="w-2 h-2 bg-white rounded-full relative z-10 -mt-8"></div>
+                                        <p class="font-bebas text-white text-xl uppercase mt-8 mb-4">Date</p>
+                                        <p class="font-lexend text-white/70 text-sm leading-relaxed">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                            enim in eros elementum tristique.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -569,6 +659,42 @@
 
             pixelsWithWeight2.sort((a, b) => b.weight - a.weight);
             const orderedPixels2 = pixelsWithWeight2.map(p => p.el);
+
+            // ============================================
+            // CREATE BLACK PIXELS FOR TRANSITION TO HOW IT WORKS
+            // ============================================
+            const grid3 = document.getElementById('pixel-grid-3');
+            const pixelEls3 = [];
+
+            for (let i = 0; i < total; i++) {
+                const box3 = document.createElement('div');
+                box3.style.cssText = `
+                    width: ${PIXEL_SIZE}px;
+                    height: ${PIXEL_SIZE}px;
+                    background: #000;
+                    opacity: 0;
+                    flex-shrink: 0;
+                `;
+                grid3.appendChild(box3);
+                pixelEls3.push(box3);
+            }
+
+            // Bottom -> Top random flow
+            const pixelsWithWeight3 = [];
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const index = row * cols + col;
+                    // Bottom rows = smaller weight (animate earlier)
+                    const weight = row + Math.random() * 5;
+                    pixelsWithWeight3.push({
+                        el: pixelEls3[index],
+                        weight
+                    });
+                }
+            }
+
+            pixelsWithWeight3.sort((a, b) => b.weight - a.weight);
+            const orderedPixels3 = pixelsWithWeight3.map(p => p.el);
 
 
             // ============================================
@@ -721,6 +847,43 @@
 
             // ===== Phase 6: Shop Reveal (Scale in center) =====
             tl.to("#shop-content", {
+                opacity: 1,
+                scale: 1,
+                pointerEvents: "auto",
+                duration: 1.2,
+                ease: "expo.out"
+            });
+
+            // Maintain visibility
+            tl.to({}, { duration: 3 });
+
+            // ============================================
+            // Phase 7: Black Pixel Exit Transition (Bottom to Top bias)
+            // ============================================
+            tl.set(grid3, { opacity: 1 });
+
+            tl.to(orderedPixels3, {
+                opacity: 1,
+                duration: 1.2,
+                stagger: {
+                    each: 0.005,
+                },
+                ease: 'none',
+            });
+
+            // Make container completely solid black
+            tl.set([hero, "#next-section", "#scenario-cards"], {
+                backgroundColor: '#000',
+                backgroundImage: 'none'
+            });
+
+            // Hide shop section and pixel grid
+            tl.set("#shop-content", { opacity: 0 });
+            tl.set(grid2, { opacity: 0 });
+            tl.set(grid3, { opacity: 0 });
+
+            // ===== Phase 8: How It Works Reveal (Scale in center) =====
+            tl.to("#how-it-works-content", {
                 opacity: 1,
                 scale: 1,
                 pointerEvents: "auto",
