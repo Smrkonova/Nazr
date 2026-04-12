@@ -950,13 +950,7 @@
                     start: 'top top',
                     end: '+=4000%',   // Extended for all 10 phases with proper timing
                     scrub: 1.5,
-                    pin: true,
-                    onUpdate: (self) => {
-                        // Refresh on window resize
-                        if (window.innerWidth !== cols * PIXEL_SIZE) {
-                            ScrollTrigger.refresh();
-                        }
-                    }
+                    pin: true
                 }
             });
 
