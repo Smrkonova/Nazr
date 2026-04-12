@@ -27,6 +27,29 @@
         .faq-toggle {
             transform-origin: center;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .scenario-card {
+                max-width: calc(100vw - 48px) !important;
+            }
+        }
+
+        /* Ensure smooth transitions */
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Smooth animation on scroll */
+        body {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -143,8 +166,9 @@
             </div>
 
             <!-- Main Heading -->
-            <h1 class="font-bebas text-[140px]  leading-[0.8] text-white flex flex-col items-center gap-0 ">
-                <div class="flex items-center gap-6 sm:gap-10">
+            <h1
+                class="font-bebas text-[60px] sm:text-[80px] md:text-[110px] lg:text-[140px] leading-[0.8] text-white flex flex-col items-center gap-0">
+                <div class="flex items-center gap-3 sm:gap-6 lg:gap-10">
                     <span>READY</span>
                     <!-- Image Slot -->
                     <div class=" overflow-hidden shadow-2xl rotate-[-2deg] flex items-center justify-center">
@@ -275,7 +299,9 @@
             <!-- Background Title (stays visible) -->
             <div class="text-white font-bebas text-center absolute inset-0 flex items-center justify-center -z-10 select-none pointer-events-none"
                 id="next-title">
-                <h2 class="text-[#E6007E] text-[180px] leading-tight opacity-20 transform scale-110">Times you’ll want
+                <h2
+                    class="text-[#E6007E] text-[80px] sm:text-[120px] md:text-[130px] lg:text-[180px] leading-tight opacity-20 transform scale-110 px-4">
+                    Times you’ll want
                     Nazr on you
                 </h2>
             </div>
@@ -736,7 +762,8 @@
             const grid = document.getElementById('pixel-grid');
             const nextTitle = document.getElementById('next-title');
 
-            const PIXEL_SIZE = 20;
+            // Responsive pixel size
+            const PIXEL_SIZE = window.innerWidth < 768 ? 15 : 20;
             const cols = Math.ceil(window.innerWidth / PIXEL_SIZE);
             const rows = Math.ceil(window.innerHeight / PIXEL_SIZE);
             const total = cols * rows;
@@ -897,9 +924,15 @@
                 scrollTrigger: {
                     trigger: hero,
                     start: 'top top',
-                    end: '+=2500%',   // Massively increased for very slow, precise scroll control
+                    end: '+=4000%',   // Extended for all 10 phases with proper timing
                     scrub: 1.5,
                     pin: true,
+                    onUpdate: (self) => {
+                        // Refresh on window resize
+                        if (window.innerWidth !== cols * PIXEL_SIZE) {
+                            ScrollTrigger.refresh();
+                        }
+                    }
                 }
             });
 
@@ -1123,6 +1156,13 @@
 
             // Maintain visibility
             tl.to({}, { duration: 3 });
+
+            // ============================================
+            // Handle window resize and refresh ScrollTrigger
+            // ============================================
+            window.addEventListener('resize', () => {
+                ScrollTrigger.refresh();
+            });
 
         })();
 
