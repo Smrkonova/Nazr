@@ -526,6 +526,91 @@
                     </div>
                 </div>
 
+                <!-- Fourth Pixel Transition Overlay (Magenta) -->
+                <div id="pixel-grid-4" style="
+                    position: fixed;
+                    top: 0; left: 0;
+                    width: 100vw; height: 100vh;
+                    display: flex;
+                    flex-wrap: wrap;
+                    pointer-events: none;
+                    z-index: 500;
+                    overflow: hidden;
+                "></div>
+
+                <!-- FAQ SECTION -->
+                <div id="faq-content"
+                    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[450] px-6"
+                    style="transform: scale(0.8);">
+                    <div class="w-full max-w-4xl mx-auto">
+                        <div class="text-center mb-16">
+                            <h2 class="text-5xl md:text-7xl font-bebas tracking-wide uppercase text-white">FAQS</h2>
+                        </div>
+                        <div class="space-y-4">
+                            <!-- FAQ Item 1 -->
+                            <div
+                                class="bg-[#E91185] rounded-2xl p-6 md:p-8 flex justify-between items-start gap-4 cursor-pointer hover:bg-[#ff1a96] transition-colors faq-item">
+                                <div class="flex-1">
+                                    <p class="font-bebas text-white text-lg md:text-xl uppercase">Question text goes
+                                        here</p>
+                                    <p class="font-lexend text-white/90 text-sm md:text-base leading-relaxed mt-3">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim
+                                        in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                                        interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo
+                                        cursus rutrum lorem imperdiet.
+                                    </p>
+                                </div>
+                                <button
+                                    class="text-white text-2xl font-bold flex-shrink-0 hover:opacity-70 transition-opacity">✕</button>
+                            </div>
+
+                            <!-- FAQ Item 2 -->
+                            <div
+                                class="bg-[#E91185] rounded-2xl p-6 md:p-8 flex justify-between items-start gap-4 cursor-pointer hover:bg-[#ff1a96] transition-colors faq-item">
+                                <div class="flex-1">
+                                    <p class="font-bebas text-white text-lg md:text-xl uppercase">Question text goes
+                                        here</p>
+                                </div>
+                                <button
+                                    class="text-white text-2xl font-bold flex-shrink-0 hover:opacity-70 transition-opacity">✕</button>
+                            </div>
+
+                            <!-- FAQ Item 3 -->
+                            <div
+                                class="bg-[#E91185] rounded-2xl p-6 md:p-8 flex justify-between items-start gap-4 cursor-pointer hover:bg-[#ff1a96] transition-colors faq-item">
+                                <div class="flex-1">
+                                    <p class="font-bebas text-white text-lg md:text-xl uppercase">Question text goes
+                                        here</p>
+                                </div>
+                                <button
+                                    class="text-white text-2xl font-bold flex-shrink-0 hover:opacity-70 transition-opacity">✕</button>
+                            </div>
+
+                            <!-- FAQ Item 4 -->
+                            <div
+                                class="bg-[#E91185] rounded-2xl p-6 md:p-8 flex justify-between items-start gap-4 cursor-pointer hover:bg-[#ff1a96] transition-colors faq-item">
+                                <div class="flex-1">
+                                    <p class="font-bebas text-white text-lg md:text-xl uppercase">Question text goes
+                                        here</p>
+                                </div>
+                                <button
+                                    class="text-white text-2xl font-bold flex-shrink-0 hover:opacity-70 transition-opacity">✕</button>
+                            </div>
+
+                            <!-- FAQ Item 5 -->
+                            <div
+                                class="bg-[#E91185] rounded-2xl p-6 md:p-8 flex justify-between items-start gap-4 cursor-pointer hover:bg-[#ff1a96] transition-colors faq-item">
+                                <div class="flex-1">
+                                    <p class="font-bebas text-white text-lg md:text-xl uppercase">Question text goes
+                                        here</p>
+                                </div>
+                                <button
+                                    class="text-white text-2xl font-bold flex-shrink-0 hover:opacity-70 transition-opacity">✕</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -695,6 +780,42 @@
 
             pixelsWithWeight3.sort((a, b) => b.weight - a.weight);
             const orderedPixels3 = pixelsWithWeight3.map(p => p.el);
+
+            // ============================================
+            // CREATE MAGENTA PIXELS FOR TRANSITION TO FAQ
+            // ============================================
+            const grid4 = document.getElementById('pixel-grid-4');
+            const pixelEls4 = [];
+
+            for (let i = 0; i < total; i++) {
+                const box4 = document.createElement('div');
+                box4.style.cssText = `
+                    width: ${PIXEL_SIZE}px;
+                    height: ${PIXEL_SIZE}px;
+                    background: #E91185;
+                    opacity: 0;
+                    flex-shrink: 0;
+                `;
+                grid4.appendChild(box4);
+                pixelEls4.push(box4);
+            }
+
+            // Bottom -> Top random flow
+            const pixelsWithWeight4 = [];
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const index = row * cols + col;
+                    // Bottom rows = smaller weight (animate earlier)
+                    const weight = row + Math.random() * 5;
+                    pixelsWithWeight4.push({
+                        el: pixelEls4[index],
+                        weight
+                    });
+                }
+            }
+
+            pixelsWithWeight4.sort((a, b) => b.weight - a.weight);
+            const orderedPixels4 = pixelsWithWeight4.map(p => p.el);
 
 
             // ============================================
@@ -884,6 +1005,43 @@
 
             // ===== Phase 8: How It Works Reveal (Scale in center) =====
             tl.to("#how-it-works-content", {
+                opacity: 1,
+                scale: 1,
+                pointerEvents: "auto",
+                duration: 1.2,
+                ease: "expo.out"
+            });
+
+            // Maintain visibility
+            tl.to({}, { duration: 3 });
+
+            // ============================================
+            // Phase 9: Magenta Pixel Exit Transition (Bottom to Top bias)
+            // ============================================
+            tl.set(grid4, { opacity: 1 });
+
+            tl.to(orderedPixels4, {
+                opacity: 1,
+                duration: 1.2,
+                stagger: {
+                    each: 0.005,
+                },
+                ease: 'none',
+            });
+
+            // Make container completely solid dark magenta
+            tl.set([hero, "#next-section", "#scenario-cards"], {
+                backgroundColor: '#711149',
+                backgroundImage: 'none'
+            });
+
+            // Hide how-it-works section and pixel grid
+            tl.set("#how-it-works-content", { opacity: 0 });
+            tl.set(grid3, { opacity: 0 });
+            tl.set(grid4, { opacity: 0 });
+
+            // ===== Phase 10: FAQ Reveal (Scale in center) =====
+            tl.to("#faq-content", {
                 opacity: 1,
                 scale: 1,
                 pointerEvents: "auto",
