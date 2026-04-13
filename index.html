@@ -50,6 +50,15 @@
         body {
             scroll-behavior: smooth;
         }
+
+        .shop-carousel-track {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .shop-carousel-track::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 
@@ -448,7 +457,7 @@
 
                 <!-- SHOP SECTION (Inside pinned container for centering) -->
                 <div id="shop-content"
-                    class="absolute inset-0 flex items-start sm:items-center justify-center opacity-0 pointer-events-none z-[300] px-4 sm:px-6 py-8 sm:py-0 overflow-y-auto"
+                    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[300] px-0 sm:px-6 py-8 sm:py-0 overflow-hidden sm:overflow-y-auto"
                     style="transform: scale(0.8);">
                     <div class="w-full max-w-7xl mx-auto text-white ">
                         <div class="text-center mb-10 sm:mb-14">
@@ -457,48 +466,60 @@
                                 seen before
                                 it's needed.</p>
                         </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 text-black">
-                            <!-- Card 1 -->
-                            <div
-                                class="bg-gray-100 rounded-[32px] p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center w-full max-w-[360px] sm:max-w-none mx-auto">
-                                <img src="./assets/images/product/1.png" alt="product"
-                                    class="h-44 sm:h-56 object-contain mb-6">
-                                <div class="w-full flex justify-between items-end border-t border-black/5 pt-6 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-gray-500 uppercase">Variant
-                                        </p>
+                        <div class="relative overflow-hidden">
+                            <div id="shop-carousel-track"
+                                class="shop-carousel-track flex justify-start lg:justify-center gap-4 sm:gap-6 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scroll-smooth px-[7.5%] sm:px-6 lg:px-0 text-black">
+                                <!-- Card 1 -->
+                                <div data-shop-slide
+                                    class="snap-center shrink-0 w-[85%] sm:w-[48%] lg:w-[32%] bg-gray-100 rounded-[32px] p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-44 sm:h-56 object-contain mb-6">
+                                    <div class="w-full flex justify-between items-end border-t border-black/5 pt-6 mt-auto">
+                                        <div class="text-left">
+                                            <h3 class="font-bebas text-xl sm:text-2xl">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-gray-500 uppercase">Variant
+                                            </p>
+                                        </div>
+                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
                                     </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                </div>
+                                <!-- Card 2 -->
+                                <div data-shop-slide
+                                    class="snap-center shrink-0 w-[85%] sm:w-[48%] lg:w-[32%] bg-gray-100 rounded-[32px] p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-44 sm:h-56 object-contain mb-6">
+                                    <div class="w-full flex justify-between items-end border-t border-black/5 pt-6 mt-auto">
+                                        <div class="text-left">
+                                            <h3 class="font-bebas text-xl sm:text-2xl">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-gray-500 uppercase">Variant
+                                            </p>
+                                        </div>
+                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                    </div>
+                                </div>
+                                <!-- Card 3 -->
+                                <div data-shop-slide
+                                    class="snap-center shrink-0 w-[85%] sm:w-[48%] lg:w-[32%] bg-gray-100 rounded-[32px] p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-44 sm:h-56 object-contain mb-6">
+                                    <div class="w-full flex justify-between items-end border-t border-black/5 pt-6 mt-auto">
+                                        <div class="text-left">
+                                            <h3 class="font-bebas text-xl sm:text-2xl">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-gray-500 uppercase">Variant
+                                            </p>
+                                        </div>
+                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- Card 2 -->
-                            <div
-                                class="bg-gray-100 rounded-[32px] p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center w-full max-w-[360px] sm:max-w-none mx-auto">
-                                <img src="./assets/images/product/1.png" alt="product"
-                                    class="h-44 sm:h-56 object-contain mb-6">
-                                <div class="w-full flex justify-between items-end border-t border-black/5 pt-6 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-gray-500 uppercase">Variant
-                                        </p>
-                                    </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                </div>
-                            </div>
-                            <!-- Card 3 -->
-                            <div
-                                class="bg-gray-100 rounded-[32px] p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center w-full max-w-[360px] sm:max-w-none mx-auto">
-                                <img src="./assets/images/product/1.png" alt="product"
-                                    class="h-44 sm:h-56 object-contain mb-6">
-                                <div class="w-full flex justify-between items-end border-t border-black/5 pt-6 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-gray-500 uppercase">Variant
-                                        </p>
-                                    </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                </div>
+                            <div class="mt-6 flex items-center justify-center gap-3">
+                                <button id="shop-carousel-prev" type="button"
+                                    class="w-10 h-10 rounded-full border border-white/40 text-white hover:bg-white/10 transition"
+                                    aria-label="Previous product">‹</button>
+                                <div id="shop-carousel-dots" class="flex lg:hidden items-center gap-2"></div>
+                                <button id="shop-carousel-next" type="button"
+                                    class="w-10 h-10 rounded-full border border-white/40 text-white hover:bg-white/10 transition"
+                                    aria-label="Next product">›</button>
                             </div>
                         </div>
                     </div>
@@ -781,6 +802,69 @@
                     }
                 });
             });
+
+            const shopTrack = document.getElementById('shop-carousel-track');
+            const prevBtn = document.getElementById('shop-carousel-prev');
+            const nextBtn = document.getElementById('shop-carousel-next');
+            const dotsWrap = document.getElementById('shop-carousel-dots');
+
+            if (shopTrack && prevBtn && nextBtn && dotsWrap) {
+                const slides = Array.from(shopTrack.querySelectorAll('[data-shop-slide]'));
+                let currentIndex = 0;
+                let isTicking = false;
+
+                const getSlideStep = () => {
+                    if (!slides.length) return 0;
+                    const gap = parseFloat(getComputedStyle(shopTrack).gap || '0');
+                    return slides[0].getBoundingClientRect().width + gap;
+                };
+
+                const updateDots = () => {
+                    dotsWrap.querySelectorAll('button').forEach((dot, idx) => {
+                        dot.classList.toggle('bg-white', idx === currentIndex);
+                        dot.classList.toggle('bg-white/30', idx !== currentIndex);
+                    });
+                };
+
+                const goToSlide = (index, smooth = true) => {
+                    if (!slides.length) return;
+                    currentIndex = (index + slides.length) % slides.length;
+                    const left = getSlideStep() * currentIndex;
+                    shopTrack.scrollTo({ left, behavior: smooth ? 'smooth' : 'auto' });
+                    updateDots();
+                };
+
+                slides.forEach((_, idx) => {
+                    const dot = document.createElement('button');
+                    dot.type = 'button';
+                    dot.className = 'w-2.5 h-2.5 rounded-full bg-white/30 transition';
+                    dot.setAttribute('aria-label', `Go to product ${idx + 1}`);
+                    dot.addEventListener('click', () => goToSlide(idx));
+                    dotsWrap.appendChild(dot);
+                });
+
+                prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+                nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+                shopTrack.addEventListener('scroll', () => {
+                    if (isTicking) return;
+                    isTicking = true;
+                    requestAnimationFrame(() => {
+                        const step = getSlideStep();
+                        if (step > 0) {
+                            const index = Math.round(shopTrack.scrollLeft / step);
+                            if (index !== currentIndex) {
+                                currentIndex = Math.max(0, Math.min(slides.length - 1, index));
+                                updateDots();
+                            }
+                        }
+                        isTicking = false;
+                    });
+                });
+
+                window.addEventListener('resize', () => goToSlide(currentIndex, false));
+                goToSlide(0, false);
+            }
         });
 
         // ============================================
