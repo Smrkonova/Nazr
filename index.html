@@ -539,77 +539,114 @@
 
                 <!-- HOW IT WORKS SECTION -->
                 <div id="how-it-works-content"
-                    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[350] px-6"
+                    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[350] px-3 sm:px-6 overflow-hidden"
                     style="transform: scale(0.8);">
-                    <div class="w-full max-w-7xl mx-auto">
-                        <div class="text-center mb-20">
-                            <h2 class="text-5xl md:text-7xl font-bebas tracking-wide uppercase text-white">HOW IT WORKS
-                            </h2>
+                    <div class="w-full h-full max-w-7xl mx-auto flex flex-col justify-center pt-10 sm:pt-16 pb-20 sm:pb-24">
+                        <div class="text-center mb-8 sm:mb-14">
+                            <h2 class="text-5xl md:text-7xl font-bebas tracking-wide uppercase text-white">HOW IT WORKS</h2>
                         </div>
-                        <div class="flex flex-col gap-16">
-                            <!-- Timeline -->
-                            <div class="relative">
-                                <!-- Timeline Line -->
-                                <div
-                                    class="absolute top-12 left-0 w-full h-1 bg-gradient-to-r from-white/20 via-white/40 to-white/20">
+
+                        <div class="hidden md:grid grid-cols-3 gap-10 lg:gap-14 mb-12">
+                            <div class="relative text-center">
+                                <div class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                    <img src="./assets/images/product/1.png" alt="How it works step 1" class="w-full h-full object-contain p-3">
                                 </div>
-
-                                <!-- Timeline Items -->
-                                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                    <!-- Item 1 -->
-                                    <div class="flex flex-col items-center text-center">
-                                        <div
-                                            class="w-24 h-24 bg-gray-300 rounded-lg flex items-center justify-center mb-6 relative z-10 border-4 border-black">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-500"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                            </svg>
-                                        </div>
-                                        <div class="w-2 h-2 bg-white rounded-full relative z-10 -mt-8"></div>
-                                        <p class="font-bebas text-white text-xl uppercase mt-8 mb-4">Date</p>
-                                        <p class="font-lexend text-white/70 text-sm leading-relaxed">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                            enim in eros elementum tristique.
-                                        </p>
-                                    </div>
-
-                                    <!-- Item 2 -->
-                                    <div class="flex flex-col items-center text-center">
-                                        <div
-                                            class="w-24 h-24 bg-gray-300 rounded-lg flex items-center justify-center mb-6 relative z-10 border-4 border-black">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-500"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                            </svg>
-                                        </div>
-                                        <div class="w-2 h-2 bg-white rounded-full relative z-10 -mt-8"></div>
-                                        <p class="font-bebas text-white text-xl uppercase mt-8 mb-4">Date</p>
-                                        <p class="font-lexend text-white/70 text-sm leading-relaxed">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                            enim in eros elementum tristique.
-                                        </p>
-                                    </div>
-
-                                    <!-- Item 3 -->
-                                    <div class="flex flex-col items-center text-center">
-                                        <div
-                                            class="w-24 h-24 bg-gray-300 rounded-lg flex items-center justify-center mb-6 relative z-10 border-4 border-black">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-500"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                            </svg>
-                                        </div>
-                                        <div class="w-2 h-2 bg-white rounded-full relative z-10 -mt-8"></div>
-                                        <p class="font-bebas text-white text-xl uppercase mt-8 mb-4">Date</p>
-                                        <p class="font-lexend text-white/70 text-sm leading-relaxed">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                            enim in eros elementum tristique.
-                                        </p>
-                                    </div>
+                                <div class="relative mb-4">
+                                    <div class="h-px bg-white/90"></div>
+                                    <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
                                 </div>
+                                <p class="font-bebas text-white text-2xl uppercase mb-2">Date</p>
+                                <p class="font-lexend text-white/75 text-sm leading-relaxed max-w-[270px] mx-auto">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                </p>
+                            </div>
+                            <div class="relative text-center">
+                                <div class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                    <img src="./assets/images/product/1.png" alt="How it works step 2" class="w-full h-full object-contain p-3">
+                                </div>
+                                <div class="relative mb-4">
+                                    <div class="h-px bg-white/90"></div>
+                                    <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                </div>
+                                <p class="font-bebas text-white text-2xl uppercase mb-2">Date</p>
+                                <p class="font-lexend text-white/75 text-sm leading-relaxed max-w-[270px] mx-auto">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                </p>
+                            </div>
+                            <div class="relative text-center">
+                                <div class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                    <img src="./assets/images/product/1.png" alt="How it works step 3" class="w-full h-full object-contain p-3">
+                                </div>
+                                <div class="relative mb-4">
+                                    <div class="h-px bg-white/90"></div>
+                                    <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                </div>
+                                <p class="font-bebas text-white text-2xl uppercase mb-2">Date</p>
+                                <p class="font-lexend text-white/75 text-sm leading-relaxed max-w-[270px] mx-auto">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="md:hidden mb-10">
+                            <div id="how-carousel-track"
+                                class="shop-carousel-track flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-[12%]">
+                                <div data-how-slide class="snap-center shrink-0 w-[76%] text-center text-white">
+                                    <div class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                        <img src="./assets/images/product/1.png" alt="How it works step 1" class="w-full h-full object-contain p-3">
+                                    </div>
+                                    <div class="relative mb-4">
+                                        <div class="h-px bg-white/90"></div>
+                                        <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                    </div>
+                                    <p class="font-bebas text-white text-3xl uppercase leading-none mb-3">Date</p>
+                                    <p class="font-lexend text-white/80 text-sm leading-relaxed">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                    </p>
+                                </div>
+                                <div data-how-slide class="snap-center shrink-0 w-[76%] text-center text-white">
+                                    <div class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                        <img src="./assets/images/product/1.png" alt="How it works step 2" class="w-full h-full object-contain p-3">
+                                    </div>
+                                    <div class="relative mb-4">
+                                        <div class="h-px bg-white/90"></div>
+                                        <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                    </div>
+                                    <p class="font-bebas text-white text-3xl uppercase leading-none mb-3">Date</p>
+                                    <p class="font-lexend text-white/80 text-sm leading-relaxed">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                    </p>
+                                </div>
+                                <div data-how-slide class="snap-center shrink-0 w-[76%] text-center text-white">
+                                    <div class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                        <img src="./assets/images/product/1.png" alt="How it works step 3" class="w-full h-full object-contain p-3">
+                                    </div>
+                                    <div class="relative mb-4">
+                                        <div class="h-px bg-white/90"></div>
+                                        <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                    </div>
+                                    <p class="font-bebas text-white text-3xl uppercase leading-none mb-3">Date</p>
+                                    <p class="font-lexend text-white/80 text-sm leading-relaxed">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-0 left-0 w-full py-2 sm:py-3 marquee-container border-t border-white/10">
+                            <div
+                                class="marquee-content flex items-center gap-6 sm:gap-10 text-white/80 font-bebas text-4xl sm:text-5xl md:text-6xl tracking-wider uppercase">
+                                <span>NAZAR</span>
+                                <img src="assets/images/logo.svg" alt="Owl Logo" class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
+                                <span>BURI NAZAR</span>
+                                <img src="assets/images/logo.svg" alt="Owl Logo" class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
+                                <span>NAZAR</span>
+                                <img src="assets/images/logo.svg" alt="Owl Logo" class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
+                                <span>BURI NAZAR</span>
+                                <img src="assets/images/logo.svg" alt="Owl Logo" class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
+                                <span>NAZAR</span>
+                                <img src="assets/images/logo.svg" alt="Owl Logo" class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
+                                <span>BURI NAZAR</span>
                             </div>
                         </div>
                     </div>
@@ -864,6 +901,40 @@
 
                 window.addEventListener('resize', () => goToSlide(currentIndex, false));
                 goToSlide(0, false);
+            }
+
+            const howTrack = document.getElementById('how-carousel-track');
+            if (howTrack) {
+                const howSlides = Array.from(howTrack.querySelectorAll('[data-how-slide]'));
+                let howIndex = 0;
+                let howTicking = false;
+
+                const getHowStep = () => {
+                    if (!howSlides.length) return 0;
+                    const gap = parseFloat(getComputedStyle(howTrack).gap || '0');
+                    return howSlides[0].getBoundingClientRect().width + gap;
+                };
+
+                const syncHowSlide = (smooth = false) => {
+                    const step = getHowStep();
+                    if (step <= 0) return;
+                    howTrack.scrollTo({ left: step * howIndex, behavior: smooth ? 'smooth' : 'auto' });
+                };
+
+                howTrack.addEventListener('scroll', () => {
+                    if (howTicking) return;
+                    howTicking = true;
+                    requestAnimationFrame(() => {
+                        const step = getHowStep();
+                        if (step > 0) {
+                            howIndex = Math.max(0, Math.min(howSlides.length - 1, Math.round(howTrack.scrollLeft / step)));
+                        }
+                        howTicking = false;
+                    });
+                });
+
+                window.addEventListener('resize', () => syncHowSlide(false));
+                syncHowSlide(false);
             }
         });
 
