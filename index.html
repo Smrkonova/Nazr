@@ -389,7 +389,7 @@
         <div id="pixel-grid" style="
             position: absolute;
             top: 0; left: 0;
-            width: 100vw; height: 100vh;
+            width: 100vw; height: 100dvh;
             display: flex;
             flex-wrap: wrap;
             pointer-events: none;
@@ -526,7 +526,7 @@
                 <div id="pixel-grid-2" style="
                     position: absolute;
                     top: 0; left: 0;
-                    width: 100vw; height: 100vh;
+                    width: 100vw; height: 100dvh;
                     display: flex;
                     flex-wrap: wrap;
                     pointer-events: none;
@@ -608,7 +608,7 @@
                 <div id="pixel-grid-3" style="
                     position: fixed;
                     top: 0; left: 0;
-                    width: 100vw; height: 100vh;
+                    width: 100vw; height: 100dvh;
                     display: flex;
                     flex-wrap: wrap;
                     pointer-events: none;
@@ -735,7 +735,7 @@
                 <div id="pixel-grid-4" style="
                     position: fixed;
                     top: 0; left: 0;
-                    width: 100vw; height: 100vh;
+                    width: 100vw; height: 100dvh;
                     display: flex;
                     flex-wrap: wrap;
                     pointer-events: none;
@@ -1052,9 +1052,12 @@
             const nextTitle = document.getElementById('next-title');
 
             // Responsive pixel size
-            const PIXEL_SIZE = window.innerWidth < 768 ? 15 : 20;
-            const cols = Math.ceil(window.innerWidth / PIXEL_SIZE);
-            const rows = Math.ceil(window.innerHeight / PIXEL_SIZE);
+            const viewportWidth = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+            const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            const PIXEL_SIZE = viewportWidth < 768 ? 12 : 20;
+            const overscan = PIXEL_SIZE * 2;
+            const cols = Math.ceil((viewportWidth + overscan) / PIXEL_SIZE);
+            const rows = Math.ceil((viewportHeight + overscan) / PIXEL_SIZE);
             const total = cols * rows;
 
             // Create pixels
@@ -1174,6 +1177,14 @@
             // ============================================
             const grid4 = document.getElementById('pixel-grid-4');
             const pixelEls4 = [];
+
+            [grid, grid2, grid3, grid4].forEach((overlayGrid) => {
+                if (!overlayGrid) return;
+                overlayGrid.style.width = `${viewportWidth + overscan}px`;
+                overlayGrid.style.height = `${viewportHeight + overscan}px`;
+                overlayGrid.style.left = `${-overscan / 2}px`;
+                overlayGrid.style.top = `${-overscan / 2}px`;
+            });
 
             for (let i = 0; i < total; i++) {
                 const box4 = document.createElement('div');
