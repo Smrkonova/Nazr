@@ -30,8 +30,46 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
+            #next-title {
+                align-items: flex-start !important;
+                padding-top: 72px;
+            }
+
+            #next-title h2 {
+                font-size: 56px !important;
+                line-height: 0.9 !important;
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+
             .scenario-card {
-                max-width: calc(100vw - 48px) !important;
+                max-width: calc(100vw - 24px) !important;
+                max-height: calc(100vh - 140px) !important;
+                padding: 18px !important;
+                border-radius: 28px !important;
+                overflow-y: auto;
+            }
+
+            .scenario-card > div {
+                width: 100% !important;
+            }
+
+            .scenario-card > div:last-child {
+                margin-top: 12px !important;
+            }
+
+            .scenario-card h3 {
+                font-size: 2rem !important;
+                line-height: 1 !important;
+            }
+
+            .scenario-card p {
+                font-size: 0.9rem !important;
+                line-height: 1.5 !important;
+            }
+
+            .scenario-card .aspect-\[4\/5\] {
+                max-width: 210px !important;
             }
         }
 
