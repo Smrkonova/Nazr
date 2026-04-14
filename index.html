@@ -430,14 +430,181 @@
         <section id="next-section"
             class="bg-black min-h-[100svh] md:min-h-screen flex items-center justify-center absolute top-0 left-0 w-full opacity-0 pointer-events-none z-10 overflow-hidden">
             <!-- Background Title (stays visible) -->
-            <div class="text-white font-bebas text-center absolute inset-0 flex items-center justify-center -z-10 select-none pointer-events-none"
+            <div class="text-white font-bebas text-center absolute inset-0 flex items-center justify-center z-10 select-none pointer-events-none opacity-0"
                 id="next-title">
                 <h2
-                    class="text-[#E6007E] text-[80px] sm:text-[120px] md:text-[130px] lg:text-[180px] leading-tight opacity-20 transform scale-110 px-4">
+                    class="text-[#E6007E] text-[80px] sm:text-[120px] md:text-[130px] lg:text-[180px] leading-tight opacity-100 transform scale-110 px-4">
                     Times you’ll want
                     Nazr on you
                 </h2>
             </div>
+
+            <!-- SHOP SECTION -->
+            <div id="shop-content"
+                class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[300] px-0 sm:px-6 py-8 sm:py-0 overflow-hidden sm:overflow-y-auto"
+                style="transform: scale(0.8);">
+                <div class="w-full max-w-7xl mx-auto text-white ">
+                    <div class="text-center mb-10 sm:mb-14">
+                        <h2 class="text-4xl sm:text-5xl md:text-7xl font-bebas tracking-wide uppercase">SHOP</h2>
+                        <p class="font-lexend text-xs sm:text-sm md:text-base mt-2 text-white/80">Designed to be
+                            seen before
+                            it's needed.</p>
+                    </div>
+                    <div class="relative overflow-hidden shop-swiper swiper px-2 sm:px-4">
+                        <div class="swiper-wrapper text-black">
+                            <!-- Card 1 -->
+                            <div
+                                class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                </div>
+                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                    <div class="text-left">
+                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                            Variant
+                                        </p>
+                                    </div>
+                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                </div>
+                            </div>
+                            <!-- Card 2 -->
+                            <div
+                                class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                </div>
+                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                    <div class="text-left">
+                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                            Variant
+                                        </p>
+                                    </div>
+                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                </div>
+                            </div>
+                            <!-- Card 3 -->
+                            <div
+                                class="swiper-slide bg-[#cc3b7e] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                </div>
+                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                    <div class="text-left">
+                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                            Variant
+                                        </p>
+                                    </div>
+                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                </div>
+                            </div>
+                            <!-- Card 4 -->
+                            <div
+                                class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                </div>
+                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                    <div class="text-left">
+                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                            Variant
+                                        </p>
+                                    </div>
+                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                </div>
+                            </div>
+                            <!-- Card 5 -->
+                            <div
+                                class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                </div>
+                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                    <div class="text-left">
+                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                            Variant
+                                        </p>
+                                    </div>
+                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                </div>
+                            </div>
+                            <!-- Card 6 -->
+                            <div
+                                class="swiper-slide bg-[#cc3b7e] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                </div>
+                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                    <div class="text-left">
+                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                            Variant
+                                        </p>
+                                    </div>
+                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                </div>
+                            </div>
+                            <!-- Card 7 -->
+                            <div
+                                class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                </div>
+                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                    <div class="text-left">
+                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                            Variant
+                                        </p>
+                                    </div>
+                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                </div>
+                            </div>
+                            <!-- Card 8 -->
+                            <div
+                                class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                    <img src="./assets/images/product/1.png" alt="product"
+                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                </div>
+                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                    <div class="text-left">
+                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                            Variant
+                                        </p>
+                                    </div>
+                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Pixel Transition Overlay (Now between Shop and Scenarios) -->
+            <div id="pixel-grid-2" style="
+                    position: absolute;
+                    top: 0; left: 0;
+                    width: 100vw; height: 100dvh;
+                    display: flex;
+                    flex-wrap: wrap;
+                    pointer-events: none;
+                    z-index: 400;
+                    overflow: hidden;
+                "></div>
 
             <!-- Scenario Cards Container -->
             <div id="scenario-cards"
@@ -445,17 +612,17 @@
 
                 <!-- Card 1 -->
                 <div
-                    class="bg-[#E6007E] scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
+                    class="bg-white border border-black scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
                     <div class="w-full md:w-1/2 flex flex-col items-start gap-4 sm:gap-6 md:gap-8 z-10">
                         <div class="w-14 sm:w-16 md:w-20 lg:w-24">
-                            <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0 invert">
+                            <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0">
                         </div>
                         <div class="space-y-2 sm:space-y-3 md:space-y-4">
                             <h3
-                                class="font-bebas text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wide uppercase leading-none">
+                                class="font-bebas text-black text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wide uppercase leading-none">
                                 SUBHEADING ONE</h3>
                             <p
-                                class="font-lexend text-white/90 text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed max-w-lg">
+                                class="font-lexend text-black/90 text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed max-w-lg">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
                                 elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
                                 commodo diam libero vitae erat.
@@ -464,7 +631,7 @@
                     </div>
                     <div class="w-full md:w-1/2 mt-6 sm:mt-8 md:mt-0 flex justify-center md:justify-end">
                         <div
-                            class="w-full max-w-[200px] sm:max-w-[280px] md:max-w-[380px] aspect-[4/5] md:aspect-square rounded-[20px] sm:rounded-[30px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[12px] border-white/20 overflow-hidden bg-white/10 relative shadow-inner text-white/20 font-lexend italic">
+                            class="w-full max-w-[200px] sm:max-w-[280px] md:max-w-[380px] aspect-[4/5] md:aspect-square rounded-[20px] sm:rounded-[30px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[12px] border-black/10 overflow-hidden bg-black/5 relative shadow-inner text-black/20 font-lexend italic">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
                         </div>
                     </div>
@@ -472,17 +639,17 @@
 
                 <!-- Card 2 -->
                 <div
-                    class="bg-[#2E5BFF] scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
+                    class="bg-white border border-black scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
                     <div class="w-full md:w-1/2 flex flex-col items-start gap-4 sm:gap-6 md:gap-8 z-10">
                         <div class="w-14 sm:w-16 md:w-20 lg:w-24">
-                            <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0 invert">
+                            <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0">
                         </div>
                         <div class="space-y-2 sm:space-y-3 md:space-y-4">
                             <h3
-                                class="font-bebas text-white text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wide uppercase leading-none">
+                                class="font-bebas text-black text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wide uppercase leading-none">
                                 SUBHEADING TWO</h3>
                             <p
-                                class="font-lexend text-white/90 text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed max-w-lg">
+                                class="font-lexend text-black/90 text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed max-w-lg">
                                 Late night rides or walking alone in busy streets. Nazr ensures you have a silent
                                 guardian
                                 ready to alert your tribe and authorities at a tap.
@@ -491,7 +658,7 @@
                     </div>
                     <div class="w-full md:w-1/2 mt-6 sm:mt-8 md:mt-0 flex justify-center md:justify-end">
                         <div
-                            class="w-full max-w-[200px] sm:max-w-[280px] md:max-w-[380px] aspect-[4/5] md:aspect-square rounded-[20px] sm:rounded-[30px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[12px] border-white/20 overflow-hidden bg-white/10 relative shadow-inner text-white/20 font-lexend italic">
+                            class="w-full max-w-[200px] sm:max-w-[280px] md:max-w-[380px] aspect-[4/5] md:aspect-square rounded-[20px] sm:rounded-[30px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[12px] border-black/10 overflow-hidden bg-black/5 relative shadow-inner text-black/20 font-lexend italic">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
                         </div>
                     </div>
@@ -499,7 +666,7 @@
 
                 <!-- Card 3 -->
                 <div
-                    class="bg-[#FCD34D] scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
+                    class="bg-white border border-black scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
                     <div class="w-full md:w-1/2 flex flex-col items-start gap-4 sm:gap-6 md:gap-8 z-10">
                         <div class="w-14 sm:w-16 md:w-20 lg:w-24">
                             <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0">
@@ -525,17 +692,17 @@
 
                 <!-- Card 4 -->
                 <div
-                    class="bg-[#2E5BFF] scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
+                    class="bg-white border border-black scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
                     <div class="w-full md:w-1/2 flex flex-col items-start gap-4 sm:gap-6 md:gap-8 z-10">
                         <div class="w-14 sm:w-16 md:w-20 lg:w-24">
-                            <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0 invert">
+                            <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0">
                         </div>
-                        <div class="space-y-2 sm:space-y-3 md:space-y-4 text-white">
+                        <div class="space-y-2 sm:space-y-3 md:space-y-4 text-black">
                             <h3
                                 class="font-bebas text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wide uppercase leading-none">
                                 SUBHEADING FOUR</h3>
                             <p
-                                class="font-lexend text-white/90 text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed max-w-lg">
+                                class="font-lexend text-black/90 text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed max-w-lg">
                                 Whether it's a crowded festival or a quiet commute, Nazr stays vigilant so you can stay
                                 present.
                                 Your peace of mind is our priority.
@@ -544,195 +711,30 @@
                     </div>
                     <div class="w-full md:w-1/2 mt-6 sm:mt-8 md:mt-0 flex justify-center md:justify-end">
                         <div
-                            class="w-full max-w-[200px] sm:max-w-[280px] md:max-w-[380px] aspect-[4/5] md:aspect-square rounded-[20px] sm:rounded-[30px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[12px] border-white/20 overflow-hidden bg-white/10 relative shadow-inner">
+                            class="w-full max-w-[200px] sm:max-w-[280px] md:max-w-[380px] aspect-[4/5] md:aspect-square rounded-[20px] sm:rounded-[30px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[12px] border-black/10 overflow-hidden bg-black/5 relative shadow-inner">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
                         </div>
                     </div>
                 </div>
 
-                <!-- Second Pixel Transition Overlay -->
-                <div id="pixel-grid-2" style="
-                    position: absolute;
-                    top: 0; left: 0;
-                    width: 100vw; height: 100dvh;
-                    display: flex;
-                    flex-wrap: wrap;
-                    pointer-events: none;
-                    z-index: 200;
-                    overflow: hidden;
-                "></div>
+            </div>
 
-                <!-- SHOP SECTION (Inside pinned container for centering) -->
-                <div id="shop-content"
-                    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[300] px-0 sm:px-6 py-8 sm:py-0 overflow-hidden sm:overflow-y-auto"
-                    style="transform: scale(0.8);">
-                    <div class="w-full max-w-7xl mx-auto text-white ">
-                        <div class="text-center mb-10 sm:mb-14">
-                            <h2 class="text-4xl sm:text-5xl md:text-7xl font-bebas tracking-wide uppercase">SHOP</h2>
-                            <p class="font-lexend text-xs sm:text-sm md:text-base mt-2 text-white/80">Designed to be
-                                seen before
-                                it's needed.</p>
-                        </div>
-                        <div class="relative overflow-hidden shop-swiper swiper px-2 sm:px-4">
-                            <div class="swiper-wrapper text-black">
-                                <!-- Card 1 -->
-                                <div
-                                    class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                        <img src="./assets/images/product/1.png" alt="product"
-                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                    </div>
-                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                        <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                                Variant
-                                            </p>
-                                        </div>
-                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                    </div>
-                                </div>
-                                <!-- Card 2 -->
-                                <div
-                                    class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                        <img src="./assets/images/product/1.png" alt="product"
-                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                    </div>
-                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                        <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                                Variant
-                                            </p>
-                                        </div>
-                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                    </div>
-                                </div>
-                                <!-- Card 3 -->
-                                <div
-                                    class="swiper-slide bg-[#cc3b7e] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                        <img src="./assets/images/product/1.png" alt="product"
-                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                    </div>
-                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                        <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                                Variant
-                                            </p>
-                                        </div>
-                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                    </div>
-                                </div>
-                                <!-- Card 4 -->
-                                <div
-                                    class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                        <img src="./assets/images/product/1.png" alt="product"
-                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                    </div>
-                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                        <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                                Variant
-                                            </p>
-                                        </div>
-                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                    </div>
-                                </div>
-                                <!-- Card 5 -->
-                                <div
-                                    class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                        <img src="./assets/images/product/1.png" alt="product"
-                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                    </div>
-                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                        <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                                Variant
-                                            </p>
-                                        </div>
-                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                    </div>
-                                </div>
-                                <!-- Card 6 -->
-                                <div
-                                    class="swiper-slide bg-[#cc3b7e] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                        <img src="./assets/images/product/1.png" alt="product"
-                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                    </div>
-                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                        <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                                Variant
-                                            </p>
-                                        </div>
-                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                    </div>
-                                </div>
-                                <!-- Card 7 -->
-                                <div
-                                    class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                        <img src="./assets/images/product/1.png" alt="product"
-                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                    </div>
-                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                        <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                                Variant
-                                            </p>
-                                        </div>
-                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                    </div>
-                                </div>
-                                <!-- Card 8 -->
-                                <div
-                                    class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                        <img src="./assets/images/product/1.png" alt="product"
-                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                    </div>
-                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                        <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                                Variant
-                                            </p>
-                                        </div>
-                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- Third Pixel Transition Overlay (Black) -->
+            <div id="pixel-grid-3" style="
+                position: fixed;
+                top: 0; left: 0;
+                width: 100vw; height: 100dvh;
+                display: flex;
+                flex-wrap: wrap;
+                pointer-events: none;
+                z-index: 500;
+                overflow: hidden;
+            "></div>
 
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Third Pixel Transition Overlay (Black) -->
-                <div id="pixel-grid-3" style="
-                    position: fixed;
-                    top: 0; left: 0;
-                    width: 100vw; height: 100dvh;
-                    display: flex;
-                    flex-wrap: wrap;
-                    pointer-events: none;
-                    z-index: 400;
-                    overflow: hidden;
-                "></div>
-
-                <!-- HOW IT WORKS SECTION -->
-                <div id="how-it-works-content"
-                    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[350] px-3 sm:px-6 overflow-hidden"
-                    style="transform: scale(0.8);">
+            <!-- HOW IT WORKS SECTION -->
+            <div id="how-it-works-content"
+                class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[350] px-3 sm:px-6 overflow-hidden"
+                style="transform: scale(0.8);">
                     <div
                         class="w-full h-full max-w-7xl mx-auto flex flex-col justify-center pt-10 sm:pt-16 pb-20 sm:pb-24">
                         <div class="text-center mb-8 sm:mb-14">
@@ -890,7 +892,7 @@
                     display: flex;
                     flex-wrap: wrap;
                     pointer-events: none;
-                    z-index: 500;
+                    z-index: 600;
                     overflow: hidden;
                 "></div>
 
@@ -993,10 +995,10 @@
                     </div>
                 </div>
 
-            </div>
-        </section>
 
-    </section>
+
+            </section>
+        </section>
 
 
 
@@ -1396,7 +1398,45 @@
                     ease: "power4.out"
                 }
             );
+            // ===== Phase 4: Shop Reveal (Scale in center) =====
+            // This happens after Hero pixels cover the hero content, while background is still black.
+            tl.to("#shop-content", {
+                opacity: 1,
+                scale: 1,
+                pointerEvents: "auto",
+                duration: 1.2,
+                ease: "expo.out"
+            });
 
+            // Maintain visibility
+            tl.to({}, { duration: 3 });
+
+            // ============================================
+            // Phase 5: Blue Pixel Exit Transition
+            // ============================================
+            tl.set(grid2, { opacity: 1 });
+
+            tl.to(orderedPixels2, {
+                opacity: 1,
+                duration: 1.2,
+                stagger: {
+                    each: 0.005,
+                },
+                ease: 'none',
+            });
+
+            // Set background to BLUE for scenarios
+            tl.set([hero, "#next-section", "#scenario-cards"], {
+                backgroundColor: '#2E5BFF',
+                backgroundImage: 'none'
+            });
+
+            // Hide Shop and Show Scenario Components
+            tl.set("#shop-content", { opacity: 0 });
+            tl.set(grid2, { opacity: 0 });
+
+            // Show Scenario Title
+            tl.set("#next-title", { opacity: 1 });
             tl.fromTo(nextTitle.children,
                 { scale: 0.7, opacity: 0 },
                 {
@@ -1405,8 +1445,7 @@
                     duration: 1,
                     stagger: 0.2,
                     ease: "expo.out"
-                },
-                "-=0.4"
+                }
             );
 
 
@@ -1476,43 +1515,7 @@
             // Hold on last card
             tl.to({}, { duration: 1.5 });
 
-            // ============================================
-            // Phase 5: Blue Pixel Exit Transition (Bottom to Top bias)
-            // ============================================
-            tl.set(grid2, { opacity: 1 });
-
-            tl.to(orderedPixels2, {
-                opacity: 1,
-                duration: 1.2,
-                stagger: {
-                    each: 0.005,
-                },
-                ease: 'none',
-            });
-
-            // Make BOTH containers completely solid blue (and clear images/black)
-            tl.set([hero, "#next-section", "#scenario-cards"], {
-                backgroundColor: '#2E5BFF',
-                backgroundImage: 'none'
-            });
-
-            // Hide previous layers
-            tl.set("#hero-section > .max-w-6xl, #hero-section > .marquee-container", { opacity: 0 });
-            tl.set("#scenario-cards > *:not(#shop-content)", { opacity: 0 });
-            tl.set("#next-title", { opacity: 0 });
-            tl.set("#pixel-grid", { opacity: 0 });
-            tl.set(grid2, { opacity: 0 });
-
-            // ===== Phase 6: Shop Reveal (Scale in center) =====
-            tl.to("#shop-content", {
-                opacity: 1,
-                scale: 1,
-                pointerEvents: "auto",
-                duration: 1.2,
-                ease: "expo.out"
-            });
-
-            // Maintain visibility
+            // Maintain visibility of Scenario Cards
             tl.to({}, { duration: 3 });
 
             // ============================================
@@ -1535,8 +1538,9 @@
                 backgroundImage: 'none'
             });
 
-            // Hide shop section and pixel grid
-            tl.set("#shop-content", { opacity: 0 });
+            // Hide scenario section and pixel grids
+            tl.set("#scenario-cards", { opacity: 0 });
+            tl.set("#next-title", { opacity: 0 });
             tl.set(grid2, { opacity: 0 });
             tl.set(grid3, { opacity: 0 });
 
