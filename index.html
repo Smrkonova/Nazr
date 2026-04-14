@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@100..900&display=swap"
@@ -18,6 +19,7 @@
     <!-- GSAP + ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <style>
         .faq-answer {
@@ -50,11 +52,11 @@
                 overflow-y: auto;
             }
 
-            .scenario-card > div {
+            .scenario-card>div {
                 width: 100% !important;
             }
 
-            .scenario-card > div:last-child {
+            .scenario-card>div:last-child {
                 margin-top: 12px !important;
             }
 
@@ -122,6 +124,29 @@
 
         .shop-carousel-track::-webkit-scrollbar {
             display: none;
+        }
+
+        .swiper-wrapper {
+            align-items: center;
+        }
+
+        .shop-swiper .swiper-slide {
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+
+        .shop-swiper .swiper-slide-prev,
+        .shop-swiper .swiper-slide-next,
+        .shop-swiper .swiper-slide-duplicate-prev,
+        .shop-swiper .swiper-slide-duplicate-next {
+            opacity: 1 !important;
+            pointer-events: auto;
+        }
+
+        .shop-swiper .swiper-slide-active,
+        .shop-swiper .swiper-slide-duplicate-active {
+            opacity: 1 !important;
+            pointer-events: auto;
         }
     </style>
 </head>
@@ -214,8 +239,8 @@
                     <button id="mobile-link-four-toggle" type="button"
                         class="w-full flex items-center justify-center gap-2 text-2xl font-semibold text-white hover:text-[#e91185] transition-colors font-roboto">
                         Link Four
-                        <svg id="mobile-link-four-icon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform"
-                            viewBox="0 0 20 20" fill="currentColor">
+                        <svg id="mobile-link-four-icon" xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5 transition-transform" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd"
                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                 clip-rule="evenodd" />
@@ -548,61 +573,146 @@
                                 seen before
                                 it's needed.</p>
                         </div>
-                        <div class="relative overflow-hidden">
-                            <div id="shop-carousel-track"
-                                class="shop-carousel-track flex justify-start lg:justify-center gap-4 sm:gap-6 overflow-x-auto lg:overflow-visible snap-x snap-mandatory scroll-smooth px-[7.5%] sm:px-6 lg:px-0 text-black">
+                        <div class="relative overflow-hidden shop-swiper swiper px-2 sm:px-4">
+                            <div class="swiper-wrapper text-black">
                                 <!-- Card 1 -->
-                                <div data-shop-slide
-                                    class="snap-center shrink-0 w-[85%] sm:w-[48%] lg:w-[32%] bg-gray-100 rounded-[32px] p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-44 sm:h-56 object-contain mb-6">
-                                    <div class="w-full flex justify-between items-end border-t border-black/5 pt-6 mt-auto">
+                                <div
+                                    class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                        <img src="./assets/images/product/1.png" alt="product"
+                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                    </div>
+                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
                                         <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-gray-500 uppercase">Variant
+                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                                Variant
                                             </p>
                                         </div>
                                         <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
                                     </div>
                                 </div>
                                 <!-- Card 2 -->
-                                <div data-shop-slide
-                                    class="snap-center shrink-0 w-[85%] sm:w-[48%] lg:w-[32%] bg-gray-100 rounded-[32px] p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-44 sm:h-56 object-contain mb-6">
-                                    <div class="w-full flex justify-between items-end border-t border-black/5 pt-6 mt-auto">
+                                <div
+                                    class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                        <img src="./assets/images/product/1.png" alt="product"
+                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                    </div>
+                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
                                         <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-gray-500 uppercase">Variant
+                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                                Variant
                                             </p>
                                         </div>
                                         <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
                                     </div>
                                 </div>
                                 <!-- Card 3 -->
-                                <div data-shop-slide
-                                    class="snap-center shrink-0 w-[85%] sm:w-[48%] lg:w-[32%] bg-gray-100 rounded-[32px] p-6 sm:p-8 shadow-2xl flex flex-col items-center text-center">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-44 sm:h-56 object-contain mb-6">
-                                    <div class="w-full flex justify-between items-end border-t border-black/5 pt-6 mt-auto">
+                                <div
+                                    class="swiper-slide bg-[#cc3b7e] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                        <img src="./assets/images/product/1.png" alt="product"
+                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                    </div>
+                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
                                         <div class="text-left">
-                                            <h3 class="font-bebas text-xl sm:text-2xl">PRODUCT NAME</h3>
-                                            <p class="font-lexend text-[10px] sm:text-xs text-gray-500 uppercase">Variant
+                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                                Variant
+                                            </p>
+                                        </div>
+                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                    </div>
+                                </div>
+                                <!-- Card 4 -->
+                                <div
+                                    class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                        <img src="./assets/images/product/1.png" alt="product"
+                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                    </div>
+                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                        <div class="text-left">
+                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                                Variant
+                                            </p>
+                                        </div>
+                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                    </div>
+                                </div>
+                                <!-- Card 5 -->
+                                <div
+                                    class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                        <img src="./assets/images/product/1.png" alt="product"
+                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                    </div>
+                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                        <div class="text-left">
+                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                                Variant
+                                            </p>
+                                        </div>
+                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                    </div>
+                                </div>
+                                <!-- Card 6 -->
+                                <div
+                                    class="swiper-slide bg-[#cc3b7e] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                        <img src="./assets/images/product/1.png" alt="product"
+                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                    </div>
+                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                        <div class="text-left">
+                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                                Variant
+                                            </p>
+                                        </div>
+                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                    </div>
+                                </div>
+                                <!-- Card 7 -->
+                                <div
+                                    class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                        <img src="./assets/images/product/1.png" alt="product"
+                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                    </div>
+                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                        <div class="text-left">
+                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                                Variant
+                                            </p>
+                                        </div>
+                                        <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
+                                    </div>
+                                </div>
+                                <!-- Card 8 -->
+                                <div
+                                    class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
+                                    <div class="rounded-[10px] bg-[#f4f6fb] p-2">
+                                        <img src="./assets/images/product/1.png" alt="product"
+                                            class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
+                                    </div>
+                                    <div class="w-full flex justify-between items-end pt-4 mt-auto">
+                                        <div class="text-left">
+                                            <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
+                                            <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
+                                                Variant
                                             </p>
                                         </div>
                                         <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="mt-6 flex items-center justify-center gap-3">
-                                <button id="shop-carousel-prev" type="button"
-                                    class="w-10 h-10 rounded-full border border-white/40 text-white hover:bg-white/10 transition"
-                                    aria-label="Previous product">‹</button>
-                                <div id="shop-carousel-dots" class="flex lg:hidden items-center gap-2"></div>
-                                <button id="shop-carousel-next" type="button"
-                                    class="w-10 h-10 rounded-full border border-white/40 text-white hover:bg-white/10 transition"
-                                    aria-label="Next product">›</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -623,49 +733,66 @@
                 <div id="how-it-works-content"
                     class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[350] px-3 sm:px-6 overflow-hidden"
                     style="transform: scale(0.8);">
-                    <div class="w-full h-full max-w-7xl mx-auto flex flex-col justify-center pt-10 sm:pt-16 pb-20 sm:pb-24">
+                    <div
+                        class="w-full h-full max-w-7xl mx-auto flex flex-col justify-center pt-10 sm:pt-16 pb-20 sm:pb-24">
                         <div class="text-center mb-8 sm:mb-14">
-                            <h2 class="text-5xl md:text-7xl font-bebas tracking-wide uppercase text-white">HOW IT WORKS</h2>
+                            <h2 class="text-5xl md:text-7xl font-bebas tracking-wide uppercase text-white">HOW IT WORKS
+                            </h2>
                         </div>
 
                         <div class="hidden md:grid grid-cols-3 gap-10 lg:gap-14 mb-12">
                             <div class="relative text-center">
-                                <div class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                    <img src="./assets/images/product/1.png" alt="How it works step 1" class="w-full h-full object-contain p-3">
+                                <div
+                                    class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                    <img src="./assets/images/product/1.png" alt="How it works step 1"
+                                        class="w-full h-full object-contain p-3">
                                 </div>
                                 <div class="relative mb-4">
                                     <div class="h-px bg-white/90"></div>
-                                    <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                    <div
+                                        class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
+                                    </div>
                                 </div>
                                 <p class="font-bebas text-white text-2xl uppercase mb-2">Date</p>
                                 <p class="font-lexend text-white/75 text-sm leading-relaxed max-w-[270px] mx-auto">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
+                                    eros elementum tristique.
                                 </p>
                             </div>
                             <div class="relative text-center">
-                                <div class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                    <img src="./assets/images/product/1.png" alt="How it works step 2" class="w-full h-full object-contain p-3">
+                                <div
+                                    class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                    <img src="./assets/images/product/1.png" alt="How it works step 2"
+                                        class="w-full h-full object-contain p-3">
                                 </div>
                                 <div class="relative mb-4">
                                     <div class="h-px bg-white/90"></div>
-                                    <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                    <div
+                                        class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
+                                    </div>
                                 </div>
                                 <p class="font-bebas text-white text-2xl uppercase mb-2">Date</p>
                                 <p class="font-lexend text-white/75 text-sm leading-relaxed max-w-[270px] mx-auto">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
+                                    eros elementum tristique.
                                 </p>
                             </div>
                             <div class="relative text-center">
-                                <div class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                    <img src="./assets/images/product/1.png" alt="How it works step 3" class="w-full h-full object-contain p-3">
+                                <div
+                                    class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                    <img src="./assets/images/product/1.png" alt="How it works step 3"
+                                        class="w-full h-full object-contain p-3">
                                 </div>
                                 <div class="relative mb-4">
                                     <div class="h-px bg-white/90"></div>
-                                    <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                    <div
+                                        class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
+                                    </div>
                                 </div>
                                 <p class="font-bebas text-white text-2xl uppercase mb-2">Date</p>
                                 <p class="font-lexend text-white/75 text-sm leading-relaxed max-w-[270px] mx-auto">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
+                                    eros elementum tristique.
                                 </p>
                             </div>
                         </div>
@@ -674,60 +801,81 @@
                             <div id="how-carousel-track"
                                 class="shop-carousel-track flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-0">
                                 <div data-how-slide class="snap-center shrink-0 w-full text-center text-white">
-                                    <div class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                        <img src="./assets/images/product/1.png" alt="How it works step 1" class="w-full h-full object-contain p-3">
+                                    <div
+                                        class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                        <img src="./assets/images/product/1.png" alt="How it works step 1"
+                                            class="w-full h-full object-contain p-3">
                                     </div>
                                     <div class="relative mb-4">
                                         <div class="h-px bg-white/90"></div>
-                                        <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                        <div
+                                            class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
+                                        </div>
                                     </div>
                                     <p class="font-bebas text-white text-3xl uppercase leading-none mb-3">Date</p>
                                     <p class="font-lexend text-white/80 text-sm leading-relaxed">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim
+                                        in eros elementum tristique.
                                     </p>
                                 </div>
                                 <div data-how-slide class="snap-center shrink-0 w-full text-center text-white">
-                                    <div class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                        <img src="./assets/images/product/1.png" alt="How it works step 2" class="w-full h-full object-contain p-3">
+                                    <div
+                                        class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                        <img src="./assets/images/product/1.png" alt="How it works step 2"
+                                            class="w-full h-full object-contain p-3">
                                     </div>
                                     <div class="relative mb-4">
                                         <div class="h-px bg-white/90"></div>
-                                        <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                        <div
+                                            class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
+                                        </div>
                                     </div>
                                     <p class="font-bebas text-white text-3xl uppercase leading-none mb-3">Date</p>
                                     <p class="font-lexend text-white/80 text-sm leading-relaxed">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim
+                                        in eros elementum tristique.
                                     </p>
                                 </div>
                                 <div data-how-slide class="snap-center shrink-0 w-full text-center text-white">
-                                    <div class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                        <img src="./assets/images/product/1.png" alt="How it works step 3" class="w-full h-full object-contain p-3">
+                                    <div
+                                        class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
+                                        <img src="./assets/images/product/1.png" alt="How it works step 3"
+                                            class="w-full h-full object-contain p-3">
                                     </div>
                                     <div class="relative mb-4">
                                         <div class="h-px bg-white/90"></div>
-                                        <div class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]"></div>
+                                        <div
+                                            class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
+                                        </div>
                                     </div>
                                     <p class="font-bebas text-white text-3xl uppercase leading-none mb-3">Date</p>
                                     <p class="font-lexend text-white/80 text-sm leading-relaxed">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim
+                                        in eros elementum tristique.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="absolute bottom-0 left-0 w-full py-2 sm:py-3 marquee-container border-t border-white/10">
+                        <div
+                            class="absolute bottom-0 left-0 w-full py-2 sm:py-3 marquee-container border-t border-white/10">
                             <div
                                 class="marquee-content flex items-center gap-6 sm:gap-10 text-white/80 font-bebas text-4xl sm:text-5xl md:text-6xl tracking-wider uppercase">
                                 <span>NAZAR</span>
-                                <img src="assets/images/logo.svg" alt="Owl Logo" class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
+                                <img src="assets/images/logo.svg" alt="Owl Logo"
+                                    class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
                                 <span>BURI NAZAR</span>
-                                <img src="assets/images/logo.svg" alt="Owl Logo" class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
+                                <img src="assets/images/logo.svg" alt="Owl Logo"
+                                    class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
                                 <span>NAZAR</span>
-                                <img src="assets/images/logo.svg" alt="Owl Logo" class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
+                                <img src="assets/images/logo.svg" alt="Owl Logo"
+                                    class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
                                 <span>BURI NAZAR</span>
-                                <img src="assets/images/logo.svg" alt="Owl Logo" class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
+                                <img src="assets/images/logo.svg" alt="Owl Logo"
+                                    class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
                                 <span>NAZAR</span>
-                                <img src="assets/images/logo.svg" alt="Owl Logo" class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
+                                <img src="assets/images/logo.svg" alt="Owl Logo"
+                                    class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
                                 <span>BURI NAZAR</span>
                             </div>
                         </div>
@@ -946,67 +1094,46 @@
                 });
             });
 
-            const shopTrack = document.getElementById('shop-carousel-track');
-            const prevBtn = document.getElementById('shop-carousel-prev');
-            const nextBtn = document.getElementById('shop-carousel-next');
-            const dotsWrap = document.getElementById('shop-carousel-dots');
+            const shopSwiperEl = document.querySelector('.shop-swiper');
+            if (shopSwiperEl && window.Swiper) {
+                const shopSwiper = new Swiper('.shop-swiper', {
+                    loop: true,
+                    centeredSlides: true,
+                    slidesPerView: 1.2,
+                    spaceBetween: 20,
+                    speed: 800,
+                    grabCursor: true,
 
-            if (shopTrack && prevBtn && nextBtn && dotsWrap) {
-                const slides = Array.from(shopTrack.querySelectorAll('[data-shop-slide]'));
-                let currentIndex = 0;
-                let isTicking = false;
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
 
-                const getSlideStep = () => {
-                    if (!slides.length) return 0;
-                    const gap = parseFloat(getComputedStyle(shopTrack).gap || '0');
-                    return slides[0].getBoundingClientRect().width + gap;
-                };
+                    effect: 'coverflow',
+                    coverflowEffect: {
+                        rotate: 0,
+                        stretch: -20,
+                        depth: 150,
+                        modifier: 1,
+                        slideShadows: false,
+                        scale: 0.7,
+                    },
 
-                const updateDots = () => {
-                    dotsWrap.querySelectorAll('button').forEach((dot, idx) => {
-                        dot.classList.toggle('bg-white', idx === currentIndex);
-                        dot.classList.toggle('bg-white/30', idx !== currentIndex);
-                    });
-                };
-
-                const goToSlide = (index, smooth = true) => {
-                    if (!slides.length) return;
-                    currentIndex = (index + slides.length) % slides.length;
-                    const left = getSlideStep() * currentIndex;
-                    shopTrack.scrollTo({ left, behavior: smooth ? 'smooth' : 'auto' });
-                    updateDots();
-                };
-
-                slides.forEach((_, idx) => {
-                    const dot = document.createElement('button');
-                    dot.type = 'button';
-                    dot.className = 'w-2.5 h-2.5 rounded-full bg-white/30 transition';
-                    dot.setAttribute('aria-label', `Go to product ${idx + 1}`);
-                    dot.addEventListener('click', () => goToSlide(idx));
-                    dotsWrap.appendChild(dot);
-                });
-
-                prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-                nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-
-                shopTrack.addEventListener('scroll', () => {
-                    if (isTicking) return;
-                    isTicking = true;
-                    requestAnimationFrame(() => {
-                        const step = getSlideStep();
-                        if (step > 0) {
-                            const index = Math.round(shopTrack.scrollLeft / step);
-                            if (index !== currentIndex) {
-                                currentIndex = Math.max(0, Math.min(slides.length - 1, index));
-                                updateDots();
-                            }
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 3,
                         }
-                        isTicking = false;
-                    });
+                    }
                 });
-
-                window.addEventListener('resize', () => goToSlide(currentIndex, false));
-                goToSlide(0, false);
+                const pauseAuto = () => shopSwiper.autoplay.stop();
+                const resumeAuto = () => shopSwiper.autoplay.start();
+                shopSwiperEl.addEventListener('mouseenter', pauseAuto);
+                shopSwiperEl.addEventListener('mouseleave', resumeAuto);
+                shopSwiperEl.addEventListener('touchstart', pauseAuto, { passive: true });
+                shopSwiperEl.addEventListener('touchend', resumeAuto, { passive: true });
             }
 
             const howTrack = document.getElementById('how-carousel-track');
@@ -1533,7 +1660,8 @@
 
                     <!-- Column One -->
                     <div class="lg:col-span-2">
-                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Column One
+                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Column
+                            One
                         </h3>
                         <ul class="space-y-3 font-lexend text-sm text-white/90">
                             <li><a href="#" class="hover:text-white transition-colors">Link One</a></li>
@@ -1546,7 +1674,8 @@
 
                     <!-- Column Two -->
                     <div class="lg:col-span-2">
-                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Column Two
+                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Column
+                            Two
                         </h3>
                         <ul class="space-y-3 font-lexend text-sm text-white/90">
                             <li><a href="#" class="hover:text-white transition-colors">Link Six</a></li>
@@ -1559,7 +1688,8 @@
 
                     <!-- Follow Us -->
                     <div class="lg:col-span-2">
-                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Follow Us</h3>
+                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Follow
+                            Us</h3>
                         <ul class="space-y-3 font-lexend text-sm text-white/90">
                             <li>
                                 <a href="#" class="hover:text-white transition-colors flex items-center gap-3">
@@ -1601,11 +1731,14 @@
             <div class="pt-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <p class="font-lexend text-sm text-white/75">© 2024 Relume. All rights reserved.</p>
                 <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
-                    <a href="#" class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Privacy
+                    <a href="#"
+                        class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Privacy
                         Policy</a>
-                    <a href="#" class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Terms of
+                    <a href="#"
+                        class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Terms of
                         Service</a>
-                    <a href="#" class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Cookies
+                    <a href="#"
+                        class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Cookies
                         Settings</a>
                 </div>
             </div>
