@@ -1469,97 +1469,110 @@
     <!-- ============================================
          FOOTER SECTION
          ============================================ -->
-    <footer class="bg-[#1a1a1a] text-white py-16 md:py-20 px-6 md:px-12 ">
+    <footer class="bg-black text-white px-6 md:px-12 py-10 md:py-14">
         <div class="max-w-7xl mx-auto">
-            <!-- Main Footer Content -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-8 mb-16">
-                <!-- Collection -->
-                <div>
-                    <h3 class="font-bebas text-lg md:text-xl uppercase tracking-wide mb-6">Collection</h3>
-                    <ul class="space-y-3 font-lexend text-sm md:text-base text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">T Shirt</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">T Shirt</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">T Shirt</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">T Shirt</a></li>
-                    </ul>
-                </div>
-
-                <!-- Information -->
-                <div>
-                    <h3 class="font-bebas text-lg md:text-xl uppercase tracking-wide mb-6">Information</h3>
-                    <ul class="space-y-3 font-lexend text-sm md:text-base text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">About us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Deliver information</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Privacy policy</a></li>
-                    </ul>
-                </div>
-
-
-
-                <!-- Quick Link -->
-                <div>
-                    <h3 class="font-bebas text-lg md:text-xl uppercase tracking-wide mb-6">Quick Link</h3>
-                    <ul class="space-y-3 font-lexend text-sm md:text-base text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Payment policy</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Refund policy</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Shipping &return</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Term & condition</a></li>
-                    </ul>
-                </div>
-
-                <!-- Location -->
-                <div>
-                    <h3 class="font-bebas text-lg md:text-xl uppercase tracking-wide mb-6">Location</h3>
-                    <p class="font-lexend text-sm md:text-base text-gray-400 mb-3">Lorem ipsum dolor sit</p>
-                    <p class="font-lexend text-sm md:text-base text-gray-400 mb-2">10am to 6pm</p>
-                    <p class="font-lexend text-sm md:text-base text-gray-400 mb-6">Everyday</p>
-                    <!-- Payment Methods -->
-                    <div class="flex items-center gap-3">
-                        <img src="./assets/images/icons/visa.svg" alt="Visa" class="h-6 md:h-8">
-                        <img src="./assets/images/icons/mastercard.svg" alt="Mastercard" class="h-6 md:h-8">
-                        <img src="./assets/images/icons/paypal.svg" alt="PayPal" class="h-6 md:h-8">
+            <!-- Main Footer Card -->
+            <div class="rounded-[24px] bg-[#ff0095] border border-white/20 p-8 md:p-10 lg:p-12">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
+                    <!-- Newsletter -->
+                    <div class="lg:col-span-6">
+                        <div class="w-24 mb-6">
+                            <img src="./assets/images/logo.svg" alt="Nazr Logo" class="w-full h-auto">
+                        </div>
+                        <p class="font-lexend text-sm md:text-base text-white/90 mb-5 max-w-lg">
+                            Join our newsletter to stay up to date on features and releases.
+                        </p>
+                        <form class="flex flex-col sm:flex-row gap-3 sm:items-center max-w-md">
+                            <input type="email" placeholder="Enter your email"
+                                class="h-12 px-4 rounded-md border border-white/50 bg-transparent text-white placeholder-white/70 font-lexend text-sm outline-none focus:ring-2 focus:ring-white/60">
+                            <button type="submit"
+                                class="h-12 px-6 rounded-md border border-white/60 font-bebas tracking-wide text-sm md:text-base hover:bg-white hover:text-[#ff0095] transition-colors">
+                                Subscribe
+                            </button>
+                        </form>
+                        <p class="font-lexend text-xs text-white/80 mt-4 max-w-lg">
+                            By subscribing you agree to with our Privacy Policy and provide consent to receive updates
+                            from our company.
+                        </p>
                     </div>
-                </div>
-                <!-- Contact Us -->
-                <div>
-                    <h3 class="font-bebas text-lg md:text-xl uppercase tracking-wide mb-6">Contact Us</h3>
-                    <ul class="space-y-3 font-lexend text-sm md:text-base text-gray-400">
-                        <li><a href="tel:+919564567247" class="hover:text-white transition-colors">+91 8954456724</a>
-                        </li>
-                        <li><a href="mailto:email@gmail.com"
-                                class="hover:text-white transition-colors">email@gmail.com</a></li>
-                    </ul>
-                    <!-- Social Media Icons -->
-                    <div class="flex items-center gap-4 mt-6">
-                        <a href="#" class=" flex items-center justify-center transition-colors">
-                            <img src="./assets/images/icons/x.svg" alt="X" class="w-8 h-8">
-                        </a>
-                        <a href="#" class=" flex items-center justify-center transition-colors">
-                            <img src="./assets/images/icons/instagram.svg" alt="Instagram" class="w-8 h-8">
-                        </a>
-                        <a href="#" class=" flex items-center justify-center transition-colors">
-                            <img src="./assets/images/icons/facebook.svg" alt="Facebook" class="w-8 h-8">
-                        </a>
-                        <a href="#" class=" flex items-center justify-center transition-colors">
-                            <img src="./assets/images/icons/youtube.svg" alt="YouTube" class="w-8 h-8">
-                        </a>
+
+                    <!-- Column One -->
+                    <div class="lg:col-span-2">
+                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Column One
+                        </h3>
+                        <ul class="space-y-3 font-lexend text-sm text-white/90">
+                            <li><a href="#" class="hover:text-white transition-colors">Link One</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Link Two</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Link Three</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Link Four</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Link Five</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Column Two -->
+                    <div class="lg:col-span-2">
+                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Column Two
+                        </h3>
+                        <ul class="space-y-3 font-lexend text-sm text-white/90">
+                            <li><a href="#" class="hover:text-white transition-colors">Link Six</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Link Seven</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Link Eight</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Link Nine</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Link Ten</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Follow Us -->
+                    <div class="lg:col-span-2">
+                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Follow Us</h3>
+                        <ul class="space-y-3 font-lexend text-sm text-white/90">
+                            <li>
+                                <a href="#" class="hover:text-white transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/facebook.svg" alt="Facebook" class="w-4 h-4">
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-white transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/instagram.svg" alt="Instagram" class="w-4 h-4">
+                                    <span>Instagram</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-white transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/x.svg" alt="X" class="w-4 h-4">
+                                    <span>X</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-white transition-colors flex items-center gap-3">
+                                    <span
+                                        class="w-4 h-4 rounded-sm border border-white/70 flex items-center justify-center text-[9px] leading-none">in</span>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-white transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/youtube.svg" alt="YouTube" class="w-4 h-4">
+                                    <span>Youtube</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
             <!-- Bottom Footer -->
-            <div
-                class="border-t border-gray-700 pt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-                <!-- Logo -->
-                <div class="w-16 md:w-20">
-                    <img src="./assets/images/logo.svg" alt="Nazr Logo" class="w-full h-auto">
+            <div class="pt-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <p class="font-lexend text-sm text-white/75">© 2024 Relume. All rights reserved.</p>
+                <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+                    <a href="#" class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Privacy
+                        Policy</a>
+                    <a href="#" class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Terms of
+                        Service</a>
+                    <a href="#" class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Cookies
+                        Settings</a>
                 </div>
-
-                <!-- Copyright -->
-                <p class="font-lexend text-sm md:text-base text-gray-400">
-                    Copyright © <span class="text-white font-semibold">design</span>
-                </p>
             </div>
         </div>
     </footer>
