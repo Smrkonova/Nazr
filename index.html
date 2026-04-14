@@ -104,7 +104,10 @@
         html,
         body {
             width: 100%;
+            margin: 0;
+            padding: 0;
             overflow-x: hidden;
+            background: #000;
         }
 
         /* Smooth animation on scroll */
@@ -197,7 +200,7 @@
         <!-- Mobile Menu Overlay -->
         <div id="mobile-menu"
             class="fixed inset-0 bg-black/60 backdrop-blur-lg z-40 md:hidden opacity-0 invisible transition-all duration-300">
-            <div class="flex flex-col items-center justify-center min-h-screen gap-8 p-6">
+            <div class="flex flex-col items-center justify-center min-h-[100svh] md:min-h-screen gap-8 p-6">
                 <a href="#"
                     class="text-2xl font-semibold text-white hover:text-[#e91185] transition-colors font-roboto">Link
                     One</a>
@@ -243,7 +246,7 @@
     </header>
 
     <section id="hero-section"
-        class="relative bg-[url('/assets/images/banner.svg')] bg-cover bg-center min-h-screen flex items-center justify-center pt-24 pb-12 px-4 overflow-hidden">
+        class="relative bg-[url('/assets/images/banner.svg')] bg-cover bg-center min-h-[100svh] md:min-h-screen flex items-center justify-center pt-24 pb-12 px-4 overflow-hidden">
         <div class="w-full max-w-6xl flex flex-col items-center text-center">
             <!-- Top Badge -->
             <div class="mb-8 ">
@@ -400,7 +403,7 @@
 
         <!-- ===== NEXT SECTION ===== -->
         <section id="next-section"
-            class="bg-black min-h-screen flex items-center justify-center absolute top-0 left-0 w-full opacity-0 pointer-events-none z-10 overflow-hidden">
+            class="bg-black min-h-[100svh] md:min-h-screen flex items-center justify-center absolute top-0 left-0 w-full opacity-0 pointer-events-none z-10 overflow-hidden">
             <!-- Background Title (stays visible) -->
             <div class="text-white font-bebas text-center absolute inset-0 flex items-center justify-center -z-10 select-none pointer-events-none"
                 id="next-title">
@@ -1050,15 +1053,23 @@
             const hero = document.getElementById('hero-section');
             const grid = document.getElementById('pixel-grid');
             const nextTitle = document.getElementById('next-title');
+            const isMobileViewport = window.matchMedia('(max-width: 767px)').matches;
 
             // Responsive pixel size
             const viewportWidth = window.visualViewport ? window.visualViewport.width : window.innerWidth;
-            const viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            const viewportHeight = isMobileViewport
+                ? window.innerHeight
+                : (window.visualViewport ? window.visualViewport.height : window.innerHeight);
             const PIXEL_SIZE = viewportWidth < 768 ? 12 : 20;
             const overscan = PIXEL_SIZE * 2;
             const cols = Math.ceil((viewportWidth + overscan) / PIXEL_SIZE);
             const rows = Math.ceil((viewportHeight + overscan) / PIXEL_SIZE);
             const total = cols * rows;
+
+            // Lock hero height on mobile to avoid address-bar resize jitter while pinned.
+            if (isMobileViewport) {
+                hero.style.minHeight = `${window.innerHeight}px`;
+            }
 
             // Create pixels
             const pixelEls = [];
@@ -1452,10 +1463,34 @@
             tl.to({}, { duration: 3 });
 
             // ============================================
-            // Handle window resize and refresh ScrollTrigger
+            // Handle window resize and refresh ScrollTrigger.
+            // On mobile, ignore address-bar height-only changes to prevent jitter.
             // ============================================
+            let lastViewportWidth = window.innerWidth;
+            let lastViewportHeight = window.innerHeight;
+            let resizeRefreshTimer = null;
             window.addEventListener('resize', () => {
-                ScrollTrigger.refresh();
+                const nextWidth = window.innerWidth;
+                const nextHeight = window.innerHeight;
+                const isMobileNow = window.matchMedia('(max-width: 767px)').matches;
+                const widthDelta = Math.abs(nextWidth - lastViewportWidth);
+                const heightDelta = Math.abs(nextHeight - lastViewportHeight);
+
+                if (isMobileNow && widthDelta < 24) {
+                    lastViewportWidth = nextWidth;
+                    lastViewportHeight = nextHeight;
+                    return;
+                }
+
+                if (widthDelta >= 24 || heightDelta >= 120) {
+                    clearTimeout(resizeRefreshTimer);
+                    resizeRefreshTimer = setTimeout(() => {
+                        ScrollTrigger.refresh();
+                    }, 180);
+                }
+
+                lastViewportWidth = nextWidth;
+                lastViewportHeight = nextHeight;
             });
 
         })();
