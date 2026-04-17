@@ -1,12 +1,15 @@
-.mobile-menu-active {
-    overflow: hidden;
+:root {
+    --color-primary: #2563eb;
+    --color-secondary: #7c3aed;
+    --color-accent: #14b8a6;
+    --color-bg: #000;
+    --color-text: #0f172a;
 }
 
 body {
-    font-family: "Lexend", sans-serif;
-}
-
-.font-bebas {
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     font-family: "Bebas Neue", sans-serif;
 }
 
@@ -14,30 +17,8 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-fade-in-up {
-    animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
+.font-inter {
+    font-family: "Inter", sans-serif;
 }
 
 .marquee-container {
@@ -51,17 +32,74 @@ body {
     animation: marquee 30s linear infinite;
 }
 
-.card {
-    position: absolute;
-    width: 80%;
-    max-width: 900px;
-    height: 60vh;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    color: white;
-    opacity: 0;
-    transform: scale(0.8);
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.mobile-menu-active {
+    overflow: hidden;
+}
+
+/* Responsive adjustments (same behavior as index) */
+@media (max-width: 768px) {
+    .scenario-card {
+        max-width: calc(100vw - 24px) !important;
+        max-height: calc(100vh - 140px) !important;
+        padding: 18px !important;
+        border-radius: 28px !important;
+        overflow-y: auto;
+    }
+
+    .scenario-card>div {
+        width: 100% !important;
+    }
+
+    .scenario-card>div:last-child {
+        margin-top: 12px !important;
+    }
+
+    .scenario-card h3 {
+        font-size: 2rem !important;
+        line-height: 1 !important;
+    }
+
+    .scenario-card p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .scenario-card .aspect-\[4\/5\] {
+        max-width: 210px !important;
+    }
+}
+
+.shop-swiper {
+    overflow: visible !important;
+}
+
+.shop-swiper .swiper-slide {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.5;
+    transform: scale(0.85);
+}
+
+.shop-swiper .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10;
+}
+
+@media (min-width: 1024px) {
+
+    /* On desktop, reset swiper scales completely */
+    .shop-swiper .swiper-slide {
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }

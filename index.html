@@ -4,1670 +4,1064 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nazr | Premium Header</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Nazr</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@100..900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
 
-    <!-- GSAP + ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <style>
-        .faq-answer {
-            opacity: 0;
-        }
-
-        .faq-toggle {
-            transform-origin: center;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            #next-title {
-                align-items: flex-start !important;
-                padding-top: 72px;
-            }
-
-            #next-title h2 {
-                font-size: 56px !important;
-                line-height: 0.9 !important;
-                padding-left: 12px !important;
-                padding-right: 12px !important;
-            }
-
-            .scenario-card {
-                max-width: calc(100vw - 24px) !important;
-                max-height: calc(100vh - 140px) !important;
-                padding: 18px !important;
-                border-radius: 28px !important;
-                overflow-y: auto;
-            }
-
-            .scenario-card>div {
-                width: 100% !important;
-            }
-
-            .scenario-card>div:last-child {
-                margin-top: 12px !important;
-            }
-
-            .scenario-card h3 {
-                font-size: 2rem !important;
-                line-height: 1 !important;
-            }
-
-            .scenario-card p {
-                font-size: 0.9rem !important;
-                line-height: 1.5 !important;
-            }
-
-            .scenario-card .aspect-\[4\/5\] {
-                max-width: 210px !important;
-            }
-
-            #faq-content {
-                padding-left: 12px !important;
-                padding-right: 12px !important;
-            }
-
-            #faq-content .text-center {
-                margin-bottom: 22px !important;
-            }
-
-            #faq-accordion {
-                gap: 10px !important;
-            }
-
-            #faq-accordion .faq-item {
-                padding: 14px 16px !important;
-                border-radius: 16px !important;
-            }
-
-            #faq-accordion .faq-question {
-                font-size: 1.02rem !important;
-                line-height: 1.2 !important;
-            }
-        }
-
-        /* Ensure smooth transitions */
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background: #000;
-        }
-
-        /* Smooth animation on scroll */
-        body {
-            scroll-behavior: smooth;
-        }
-
-        .shop-carousel-track {
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .shop-carousel-track::-webkit-scrollbar {
-            display: none;
-        }
-
-        .swiper-wrapper {
-            align-items: center;
-        }
-
-        .shop-swiper .swiper-slide {
-            opacity: 0 !important;
-            pointer-events: none;
-        }
-
-        .shop-swiper .swiper-slide-prev,
-        .shop-swiper .swiper-slide-next,
-        .shop-swiper .swiper-slide-duplicate-prev,
-        .shop-swiper .swiper-slide-duplicate-next {
-            opacity: 1 !important;
-            pointer-events: auto;
-        }
-
-        .shop-swiper .swiper-slide-active,
-        .shop-swiper .swiper-slide-duplicate-active {
-            opacity: 1 !important;
-            pointer-events: auto;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Header Container -->
+    <!-- Fixed background: keeps hero SVG visible during scroll transition -->
+    <div id="page-bg"
+        style="position:fixed; inset:0; background: url('/assets/images/hero-banner.svg') center center / cover no-repeat; z-index:-1;">
+    </div>
     <header class="w-full max-w-6xl absolute left-0 right-0 mx-auto z-50 mt-8">
         <nav
-            class="bg-[#000000AD] border border-white/5 rounded-full px-6 py-3 flex items-center justify-between shadow-2xl backdrop-blur-md font-roboto mx-4">
-            <!-- Logo Section -->
-            <div class="flex items-center gap-2">
-                <a href="/" class=" overflow-hidden rounded-full flex items-center justify-center">
+            class="relative z-50 bg-[#000000AD] border border-white/5 rounded-full px-6 py-3 flex items-center justify-between gap-8 shadow-2xl backdrop-blur-md font-roboto mx-4">
+
+            <!-- Logo -->
+            <div>
+                <a href="/" class="overflow-hidden rounded-full flex items-center justify-center">
                     <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-full object-cover scale-150">
                 </a>
             </div>
 
-            <!-- Navigation Links -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Link One</a>
-                <a href="#" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Link Two</a>
-                <a href="#" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Link Three</a>
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8 text-white text-sm">
+
+                <a href="#" class="hover:text-pink-300">Link One</a>
+                <a href="#" class="hover:text-pink-300">Link Two</a>
+                <a href="#" class="hover:text-pink-300">Link Three</a>
+
+                <!-- Dropdown -->
                 <div class="relative group">
-                    <button
-                        class="flex items-center gap-1 text-gray-300 group-hover:text-white transition-colors text-sm font-medium">
+                    <button class="flex items-center gap-1 hover:text-pink-300">
                         Link Four
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="w-4 h-4 transition-transform group-hover:rotate-180" viewBox="0 0 20 20"
-                            fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
+                        ▼
                     </button>
-                    <!-- Dropdown (Hidden by default) -->
+
+                    <!-- Dropdown Menu -->
                     <div
-                        class="absolute top-full right-0 mt-2 w-48 bg-[#1a021d] border border-white/10 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-xl">
-                        <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors">Sublink
-                            Alpha</a>
-                        <a href="#"
-                            class="block px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-colors">Sublink
-                            Beta</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="hidden sm:flex items-center gap-3">
-                <button
-                    class="px-5 py-2.5 rounded-xl border border-white/20 text-white text-sm font-semibold hover:bg-white/5 transition-all">
-                    Join Discord
-                </button>
-                <a href="https://shop.nazrco.in/" target="_blank"
-                    class="px-6 py-2.5 rounded-xl bg-[#e91185] text-white text-sm font-bold shadow-lg shadow-[#e91185]/20 hover:bg-[#ff1a96] transition-all transform hover:scale-105 active:scale-95">
-                    Shop Now
-                </a>
-            </div>
-
-            <!-- Mobile Menu Toggle -->
-            <div class="md:hidden flex items-center">
-                <button id="mobile-menu-btn" class="text-white p-2 hover:bg-white/5 rounded-lg transition-colors">
-                    <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-        </nav>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu"
-            class="fixed inset-0 bg-black/60 backdrop-blur-lg z-40 md:hidden opacity-0 invisible transition-all duration-300">
-            <div class="flex flex-col items-center justify-center min-h-[100svh] md:min-h-screen gap-8 p-6">
-                <a href="#"
-                    class="text-2xl font-semibold text-white hover:text-[#e91185] transition-colors font-roboto">Link
-                    One</a>
-                <a href="#"
-                    class="text-2xl font-semibold text-white hover:text-[#e91185] transition-colors font-roboto">Link
-                    Two</a>
-                <a href="#"
-                    class="text-2xl font-semibold text-white hover:text-[#e91185] transition-colors font-roboto">Link
-                    Three</a>
-                <div class="w-full max-w-xs">
-                    <button id="mobile-link-four-toggle" type="button"
-                        class="w-full flex items-center justify-center gap-2 text-2xl font-semibold text-white hover:text-[#e91185] transition-colors font-roboto">
-                        Link Four
-                        <svg id="mobile-link-four-icon" xmlns="http://www.w3.org/2000/svg"
-                            class="w-5 h-5 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div id="mobile-link-four-dropdown"
-                        class="max-h-0 opacity-0 overflow-hidden transition-all duration-300 mt-0 flex flex-col items-center">
-                        <a href="#"
-                            class="text-lg font-medium text-white/80 hover:text-[#e91185] transition-colors font-roboto py-1">Sublink
-                            Alpha</a>
-                        <a href="#"
-                            class="text-lg font-medium text-white/80 hover:text-[#e91185] transition-colors font-roboto py-1">Sublink
-                            Beta</a>
+                        class="absolute top-8 left-0 bg-[#5a002c] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-40">
+                        <a href="#" class="block px-4 py-2 hover:bg-pink-500 rounded-t-lg">Sub Link 1</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-pink-500 rounded-b-lg">Sub Link 2</a>
                     </div>
                 </div>
 
-                <div class="flex flex-col w-full max-w-xs gap-4 mt-4">
-                    <button class="w-full py-4 rounded-2xl border border-white/20 text-white font-semibold">
+            </nav>
+
+            <!-- Buttons -->
+            <div class="hidden md:flex items-center gap-3">
+                <button class="px-4 py-1 border border-white text-white rounded-full">
+                    Button
+                </button>
+                <button class="px-4 py-1 bg-pink-500 text-white rounded-full">
+                    Button
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menuBtn" class="md:hidden text-white flex flex-col gap-1.5 p-2 focus:outline-none z-[60]">
+                <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+            </button>
+            </div>
+
+            <!-- Mobile Menu Panel -->
+            <div id="mobileMenu"
+                class="absolute right-4 top-20 w-[240px] bg-[#4a0028] rounded-[24px] p-6 text-white shadow-2xl z-50 pointer-events-none opacity-0 scale-95 origin-top-right transition-all duration-300 backdrop-blur-lg border border-white/5 md:hidden">
+
+                <div class="flex flex-col gap-5 text-sm font-medium">
+                    <a href="#" class="mobile-link hover:text-pink-300 transition-colors">Link One</a>
+                    <a href="#" class="mobile-link hover:text-pink-300 transition-colors">Link Two</a>
+                    <a href="#" class="mobile-link hover:text-pink-300 transition-colors">Link Three</a>
+
+                    <!-- Mobile Dropdown -->
+                    <div class="mobile-link">
+                        <button id="dropdownBtn" class="w-full text-left flex justify-between items-center group">
+                            Link Four
+                            <span class="text-[10px] group-active:rotate-180 transition-transform">▼</span>
+                        </button>
+
+                        <div id="dropdownMenu"
+                            class="hidden flex flex-col gap-3 pl-4 mt-3 border-l border-white/10 opacity-80">
+                            <a href="#" class="hover:text-pink-300">Sub Link 1</a>
+                            <a href="#" class="hover:text-pink-300">Sub Link 2</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3 mt-8 pt-6 border-t border-white/10">
+                    <button
+                        class="px-6 py-2.5 border border-white/30 rounded-full text-xs font-bold hover:bg-white/10 transition-colors">
                         Button
                     </button>
                     <button
-                        class="w-full py-4 rounded-2xl bg-[#e91185] text-white font-bold shadow-xl shadow-[#e91185]/20">
+                        class="px-6 py-2.5 bg-[#E6007E] text-white rounded-full text-xs font-bold hover:bg-[#ff1a96] transition-colors shadow-lg">
                         Button
                     </button>
                 </div>
             </div>
-        </div>
     </header>
 
-    <section id="hero-section"
-        class="relative bg-[url('/assets/images/banner.svg')] bg-cover bg-center min-h-[100svh] md:min-h-screen flex items-center justify-center pt-24 pb-12 px-4 overflow-hidden">
-        <div class="w-full max-w-6xl flex flex-col items-center text-center">
-            <!-- Top Badge -->
-            <div class="mb-8 ">
-                <span
-                    class="inline-block border border-white/30 px-6 py-2 rounded-full text-[10px] sm:text-xs font-lexend text-white tracking-[0.2em] uppercase backdrop-blur-sm">
-                    A SAFETY ECOSYSTEM FOR THE MODERN WOMAN. BURI NAZAR SE FULL PROTECTION.
-                </span>
-            </div>
+    <main class="min-h-screen">
 
-            <!-- Main Heading -->
-            <h1
-                class="font-bebas text-[60px] sm:text-[80px] md:text-[110px] lg:text-[140px] leading-[0.8] text-white flex flex-col items-center gap-0">
-                <div class="flex items-center gap-3 sm:gap-6 lg:gap-10">
-                    <span>READY</span>
-                    <!-- Image Slot -->
-                    <div class=" overflow-hidden shadow-2xl rotate-[-2deg] flex items-center justify-center">
-                        <img src="./assets/images/banner-1.png" alt="">
-                    </div>
-                    <span>BEFORE</span>
+        <!-- HERO SECTION  -->
+
+        <section id="hero-section"
+            class="relative  min-h-[100svh] md:min-h-screen flex items-center justify-center pt-24 pb-12 px-4 overflow-hidden">
+            <div id="hero-content" class="w-full max-w-6xl flex flex-col items-center text-center">
+                <!-- Top Badge -->
+                <div class="mb-8 ">
+                    <span
+                        class="inline-block border border-white/30 px-6 py-2 rounded-full text-[10px] sm:text-xs font-lexend text-white tracking-[0.2em] uppercase backdrop-blur-sm">
+                        A SAFETY ECOSYSTEM FOR THE MODERN WOMAN. BURI NAZAR SE FULL PROTECTION.
+                    </span>
                 </div>
-                <div class="mt-2 text-[#fff]">YOU NEED TO BE</div>
-            </h1>
 
-            <!-- Subheading -->
-            <div class="mt-10 max-w-2xl ">
-                <p class="font-lexend text-base sm:text-lg text-white/90 leading-relaxed uppercase tracking-wide">
-                    NAZR MAKES SAFETY AN EVERYDAY ACCESSORY - PEPPER SPRAY, ANTI-SPIKE STICKERS AND AN APP THAT YOU
-                    CARRY FOR PROTECTION
-                </p>
+                <!-- Main Heading -->
+                <h1
+                    class="font-bebas text-[60px] sm:text-[80px] md:text-[110px] lg:text-[140px] leading-[0.8] text-white flex flex-col items-center gap-0">
+                    <div class="flex items-center gap-3 sm:gap-6 lg:gap-10">
+                        <span>READY</span>
+                        <!-- Image Slot -->
+                        <div id="banner-img"
+                            class="overflow-hidden shadow-2xl rotate-[-2deg] flex items-center justify-center">
+                            <img src="./assets/images/banner/1.webp" class="h-[100px]" alt="">
+                        </div>
+                        <span>BEFORE</span>
+                    </div>
+                    <div class="mt-2 text-[#fff]">YOU NEED TO BE</div>
+                </h1>
+
+                <!-- Subheading -->
+                <div class="mt-10 max-w-2xl ">
+                    <p class="font-lexend text-base sm:text-lg text-white/90 leading-relaxed uppercase tracking-wide">
+                        NAZR MAKES SAFETY AN EVERYDAY ACCESSORY - PEPPER SPRAY, ANTI-SPIKE STICKERS AND AN APP THAT YOU
+                        CARRY FOR PROTECTION
+                    </p>
+                </div>
+
+                <!-- Button -->
+                <div class="mt-12 ">
+                    <button
+                        class="bg-white hover:bg-white/90 text-black font-lexend font-bold px-10 py-4 rounded-xl flex items-center gap-3 transition-all transform hover:scale-105 active:scale-95 shadow-2xl">
+                        OWN IT
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 translate-y-[-1px]" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </button>
+                </div>
             </div>
 
-            <!-- Button -->
-            <div class="mt-12 ">
-                <button
-                    class="bg-white hover:bg-white/90 text-black font-lexend font-bold px-10 py-4 rounded-xl flex items-center gap-3 transition-all transform hover:scale-105 active:scale-95 shadow-2xl">
-                    OWN IT
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 translate-y-[-1px]" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                        <polyline points="7 7 17 7 17 17"></polyline>
-                    </svg>
-                </button>
+            <!-- Marquee Section -->
+            <div class="absolute bottom-0 left-0 w-full py-4 marquee-container">
+                <div
+                    class="marquee-content flex items-center gap-4 sm:gap-8 md:gap-12 text-white font-bebas text-6xl tracking-wider uppercase">
+                    <!-- Pattern 1 -->
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <!-- Pattern 2 -->
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <!-- Pattern 3 -->
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <!-- Pattern 4 -->
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+
+                    <!-- Duplicate for infinite scroll loop -->
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- HORIZONTAL GALLERY SECTION (hidden, controlled by GSAP) -->
+        <div id="horiz-gallery"
+            class="fixed inset-0 bg-[url('/assets/images/hero-banner.svg')] bg-cover bg-center items-center overflow-hidden"
+            style="z-index:90; display:none;">
+            <!-- 4 fullscreen panels side by side -->
+            <div id="horiz-track" class="flex h-full" style="width:400vw">
+                <!-- Panel 1 - Banner image -->
+                <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
+                    <img src="./assets/images/banner/1.webp" class="w-full h-full object-cover" />
+                    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
+                        <p class="font-bebas text-white text-2xl tracking-widest opacity-70">01 / 04</p>
+                    </div>
+                </div>
+                <!-- Panel 2 -->
+                <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
+                    <img src="./assets/images/banner/2.webp" class="w-full h-full object-cover" />
+                    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
+                        <p class="font-bebas text-white text-2xl tracking-widest opacity-70">02 / 04</p>
+                    </div>
+                </div>
+                <!-- Panel 3 -->
+                <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
+                    <img src="./assets/images/banner/3.webp" class="w-full h-full object-cover" />
+                    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
+                        <p class="font-bebas text-white text-2xl tracking-widest opacity-70">03 / 04</p>
+                    </div>
+                </div>
+                <!-- Panel 4 -->
+                <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
+                    <img src="./assets/images/banner/4.webp" class="w-full h-full object-cover" />
+                    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
+                        <p class="font-bebas text-white text-2xl tracking-widest opacity-70">04 / 04</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-
-        <!-- Marquee Section -->
-        <div class="absolute bottom-0 left-0 w-full py-4 marquee-container">
-            <div
-                class="marquee-content flex items-center gap-4 sm:gap-8 md:gap-12 text-white font-bebas text-6xl tracking-wider uppercase">
-                <!-- Pattern 1 -->
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <!-- Pattern 2 -->
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <!-- Pattern 3 -->
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <!-- Pattern 4 -->
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-
-                <!-- Duplicate for infinite scroll loop -->
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <span class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
-                    Nazar</span>
-
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-            </div>
-        </div>
-
-        <!-- Pixel Transition Overlay — full-screen, direct child of hero section -->
-        <div id="pixel-grid" style="
-            position: absolute;
-            top: 0; left: 0;
-            width: 100vw; height: 100dvh;
-            display: flex;
-            flex-wrap: wrap;
-            pointer-events: none;
-            z-index: 20;
-            overflow: hidden;
-        "></div>
+        <!-- GALLERY TRIGGER: GSAP pins this to provide scroll distance for horizontal gallery -->
+        <div id="gallery-trigger" style="height: 1px;"></div>
 
 
-        <!-- ===== NEXT SECTION ===== -->
-        <section id="next-section"
-            class="bg-black min-h-[100svh] md:min-h-screen flex items-center justify-center absolute top-0 left-0 w-full opacity-0 pointer-events-none z-10 overflow-hidden">
-            <!-- Background Title (stays visible) -->
-            <div class="text-white font-bebas text-center absolute inset-0 flex items-center justify-center z-10 select-none pointer-events-none opacity-0"
-                id="next-title">
+
+        <!-- SHOP SECTION -->
+        <section id="shop-section"
+            class="bg-black py-16 md:py-28 overflow-hidden relative z-[60] border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 md:mb-16">
                 <h2
-                    class="text-[#E6007E] text-[80px] sm:text-[120px] md:text-[130px] lg:text-[180px] leading-tight opacity-100 transform scale-110 px-4">
-                    Times you’ll want
-                    Nazr on you
+                    class="font-bebas text-[50px] md:text-[80px] text-white text-center tracking-wide leading-none mb-3">
+                    SHOP</h2>
+                <p class="font-inter text-white/70 text-center text-sm md:text-base max-w-xl mx-auto tracking-wide">
+                    Designed to be seen before it's needed.</p>
+            </div>
+
+            <!-- Swiper Container -->
+            <div class="swiper shop-swiper w-full pb-10 lg:pb-16 max-w-[1400px] mx-auto">
+                <div class="swiper-wrapper flex items-center lg:!grid lg:grid-cols-3 lg:gap-0 lg:w-full">
+
+                    <!-- Card 1 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="w-full h-full border border-white/20 bg-black flex flex-col relative group transition-transform duration-300 lg:hover:shadow-2xl">
+                            <!-- Image Area -->
+                            <div
+                                class="w-full aspect-square relative overflow-hidden flex items-center justify-center ">
+                                <img src="./assets/images/product/1.png"
+                                    class="w-full h-full object-cover mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
+                                    alt="On Me Pepper Spray">
+                            </div>
+                            <!-- Bottom Section -->
+                            <div
+                                class="p-4 md:p-5 border-t border-white/20 flex justify-between items-start bg-black z-10 shrink-0 min-h-[85px]">
+                                <div class="flex flex-col justify-center">
+                                    <h3
+                                        class="font-bebas text-2xl md:text-3xl text-white uppercase tracking-wider leading-none">
+                                        ON ME PEPPER SPRAY</h3>
+                                    <span
+                                        class="text-white/50 text-[10px] md:text-xs font-inter mt-1.5 leading-none">Variant</span>
+                                </div>
+                                <div class="text-white font-inter font-medium text-lg md:text-xl pl-4">
+                                    $55
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="w-full h-full border border-white/20 lg:border-l-0 bg-black flex flex-col relative group transition-transform duration-300">
+                            <!-- Image Area -->
+                            <div class="w-full aspect-square relative overflow-hidden flex items-center justify-center">
+                                <img src="./assets/images/product/2.png"
+                                    class="w-full h-full object-cover mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
+                                    alt="Sip Check Stickers">
+                            </div>
+                            <!-- Bottom Section -->
+                            <div
+                                class="p-4 md:p-5 border-t border-white/20 flex justify-between items-start bg-black z-10 shrink-0 min-h-[85px]">
+                                <div class="flex flex-col justify-center">
+                                    <h3
+                                        class="font-bebas text-2xl md:text-3xl text-white uppercase tracking-wider leading-none">
+                                        SIP 'N CHECK STICKERS</h3>
+                                    <span
+                                        class="text-white/50 text-[10px] md:text-xs font-inter mt-1.5 leading-none">Variant</span>
+                                </div>
+                                <div class="text-white font-inter font-medium text-lg md:text-xl pl-4">
+                                    $55
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="swiper-slide">
+                        <div
+                            class="w-full h-full border border-white/20 lg:border-l-0 bg-black flex flex-col relative group transition-transform duration-300">
+                            <!-- Image Area -->
+                            <div class="w-full aspect-square relative overflow-hidden flex items-center justify-center">
+                                <img src="./assets/images/product/3.png"
+                                    class="w-full h-full object-cover mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
+                                    alt="Combo Pack">
+                            </div>
+                            <!-- Bottom Section -->
+                            <div
+                                class="p-4 md:p-5 border-t border-white/20 flex justify-between items-start bg-black z-10 shrink-0 min-h-[85px]">
+                                <div class="flex flex-col justify-center">
+                                    <h3
+                                        class="font-bebas text-2xl md:text-3xl text-white uppercase tracking-wider leading-none">
+                                        ON ME + SIP CHECK COMBO</h3>
+                                    <span
+                                        class="text-white/50 text-[10px] md:text-xs font-inter mt-1.5 leading-none">Variant</span>
+                                </div>
+                                <div class="text-white font-inter font-medium text-lg md:text-xl pl-4">
+                                    $55
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </section>
+
+        <div class="w-full">
+            <img src="./assets/images/wave/time-1.png" alt="" class="w-full h-auto">
+        </div>
+
+        <!-- TIME SECTION: Scenario Cards -->
+        <section id="scenario-section" class="relative min-h-screen overflow-hidden"
+            style="background:#5BC0EB; z-index:60;">
+
+            <!-- Background headline text -->
+            <div
+                class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden px-4">
+                <h2 class="font-bebas text-center  text-[64px] xl:text-[200px] text-[#E6007E] leading-[0.9] uppercase">
+                    TIMES YOU'LL WANT<br>NAZR ON YOU
                 </h2>
             </div>
 
-            <!-- SHOP SECTION -->
-            <div id="shop-content"
-                class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[300] px-0 sm:px-6 py-8 sm:py-0 overflow-hidden sm:overflow-y-auto"
-                style="transform: scale(0.8);">
-                <div class="w-full max-w-7xl mx-auto text-white ">
-                    <div class="text-center mb-10 sm:mb-14">
-                        <h2 class="text-4xl sm:text-5xl md:text-7xl font-bebas tracking-wide uppercase">SHOP</h2>
-                        <p class="font-lexend text-xs sm:text-sm md:text-base mt-2 text-white/80">Designed to be
-                            seen before
-                            it's needed.</p>
-                    </div>
-                    <div class="relative overflow-hidden shop-swiper swiper px-2 sm:px-4">
-                        <div class="swiper-wrapper text-black">
-                            <!-- Card 1 -->
-                            <div
-                                class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                </div>
-                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                            Variant
-                                        </p>
-                                    </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                </div>
-                            </div>
-                            <!-- Card 2 -->
-                            <div
-                                class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                </div>
-                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                            Variant
-                                        </p>
-                                    </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                </div>
-                            </div>
-                            <!-- Card 3 -->
-                            <div
-                                class="swiper-slide bg-[#cc3b7e] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                </div>
-                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                            Variant
-                                        </p>
-                                    </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                </div>
-                            </div>
-                            <!-- Card 4 -->
-                            <div
-                                class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                </div>
-                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                            Variant
-                                        </p>
-                                    </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                </div>
-                            </div>
-                            <!-- Card 5 -->
-                            <div
-                                class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                </div>
-                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                            Variant
-                                        </p>
-                                    </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                </div>
-                            </div>
-                            <!-- Card 6 -->
-                            <div
-                                class="swiper-slide bg-[#cc3b7e] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                </div>
-                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                            Variant
-                                        </p>
-                                    </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                </div>
-                            </div>
-                            <!-- Card 7 -->
-                            <div
-                                class="swiper-slide bg-[#1f5dbc] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                </div>
-                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                            Variant
-                                        </p>
-                                    </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                </div>
-                            </div>
-                            <!-- Card 8 -->
-                            <div
-                                class="swiper-slide bg-[#2565c6] rounded-[18px] p-3 sm:p-4 shadow-2xl flex flex-col text-white">
-                                <div class="rounded-[10px] bg-[#f4f6fb] p-2">
-                                    <img src="./assets/images/product/1.png" alt="product"
-                                        class="h-64 sm:h-80 lg:h-[24rem] w-full object-contain">
-                                </div>
-                                <div class="w-full flex justify-between items-end pt-4 mt-auto">
-                                    <div class="text-left">
-                                        <h3 class="font-bebas text-xl sm:text-2xl leading-none">PRODUCT NAME</h3>
-                                        <p class="font-lexend text-[10px] sm:text-xs text-white/80 uppercase">
-                                            Variant
-                                        </p>
-                                    </div>
-                                    <p class="font-lexend font-bold text-lg sm:text-xl">$55</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second Pixel Transition Overlay (Now between Shop and Scenarios) -->
-            <div id="pixel-grid-2" style="
-                    position: absolute;
-                    top: 0; left: 0;
-                    width: 100vw; height: 100dvh;
-                    display: flex;
-                    flex-wrap: wrap;
-                    pointer-events: none;
-                    z-index: 400;
-                    overflow: hidden;
-                "></div>
-
-            <!-- Scenario Cards Container -->
-            <div id="scenario-cards"
-                class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-20 px-6">
+            <!-- Card stack: all absolute, centered, GSAP moves them up one by one -->
+            <div id="card-stack" class="absolute inset-0">
 
                 <!-- Card 1 -->
-                <div
-                    class="bg-white border border-black scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
-                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 sm:gap-6 md:gap-8 z-10">
-                        <div class="w-14 sm:w-16 md:w-20 lg:w-24">
-                            <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0">
-                        </div>
-                        <div class="space-y-2 sm:space-y-3 md:space-y-4">
+                <div class="rotate-[9deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                    style="z-index:1;">
+                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
+                        <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
+                                class="w-full h-auto brightness-0"></div>
+                        <div class="space-y-2 md:space-y-3">
                             <h3
-                                class="font-bebas text-black text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wide uppercase leading-none">
-                                SUBHEADING ONE</h3>
+                                class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
+                                11:11PM IN A CAB.<br>PHONE AT 2%. NOT GOOD.</h3>
                             <p
-                                class="font-lexend text-black/90 text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed max-w-lg">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                commodo diam libero vitae erat.
-                            </p>
+                                class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
+                                Your battery's blinking. You're 20 minutes from home. You need Nazr ready before the
+                                screen goes dark.</p>
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2 mt-6 sm:mt-8 md:mt-0 flex justify-center md:justify-end">
+                    <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
                         <div
-                            class="w-full max-w-[200px] sm:max-w-[280px] md:max-w-[380px] aspect-[4/5] md:aspect-square rounded-[20px] sm:rounded-[30px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[12px] border-black/10 overflow-hidden bg-black/5 relative shadow-inner text-black/20 font-lexend italic">
+                            class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div
-                    class="bg-white border border-black scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
-                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 sm:gap-6 md:gap-8 z-10">
-                        <div class="w-14 sm:w-16 md:w-20 lg:w-24">
-                            <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0">
-                        </div>
-                        <div class="space-y-2 sm:space-y-3 md:space-y-4">
+                <div class="rotate-[6deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                    style="z-index:2;">
+                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
+                        <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
+                                class="w-full h-auto brightness-0"></div>
+                        <div class="space-y-2 md:space-y-3">
                             <h3
-                                class="font-bebas text-black text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wide uppercase leading-none">
-                                SUBHEADING TWO</h3>
+                                class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
+                                LEAVING THE BAR<br>ALONE AT MIDNIGHT.</h3>
                             <p
-                                class="font-lexend text-black/90 text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed max-w-lg">
-                                Late night rides or walking alone in busy streets. Nazr ensures you have a silent
-                                guardian
-                                ready to alert your tribe and authorities at a tap.
-                            </p>
+                                class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
+                                Your friends are inside. You're at the door. That feeling in your gut is telling you to
+                                have something on you.</p>
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2 mt-6 sm:mt-8 md:mt-0 flex justify-center md:justify-end">
+                    <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
                         <div
-                            class="w-full max-w-[200px] sm:max-w-[280px] md:max-w-[380px] aspect-[4/5] md:aspect-square rounded-[20px] sm:rounded-[30px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[12px] border-black/10 overflow-hidden bg-black/5 relative shadow-inner text-black/20 font-lexend italic">
-                            <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
+                            class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
+                            <img src="./assets/images/slider/2.png" class="w-full h-full object-cover" alt="">
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div
-                    class="bg-white border border-black scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
-                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 sm:gap-6 md:gap-8 z-10">
-                        <div class="w-14 sm:w-16 md:w-20 lg:w-24">
-                            <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0">
-                        </div>
-                        <div class="space-y-2 sm:space-y-3 md:space-y-4 text-black">
+                <div class="rotate-[3deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                    style="z-index:3;">
+                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
+                        <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
+                                class="w-full h-auto brightness-0"></div>
+                        <div class="space-y-2 md:space-y-3">
                             <h3
-                                class="font-bebas text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wide uppercase leading-none">
-                                SUBHEADING THREE</h3>
+                                class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
+                                SOLO TRAVEL.<br>UNFAMILIAR CITY.</h3>
                             <p
-                                class="font-lexend text-black/90 text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed max-w-lg">
-                                Exploring new cities and hidden gems. Your adventure shouldn't come with anxiety. Nazr
-                                handles the "What if" so you can focus on the "Wow".
-                            </p>
+                                class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
+                                New city, no one knows you're here. That's exactly when you need something that confirms
+                                you're safe.</p>
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2 mt-6 sm:mt-8 md:mt-0 flex justify-center md:justify-end">
+                    <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
                         <div
-                            class="w-full max-w-[200px] sm:max-w-[280px] md:max-w-[380px] aspect-[4/5] md:aspect-square rounded-[20px] sm:rounded-[30px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[12px] border-black/5 overflow-hidden bg-black/5 relative shadow-inner">
-                            <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
+                            class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
+                            <img src="./assets/images/slider/3.png" class="w-full h-full object-cover" alt="">
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div
-                    class="bg-white border border-black scenario-card rounded-[24px] sm:rounded-[32px] md:rounded-[48px] p-4 sm:p-6 md:p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between w-full max-w-6xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden group">
-                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 sm:gap-6 md:gap-8 z-10">
-                        <div class="w-14 sm:w-16 md:w-20 lg:w-24">
-                            <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-auto brightness-0">
-                        </div>
-                        <div class="space-y-2 sm:space-y-3 md:space-y-4 text-black">
+                <div class="rotate-[0deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                    style="z-index:4;">
+                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
+                        <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
+                                class="w-full h-auto brightness-0"></div>
+                        <div class="space-y-2 md:space-y-3">
                             <h3
-                                class="font-bebas text-2xl sm:text-3xl md:text-5xl lg:text-7xl tracking-wide uppercase leading-none">
-                                SUBHEADING FOUR</h3>
+                                class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
+                                SIPPING SOMETHING<br>THAT TASTES OFF.</h3>
                             <p
-                                class="font-lexend text-black/90 text-xs sm:text-sm md:text-lg lg:text-xl leading-relaxed max-w-lg">
-                                Whether it's a crowded festival or a quiet commute, Nazr stays vigilant so you can stay
-                                present.
-                                Your peace of mind is our priority.
-                            </p>
+                                class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
+                                One moment of doubt can change everything. Sip 'N Check is there before you second-guess
+                                yourself.</p>
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2 mt-6 sm:mt-8 md:mt-0 flex justify-center md:justify-end">
+                    <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
                         <div
-                            class="w-full max-w-[200px] sm:max-w-[280px] md:max-w-[380px] aspect-[4/5] md:aspect-square rounded-[20px] sm:rounded-[30px] md:rounded-[40px] border-[6px] sm:border-[8px] md:border-[12px] border-black/10 overflow-hidden bg-black/5 relative shadow-inner">
-                            <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
+                            class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
+                            <img src="./assets/images/slider/4.png" class="w-full h-full object-cover" alt="">
                         </div>
                     </div>
                 </div>
 
             </div>
+        </section>
 
-            <!-- Third Pixel Transition Overlay (Black) -->
-            <div id="pixel-grid-3" style="
-                position: fixed;
-                top: 0; left: 0;
-                width: 100vw; height: 100dvh;
-                display: flex;
-                flex-wrap: wrap;
-                pointer-events: none;
-                z-index: 500;
-                overflow: hidden;
-            "></div>
+        <div class="w-full">
+            <img src="./assets/images/wave/time-2.png" alt="" class="w-full h-auto">
+        </div>
 
-            <!-- HOW IT WORKS SECTION -->
-            <div id="how-it-works-content"
-                class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[350] px-3 sm:px-6 overflow-hidden"
-                style="transform: scale(0.8);">
-                    <div
-                        class="w-full h-full max-w-7xl mx-auto flex flex-col justify-center pt-10 sm:pt-16 pb-20 sm:pb-24">
-                        <div class="text-center mb-8 sm:mb-14">
-                            <h2 class="text-5xl md:text-7xl font-bebas tracking-wide uppercase text-white">HOW IT WORKS
-                            </h2>
+        <!-- HOW ITS WORK  -->
+        <section class="text-[#FFF9EB] relative z-[60] bg-black overflow-hidden min-h-screen pt-16">
+            <div class="max-w-7xl mx-auto">
+
+                <!-- HEADER -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-[100px] text-[#FFF9EB]  font-semibold leading-none">
+                        THE NAZR JOURNEY
+                    </h2>
+                    <p class=" text-[24px] mt-2">This Is What Changes</p>
+                </div>
+
+                <!-- DESKTOP TIMELINE -->
+                <div class="hidden lg:block relative">
+
+                    <!-- ITEMS -->
+                    <div class="grid grid-cols-3 gap-12 text-center relative">
+
+                        <!-- ITEM -->
+                        <div class="flex flex-col items-center">
+                            <img src="./assets/images/work/1.png" class="mb-10 h-48 object-contain" />
+
+                            <!-- LINE + DOT -->
+                            <div class="flex items-center w-full mb-6">
+                                <div class="flex-1 h-[1px] bg-gray-600"></div>
+                                <div class="w-3 h-3 bg-white rounded-full"></div>
+                                <div class="flex-1 h-[1px] bg-gray-600"></div>
+                            </div>
+
+                            <h3 class="text-[24px] text-[#FFF9EB] tracking-wide mb-2">ARM YOUR AURA</h3>
+                            <p class="text-[#FFF9EB] text-[16px] max-w-xs font-inter">
+                                Pick your "Buri Nazar” blockers and shape your custom kit. Whether it’s the spray or the
+                                stickers, choose what makes you feel nazar-proof.
+                            </p>
                         </div>
 
-                        <div class="hidden md:grid grid-cols-3 gap-10 lg:gap-14 mb-12">
-                            <div class="relative text-center">
-                                <div
-                                    class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                    <img src="./assets/images/product/1.png" alt="How it works step 1"
-                                        class="w-full h-full object-contain p-3">
-                                </div>
-                                <div class="relative mb-4">
-                                    <div class="h-px bg-white/90"></div>
-                                    <div
-                                        class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
-                                    </div>
-                                </div>
-                                <p class="font-bebas text-white text-2xl uppercase mb-2">Date</p>
-                                <p class="font-lexend text-white/75 text-sm leading-relaxed max-w-[270px] mx-auto">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
-                                    eros elementum tristique.
-                                </p>
+                        <!-- ITEM -->
+                        <div class="flex flex-col items-center">
+                            <img src="./assets/images/work/2.png" class="mb-10 h-48 object-contain" />
+
+                            <div class="flex items-center w-full mb-6">
+                                <div class="flex-1 h-[1px] bg-gray-600"></div>
+                                <div class="w-3 h-3 bg-white rounded-full"></div>
+                                <div class="flex-1 h-[1px] bg-gray-600"></div>
                             </div>
-                            <div class="relative text-center">
-                                <div
-                                    class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                    <img src="./assets/images/product/1.png" alt="How it works step 2"
-                                        class="w-full h-full object-contain p-3">
-                                </div>
-                                <div class="relative mb-4">
-                                    <div class="h-px bg-white/90"></div>
-                                    <div
-                                        class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
-                                    </div>
-                                </div>
-                                <p class="font-bebas text-white text-2xl uppercase mb-2">Date</p>
-                                <p class="font-lexend text-white/75 text-sm leading-relaxed max-w-[270px] mx-auto">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
-                                    eros elementum tristique.
-                                </p>
-                            </div>
-                            <div class="relative text-center">
-                                <div
-                                    class="mx-auto w-[170px] h-[170px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                    <img src="./assets/images/product/1.png" alt="How it works step 3"
-                                        class="w-full h-full object-contain p-3">
-                                </div>
-                                <div class="relative mb-4">
-                                    <div class="h-px bg-white/90"></div>
-                                    <div
-                                        class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
-                                    </div>
-                                </div>
-                                <p class="font-bebas text-white text-2xl uppercase mb-2">Date</p>
-                                <p class="font-lexend text-white/75 text-sm leading-relaxed max-w-[270px] mx-auto">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
-                                    eros elementum tristique.
-                                </p>
-                            </div>
+
+                            <h3 class="text-[24px] text-[#FFF9EB] tracking-wide mb-2">ENTER THE CIRCLE</h3>
+                            <p class="text-[#FFF9EB] text-[16px] max-w-xs font-inter">
+                                Scan the QR code. Find a community that’s already looking out for you..
+                            </p>
                         </div>
 
-                        <div class="md:hidden mb-10">
-                            <div id="how-carousel-track"
-                                class="shop-carousel-track flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-0">
-                                <div data-how-slide class="snap-center shrink-0 w-full text-center text-white">
-                                    <div
-                                        class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                        <img src="./assets/images/product/1.png" alt="How it works step 1"
-                                            class="w-full h-full object-contain p-3">
-                                    </div>
-                                    <div class="relative mb-4">
-                                        <div class="h-px bg-white/90"></div>
-                                        <div
-                                            class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
-                                        </div>
-                                    </div>
-                                    <p class="font-bebas text-white text-3xl uppercase leading-none mb-3">Date</p>
-                                    <p class="font-lexend text-white/80 text-sm leading-relaxed">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim
-                                        in eros elementum tristique.
-                                    </p>
-                                </div>
-                                <div data-how-slide class="snap-center shrink-0 w-full text-center text-white">
-                                    <div
-                                        class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                        <img src="./assets/images/product/1.png" alt="How it works step 2"
-                                            class="w-full h-full object-contain p-3">
-                                    </div>
-                                    <div class="relative mb-4">
-                                        <div class="h-px bg-white/90"></div>
-                                        <div
-                                            class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
-                                        </div>
-                                    </div>
-                                    <p class="font-bebas text-white text-3xl uppercase leading-none mb-3">Date</p>
-                                    <p class="font-lexend text-white/80 text-sm leading-relaxed">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim
-                                        in eros elementum tristique.
-                                    </p>
-                                </div>
-                                <div data-how-slide class="snap-center shrink-0 w-full text-center text-white">
-                                    <div
-                                        class="mx-auto w-full max-w-[190px] h-[190px] bg-[#D9D9D9] mb-5 flex items-center justify-center">
-                                        <img src="./assets/images/product/1.png" alt="How it works step 3"
-                                            class="w-full h-full object-contain p-3">
-                                    </div>
-                                    <div class="relative mb-4">
-                                        <div class="h-px bg-white/90"></div>
-                                        <div
-                                            class="w-2.5 h-2.5 bg-white rounded-full absolute left-1/2 -translate-x-1/2 -top-[5px]">
-                                        </div>
-                                    </div>
-                                    <p class="font-bebas text-white text-3xl uppercase leading-none mb-3">Date</p>
-                                    <p class="font-lexend text-white/80 text-sm leading-relaxed">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim
-                                        in eros elementum tristique.
-                                    </p>
-                                </div>
+                        <!-- ITEM -->
+                        <div class="flex flex-col items-center">
+                            <img src="./assets/images/work/3.png" class="mb-10 h-48 object-contain" />
+
+                            <div class="flex items-center w-full mb-6">
+                                <div class="flex-1 h-[1px] bg-gray-600"></div>
+                                <div class="w-3 h-3 bg-white rounded-full"></div>
+                                <div class="flex-1 h-[1px] bg-gray-600"></div>
                             </div>
+
+                            <h3 class="text-[24px] text-[#FFF9EB] tracking-wide mb-2">FLIP THE SCRIPT</h3>
+                            <p class="text-[#FFF9EB] text-[16px] max-w-xs font-inter">
+                                Don't just ward off the gaze —command it. Transformation begins the moment you stop
+                                hiding and start thriving.
+                            </p>
                         </div>
 
-                        <div
-                            class="absolute bottom-0 left-0 w-full py-2 sm:py-3 marquee-container border-t border-white/10">
-                            <div
-                                class="marquee-content flex items-center gap-6 sm:gap-10 text-white/80 font-bebas text-4xl sm:text-5xl md:text-6xl tracking-wider uppercase">
-                                <span>NAZAR</span>
-                                <img src="assets/images/logo.svg" alt="Owl Logo"
-                                    class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
-                                <span>BURI NAZAR</span>
-                                <img src="assets/images/logo.svg" alt="Owl Logo"
-                                    class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
-                                <span>NAZAR</span>
-                                <img src="assets/images/logo.svg" alt="Owl Logo"
-                                    class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
-                                <span>BURI NAZAR</span>
-                                <img src="assets/images/logo.svg" alt="Owl Logo"
-                                    class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
-                                <span>NAZAR</span>
-                                <img src="assets/images/logo.svg" alt="Owl Logo"
-                                    class="w-12 h-9 sm:w-14 sm:h-10 md:w-16 md:h-12 brightness-0 invert opacity-90">
-                                <span>BURI NAZAR</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Fourth Pixel Transition Overlay (Magenta) -->
-                <div id="pixel-grid-4" style="
-                    position: fixed;
-                    top: 0; left: 0;
-                    width: 100vw; height: 100dvh;
-                    display: flex;
-                    flex-wrap: wrap;
-                    pointer-events: none;
-                    z-index: 600;
-                    overflow: hidden;
-                "></div>
+                <!-- MOBILE SWIPER -->
+                <div class="lg:hidden journey-swiper">
+                    <div class="swiper-wrapper">
 
-                <!-- FAQ SECTION -->
-                <div id="faq-content"
-                    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none z-[450] px-6"
-                    style="transform: scale(0.8);">
-                    <div class="w-full max-w-4xl mx-auto">
-                        <div class="text-center mb-16">
-                            <h2 class="text-5xl md:text-7xl font-bebas tracking-wide uppercase text-white">FAQS</h2>
+                        <!-- SLIDE -->
+                        <div class="swiper-slide text-center px-4">
+                            <img src="./assets/images/work/1.png" class="mx-auto mb-6 h-52 object-contain" />
+                            <div class="w-full h-[1px] bg-gray-600 relative mb-4">
+                                <span
+                                    class="absolute left-1/2 -translate-x-1/2 -top-1 w-3 h-3 bg-white rounded-full"></span>
+                            </div>
+                            <h3 class="text-sm mb-2">ARM YOUR AURA</h3>
+                            <p class="text-gray-400 text-sm font-inter">
+                                Pick your "Buri Nazar” blockers and shape your custom kit. Whether it’s the spray or the
+                                stickers, choose what makes you feel nazar-proof.
+                            </p>
                         </div>
-                        <div class="space-y-4" id="faq-accordion">
-                            <!-- FAQ Item 1 -->
-                            <div
-                                class="bg-[#E91185] rounded-2xl p-6 md:p-8 cursor-pointer hover:bg-[#ff1a96] transition-all duration-300 faq-item">
-                                <div class="flex justify-between items-start gap-4">
-                                    <p class="font-bebas text-white text-lg md:text-xl uppercase faq-question">Question
-                                        text goes here</p>
-                                    <button
-                                        class="text-white text-3xl font-bold flex-shrink-0 hover:opacity-70 transition-all duration-300 w-8 h-8 flex items-center justify-center faq-toggle"
-                                        data-symbol="+">+</button>
-                                </div>
-                                <p
-                                    class="font-lexend text-white/90 text-sm md:text-base leading-relaxed mt-4 faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
-                                    eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum
-                                    nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus
-                                    rutrum lorem imperdiet.
-                                </p>
-                            </div>
 
-                            <!-- FAQ Item 2 -->
-                            <div
-                                class="bg-[#E91185] rounded-2xl p-6 md:p-8 cursor-pointer hover:bg-[#ff1a96] transition-all duration-300 faq-item">
-                                <div class="flex justify-between items-start gap-4">
-                                    <p class="font-bebas text-white text-lg md:text-xl uppercase faq-question">Question
-                                        text goes here</p>
-                                    <button
-                                        class="text-white text-3xl font-bold flex-shrink-0 hover:opacity-70 transition-all duration-300 w-8 h-8 flex items-center justify-center faq-toggle"
-                                        data-symbol="+">+</button>
-                                </div>
-                                <p
-                                    class="font-lexend text-white/90 text-sm md:text-base leading-relaxed mt-4 faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
-                                    eros elementum tristique.
-                                </p>
+                        <!-- SLIDE -->
+                        <div class="swiper-slide text-center px-4">
+                            <img src="./assets/images/work/2.png" class="mx-auto mb-6 h-52 object-contain" />
+                            <div class="w-full h-[1px] bg-gray-600 relative mb-4">
+                                <span
+                                    class="absolute left-1/2 -translate-x-1/2 -top-1 w-3 h-3 bg-white rounded-full"></span>
                             </div>
-
-                            <!-- FAQ Item 3 -->
-                            <div
-                                class="bg-[#E91185] rounded-2xl p-6 md:p-8 cursor-pointer hover:bg-[#ff1a96] transition-all duration-300 faq-item">
-                                <div class="flex justify-between items-start gap-4">
-                                    <p class="font-bebas text-white text-lg md:text-xl uppercase faq-question">Question
-                                        text goes here</p>
-                                    <button
-                                        class="text-white text-3xl font-bold flex-shrink-0 hover:opacity-70 transition-all duration-300 w-8 h-8 flex items-center justify-center faq-toggle"
-                                        data-symbol="+">+</button>
-                                </div>
-                                <p
-                                    class="font-lexend text-white/90 text-sm md:text-base leading-relaxed mt-4 faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
-                                    eros elementum tristique.
-                                </p>
-                            </div>
-
-                            <!-- FAQ Item 4 -->
-                            <div
-                                class="bg-[#E91185] rounded-2xl p-6 md:p-8 cursor-pointer hover:bg-[#ff1a96] transition-all duration-300 faq-item">
-                                <div class="flex justify-between items-start gap-4">
-                                    <p class="font-bebas text-white text-lg md:text-xl uppercase faq-question">Question
-                                        text goes here</p>
-                                    <button
-                                        class="text-white text-3xl font-bold flex-shrink-0 hover:opacity-70 transition-all duration-300 w-8 h-8 flex items-center justify-center faq-toggle"
-                                        data-symbol="+">+</button>
-                                </div>
-                                <p
-                                    class="font-lexend text-white/90 text-sm md:text-base leading-relaxed mt-4 faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
-                                    eros elementum tristique.
-                                </p>
-                            </div>
-
-                            <!-- FAQ Item 5 -->
-                            <div
-                                class="bg-[#E91185] rounded-2xl p-6 md:p-8 cursor-pointer hover:bg-[#ff1a96] transition-all duration-300 faq-item">
-                                <div class="flex justify-between items-start gap-4">
-                                    <p class="font-bebas text-white text-lg md:text-xl uppercase faq-question">Question
-                                        text goes here</p>
-                                    <button
-                                        class="text-white text-3xl font-bold flex-shrink-0 hover:opacity-70 transition-all duration-300 w-8 h-8 flex items-center justify-center faq-toggle"
-                                        data-symbol="+">+</button>
-                                </div>
-                                <p
-                                    class="font-lexend text-white/90 text-sm md:text-base leading-relaxed mt-4 faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in
-                                    eros elementum tristique.
-                                </p>
-                            </div>
+                            <h3 class="text-sm mb-2">ENTER THE CIRCLE</h3>
+                            <p class="text-gray-400 text-sm font-inter">
+                                Scan the QR code. Find a community that's already looking out for you.
+                            </p>
                         </div>
+
+                        <!-- SLIDE -->
+                        <div class="swiper-slide text-center px-4">
+                            <img src="./assets/images/work/3.png" class="mx-auto mb-6 h-52 object-contain" />
+                            <div class="w-full h-[1px] bg-gray-600 relative mb-4">
+                                <span
+                                    class="absolute left-1/2 -translate-x-1/2 -top-1 w-3 h-3 bg-white rounded-full"></span>
+                            </div>
+                            <h3 class="text-sm mb-2">FLIP THE SCRIPT</h3>
+                            <p class="text-gray-400 text-sm font-inter">
+                                Don't just ward off the gaze —command it. Transformation begins the moment you stop
+                                hiding and start thriving.
+                            </p>
+                        </div>
+
                     </div>
                 </div>
 
+            </div>
 
+            <!-- Marquee Section -->
+            <div class="absolute bottom-0 left-0 w-full py-4 marquee-container">
+                <div
+                    class="marquee-content flex items-center gap-4 sm:gap-8 md:gap-12 text-white font-bebas text-6xl tracking-wider uppercase">
+                    <!-- Pattern 1 -->
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
 
-            </section>
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <!-- Pattern 2 -->
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <!-- Pattern 3 -->
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <!-- Pattern 4 -->
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+
+                    <!-- Duplicate for infinite scroll loop -->
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                    <span
+                        class="text-[#FFFFFF99] text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] uppercase">Buri
+                        Nazar</span>
+
+                    <img src="assets/images/logo.svg" alt="Owl Logo"
+                        class="w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                </div>
+            </div>
+
         </section>
 
 
+        <!-- TOOLS SECTION -->
+
+        <section class=" text-white py-20 px-6 md:px-16 relative z-[60] bg-black">
+            <div class="max-w-7xl mx-auto">
+
+                <!-- HEADER -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-6xl font-semibold tracking-tight mb-4">
+                        THREE TOOLS. ONE STANDARD.
+                    </h2>
+                    <p class="text-gray-400 max-w-xl mx-auto text-sm leading-relaxed">
+                        Nazr is built as a complete ecosystem — hardware you carry, intelligence you trust,
+                        and a community that moves with you.
+                    </p>
+                </div>
+
+                <!-- GRID -->
+                <div class="grid md:grid-cols-2 gap-8">
+
+                    <!-- LEFT COLUMN -->
+                    <div class="flex flex-col gap-8">
+
+                        <!-- CARD 1 -->
+                        <div
+                            class="border border-pink-500/60 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center">
+
+                            <!-- TEXT -->
+                            <div class="flex-1">
+                                <h3 class="text-sm font-semibold mb-3 font-inter">ON ME PEPPER SPRAY</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-4 font-inter">
+                                    High-pressure, compact, and built to be seen. This glow-in-the-dark canister lives
+                                    on your bag,
+                                    not buried in it. Anti-dig architecture means it's in your hand in one motion.
+                                    This is readiness, redesigned.
+                                </p>
+                                <button
+                                    class="bg-white text-[#E6007E] h-[35px] flex items-center gap-1 justify-center text-[16px] px-4 py-2 rounded hover:bg-gray-200">
+                                    <span>OWN IT</span>
+                                    <img src="./assets/images/icons/spray.svg" alt="">
+                                </button>
+                            </div>
+
+                            <!-- IMAGE -->
+                            <div class="flex-1 flex justify-center h-[300px]">
+                                <img src="./assets/images/tools/1.png" alt="pepper spray" class=" object-contain" />
+                            </div>
+
+                        </div>
+
+                        <!-- CARD 2 -->
+                        <div
+                            class="border border-pink-500/60 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center">
+
+                            <div class="flex-1">
+                                <h3 class="text-sm font-semibold mb-3 font-inter">SIP CHECK</h3>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-4 font-inter">
+                                    Quick Nazr Check on your drink and it's built for the lighting at every venue.
+                                    Place one on your glass. Trust what you're drinking. Move without compromise.
+                                </p>
+                                <button
+                                    class="bg-white text-[#E6007E] h-[35px] flex items-center gap-1 justify-center text-[16px] px-4 py-2 rounded hover:bg-gray-200">
+                                    <span>OWN IT</span>
+                                    <img src="./assets/images/icons/spray.svg" alt="">
+                                </button>
+                            </div>
+
+                            <!-- IMAGE -->
+                            <div class="flex-1 flex justify-center h-[300px]">
+                                <img src="./assets/images/tools/2.png" alt="pepper spray" class="object-contain" />
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT COLUMN -->
+                    <div class="border border-pink-500/60 rounded-2xl overflow-hidden flex flex-col justify-between">
+
+                        <!-- TEXT -->
+                        <div class="p-6">
+                            <h3 class="text-sm font-semibold mb-3 font-inter">PWA</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4 font-inter">
+                                Scan the QR Code. SOS lives one tap away. A heartbeat keeps watch.
+                                A crumbly trail runs quietly in the background. This is the one that knows
+                                when to surface — and knows when to disappear.
+                            </p>
+                            <button
+                                class="bg-white text-[#E6007E] h-[35px] flex items-center justify-center text-[16px] px-4 py-2 rounded hover:bg-gray-200">
+                                JOIN NOW
+                            </button>
+                        </div>
+
+                        <!-- IMAGE -->
+                        <div class="h-[425px]">
+                            <img src="./assets/images/tools/3.png" alt="pwa preview"
+                                class="w-full h-full object-cover" />
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- WHY NAZR  -->
+        <section class=" text-white min-h-screen flex items-center px-4 relative z-[60] bg-black pb-16">
+            <div class="max-w-7xl mx-auto w-full ">
+
+                <!-- Grid Layout -->
+                <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+
+                    <!-- LEFT -->
+                    <div>
+                        <h1
+                            class="text-4xl sm:text-5xl md:text-[98px] font-semibold tracking-tight leading-none text-[#FFF9EB]">
+                            WHY NAZR?
+                        </h1>
+                    </div>
+
+                    <!-- RIGHT -->
+                    <div class="">
+
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4 font-inter">
+                            Safety has always been framed as a solo problem. "She Should've Been More Careful.
+                            She Should've Stayed Home. Her Top Was Too Short. It was Her Problem."
+                        </p>
+
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4 font-inter">
+                            Nazr was built on a different belief.
+                        </p>
+
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4 font-inter">
+                            Women have always looked out for each other - in metros, in parking lots,
+                            in public bathrooms, in the five-second eye contact that says main hoon na.
+                        </p>
+
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6 font-inter">
+                            We just made that instinct tangible.
+                        </p>
+
+                        <!-- INPUT + BUTTON -->
+                        <div class="flex flex-col sm:flex-row gap-3 mb-3">
+
+                            <input type="email" placeholder="Enter your email"
+                                class="w-full bg-transparent border border-gray-600 px-4 py-3 text-sm focus:outline-none focus:border-white" />
+
+                            <button
+                                class="whitespace-nowrap w-full sm:w-auto bg-[#FFF9EB] text-[#E6007E] text-sm font-semibold px-6 py-3 hover:bg-gray-200 transition">
+                                JOIN NOW
+                            </button>
+
+                        </div>
+
+                        <!-- TERMS -->
+                        <p class="text-[#FFF9EB] text-xs leading-relaxed font-inter">
+                            By clicking Sign Up you're confirming that you agree with our
+                            <span class="underline cursor-pointer">Terms and Conditions.</span>
+                        </p>
+
+                    </div>
+
+                </div>
+                <div class="mt-[80px] w-full">
+                    <img src="./assets/images/why-nazr.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full">
+            <img src="./assets/images/wave/faq-1.png" alt="" class="w-full h-auto">
+        </div>
+
+        <!-- FAQ SECTION -->
+        <section class="flex items-center justify-center min-h-screen px-4 relative z-[60] bg-[#711149]">
+            <div class="w-full max-w-4xl mx-auto">
+
+                <!-- Heading -->
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl md:text-7xl font-bebas tracking-wide uppercase text-white">
+                        FAQS
+                    </h2>
+                </div>
+
+                <!-- Accordion -->
+                <div class="space-y-4">
+
+                    <!-- Item -->
+                    <div class="faq-item bg-[#E91185] rounded-2xl p-6 md:p-8 cursor-pointer">
+                        <div class="flex justify-between items-start gap-4">
+                            <p class="font-bebas text-white text-lg md:text-xl uppercase">
+                                What is your service about?
+                            </p>
+                            <button class="faq-toggle text-white text-3xl w-8 h-8 flex items-center justify-center">
+                                +
+                            </button>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <p class="font-lexend text-white/90 mt-4">
+                                We provide high-quality solutions designed to deliver smooth and premium user
+                                experiences.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="faq-item bg-[#E91185] rounded-2xl p-6 md:p-8 cursor-pointer">
+                        <div class="flex justify-between items-start gap-4">
+                            <p class="font-bebas text-white text-lg md:text-xl uppercase">
+                                Is this animation smooth?
+                            </p>
+                            <button class="faq-toggle text-white text-3xl w-8 h-8 flex items-center justify-center">
+                                +
+                            </button>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <p class="font-lexend text-white/90 mt-4">
+                                Yes, GSAP ensures buttery smooth animations with no layout jumps or glitches.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Item -->
+                    <div class="faq-item bg-[#E91185] rounded-2xl p-6 md:p-8 cursor-pointer">
+                        <div class="flex justify-between items-start gap-4">
+                            <p class="font-bebas text-white text-lg md:text-xl uppercase">
+                                Can I customize it?
+                            </p>
+                            <button class="faq-toggle text-white text-3xl w-8 h-8 flex items-center justify-center">
+                                +
+                            </button>
+                        </div>
+                        <div class="faq-answer overflow-hidden">
+                            <p class="font-lexend text-white/90 mt-4">
+                                Absolutely. You can tweak timing, easing, and layout easily using GSAP and Tailwind.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <div class="w-full">
+            <img src="./assets/images/wave/faq-2.png" alt="" class="w-full h-auto">
+        </div>
+
+    </main>
+
+    <!-- FOOTER  -->
+    <div class="w-full">
+        <img src="./assets/images/wave/footer-wave.png" alt="" class="w-full h-auto">
+    </div>
 
-
-    <script>
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
-        const mobileLinkFourToggle = document.getElementById('mobile-link-four-toggle');
-        const mobileLinkFourDropdown = document.getElementById('mobile-link-four-dropdown');
-        const mobileLinkFourIcon = document.getElementById('mobile-link-four-icon');
-
-        const closeMobileSubmenu = () => {
-            if (!mobileLinkFourDropdown || !mobileLinkFourIcon) return;
-            mobileLinkFourDropdown.classList.remove('max-h-40', 'opacity-100', 'mt-3');
-            mobileLinkFourDropdown.classList.add('max-h-0', 'opacity-0', 'mt-0');
-            mobileLinkFourIcon.classList.remove('rotate-180');
-        };
-
-        menuBtn.addEventListener('click', () => {
-            const isOpen = !mobileMenu.classList.contains('invisible');
-
-            if (isOpen) {
-                // Close
-                mobileMenu.classList.add('opacity-0', 'invisible');
-                menuIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
-                document.body.classList.remove('mobile-menu-active');
-                closeMobileSubmenu();
-            } else {
-                // Open
-                mobileMenu.classList.remove('opacity-0', 'invisible');
-                menuIcon.classList.add('hidden');
-                closeIcon.classList.remove('hidden');
-                document.body.classList.add('mobile-menu-active');
-            }
-        });
-
-        if (mobileLinkFourToggle && mobileLinkFourDropdown && mobileLinkFourIcon) {
-            mobileLinkFourToggle.addEventListener('click', () => {
-                const isExpanded = mobileLinkFourDropdown.classList.contains('max-h-40');
-                if (isExpanded) {
-                    closeMobileSubmenu();
-                } else {
-                    mobileLinkFourDropdown.classList.remove('max-h-0', 'opacity-0', 'mt-0');
-                    mobileLinkFourDropdown.classList.add('max-h-40', 'opacity-100', 'mt-3');
-                    mobileLinkFourIcon.classList.add('rotate-180');
-                }
-            });
-        }
-
-        // Close menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('opacity-0', 'invisible');
-                menuIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
-                document.body.classList.remove('mobile-menu-active');
-            });
-        });
-
-        // ============================================
-        // FAQ ACCORDION FUNCTIONALITY
-        // ============================================
-        document.addEventListener('DOMContentLoaded', function () {
-            const faqItems = document.querySelectorAll('.faq-item');
-
-            faqItems.forEach(item => {
-                const toggleBtn = item.querySelector('.faq-toggle');
-                const answer = item.querySelector('.faq-answer');
-
-                // Click on item to expand
-                item.addEventListener('click', function (e) {
-                    const isExpanded = answer.style.maxHeight && answer.style.maxHeight !== '0px';
-
-                    // Close all other items
-                    faqItems.forEach(otherItem => {
-                        const otherAnswer = otherItem.querySelector('.faq-answer');
-                        const otherToggleBtn = otherItem.querySelector('.faq-toggle');
-
-                        otherAnswer.style.maxHeight = '0px';
-                        otherAnswer.style.opacity = '0';
-                        otherToggleBtn.style.transform = 'rotate(0deg)';
-                        otherToggleBtn.textContent = '+';
-                    });
-
-                    // Toggle current item
-                    if (!isExpanded) {
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        answer.style.opacity = '1';
-                        toggleBtn.style.transform = 'rotate(45deg)';
-                        toggleBtn.textContent = '+';
-                    }
-                });
-            });
-
-            const shopSwiperEl = document.querySelector('.shop-swiper');
-            if (shopSwiperEl && window.Swiper) {
-                const shopSwiper = new Swiper('.shop-swiper', {
-                    loop: true,
-                    centeredSlides: true,
-                    slidesPerView: 1.2,
-                    spaceBetween: 20,
-                    speed: 800,
-                    grabCursor: true,
-
-                    autoplay: {
-                        delay: 3000,
-                        disableOnInteraction: false,
-                    },
-
-                    effect: 'coverflow',
-                    coverflowEffect: {
-                        rotate: 0,
-                        stretch: -20,
-                        depth: 150,
-                        modifier: 1,
-                        slideShadows: false,
-                        scale: 0.7,
-                    },
-
-                    breakpoints: {
-                        640: {
-                            slidesPerView: 2,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                        }
-                    }
-                });
-                const pauseAuto = () => shopSwiper.autoplay.stop();
-                const resumeAuto = () => shopSwiper.autoplay.start();
-                shopSwiperEl.addEventListener('mouseenter', pauseAuto);
-                shopSwiperEl.addEventListener('mouseleave', resumeAuto);
-                shopSwiperEl.addEventListener('touchstart', pauseAuto, { passive: true });
-                shopSwiperEl.addEventListener('touchend', resumeAuto, { passive: true });
-            }
-
-            const howTrack = document.getElementById('how-carousel-track');
-            if (howTrack) {
-                const howSlides = Array.from(howTrack.querySelectorAll('[data-how-slide]'));
-                let howIndex = 0;
-                let howTicking = false;
-
-                const getHowStep = () => {
-                    if (!howSlides.length) return 0;
-                    const gap = parseFloat(getComputedStyle(howTrack).gap || '0');
-                    return howSlides[0].getBoundingClientRect().width + gap;
-                };
-
-                const syncHowSlide = (smooth = false) => {
-                    const step = getHowStep();
-                    if (step <= 0) return;
-                    howTrack.scrollTo({ left: step * howIndex, behavior: smooth ? 'smooth' : 'auto' });
-                };
-
-                howTrack.addEventListener('scroll', () => {
-                    if (howTicking) return;
-                    howTicking = true;
-                    requestAnimationFrame(() => {
-                        const step = getHowStep();
-                        if (step > 0) {
-                            howIndex = Math.max(0, Math.min(howSlides.length - 1, Math.round(howTrack.scrollLeft / step)));
-                        }
-                        howTicking = false;
-                    });
-                });
-
-                window.addEventListener('resize', () => syncHowSlide(false));
-                syncHowSlide(false);
-            }
-        });
-
-        // ============================================
-        // GSAP PIXEL GRID — RANDOM BUT BOTTOM → TOP FLOW
-        // ============================================
-        (function () {
-            gsap.registerPlugin(ScrollTrigger);
-
-            const hero = document.getElementById('hero-section');
-            const grid = document.getElementById('pixel-grid');
-            const nextTitle = document.getElementById('next-title');
-            const isMobileViewport = window.matchMedia('(max-width: 767px)').matches;
-
-            // Responsive pixel size
-            const viewportWidth = window.visualViewport ? window.visualViewport.width : window.innerWidth;
-            const viewportHeight = isMobileViewport
-                ? window.innerHeight
-                : (window.visualViewport ? window.visualViewport.height : window.innerHeight);
-            const PIXEL_SIZE = viewportWidth < 768 ? 12 : 20;
-            const overscan = PIXEL_SIZE * 2;
-            const cols = Math.ceil((viewportWidth + overscan) / PIXEL_SIZE);
-            const rows = Math.ceil((viewportHeight + overscan) / PIXEL_SIZE);
-            const total = cols * rows;
-
-            // Lock hero height on mobile to avoid address-bar resize jitter while pinned.
-            if (isMobileViewport) {
-                hero.style.minHeight = `${window.innerHeight}px`;
-            }
-
-            // Create pixels
-            const pixelEls = [];
-
-            for (let i = 0; i < total; i++) {
-                const box = document.createElement('div');
-                box.style.cssText = `
-            width: ${PIXEL_SIZE}px;
-            height: ${PIXEL_SIZE}px;
-            background: #000;
-            opacity: 0;
-            flex-shrink: 0;
-        `;
-                grid.appendChild(box);
-                pixelEls.push(box);
-            }
-
-            // ============================================
-            // 🔥 RANDOM ORDER WITH BOTTOM → TOP BIAS
-            // ============================================
-            const pixelsWithWeight = [];
-
-            for (let row = 0; row < rows; row++) {
-                for (let col = 0; col < cols; col++) {
-                    const index = row * cols + col;
-
-                    // bottom rows = smaller weight (animate earlier)
-                    const weight = row + Math.random() * 5;
-
-                    pixelsWithWeight.push({
-                        el: pixelEls[index],
-                        weight
-                    });
-                }
-            }
-
-            // sort by weight → gives bottom → top random flow
-            pixelsWithWeight.sort((a, b) => b.weight - a.weight);
-
-            const orderedPixels = pixelsWithWeight.map(p => p.el);
-
-            // ============================================
-            // CREATE BLUE PIXELS FOR TRANSITION OUT
-            // ============================================
-            const grid2 = document.getElementById('pixel-grid-2');
-            const pixelEls2 = [];
-
-            for (let i = 0; i < total; i++) {
-                const box2 = document.createElement('div');
-                box2.style.cssText = `
-                    width: ${PIXEL_SIZE}px;
-                    height: ${PIXEL_SIZE}px;
-                    background: #2E5BFF;
-                    opacity: 0;
-                    flex-shrink: 0;
-                `;
-                grid2.appendChild(box2);
-                pixelEls2.push(box2);
-            }
-
-            // Bottom -> Top random flow
-            const pixelsWithWeight2 = [];
-            for (let row = 0; row < rows; row++) {
-                for (let col = 0; col < cols; col++) {
-                    const index = row * cols + col;
-                    // Bottom rows = smaller weight (animate earlier)
-                    const weight = row + Math.random() * 5;
-                    pixelsWithWeight2.push({
-                        el: pixelEls2[index],
-                        weight
-                    });
-                }
-            }
-
-            pixelsWithWeight2.sort((a, b) => b.weight - a.weight);
-            const orderedPixels2 = pixelsWithWeight2.map(p => p.el);
-
-            // ============================================
-            // CREATE BLACK PIXELS FOR TRANSITION TO HOW IT WORKS
-            // ============================================
-            const grid3 = document.getElementById('pixel-grid-3');
-            const pixelEls3 = [];
-
-            for (let i = 0; i < total; i++) {
-                const box3 = document.createElement('div');
-                box3.style.cssText = `
-                    width: ${PIXEL_SIZE}px;
-                    height: ${PIXEL_SIZE}px;
-                    background: #000;
-                    opacity: 0;
-                    flex-shrink: 0;
-                `;
-                grid3.appendChild(box3);
-                pixelEls3.push(box3);
-            }
-
-            // Bottom -> Top random flow
-            const pixelsWithWeight3 = [];
-            for (let row = 0; row < rows; row++) {
-                for (let col = 0; col < cols; col++) {
-                    const index = row * cols + col;
-                    // Bottom rows = smaller weight (animate earlier)
-                    const weight = row + Math.random() * 5;
-                    pixelsWithWeight3.push({
-                        el: pixelEls3[index],
-                        weight
-                    });
-                }
-            }
-
-            pixelsWithWeight3.sort((a, b) => b.weight - a.weight);
-            const orderedPixels3 = pixelsWithWeight3.map(p => p.el);
-
-            // ============================================
-            // CREATE MAGENTA PIXELS FOR TRANSITION TO FAQ
-            // ============================================
-            const grid4 = document.getElementById('pixel-grid-4');
-            const pixelEls4 = [];
-
-            [grid, grid2, grid3, grid4].forEach((overlayGrid) => {
-                if (!overlayGrid) return;
-                overlayGrid.style.width = `${viewportWidth + overscan}px`;
-                overlayGrid.style.height = `${viewportHeight + overscan}px`;
-                overlayGrid.style.left = `${-overscan / 2}px`;
-                overlayGrid.style.top = `${-overscan / 2}px`;
-            });
-
-            for (let i = 0; i < total; i++) {
-                const box4 = document.createElement('div');
-                box4.style.cssText = `
-                    width: ${PIXEL_SIZE}px;
-                    height: ${PIXEL_SIZE}px;
-                    background: #E91185;
-                    opacity: 0;
-                    flex-shrink: 0;
-                `;
-                grid4.appendChild(box4);
-                pixelEls4.push(box4);
-            }
-
-            // Bottom -> Top random flow
-            const pixelsWithWeight4 = [];
-            for (let row = 0; row < rows; row++) {
-                for (let col = 0; col < cols; col++) {
-                    const index = row * cols + col;
-                    // Bottom rows = smaller weight (animate earlier)
-                    const weight = row + Math.random() * 5;
-                    pixelsWithWeight4.push({
-                        el: pixelEls4[index],
-                        weight
-                    });
-                }
-            }
-
-            pixelsWithWeight4.sort((a, b) => b.weight - a.weight);
-            const orderedPixels4 = pixelsWithWeight4.map(p => p.el);
-
-
-            // ============================================
-            // GSAP Timeline
-            // ============================================
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: hero,
-                    start: 'top top',
-                    end: '+=4000%',   // Extended for all 10 phases with proper timing
-                    scrub: 1.5,
-                    pin: true
-                }
-            });
-
-            tl.to({}, { duration: 0.3 });
-
-            // 🔥 RANDOM but flowing UP
-            tl.to(orderedPixels, {
-                opacity: 1,
-                duration: 1,
-                stagger: {
-                    each: 0.005,
-                },
-                ease: 'none',
-            });
-
-            // Hide Hero content once pixels have covered them
-            tl.set("#hero-section > .max-w-6xl, #hero-section > .marquee-container", { opacity: 0 });
-            tl.set("#next-section", { zIndex: 30 }); // Now bring the next section to the front
-
-            tl.to({}, { duration: 0.2 });
-
-            // Show next section overlay
-            tl.fromTo("#next-section",
-                { scale: 1.1, opacity: 0 },
-                {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 0.8,
-                    ease: "power4.out"
-                }
-            );
-            // ===== Phase 4: Shop Reveal (Scale in center) =====
-            // This happens after Hero pixels cover the hero content, while background is still black.
-            tl.to("#shop-content", {
-                opacity: 1,
-                scale: 1,
-                pointerEvents: "auto",
-                duration: 1.2,
-                ease: "expo.out"
-            });
-
-            // Maintain visibility
-            tl.to({}, { duration: 3 });
-
-            // ============================================
-            // Phase 5: Blue Pixel Exit Transition
-            // ============================================
-            tl.set(grid2, { opacity: 1 });
-
-            tl.to(orderedPixels2, {
-                opacity: 1,
-                duration: 1.2,
-                stagger: {
-                    each: 0.005,
-                },
-                ease: 'none',
-            });
-
-            // Set background to BLUE for scenarios
-            tl.set([hero, "#next-section", "#scenario-cards"], {
-                backgroundColor: '#2E5BFF',
-                backgroundImage: 'none'
-            });
-
-            // Hide Shop and Show Scenario Components
-            tl.set("#shop-content", { opacity: 0 });
-            tl.set(grid2, { opacity: 0 });
-
-            // Show Scenario Title
-            tl.set("#next-title", { opacity: 1 });
-            tl.fromTo(nextTitle.children,
-                { scale: 0.7, opacity: 0 },
-                {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 1,
-                    stagger: 0.2,
-                    ease: "expo.out"
-                }
-            );
-
-
-            // Phase 4: Card Deck Shuffle Reveal
-            const cards = Array.from(document.querySelectorAll('.scenario-card'));
-            const numCards = cards.length;
-
-            // ── Initialize all cards as a tight stack ─────────────────────────
-            const stackRotations = [0, -2, 0, 2];
-            const stackOffsetY = [0, 0, 0, 0];
-            const stackOffsetX = [0, 0, 0, 0];
-            const stackScales = [1, 0.99, 0.98, 0.97];
-
-            cards.forEach((card, i) => {
-                gsap.set(card, {
-                    rotationZ: stackRotations[i] ?? (i % 2 === 0 ? -2 : 2),
-                    y: -1200, // Start hidden far off-screen top
-                    x: stackOffsetX[i] ?? i * 6,
-                    scale: stackScales[i] ?? (1 - i * 0.03),
-                    zIndex: numCards - i,
-                    opacity: 0,
-                    transformOrigin: "center center",
-                });
-            });
-
-            // Reveal all cards: Sequential Drop one by one (Slow and Cinematic)
-            tl.set("#scenario-cards", { opacity: 1, pointerEvents: "auto" });
-
-            for (let i = 0; i < numCards; i++) {
-                // Drop the NEW card from top into Slot 0 (Front)
-                tl.fromTo(cards[i],
-                    { y: -1200, opacity: 0, zIndex: 100 + i },
-                    {
-                        y: stackOffsetY[0],
-                        x: stackOffsetX[0],
-                        scale: stackScales[0],
-                        opacity: 1,
-                        duration: 3.5, // Even slower drop
-                        ease: "power2.out",
-                        pointerEvents: "auto"
-                    }
-                );
-
-                // Pause to let the user read
-                tl.to({}, { duration: 4 });
-
-                // If a next card exists, shift all currently revealed cards back
-                if (i < numCards - 1) {
-                    for (let j = 0; j <= i; j++) {
-                        // Card j is currently in Slot (i - j)
-                        // It needs to move to Slot (i - j + 1)
-                        const targetSlot = i - j + 1;
-                        tl.to(cards[j], {
-                            x: stackOffsetX[targetSlot] ?? targetSlot * 6,
-                            y: stackOffsetY[targetSlot] ?? targetSlot * 8,
-                            scale: stackScales[targetSlot] ?? (1 - targetSlot * 0.03),
-                            rotationZ: stackRotations[targetSlot] ?? (targetSlot % 2 === 0 ? -2 : 2),
-                            duration: 2.5, // Slower shift
-                            ease: "power2.inOut"
-                        }, (j === 0) ? ">" : "<");
-                    }
-                    // Pause after shift
-                    tl.to({}, { duration: 1.5 });
-                }
-            }
-
-            // Hold on last card
-            tl.to({}, { duration: 1.5 });
-
-            // Maintain visibility of Scenario Cards
-            tl.to({}, { duration: 3 });
-
-            // ============================================
-            // Phase 7: Black Pixel Exit Transition (Bottom to Top bias)
-            // ============================================
-            tl.set(grid3, { opacity: 1 });
-
-            tl.to(orderedPixels3, {
-                opacity: 1,
-                duration: 1.2,
-                stagger: {
-                    each: 0.005,
-                },
-                ease: 'none',
-            });
-
-            // Make container completely solid black
-            tl.set([hero, "#next-section", "#scenario-cards"], {
-                backgroundColor: '#000',
-                backgroundImage: 'none'
-            });
-
-            // Hide scenario section and pixel grids
-            tl.set("#scenario-cards", { opacity: 0 });
-            tl.set("#next-title", { opacity: 0 });
-            tl.set(grid2, { opacity: 0 });
-            tl.set(grid3, { opacity: 0 });
-
-            // ===== Phase 8: How It Works Reveal (Scale in center) =====
-            tl.to("#how-it-works-content", {
-                opacity: 1,
-                scale: 1,
-                pointerEvents: "auto",
-                duration: 1.2,
-                ease: "expo.out"
-            });
-
-            // Maintain visibility
-            tl.to({}, { duration: 3 });
-
-            // ============================================
-            // Phase 9: Magenta Pixel Exit Transition (Bottom to Top bias)
-            // ============================================
-            tl.set(grid4, { opacity: 1 });
-
-            tl.to(orderedPixels4, {
-                opacity: 1,
-                duration: 1.2,
-                stagger: {
-                    each: 0.005,
-                },
-                ease: 'none',
-            });
-
-            // Make container completely solid dark magenta
-            tl.set([hero, "#next-section", "#scenario-cards"], {
-                backgroundColor: '#711149',
-                backgroundImage: 'none'
-            });
-
-            // Hide how-it-works section and pixel grid
-            tl.set("#how-it-works-content", { opacity: 0 });
-            tl.set(grid3, { opacity: 0 });
-            tl.set(grid4, { opacity: 0 });
-
-            // ===== Phase 10: FAQ Reveal (Scale in center) =====
-            tl.to("#faq-content", {
-                opacity: 1,
-                scale: 1,
-                pointerEvents: "auto",
-                duration: 1.2,
-                ease: "expo.out"
-            });
-
-            // Maintain visibility
-            tl.to({}, { duration: 3 });
-
-            // ============================================
-            // Handle window resize and refresh ScrollTrigger.
-            // On mobile, ignore address-bar height-only changes to prevent jitter.
-            // ============================================
-            let lastViewportWidth = window.innerWidth;
-            let lastViewportHeight = window.innerHeight;
-            let resizeRefreshTimer = null;
-            window.addEventListener('resize', () => {
-                const nextWidth = window.innerWidth;
-                const nextHeight = window.innerHeight;
-                const isMobileNow = window.matchMedia('(max-width: 767px)').matches;
-                const widthDelta = Math.abs(nextWidth - lastViewportWidth);
-                const heightDelta = Math.abs(nextHeight - lastViewportHeight);
-
-                if (isMobileNow && widthDelta < 24) {
-                    lastViewportWidth = nextWidth;
-                    lastViewportHeight = nextHeight;
-                    return;
-                }
-
-                if (widthDelta >= 24 || heightDelta >= 120) {
-                    clearTimeout(resizeRefreshTimer);
-                    resizeRefreshTimer = setTimeout(() => {
-                        ScrollTrigger.refresh();
-                    }, 180);
-                }
-
-                lastViewportWidth = nextWidth;
-                lastViewportHeight = nextHeight;
-            });
-
-        })();
-
-        // ============================================
-        // GSAP PIN FOR NEXT BLUE SECTION (Removed - handled by main pin)
-        // ============================================
-
-    </script>
-
-    <!-- ============================================
-         FOOTER SECTION
-         ============================================ -->
     <footer class="bg-black text-white px-6 md:px-12 py-10 md:py-14">
         <div class="max-w-7xl mx-auto">
-            <!-- Main Footer Card -->
             <div class="rounded-[24px] bg-[#ff0095] border border-white/20 p-8 md:p-10 lg:p-12">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8">
-                    <!-- Newsletter -->
                     <div class="lg:col-span-6">
                         <div class="w-24 mb-6">
                             <img src="./assets/images/logo.svg" alt="Nazr Logo" class="w-full h-auto">
                         </div>
-                        <p class="font-lexend text-sm md:text-base text-white/90 mb-5 max-w-lg">
+                        <p class="font-roboto text-sm md:text-base text-white/90 mb-5 max-w-lg">
                             Join our newsletter to stay up to date on features and releases.
                         </p>
                         <form class="flex flex-col sm:flex-row gap-3 sm:items-center max-w-md">
                             <input type="email" placeholder="Enter your email"
-                                class="h-12 px-4 rounded-md border border-white/50 bg-transparent text-white placeholder-white/70 font-lexend text-sm outline-none focus:ring-2 focus:ring-white/60">
+                                class="h-12 px-4 rounded-md border border-white/50 bg-transparent text-white placeholder-white/70 font-roboto text-sm outline-none focus:ring-2 focus:ring-white/60">
                             <button type="submit"
-                                class="h-12 px-6 rounded-md border border-white/60 font-bebas tracking-wide text-sm md:text-base hover:bg-white hover:text-[#ff0095] transition-colors">
+                                class="h-12 px-6 rounded-md border border-white/60 tracking-wide text-sm md:text-base hover:bg-white hover:text-[#ff0095] transition-colors">
                                 Subscribe
                             </button>
                         </form>
-                        <p class="font-lexend text-xs text-white/80 mt-4 max-w-lg">
+                        <p class="font-roboto text-xs text-white/80 mt-4 max-w-lg">
                             By subscribing you agree to with our Privacy Policy and provide consent to receive updates
-                            from our company.
+                            from
+                            our company.
                         </p>
                     </div>
 
-                    <!-- Column One -->
                     <div class="lg:col-span-2">
-                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Column
-                            One
-                        </h3>
-                        <ul class="space-y-3 font-lexend text-sm text-white/90">
+                        <h3 class="text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Column One</h3>
+                        <ul class="space-y-3 font-roboto text-sm text-white/90">
                             <li><a href="#" class="hover:text-white transition-colors">Link One</a></li>
                             <li><a href="#" class="hover:text-white transition-colors">Link Two</a></li>
                             <li><a href="#" class="hover:text-white transition-colors">Link Three</a></li>
@@ -1676,12 +1070,9 @@
                         </ul>
                     </div>
 
-                    <!-- Column Two -->
                     <div class="lg:col-span-2">
-                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Column
-                            Two
-                        </h3>
-                        <ul class="space-y-3 font-lexend text-sm text-white/90">
+                        <h3 class="text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Column Two</h3>
+                        <ul class="space-y-3 font-roboto text-sm text-white/90">
                             <li><a href="#" class="hover:text-white transition-colors">Link Six</a></li>
                             <li><a href="#" class="hover:text-white transition-colors">Link Seven</a></li>
                             <li><a href="#" class="hover:text-white transition-colors">Link Eight</a></li>
@@ -1690,11 +1081,9 @@
                         </ul>
                     </div>
 
-                    <!-- Follow Us -->
                     <div class="lg:col-span-2">
-                        <h3 class="font-bebas text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Follow
-                            Us</h3>
-                        <ul class="space-y-3 font-lexend text-sm text-white/90">
+                        <h3 class="text-sm md:text-base uppercase tracking-widest text-white/90 mb-5">Follow Us</h3>
+                        <ul class="space-y-3 font-roboto text-sm text-white/90">
                             <li>
                                 <a href="#" class="hover:text-white transition-colors flex items-center gap-3">
                                     <img src="./assets/images/icons/facebook.svg" alt="Facebook" class="w-4 h-4">
@@ -1731,24 +1120,495 @@
                 </div>
             </div>
 
-            <!-- Bottom Footer -->
             <div class="pt-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <p class="font-lexend text-sm text-white/75">© 2024 Relume. All rights reserved.</p>
+                <p class="font-roboto text-sm text-white/75">© 2024 Relume. All rights reserved.</p>
                 <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
                     <a href="#"
-                        class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Privacy
+                        class="font-roboto text-sm text-white/85 hover:text-white underline underline-offset-2">Privacy
                         Policy</a>
                     <a href="#"
-                        class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Terms of
+                        class="font-roboto text-sm text-white/85 hover:text-white underline underline-offset-2">Terms of
                         Service</a>
                     <a href="#"
-                        class="font-lexend text-sm text-white/85 hover:text-white underline underline-offset-2">Cookies
+                        class="font-roboto text-sm text-white/85 hover:text-white underline underline-offset-2">Cookies
                         Settings</a>
                 </div>
             </div>
         </div>
     </footer>
 
+
+    <!-- Zoom overlay image -->
+    <img id="zoom-img" src="./assets/images/banner/1.webp" class="fixed pointer-events-none object-cover"
+        style="z-index:80; opacity:0; top:0; left:0; width:0; height:0;" />
+    <script src="./assets/js/shared-partials.js" defer></script>
+    <script src="./assets/js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Lenis smooth scroll -->
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+
+    <script>
+        window.addEventListener('load', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            /* ── Lenis smooth scroll ── */
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true
+            });
+
+            /* Sync Lenis scroll position with GSAP ScrollTrigger */
+            lenis.on('scroll', ScrollTrigger.update);
+
+            /* Drive Lenis from GSAP's RAF loop so pinned sections stay in sync */
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+
+            const banner = document.querySelector("#banner-img");
+            const bannerImg = banner.querySelector("img");
+            const zoomImg = document.querySelector("#zoom-img");
+            const hero = document.querySelector("#hero-section");
+            const pageBg = document.querySelector("#page-bg");
+            const galleryTrigger = document.querySelector("#gallery-trigger");
+            const gallery = document.querySelector("#horiz-gallery");
+            const track = document.querySelector("#horiz-track");
+
+            if (!banner || !zoomImg || !hero) return;
+
+            /* ─────────────────────────────────────────────────────────────
+               INITIAL SETUP
+               Capture the banner's absolute position once (before any scroll).
+               Since we are NOT pinning the hero, the banner will move as the
+               page scrolls, so we need to track its absolute document position.
+            ───────────────────────────────────────────────────────────────── */
+            let initTop, initLeft, initWidth, initHeight;
+
+            const captureInitial = () => {
+                const r = banner.getBoundingClientRect();
+                initTop = r.top + window.scrollY;
+                initLeft = r.left + window.scrollX;
+                initWidth = r.width;
+                initHeight = r.height;
+
+                // Hide clone at initial position
+                gsap.set(zoomImg, {
+                    position: "fixed",
+                    top: r.top, left: r.left,
+                    width: r.width, height: r.height,
+                    rotation: -2, borderRadius: "8px",
+                    scale: 1, opacity: 0
+                });
+            };
+
+            captureInitial();
+            window.addEventListener('resize', captureInitial);
+
+            /* ─────────────────────────────────────────────────────────────
+               TRIGGER 1: HERO EXITS → IMAGE ZOOMS TO FULLSCREEN
+               Hero is NOT pinned — it scrolls away naturally.
+               As the hero scrolls out of view, the small banner image
+               zooms from its position to fullscreen.
+            ───────────────────────────────────────────────────────────────── */
+            ScrollTrigger.create({
+                trigger: hero,
+                start: "top top",        // when hero top hits viewport top
+                end: "bottom top",       // when hero bottom has left viewport completely
+                scrub: 0.8,
+                onUpdate(self) {
+                    const p = self.progress;
+                    const vW = window.innerWidth;
+                    const vH = window.innerHeight;
+
+                    if (p < 0.05) {
+                        // Hero mostly visible — keep original, hide clone
+                        gsap.set(zoomImg, { opacity: 0 });
+                        gsap.set(bannerImg, { opacity: 1 });
+                        if (gallery) gsap.set(gallery, { display: "none" });
+                        return;
+                    }
+
+                    // Sub-progress (0 → 1) from 5% onwards
+                    const sp = (p - 0.05) / 0.95;
+                    const esp = 1 - Math.pow(1 - sp, 1.8); // ease-out curve
+
+                    // Banner's current viewport-relative position (it scrolls with the page)
+                    const viewportTop = initTop - window.scrollY;
+                    const viewportLeft = initLeft - window.scrollX;
+
+                    // Image TRAVELS DOWN then expands
+                    // Down movement: top dips down to ~40% of viewport in first half,
+                    //                then sweeps to 0 (fullscreen) in second half
+                    const midDown = viewportTop + (vH - viewportTop) * 0.4;
+                    let imgTop;
+                    if (sp < 0.45) {
+                        imgTop = gsap.utils.interpolate(viewportTop, midDown, sp / 0.45);
+                    } else {
+                        imgTop = gsap.utils.interpolate(midDown, 0, (sp - 0.45) / 0.55);
+                    }
+
+                    gsap.set(zoomImg, {
+                        position: "fixed",
+                        top: imgTop,
+                        left: gsap.utils.interpolate(viewportLeft, 0, esp),
+                        width: gsap.utils.interpolate(initWidth, vW, esp),
+                        height: gsap.utils.interpolate(initHeight, vH, esp),
+                        rotation: gsap.utils.interpolate(-2, 0, esp),
+                        borderRadius: gsap.utils.interpolate(12, 0, esp) + "px",
+                        scale: 1,
+                        opacity: Math.min(sp * 3, 1)  // fade in quickly
+                    });
+
+                    // Hide original banner image as clone takes over
+                    gsap.set(bannerImg, { opacity: sp < 0.15 ? (1 - sp / 0.15) : 0 });
+
+                    // Fade out the fixed hero background as zoom image grows over it
+                    if (pageBg) gsap.set(pageBg, { opacity: Math.max(0, 1 - sp * 1.5) });
+
+                    // Hide gallery during hero exit
+                    if (gallery) gsap.set(gallery, { display: "none" });
+                },
+                onLeave() {
+                    // Hero fully scrolled — lock zoom image at fullscreen
+                    gsap.set(zoomImg, {
+                        position: "fixed",
+                        top: 0, left: 0,
+                        width: "100vw", height: "100vh",
+                        rotation: 0, borderRadius: 0,
+                        scale: 1, opacity: 1
+                    });
+                    gsap.set(bannerImg, { opacity: 0 });
+                },
+                onEnterBack() {
+                    // User scrolled back into hero — restore bg, hide gallery
+                    if (pageBg) gsap.set(pageBg, { opacity: 1 });
+                    if (gallery) gsap.set(gallery, { display: "none", opacity: 1 });
+                }
+            });
+
+            /* ─────────────────────────────────────────────────────────────
+               TRIGGER 2: GALLERY — 4 HORIZONTAL IMAGES
+               Pinned section after hero. Provides scroll budget for 4 panels.
+               After 4th panel visible → gallery fades → shop section below.
+            ───────────────────────────────────────────────────────────────── */
+            if (galleryTrigger && gallery && track) {
+                ScrollTrigger.create({
+                    trigger: galleryTrigger,
+                    start: "top top",
+                    end: "+=300%",    // 3 extra viewports = 3 transitions for 4 panels
+                    scrub: 1,
+                    pin: true,        // pins the gallery-trigger div (invisible spacer)
+                    pinSpacing: true,
+                    onUpdate(self) {
+                        const p = self.progress;
+                        const vW = window.innerWidth;
+
+                        // Keep zoom-img hidden — gallery is on top (z-index: 90 > 80)
+                        gsap.set(zoomImg, {
+                            position: "fixed", top: 0, left: 0,
+                            width: "100vw", height: "100vh",
+                            opacity: 1, scale: 1
+                        });
+
+                        if (p < 0.90) {
+                            // Scrub gallery panels left-to-right
+                            const galleryP = p / 0.90;
+                            const translateX = -galleryP * 3 * vW;
+
+                            gsap.set(gallery, { display: "flex", opacity: 1 });
+                            gsap.set(track, { x: translateX });
+                        } else {
+                            // Last 10%: fade out gallery → shop becomes visible
+                            const sp = (p - 0.90) / 0.10;
+                            gsap.set(gallery, { display: "flex", opacity: 1 - sp });
+                            gsap.set(track, { x: -3 * vW });
+
+                            if (sp >= 1) {
+                                gsap.set(gallery, { display: "none" });
+                                gsap.set(zoomImg, { opacity: 0 });
+                            }
+                        }
+                    },
+                    onLeave() {
+                        // Gallery fully done — hide everything, let shop scroll in
+                        gsap.set(gallery, { display: "none" });
+                        gsap.set(zoomImg, { opacity: 0 });
+                    },
+                    onEnterBack() {
+                        gsap.set(gallery, { display: "flex", opacity: 1 });
+                        gsap.set(zoomImg, { position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", opacity: 1 });
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Scenario Cards GSAP Animation -->
+    <script>
+        window.addEventListener('load', () => {
+            const scenarioSection = document.querySelector('#scenario-section');
+            const cards = gsap.utils.toArray('#scenario-section .scenario-card');
+
+            if (!scenarioSection || !cards.length) return;
+
+            // All cards start below viewport
+            gsap.set(cards, { y: '110vh' });
+
+            ScrollTrigger.create({
+                trigger: scenarioSection,
+                start: 'top top',
+                end: '+=400%',   // 4 cards × 100vh
+                scrub: 1,
+                pin: true,
+                onUpdate(self) {
+                    const p = self.progress;
+                    const n = cards.length; // 4
+
+                    cards.forEach((card, i) => {
+                        const phaseStart = i / n;        // 0.00, 0.25, 0.50, 0.75
+                        const phaseEnd = (i + 1) / n; // 0.25, 0.50, 0.75, 1.00
+
+                        if (p < phaseStart) {
+                            gsap.set(card, { y: window.innerHeight * 1.1 });
+                        } else if (p < phaseEnd) {
+                            const sp = (p - phaseStart) / (1 / n); // 0→1 within this phase
+                            const esp = 1 - Math.pow(1 - sp, 2);    // ease-out
+                            gsap.set(card, { y: gsap.utils.interpolate(window.innerHeight * 1.1, 0, esp) });
+                        } else {
+                            gsap.set(card, { y: 0 }); // resting at center
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.faq-item');
+
+            items.forEach(item => {
+                const btn = item.querySelector('.faq-toggle');
+                const answer = item.querySelector('.faq-answer');
+
+                // Initial state
+                gsap.set(answer, { height: 0, opacity: 0 });
+
+                item.addEventListener('click', (e) => {
+                    const isOpen = item.classList.contains('active');
+
+                    // Close all
+                    items.forEach(i => {
+                        i.classList.remove('active');
+
+                        const a = i.querySelector('.faq-answer');
+                        const b = i.querySelector('.faq-toggle');
+
+                        gsap.to(a, {
+                            height: 0,
+                            opacity: 0,
+                            duration: 0.4,
+                            ease: "power2.inOut"
+                        });
+
+                        gsap.to(b, {
+                            rotate: 0,
+                            duration: 0.3
+                        });
+
+                        b.textContent = '+';
+                    });
+
+                    // Open current
+                    if (!isOpen) {
+                        item.classList.add('active');
+
+                        gsap.to(answer, {
+                            height: "auto",
+                            opacity: 1,
+                            duration: 0.5,
+                            ease: "power3.out"
+                        });
+
+                        gsap.fromTo(answer,
+                            { scale: 0.98 },
+                            { scale: 1, duration: 0.4, ease: "power2.out" }
+                        );
+
+                        gsap.to(btn, {
+                            rotate: 180,
+                            duration: 0.3
+                        });
+
+                        btn.textContent = '−';
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let shopSwiperInstance = null;
+
+            function initShopSwiper() {
+                const isDesktop = window.innerWidth >= 1024;
+
+                if (isDesktop) {
+                    // Destroy Swiper on Desktop to utilize static CSS Grid
+                    if (shopSwiperInstance !== null) {
+                        shopSwiperInstance.destroy(true, true);
+                        shopSwiperInstance = null;
+                    }
+                } else {
+                    // Initialize or Keep Swiper on Mobile/Tablet
+                    if (shopSwiperInstance === null) {
+                        shopSwiperInstance = new Swiper('.shop-swiper', {
+                            centeredSlides: true,
+                            loop: true,
+                            speed: 800,
+                            grabCursor: true,
+                            slidesPerView: 1.25,
+                            spaceBetween: 16,
+                            breakpoints: {
+                                640: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 24,
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+
+            // Initial check
+            initShopSwiper();
+
+            // Re-evaluate on window resize to ensure correct state natively
+            window.addEventListener('resize', initShopSwiper);
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let journeySwiper = null;
+
+            function initJourneySwiper() {
+                const isDesktop = window.innerWidth >= 1024;
+
+                if (isDesktop) {
+                    if (journeySwiper) {
+                        journeySwiper.destroy(true, true);
+                        journeySwiper = null;
+                    }
+                } else {
+                    if (!journeySwiper) {
+                        journeySwiper = new Swiper('.journey-swiper', {
+                            slidesPerView: 1.2,
+                            centeredSlides: true,
+                            spaceBetween: 16,
+                            loop: true,
+                            grabCursor: true,
+                        });
+                    }
+                }
+            }
+
+            initJourneySwiper();
+            window.addEventListener('resize', initJourneySwiper);
+        });
+    </script>
+
+    <!-- header script  -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const bars = menuBtn.querySelectorAll('span');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            const dropdownBtn = document.getElementById('dropdownBtn');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+
+            let isMenuOpen = false;
+            let isDropdownOpen = false;
+
+            // Initialize menu state for GSAP
+            gsap.set(mobileMenu, { opacity: 0, scale: 0.95, y: -10, pointerEvents: 'none' });
+
+            menuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+
+                if (isMenuOpen) {
+                    // Animate Menu Panel In
+                    gsap.to(mobileMenu, {
+                        opacity: 1,
+                        scale: 1,
+                        y: 0,
+                        pointerEvents: 'auto',
+                        duration: 0.4,
+                        ease: "back.out(1.7)"
+                    });
+
+                    // Animate Hamburger to X
+                    gsap.to(bars[0], { y: 7, rotation: 45, duration: 0.3 });
+                    gsap.to(bars[1], { opacity: 0, duration: 0.2 });
+                    gsap.to(bars[2], { y: -7, rotation: -45, duration: 0.3 });
+
+                    // Stagger links
+                    gsap.fromTo(mobileLinks,
+                        { opacity: 0, y: 10 },
+                        { opacity: 1, y: 0, stagger: 0.1, duration: 0.4, delay: 0.1 }
+                    );
+                } else {
+                    // Animate Menu Panel Out
+                    gsap.to(mobileMenu, {
+                        opacity: 0,
+                        scale: 0.95,
+                        y: -10,
+                        pointerEvents: 'none',
+                        duration: 0.3,
+                        ease: "power2.in"
+                    });
+
+                    // Animate X to Hamburger
+                    gsap.to(bars[0], { y: 0, rotation: 0, duration: 0.3 });
+                    gsap.to(bars[1], { opacity: 1, duration: 0.3 });
+                    gsap.to(bars[2], { y: 0, rotation: 0, duration: 0.3 });
+                }
+            });
+
+            dropdownBtn.addEventListener('click', () => {
+                isDropdownOpen = !isDropdownOpen;
+
+                if (isDropdownOpen) {
+                    dropdownMenu.classList.remove('hidden');
+                    gsap.fromTo(dropdownMenu, { height: 0, opacity: 0 }, { height: 'auto', opacity: 1, duration: 0.3 });
+                } else {
+                    gsap.to(dropdownMenu, {
+                        height: 0,
+                        opacity: 0,
+                        duration: 0.3,
+                        onComplete: () => dropdownMenu.classList.add('hidden')
+                    });
+                }
+            });
+
+            // Close menu on click outside
+            document.addEventListener('click', (e) => {
+                if (isMenuOpen && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                    menuBtn.click();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
