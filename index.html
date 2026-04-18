@@ -282,45 +282,45 @@
 
         </section>
 
-        <!-- HORIZONTAL GALLERY SECTION (hidden, controlled by GSAP) -->
-        <div id="horiz-gallery"
-            class="fixed inset-0 bg-[url('/assets/images/hero-banner.svg')] bg-cover bg-center items-center overflow-hidden"
-            style="z-index:90; display:none;">
-            <!-- 4 fullscreen panels side by side -->
-            <div id="horiz-track" class="flex h-full" style="width:400vw">
-                <!-- Panel 1 - Banner image -->
-                <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
-                    <img src="./assets/images/banner/1.webp" class="w-full h-full object-cover" />
-                    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
-                        <p class="font-bebas text-white text-2xl tracking-widest opacity-70">01 / 04</p>
+        <!-- GALLERY TRIGGER & CONTAINER: GSAP pins this to scrub the horizontal gallery -->
+        <div id="gallery-trigger" class="relative w-full h-[100vh] z-[90]">
+            <!-- HORIZONTAL GALLERY SECTION -->
+            <div id="horiz-gallery"
+                class="absolute inset-0 bg-[url('/assets/images/hero-banner.svg')] bg-cover bg-center items-center overflow-hidden"
+                style="display:none;">
+                <!-- 4 fullscreen panels side by side -->
+                <div id="horiz-track" class="flex h-full" style="width:400vw">
+                    <!-- Panel 1 - Banner image -->
+                    <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
+                        <img src="./assets/images/banner/1.webp" class="w-full h-full object-cover" />
+                        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
+                            <p class="font-bebas text-white text-2xl tracking-widest opacity-70">01 / 04</p>
+                        </div>
                     </div>
-                </div>
-                <!-- Panel 2 -->
-                <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
-                    <img src="./assets/images/banner/2.webp" class="w-full h-full object-cover" />
-                    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
-                        <p class="font-bebas text-white text-2xl tracking-widest opacity-70">02 / 04</p>
+                    <!-- Panel 2 -->
+                    <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
+                        <img src="./assets/images/banner/2.webp" class="w-full h-full object-cover" />
+                        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
+                            <p class="font-bebas text-white text-2xl tracking-widest opacity-70">02 / 04</p>
+                        </div>
                     </div>
-                </div>
-                <!-- Panel 3 -->
-                <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
-                    <img src="./assets/images/banner/3.webp" class="w-full h-full object-cover" />
-                    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
-                        <p class="font-bebas text-white text-2xl tracking-widest opacity-70">03 / 04</p>
+                    <!-- Panel 3 -->
+                    <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
+                        <img src="./assets/images/banner/3.webp" class="w-full h-full object-cover" />
+                        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
+                            <p class="font-bebas text-white text-2xl tracking-widest opacity-70">03 / 04</p>
+                        </div>
                     </div>
-                </div>
-                <!-- Panel 4 -->
-                <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
-                    <img src="./assets/images/banner/4.webp" class="w-full h-full object-cover" />
-                    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
-                        <p class="font-bebas text-white text-2xl tracking-widest opacity-70">04 / 04</p>
+                    <!-- Panel 4 -->
+                    <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
+                        <img src="./assets/images/banner/4.webp" class="w-full h-full object-cover" />
+                        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
+                            <p class="font-bebas text-white text-2xl tracking-widest opacity-70">04 / 04</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- GALLERY TRIGGER: GSAP pins this to provide scroll distance for horizontal gallery -->
-        <div id="gallery-trigger" style="height: 1px;"></div>
 
 
 
@@ -420,6 +420,80 @@
                                 <div class="text-white font-inter font-medium text-lg md:text-xl pl-4">
                                     $55
                                 </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Duplicated Cards for Seamless Mobile Infinite Loop -->
+                    <!-- Card 1 Duplicate -->
+                    <div class="swiper-slide lg:hidden" aria-hidden="true">
+                        <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-full h-full border border-white/20 bg-black flex flex-col relative group transition-transform duration-300 lg:hover:shadow-2xl cursor-pointer">
+                            <div
+                                class="w-full aspect-square relative overflow-hidden flex items-center justify-center ">
+                                <img src="./assets/images/product/1.png"
+                                    class="w-full h-full object-cover mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
+                                    alt="On Me Pepper Spray">
+                            </div>
+                            <div
+                                class="p-4 md:p-5 border-t border-white/20 flex justify-between items-start bg-black z-10 shrink-0 min-h-[85px]">
+                                <div class="flex flex-col justify-center">
+                                    <h3
+                                        class="font-bebas text-2xl md:text-3xl text-white uppercase tracking-wider leading-none">
+                                        ON ME PEPPER SPRAY</h3>
+                                    <span
+                                        class="text-white/50 text-[10px] md:text-xs font-inter mt-1.5 leading-none">Variant</span>
+                                </div>
+                                <div class="text-white font-inter font-medium text-lg md:text-xl pl-4">$55</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Card 2 Duplicate -->
+                    <div class="swiper-slide lg:hidden" aria-hidden="true">
+                        <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-full h-full border border-white/20 lg:border-l-0 bg-black flex flex-col relative group transition-transform duration-300 cursor-pointer">
+                            <div class="w-full aspect-square relative overflow-hidden flex items-center justify-center">
+                                <img src="./assets/images/product/2.png"
+                                    class="w-full h-full object-cover mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
+                                    alt="Sip Check Stickers">
+                            </div>
+                            <div
+                                class="p-4 md:p-5 border-t border-white/20 flex justify-between items-start bg-black z-10 shrink-0 min-h-[85px]">
+                                <div class="flex flex-col justify-center">
+                                    <h3
+                                        class="font-bebas text-2xl md:text-3xl text-white uppercase tracking-wider leading-none">
+                                        SIP 'N CHECK STICKERS</h3>
+                                    <span
+                                        class="text-white/50 text-[10px] md:text-xs font-inter mt-1.5 leading-none">Variant</span>
+                                </div>
+                                <div class="text-white font-inter font-medium text-lg md:text-xl pl-4">$55</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Card 3 Duplicate -->
+                    <div class="swiper-slide lg:hidden" aria-hidden="true">
+                        <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-full h-full border border-white/20 lg:border-l-0 bg-black flex flex-col relative group transition-transform duration-300 cursor-pointer">
+                            <div class="w-full aspect-square relative overflow-hidden flex items-center justify-center">
+                                <img src="./assets/images/product/3.png"
+                                    class="w-full h-full object-cover mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
+                                    alt="Combo Pack">
+                            </div>
+                            <div
+                                class="p-4 md:p-5 border-t border-white/20 flex justify-between items-start bg-black z-10 shrink-0 min-h-[85px]">
+                                <div class="flex flex-col justify-center">
+                                    <h3
+                                        class="font-bebas text-2xl md:text-3xl text-white uppercase tracking-wider leading-none">
+                                        ON ME + SIP CHECK COMBO</h3>
+                                    <span
+                                        class="text-white/50 text-[10px] md:text-xs font-inter mt-1.5 leading-none">Variant</span>
+                                </div>
+                                <div class="text-white font-inter font-medium text-lg md:text-xl pl-4">$55</div>
                             </div>
                         </a>
                     </div>
@@ -1326,33 +1400,23 @@
                             opacity: 1, scale: 1
                         });
 
-                        if (p < 0.90) {
-                            // Scrub gallery panels left-to-right
-                            const galleryP = p / 0.90;
-                            const translateX = -galleryP * 3 * vW;
+                        // Scrub gallery panels left-to-right from 0 to 1
+                        const translateX = -p * 3 * vW;
 
-                            gsap.set(gallery, { display: "flex", opacity: 1 });
-                            gsap.set(track, { x: translateX });
-                        } else {
-                            // Last 10%: fade out gallery → shop becomes visible
-                            const sp = (p - 0.90) / 0.10;
-                            gsap.set(gallery, { display: "flex", opacity: 1 - sp });
-                            gsap.set(track, { x: -3 * vW });
-
-                            if (sp >= 1) {
-                                gsap.set(gallery, { display: "none" });
-                                gsap.set(zoomImg, { opacity: 0 });
-                            }
-                        }
+                        // Because gallery is inside the scrolling trigger now, it's always block and visible!
+                        gsap.set(gallery, { display: "flex", opacity: 1 });
+                        gsap.set(track, { x: translateX });
+                        gsap.set(zoomImg, { opacity: 1 });
                     },
                     onLeave() {
-                        // Gallery fully done — hide everything, let shop scroll in
-                        gsap.set(gallery, { display: "none" });
+                        // We do not hide the gallery! It naturally scrolls UP out of the viewport.
+                        // We DO hide the zoomImg since it's fixed underneath and would stick out as gallery moves UP.
                         gsap.set(zoomImg, { opacity: 0 });
                     },
                     onEnterBack() {
-                        gsap.set(gallery, { display: "flex", opacity: 1 });
+                        // Restore zoomImg opacity as the gallery scrolls DOWN back into the viewport over it
                         gsap.set(zoomImg, { position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", opacity: 1 });
+                        gsap.set(gallery, { display: "flex", opacity: 1 });
                     }
                 });
             }
@@ -1482,9 +1546,10 @@
                         shopSwiperInstance = new Swiper('.shop-swiper', {
                             centeredSlides: true,
                             loop: true,
+                            loopAdditionalSlides: 3,
                             speed: 800,
                             grabCursor: true,
-                            slidesPerView: 1.25,
+                            slidesPerView: 1.5,
                             spaceBetween: 16,
                             breakpoints: {
                                 640: {
