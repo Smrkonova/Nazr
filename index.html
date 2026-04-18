@@ -514,7 +514,7 @@
 
             <!-- Background headline text -->
             <div
-                class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden px-4">
+                class="absolute inset-0 flex mt-4 md:mt-0 items-start md:items-center justify-center pointer-events-none select-none overflow-hidden px-4">
                 <h2 class="font-bebas text-center  text-[64px] xl:text-[200px] text-[#E6007E] leading-[0.9] uppercase">
                     TIMES YOU'LL WANT<br>NAZR ON YOU
                 </h2>
@@ -524,7 +524,7 @@
             <div id="card-stack" class="absolute inset-0">
 
                 <!-- Card 1 -->
-                <div class="rotate-[9deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                <div class="rotate-[9deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
                     style="z-index:1;">
                     <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
                         <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
@@ -548,7 +548,7 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="rotate-[6deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                <div class="rotate-[6deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
                     style="z-index:2;">
                     <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
                         <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
@@ -572,7 +572,7 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="rotate-[3deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                <div class="rotate-[3deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
                     style="z-index:3;">
                     <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
                         <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
@@ -596,7 +596,7 @@
                 </div>
 
                 <!-- Card 4 -->
-                <div class="rotate-[0deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                <div class="rotate-[0deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
                     style="z-index:4;">
                     <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
                         <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
@@ -1546,7 +1546,7 @@
                         shopSwiperInstance = new Swiper('.shop-swiper', {
                             centeredSlides: true,
                             loop: true,
-                            loopAdditionalSlides: 3,
+                            loopedSlides: 3,
                             speed: 800,
                             grabCursor: true,
                             slidesPerView: 1.5,
@@ -1585,11 +1585,19 @@
                 } else {
                     if (!journeySwiper) {
                         journeySwiper = new Swiper('.journey-swiper', {
-                            slidesPerView: 1.2,
                             centeredSlides: true,
-                            spaceBetween: 16,
                             loop: true,
+                            loopedSlides: 3,
+                            speed: 800,
                             grabCursor: true,
+                            slidesPerView: 1,
+                            spaceBetween: 16,
+                            breakpoints: {
+                                640: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 24,
+                                }
+                            }
                         });
                     }
                 }
