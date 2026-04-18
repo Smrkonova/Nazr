@@ -103,3 +103,28 @@ body {
         transform: none !important;
     }
 }
+
+.journey-swiper {
+    overflow: visible !important;
+}
+
+.journey-swiper .swiper-slide {
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.5;
+    transform: scale(0.85);
+}
+
+.journey-swiper .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10;
+}
+
+@media (min-width: 1024px) {
+
+    /* On desktop, reset swiper scales completely */
+    .journey-swiper .swiper-slide {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
