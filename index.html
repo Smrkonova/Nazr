@@ -28,112 +28,321 @@
         #scenario-section {
             background: #5BC0EB;
         }
+
+        /* Top Banner Swiper Dots Styling */
+        .top-banner-swiper .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.4);
+            opacity: 1;
+            width: 8px;
+            height: 8px;
+            margin: 0 !important;
+            transition: all 0.3s ease;
+        }
+
+        .top-banner-swiper .swiper-pagination-bullet-active {
+            background: #E6007E;
+            width: 10px;
+            height: 10px;
+            box-shadow: 0 0 10px rgba(230, 0, 126, 0.5);
+        }
     </style>
 </head>
 
 <body>
     <!-- Fixed background: keeps hero SVG visible during scroll transition -->
-    <div id="page-bg"
-        style="position:fixed; inset:0; background: url('/assets/images/hero-banner.svg') center center / cover no-repeat; z-index:-1;">
-    </div>
-    <header class="w-full max-w-6xl absolute left-0 right-0 mx-auto z-50 mt-8">
-        <nav
-            class="relative z-50 bg-[#000000AD] border border-white/5 rounded-full px-6 py-3 flex items-center justify-between gap-8 shadow-2xl backdrop-blur-md font-roboto mx-4">
+    <!-- <div id="page-bg"
+        style=" background: url('/assets/images/hero-banner.svg') center center / cover no-repeat; z-index:-1;">
+    </div> -->
+    <!-- ═══════════════════════════════════════════════════
+         HEADER
+    ═══════════════════════════════════════════════════ -->
+    <header class="w-full absolute top-0 left-0 right-0 z-[200] pt-5 px-4 md:px-8">
+
+        <!-- Main nav pill -->
+        <nav id="main-nav"
+            class="relative max-w-7xl mx-auto bg-black/70 border border-white/10 rounded-full px-6 py-3 flex items-center justify-between gap-8 shadow-2xl backdrop-blur-xl font-roboto transition-all duration-300">
 
             <!-- Logo -->
-            <div>
-                <a href="/" class="overflow-hidden rounded-full flex items-center justify-center">
-                    <img src="assets/images/logo.svg" alt="Owl Logo" class="w-full h-full object-cover scale-100">
-                </a>
-            </div>
+            <a href="/" class="flex-shrink-0">
+                <img src="assets/images/logo.svg" alt="Nazr Logo" class="h-8 w-auto object-contain">
+            </a>
 
             <!-- Desktop Menu -->
-            <nav class="hidden md:flex items-center gap-8 text-white text-sm">
+            <div class="hidden md:flex items-center gap-7 text-white text-sm font-medium">
+                <a href="/" class="hover:text-[#E6007E] transition-colors">HOME</a>
 
-                <a href="#" class="hover:text-pink-300">Link One</a>
-                <a href="#" class="hover:text-pink-300">Link Two</a>
-                <a href="#" class="hover:text-pink-300">Link Three</a>
-
-                <!-- Dropdown -->
-                <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-pink-300">
-                        Link Four
-                        ▼
+                <!-- PRODUCTS mega-menu trigger -->
+                <div class="relative group" id="products-menu">
+                    <button class="flex items-center gap-1.5 hover:text-[#E6007E] transition-colors py-1"
+                        aria-haspopup="true">
+                        PRODUCTS
+                        <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
                     </button>
 
-                    <!-- Dropdown Menu -->
-                    <div
-                        class="absolute top-8 left-0 bg-[#5a002c] rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-40">
-                        <a href="#" class="block px-4 py-2 hover:bg-pink-500 rounded-t-lg">Sub Link 1</a>
-                        <a href="#" class="block px-4 py-2 hover:bg-pink-500 rounded-b-lg">Sub Link 2</a>
+                    <!-- Mega Menu Panel -->
+                    <div class="absolute top-[calc(100%+20px)] left-1/2 -translate-x-1/2
+                                w-[560px] bg-black/95 backdrop-blur-xl border border-white/10
+                                rounded-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.7)]
+                                opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                                translate-y-3 group-hover:translate-y-0
+                                transition-all duration-300 ease-out
+                                p-6 grid grid-cols-3 gap-4 z-50">
+
+                        <!-- Product 1 -->
+                        <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                            class="group/card relative rounded-[16px] overflow-hidden border border-white/10 hover:border-[#E6007E]/60 transition-all duration-300">
+                            <div class="aspect-[3/4] overflow-hidden">
+                                <img src="./assets/images/product/1.png" alt="Nazr Impower"
+                                    class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-end justify-between">
+                                <span
+                                    class="text-white text-xs font-bold tracking-wider uppercase font-bebas text-sm">IMPOWER</span>
+                                <span
+                                    class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Product 2 -->
+                        <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                            class="group/card relative rounded-[16px] overflow-hidden border border-white/10 hover:border-[#E6007E]/60 transition-all duration-300">
+                            <div class="aspect-[3/4] overflow-hidden">
+                                <img src="./assets/images/product/2.png" alt="Nazr Shield"
+                                    class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-end justify-between">
+                                <span class="text-white font-bebas text-sm tracking-wider uppercase">SHIELD</span>
+                                <span
+                                    class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
+                        <!-- Product 3 -->
+                        <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                            class="group/card relative rounded-[16px] overflow-hidden border border-white/10 hover:border-[#E6007E]/60 transition-all duration-300">
+                            <div class="aspect-[3/4] overflow-hidden">
+                                <img src="./assets/images/product/3.png" alt="Nazr Guard"
+                                    class="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-500">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-end justify-between">
+                                <span class="text-white font-bebas text-sm tracking-wider uppercase">GUARD</span>
+                                <span
+                                    class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                            d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+
                     </div>
                 </div>
 
-            </nav>
+                <a href="#" class="hover:text-[#E6007E] transition-colors">PWA</a>
+                <a href="#" class="hover:text-[#E6007E] transition-colors">NAZR ECOSYSTEM</a>
+            </div>
 
-            <!-- Buttons -->
-            <div class="hidden md:flex items-center gap-3">
+            <!-- Desktop icons -->
+            <div class="hidden md:flex items-center gap-4">
                 <a href="https://shop.nazrco.in/cart" target="_blank"
-                    class="px-4 py-1 border border-white text-white rounded-full">
-                    Cart
+                    class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="./assets/images/icons/user.svg" alt="Account">
                 </a>
                 <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
-                    class="px-4 py-1 bg-pink-500 text-white rounded-full">
-                    Shop
+                    class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="./assets/images/icons/cart.svg" alt="Cart">
                 </a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="menuBtn" class="md:hidden text-white flex flex-col gap-1.5 p-2 focus:outline-none z-[60]">
-                <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
-                <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
-                <span class="w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+            <!-- Mobile hamburger -->
+            <button id="menuBtn" aria-label="Open menu"
+                class="md:hidden flex flex-col gap-[5px] p-2 z-[210] focus:outline-none">
+                <span
+                    class="menu-bar w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span
+                    class="menu-bar w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span
+                    class="menu-bar w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"></span>
             </button>
+        </nav>
+
+        <!-- ─── MOBILE FULL-SCREEN MENU ─── -->
+        <div id="mobileMenu"
+            class="fixed inset-0 z-[205] bg-black/97 backdrop-blur-xl flex-col pt-8 px-6 pb-10 overflow-y-auto md:hidden"
+            style="display: none; opacity: 0; pointer-events: none;">
+
+            <!-- Mobile Menu Header -->
+            <div class="flex items-center justify-between pb-8 border-b border-white/10 mb-4">
+                <a href="/" class="flex-shrink-0">
+                    <img src="assets/images/logo.svg" alt="Nazr Logo" class="h-8 w-auto object-contain">
+                </a>
+                <button id="mobileCloseBtn" class="text-white/60 hover:text-white transition-colors focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
 
-            <!-- Mobile Menu Panel -->
-            <div id="mobileMenu"
-                class="absolute right-4 top-20 w-[240px] bg-[#4a0028] rounded-[24px] p-6 text-white shadow-2xl z-50 pointer-events-none opacity-0 scale-95 origin-top-right transition-all duration-300 backdrop-blur-lg border border-white/5 md:hidden">
+            <div class="flex flex-col gap-1 text-white font-roboto">
+                <a href="/"
+                    class="mobile-link py-4 text-xl font-bold border-b border-white/10 hover:text-[#E6007E] transition-colors">HOME</a>
 
-                <div class="flex flex-col gap-5 text-sm font-medium">
-                    <a href="#" class="mobile-link hover:text-pink-300 transition-colors">Link One</a>
-                    <a href="#" class="mobile-link hover:text-pink-300 transition-colors">Link Two</a>
-                    <a href="#" class="mobile-link hover:text-pink-300 transition-colors">Link Three</a>
+                <!-- PRODUCTS accordion -->
+                <div class="border-b border-white/10">
+                    <button id="mobileProductsBtn"
+                        class="w-full py-4 text-xl font-bold flex items-center justify-between hover:text-[#E6007E] transition-colors">
+                        PRODUCTS
+                        <svg id="mobileProductsArrow" class="w-5 h-5 transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
 
-                    <!-- Mobile Dropdown -->
-                    <div class="mobile-link">
-                        <button id="dropdownBtn" class="w-full text-left flex justify-between items-center group">
-                            Link Four
-                            <span class="text-[10px] group-active:rotate-180 transition-transform">▼</span>
-                        </button>
+                    <!-- 3 product grid -->
+                    <div id="mobileProductsPanel" class="hidden pb-4">
+                        <div class="grid grid-cols-3 gap-3">
 
-                        <div id="dropdownMenu"
-                            class="hidden flex flex-col gap-3 pl-4 mt-3 border-l border-white/10 opacity-80">
-                            <a href="#" class="hover:text-pink-300">Sub Link 1</a>
-                            <a href="#" class="hover:text-pink-300">Sub Link 2</a>
+                            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                                class="relative rounded-[14px] overflow-hidden border border-white/10">
+                                <div class="aspect-[3/4]">
+                                    <img src="./assets/images/product/1.png" alt="Impower"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-end justify-between">
+                                    <span class="text-white font-bebas text-sm tracking-wider">IMPOWER</span>
+                                    <span class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center">
+                                        <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+
+                            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                                class="relative rounded-[14px] overflow-hidden border border-white/10">
+                                <div class="aspect-[3/4]">
+                                    <img src="./assets/images/product/2.png" alt="Shield"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-end justify-between">
+                                    <span class="text-white font-bebas text-sm tracking-wider">SHIELD</span>
+                                    <span class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center">
+                                        <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+
+                            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                                class="relative rounded-[14px] overflow-hidden border border-white/10">
+                                <div class="aspect-[3/4]">
+                                    <img src="./assets/images/product/3.png" alt="Guard"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-end justify-between">
+                                    <span class="text-white font-bebas text-sm tracking-wider">GUARD</span>
+                                    <span class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center">
+                                        <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+
                         </div>
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-3 mt-8 pt-6 border-t border-white/10">
-                    <a href=""
-                        class="px-6 py-2.5 border border-white/30 rounded-full text-xs font-bold hover:bg-white/10 transition-colors">
-                        Button
-                    </a>
-                    <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
-                        class="px-6 py-2.5 bg-[#E6007E] text-white rounded-full text-xs font-bold hover:bg-[#ff1a96] transition-colors shadow-lg">
-                        Button
-                    </a>
-                </div>
+                <a href="#"
+                    class="mobile-link py-4 text-xl font-bold border-b border-white/10 hover:text-[#E6007E] transition-colors">PWA</a>
+                <a href="#"
+                    class="mobile-link py-4 text-xl font-bold border-b border-white/10 hover:text-[#E6007E] transition-colors">NAZR
+                    ECOSYSTEM</a>
             </div>
+
+            <!-- Mobile Menu Image Slider -->
+            <div class="mt-6 hidden">
+                <!-- Removed per user request -->
+            </div>
+
+            <!-- Mobile CTA -->
+            <div class="mt-8 flex flex-col gap-3">
+                <a href="https://shop.nazrco.in/cart" target="_blank"
+                    class="w-full py-3 text-center border border-white/30 rounded-full text-sm font-bold hover:bg-white/10 transition-colors text-white">
+                    My Account
+                </a>
+                <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                    class="w-full py-3 text-center bg-[#E6007E] text-white rounded-full text-sm font-bold hover:bg-[#ff1a96] transition-colors shadow-lg">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+
     </header>
+
+    <!-- Mobile menu JS inline for isolation -->
+    <script>
+        (function () {
+            const mobileProductsBtn = document.getElementById('mobileProductsBtn');
+            const mobileProductsPanel = document.getElementById('mobileProductsPanel');
+            const mobileProductsArrow = document.getElementById('mobileProductsArrow');
+
+            if (mobileProductsBtn) {
+                mobileProductsBtn.addEventListener('click', function () {
+                    const isOpen = !mobileProductsPanel.classList.contains('hidden');
+                    if (isOpen) {
+                        mobileProductsPanel.classList.add('hidden');
+                        mobileProductsArrow.style.transform = '';
+                    } else {
+                        mobileProductsPanel.classList.remove('hidden');
+                        mobileProductsArrow.style.transform = 'rotate(180deg)';
+                    }
+                });
+            }
+        })();
+    </script>
+
 
     <main class="min-h-screen">
 
         <!-- HERO SECTION  -->
 
         <section id="hero-section"
-            class="relative  min-h-[100svh] md:min-h-screen flex items-center justify-center pt-24 pb-12 px-4 overflow-hidden">
+            class="relative min-h-[100svh] md:min-h-screen flex items-center justify-center pt-24 pb-12 px-4 overflow-hidden bg-cover bg-center"
+            style="background-image: url('/assets/images/hero-banner.svg');">
             <div id="hero-content" class="w-full max-w-6xl flex flex-col items-center text-center">
                 <!-- Top Badge -->
                 <div class="mb-8 ">
@@ -293,53 +502,75 @@
             </div>
 
         </section>
+        <div class="w-full">
+            <img src="./assets/images/wave/footer-wave.png" alt="" class="w-full h-auto">
+        </div>
 
-        <!-- GALLERY TRIGGER & CONTAINER: GSAP pins this to scrub the horizontal gallery -->
-        <div id="gallery-trigger" class="relative w-full h-[100vh] z-[90]">
-            <!-- HORIZONTAL GALLERY SECTION -->
-            <div id="horiz-gallery"
-                class="absolute inset-0 bg-[url('/assets/images/hero-banner.svg')] bg-cover bg-center items-center overflow-hidden"
-                style="display:none;">
-                <!-- 4 fullscreen panels side by side -->
-                <div id="horiz-track" class="flex h-full" style="width:400vw">
-                    <!-- Panel 1 - Banner image -->
-                    <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
-                        <img src="./assets/images/banner/1.webp" class="w-full h-full object-cover" />
-                        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
-                            <p class="font-bebas text-white text-2xl tracking-widest opacity-70">01 / 04</p>
+        <!-- TOP SWIPER SECTION -->
+        <section id="top-slider-section" class="relative z-[90] bg-black px-4 pt-16 pb-10 md:pt-24 md:pb-16">
+
+            <!-- Big Title -->
+            <div class="text-center mb-10 md:-mb-24">
+                <h2
+                    class="text-[#E6007E] text-5xl sm:text-7xl md:text-[120px] lg:text-[160px] font-bebas uppercase leading-none">
+                    Times you'll want <br> Nazr on you
+                </h2>
+            </div>
+
+            <!-- Carousel Slider -->
+            <div
+                class="top-slider-box max-w-7xl mx-auto relative rounded-[24px] border-[2px] border-[#E6007E] overflow-hidden bg-black shadow-[0_0_30px_rgba(230,0,126,0.15)]">
+                <div
+                    class="swiper top-banner-swiper w-full aspect-[16/9] md:aspect-[21/9] rounded-[20px] overflow-hidden">
+                    <div class="swiper-wrapper">
+                        <!-- Panel 1 -->
+                        <div class="swiper-slide w-full h-full relative">
+                            <img src="./assets/images/banner/1.webp" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Panel 2 -->
+                        <div class="swiper-slide w-full h-full relative">
+                            <img src="./assets/images/banner/2.webp" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Panel 3 -->
+                        <div class="swiper-slide w-full h-full relative">
+                            <img src="./assets/images/banner/3.webp" class="w-full h-full object-cover" />
+                        </div>
+                        <!-- Panel 4 -->
+                        <div class="swiper-slide w-full h-full relative">
+                            <img src="./assets/images/banner/4.webp" class="w-full h-full object-cover" />
                         </div>
                     </div>
-                    <!-- Panel 2 -->
-                    <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
-                        <img src="./assets/images/banner/2.webp" class="w-full h-full object-cover" />
-                        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
-                            <p class="font-bebas text-white text-2xl tracking-widest opacity-70">02 / 04</p>
-                        </div>
-                    </div>
-                    <!-- Panel 3 -->
-                    <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
-                        <img src="./assets/images/banner/3.webp" class="w-full h-full object-cover" />
-                        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
-                            <p class="font-bebas text-white text-2xl tracking-widest opacity-70">03 / 04</p>
-                        </div>
-                    </div>
-                    <!-- Panel 4 -->
-                    <div class="w-screen h-full flex-shrink-0 relative overflow-hidden">
-                        <img src="./assets/images/banner/4.webp" class="w-full h-full object-cover" />
-                        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
-                            <p class="font-bebas text-white text-2xl tracking-widest opacity-70">04 / 04</p>
-                        </div>
+
+                    <!-- Pagination (Dots) -->
+                    <div class="swiper-pagination !left-6 !bottom-6 !w-auto flex gap-1.5 items-center"></div>
+
+                    <!-- Navigation Arrows -->
+                    <div class="absolute bottom-6 right-6 z-10 flex gap-3">
+                        <button
+                            class="top-swiper-prev w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40 transition">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                        </button>
+                        <button
+                            class="top-swiper-next w-9 h-9 rounded-full bg-[#E6007E] flex items-center justify-center hover:bg-[#ff1a96] transition shadow-lg">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
 
 
         <!-- SHOP SECTION -->
         <section id="shop-section"
-            class="bg-black py-16 md:py-28 overflow-hidden relative z-[50] border-t border-white/10 px-4">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 md:mb-16">
+            class="bg-black py-16 md:py-28 overflow-hidden relative z-[50] border-t border-white/10 px-4 min-h-[100svh] flex flex-col justify-center">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 md:mb-16 w-full">
                 <h2
                     class="font-bebas text-[50px] md:text-[80px] text-white text-center tracking-wide leading-none mb-3">
                     SHOP</h2>
@@ -516,6 +747,9 @@
 
         </section>
 
+        <!-- Spacer to hold scroll for 1 viewport while shop dwells -->
+        <div class="w-full h-[100svh] relative z-[51] pointer-events-none"></div>
+
         <!-- Wave divider hidden: pixel transition replaces it -->
         <div class="w-full" style="display:none;">
             <img src="./assets/images/wave/time-1.png" alt="" class="w-full h-auto">
@@ -538,7 +772,7 @@
                 <div id="card-stack" class="absolute inset-0">
 
                     <!-- Card 1 -->
-                    <div class="rotate-[9deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
                         style="z-index:1;">
                         <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
                             <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
@@ -562,7 +796,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="rotate-[6deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
                         style="z-index:2;">
                         <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
                             <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
@@ -587,7 +821,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="rotate-[3deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
                         style="z-index:3;">
                         <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
                             <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
@@ -612,7 +846,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="rotate-[0deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
                         style="z-index:4;">
                         <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
                             <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
@@ -640,12 +874,13 @@
             </div>
         </section>
 
-        <div class="w-full relative z-[65]">
+        <!-- <div id="journey-wave" class="w-full relative z-[65]">
             <img src="./assets/images/wave/time-2.png" alt="" class="w-full h-auto">
-        </div>
+        </div> -->
 
         <!-- HOW ITS WORK  -->
-        <section class="text-[#FFF9EB] relative z-[65] bg-black overflow-hidden min-h-screen pt-16 px-4"
+        <section id="journey-section"
+            class="text-[#FFF9EB] relative z-[65] bg-black overflow-hidden min-h-screen pt-16 px-4"
             style="position:relative;z-index:65;">
             <div class="max-w-7xl mx-auto">
 
@@ -718,50 +953,55 @@
                 </div>
 
                 <!-- MOBILE SWIPER -->
-                <div class="lg:hidden journey-swiper">
+                <div class="lg:hidden journey-swiper pb-12 relative">
                     <div class="swiper-wrapper">
 
                         <!-- SLIDE -->
-                        <div class="swiper-slide text-center px-4">
-                            <img src="./assets/images/work/1.png" class="mx-auto mb-6 h-52 object-contain" />
-                            <div class="w-full h-[1px] bg-gray-600 relative mb-4">
-                                <span
-                                    class="absolute left-1/2 -translate-x-1/2 -top-1 w-3 h-3 bg-white rounded-full"></span>
+                        <div class="swiper-slide h-auto">
+                            <div
+                                class="bg-[#FFF9EB] rounded-[24px] p-6 pb-10 text-center h-full flex flex-col items-center">
+                                <img src="./assets/images/work/1.png" class="mx-auto mb-6 h-52 object-contain" />
+                                <h3 class="text-xl md:text-2xl font-bebas text-black tracking-wide mb-2">ARM YOUR AURA
+                                </h3>
+                                <p class="text-black/80 text-sm font-inter">
+                                    Pick your "Buri Nazar” blockers and shape your custom kit. Whether it’s the spray or
+                                    the
+                                    stickers, choose what makes you feel nazar-proof.
+                                </p>
                             </div>
-                            <h3 class="text-sm mb-2">ARM YOUR AURA</h3>
-                            <p class="text-gray-400 text-sm font-inter">
-                                Pick your "Buri Nazar” blockers and shape your custom kit. Whether it’s the spray or the
-                                stickers, choose what makes you feel nazar-proof.
-                            </p>
                         </div>
 
                         <!-- SLIDE -->
-                        <div class="swiper-slide text-center px-4">
-                            <img src="./assets/images/work/2.png" class="mx-auto mb-6 h-52 object-contain" />
-                            <div class="w-full h-[1px] bg-gray-600 relative mb-4">
-                                <span
-                                    class="absolute left-1/2 -translate-x-1/2 -top-1 w-3 h-3 bg-white rounded-full"></span>
+                        <div class="swiper-slide h-auto">
+                            <div
+                                class="bg-[#FFF9EB] rounded-[24px] p-6 pb-10 text-center h-full flex flex-col items-center">
+                                <img src="./assets/images/work/2.png" class="mx-auto mb-6 h-52 object-contain" />
+                                <h3 class="text-xl md:text-2xl font-bebas text-black tracking-wide mb-2">ENTER THE
+                                    CIRCLE</h3>
+                                <p class="text-black/80 text-sm font-inter">
+                                    Scan the QR code. Find a community that's already looking out for you.
+                                </p>
                             </div>
-                            <h3 class="text-sm mb-2">ENTER THE CIRCLE</h3>
-                            <p class="text-gray-400 text-sm font-inter">
-                                Scan the QR code. Find a community that's already looking out for you.
-                            </p>
                         </div>
 
                         <!-- SLIDE -->
-                        <div class="swiper-slide text-center px-4">
-                            <img src="./assets/images/work/3.png" class="mx-auto mb-6 h-52 object-contain" />
-                            <div class="w-full h-[1px] bg-gray-600 relative mb-4">
-                                <span
-                                    class="absolute left-1/2 -translate-x-1/2 -top-1 w-3 h-3 bg-white rounded-full"></span>
+                        <div class="swiper-slide h-auto">
+                            <div
+                                class="bg-[#FFF9EB] rounded-[24px] p-6 pb-10 text-center h-full flex flex-col items-center">
+                                <img src="./assets/images/work/3.png" class="mx-auto mb-6 h-52 object-contain" />
+                                <h3 class="text-xl md:text-2xl font-bebas text-black tracking-wide mb-2">FLIP THE SCRIPT
+                                </h3>
+                                <p class="text-black/80 text-sm font-inter">
+                                    Don't just ward off the gaze —command it. Transformation begins the moment you stop
+                                    hiding and start thriving.
+                                </p>
                             </div>
-                            <h3 class="text-sm mb-2">FLIP THE SCRIPT</h3>
-                            <p class="text-gray-400 text-sm font-inter">
-                                Don't just ward off the gaze —command it. Transformation begins the moment you stop
-                                hiding and start thriving.
-                            </p>
                         </div>
 
+                    </div>
+                    <!-- Dots -->
+                    <div
+                        class="journey-swiper-pagination absolute bottom-2 left-0 w-full flex justify-center gap-2 z-10">
                     </div>
                 </div>
 
@@ -883,7 +1123,7 @@
 
         <!-- TOOLS SECTION -->
 
-        <section class=" text-white pt-20 pb-10  md:pb-20 px-4 md:px-16 relative z-[60] bg-black">
+        <section id="tools-section" class=" text-white pt-20 pb-10 md:pb-20 px-4 md:px-16 relative z-[60] bg-black">
             <div class="max-w-7xl mx-auto">
 
                 <!-- HEADER -->
@@ -965,7 +1205,7 @@
                     </div>
 
                     <!-- CARD 3 (Desktop Right / Mobile Bottom) -->
-                    <div
+                    <div id="pwa-card"
                         class="sticky md:relative top-[180px] md:top-0 z-30 bg-[#F80090] md:bg-transparent text-white rounded-2xl overflow-hidden flex flex-col justify-between shadow-lg order-3 md:order-2 md:border md:border-[#F80090]/60">
 
                         <!-- TEXT -->
@@ -1254,8 +1494,8 @@
 
 
     <!-- Zoom overlay image -->
-    <img id="zoom-img" src="./assets/images/banner/1.webp" class="fixed pointer-events-none object-cover"
-        style="z-index:80; opacity:0; top:0; left:0; width:0; height:0;" />
+    <img id="zoom-img" src="./assets/images/banner/1.webp" class="absolute pointer-events-none object-cover"
+        style="z-index:95; opacity:0; top:0; left:0; width:0; height:0; transform-origin: top left;" />
 
     <!-- Why Nazr → FAQ pixel transition overlay -->
     <div id="whynazr-pixel-overlay" style="
@@ -1279,6 +1519,19 @@
         flex-wrap: wrap;
         pointer-events: none;
         z-index: 55;
+        overflow: hidden;
+        opacity: 0;
+    "></div>
+
+    <!-- Scenario → Journey pixel transition overlay -->
+    <div id="scenario-pixel-overlay" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100dvh;
+        display: flex;
+        flex-wrap: wrap;
+        pointer-events: none;
+        z-index: 62;
         overflow: hidden;
         opacity: 0;
     "></div>
@@ -1314,21 +1567,16 @@
             gsap.ticker.lagSmoothing(0);
 
             const banner = document.querySelector("#banner-img");
-            const bannerImg = banner.querySelector("img");
+            const bannerImg = banner ? banner.querySelector("img") : null;
             const zoomImg = document.querySelector("#zoom-img");
             const hero = document.querySelector("#hero-section");
             const pageBg = document.querySelector("#page-bg");
-            const galleryTrigger = document.querySelector("#gallery-trigger");
-            const gallery = document.querySelector("#horiz-gallery");
-            const track = document.querySelector("#horiz-track");
 
             if (!banner || !zoomImg || !hero) return;
 
             /* ─────────────────────────────────────────────────────────────
                INITIAL SETUP
-               Capture the banner's absolute position once (before any scroll).
-               Since we are NOT pinning the hero, the banner will move as the
-               page scrolls, so we need to track its absolute document position.
+               Capture the banner's absolute document position
             ───────────────────────────────────────────────────────────────── */
             let initTop, initLeft, initWidth, initHeight;
 
@@ -1339,11 +1587,10 @@
                 initWidth = r.width;
                 initHeight = r.height;
 
-                // Hide clone at initial position
                 gsap.set(zoomImg, {
-                    position: "fixed",
-                    top: r.top, left: r.left,
-                    width: r.width, height: r.height,
+                    position: "absolute",
+                    top: initTop, left: initLeft,
+                    width: initWidth, height: initHeight,
                     rotation: -2, borderRadius: "8px",
                     scale: 1, opacity: 0
                 });
@@ -1353,131 +1600,74 @@
             window.addEventListener('resize', captureInitial);
 
             /* ─────────────────────────────────────────────────────────────
-               TRIGGER 1: HERO EXITS → IMAGE ZOOMS TO FULLSCREEN
-               Hero is NOT pinned — it scrolls away naturally.
-               As the hero scrolls out of view, the small banner image
-               zooms from its position to fullscreen.
+               TRIGGER 1: HERO EXITS 
+               Aggressively snap the small image into the slider container
             ───────────────────────────────────────────────────────────────── */
+            const targetEl = document.querySelector('.top-banner-swiper');
+            if (!targetEl) return;
+
             ScrollTrigger.create({
                 trigger: hero,
-                start: "top top",        // when hero top hits viewport top
-                end: "bottom top",       // when hero bottom has left viewport completely
+                start: "top top",
+                endTrigger: targetEl,
+                end: "bottom bottom",
                 scrub: 0.8,
                 onUpdate(self) {
                     const p = self.progress;
-                    const vW = window.innerWidth;
-                    const vH = window.innerHeight;
 
-                    if (p < 0.05) {
-                        // Hero mostly visible — keep original, hide clone
+                    if (p < 0.02) {
                         gsap.set(zoomImg, { opacity: 0 });
                         gsap.set(bannerImg, { opacity: 1 });
-                        if (gallery) gsap.set(gallery, { display: "none" });
+                        if (pageBg) gsap.set(pageBg, { opacity: 1 });
                         return;
                     }
 
-                    // Sub-progress (0 → 1) from 5% onwards
-                    const sp = (p - 0.05) / 0.95;
-                    const esp = 1 - Math.pow(1 - sp, 1.8); // ease-out curve
+                    const sp = (p - 0.02) / 0.98;
 
-                    // Banner's current viewport-relative position (it scrolls with the page)
-                    const viewportTop = initTop - window.scrollY;
-                    const viewportLeft = initLeft - window.scrollX;
+                    // Smoothstep (ease-in-out). Starts very slowly, speeds up smoothly, and docks gently.
+                    const esp = sp * sp * (3 - 2 * sp);
 
-                    // Image TRAVELS DOWN then expands
-                    // Down movement: top dips down to ~40% of viewport in first half,
-                    //                then sweeps to 0 (fullscreen) in second half
-                    const midDown = viewportTop + (vH - viewportTop) * 0.4;
-                    let imgTop;
-                    if (sp < 0.45) {
-                        imgTop = gsap.utils.interpolate(viewportTop, midDown, sp / 0.45);
-                    } else {
-                        imgTop = gsap.utils.interpolate(midDown, 0, (sp - 0.45) / 0.55);
-                    }
+                    const topSliderBox = document.querySelector('.top-slider-box');
+
+                    const tRect = targetEl.getBoundingClientRect();
+                    const endY = tRect.top + window.scrollY;
+                    const endX = tRect.left + window.scrollX;
+                    const endW = tRect.width;
+                    const endH = tRect.height;
 
                     gsap.set(zoomImg, {
-                        position: "fixed",
-                        top: imgTop,
-                        left: gsap.utils.interpolate(viewportLeft, 0, esp),
-                        width: gsap.utils.interpolate(initWidth, vW, esp),
-                        height: gsap.utils.interpolate(initHeight, vH, esp),
+                        position: "absolute",
+                        top: gsap.utils.interpolate(initTop, endY, esp) + "px",
+                        left: gsap.utils.interpolate(initLeft, endX, esp) + "px",
+                        width: gsap.utils.interpolate(initWidth, endW, esp) + "px",
+                        height: gsap.utils.interpolate(initHeight, endH, esp) + "px",
                         rotation: gsap.utils.interpolate(-2, 0, esp),
-                        borderRadius: gsap.utils.interpolate(12, 0, esp) + "px",
-                        scale: 1,
-                        opacity: Math.min(sp * 3, 1)  // fade in quickly
+                        borderRadius: gsap.utils.interpolate(12, 20, esp) + "px",
+                        opacity: 1
                     });
 
-                    // Hide original banner image as clone takes over
-                    gsap.set(bannerImg, { opacity: sp < 0.15 ? (1 - sp / 0.15) : 0 });
+                    // Hide original image as clone drops
+                    gsap.set(bannerImg, { opacity: sp < 0.05 ? Math.max(0, 1 - sp / 0.05) : 0 });
 
-                    // Fade out the fixed hero background as zoom image grows over it
-                    if (pageBg) gsap.set(pageBg, { opacity: Math.max(0, 1 - sp * 1.5) });
-
-                    // Hide gallery during hero exit
-                    if (gallery) gsap.set(gallery, { display: "none" });
+                    // Only reveal the actual slider box UI when the image has largely landed
+                    if (topSliderBox) {
+                        gsap.set(topSliderBox, { opacity: sp > 0.9 ? (sp - 0.9) / 0.1 : 0 });
+                    }
                 },
                 onLeave() {
-                    // Hero fully scrolled — lock zoom image at fullscreen
-                    gsap.set(zoomImg, {
-                        position: "fixed",
-                        top: 0, left: 0,
-                        width: "100vw", height: "100vh",
-                        rotation: 0, borderRadius: 0,
-                        scale: 1, opacity: 1
-                    });
+                    const topSliderBox = document.querySelector('.top-slider-box');
+                    gsap.set(zoomImg, { opacity: 0 });
                     gsap.set(bannerImg, { opacity: 0 });
+                    if (topSliderBox) gsap.set(topSliderBox, { opacity: 1 });
                 },
                 onEnterBack() {
-                    // User scrolled back into hero — restore bg, hide gallery
-                    if (pageBg) gsap.set(pageBg, { opacity: 1 });
-                    if (gallery) gsap.set(gallery, { display: "none", opacity: 1 });
+                    gsap.set(zoomImg, { opacity: 1 });
                 }
             });
 
             /* ─────────────────────────────────────────────────────────────
-               TRIGGER 2: GALLERY — 4 HORIZONTAL IMAGES
-               Pinned section after hero. Provides scroll budget for 4 panels.
-               After 4th panel visible → gallery fades → shop section below.
+               TRIGGER 2 (Removed because transition is fully governed by TRIGGER 1 now)
             ───────────────────────────────────────────────────────────────── */
-            if (galleryTrigger && gallery && track) {
-                ScrollTrigger.create({
-                    trigger: galleryTrigger,
-                    start: "top top",
-                    end: "+=300%",    // 3 extra viewports = 3 transitions for 4 panels
-                    scrub: 1,
-                    pin: true,        // pins the gallery-trigger div (invisible spacer)
-                    pinSpacing: true,
-                    onUpdate(self) {
-                        const p = self.progress;
-                        const vW = window.innerWidth;
-
-                        // Keep zoom-img hidden — gallery is on top (z-index: 90 > 80)
-                        gsap.set(zoomImg, {
-                            position: "fixed", top: 0, left: 0,
-                            width: "100vw", height: "100vh",
-                            opacity: 1, scale: 1
-                        });
-
-                        // Scrub gallery panels left-to-right from 0 to 1
-                        const translateX = -p * 3 * vW;
-
-                        // Because gallery is inside the scrolling trigger now, it's always block and visible!
-                        gsap.set(gallery, { display: "flex", opacity: 1 });
-                        gsap.set(track, { x: translateX });
-                        gsap.set(zoomImg, { opacity: 1 });
-                    },
-                    onLeave() {
-                        // We do not hide the gallery! It naturally scrolls UP out of the viewport.
-                        // We DO hide the zoomImg since it's fixed underneath and would stick out as gallery moves UP.
-                        gsap.set(zoomImg, { opacity: 0 });
-                    },
-                    onEnterBack() {
-                        // Restore zoomImg opacity as the gallery scrolls DOWN back into the viewport over it
-                        gsap.set(zoomImg, { position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", opacity: 1 });
-                        gsap.set(gallery, { display: "flex", opacity: 1 });
-                    }
-                });
-            }
         });
     </script>
 
@@ -1501,18 +1691,27 @@
                     const p = self.progress;
                     const n = cards.length; // 4
 
+                    // DWELL DELAY: Reserve first 25% of scroll for the title text alone
+                    const waitPhase = 0.25;
+                    const cardDist = (1 - waitPhase) / n; // distribute remaining 75% across 4 cards
+                    const targetRotations = [9, 6, 3, 0];
+
                     cards.forEach((card, i) => {
-                        const phaseStart = i / n;        // 0.00, 0.25, 0.50, 0.75
-                        const phaseEnd = (i + 1) / n; // 0.25, 0.50, 0.75, 1.00
+                        const phaseStart = waitPhase + (i * cardDist);
+                        const phaseEnd = phaseStart + cardDist;
+                        const targetRot = targetRotations[i] || 0;
 
                         if (p < phaseStart) {
-                            gsap.set(card, { y: window.innerHeight * 1.1 });
+                            gsap.set(card, { y: window.innerHeight * 1.1, rotation: 0 }); // wait off screen securely straight
                         } else if (p < phaseEnd) {
-                            const sp = (p - phaseStart) / (1 / n); // 0→1 within this phase
+                            const sp = (p - phaseStart) / cardDist; // 0→1 within this phase
                             const esp = 1 - Math.pow(1 - sp, 2);    // ease-out
-                            gsap.set(card, { y: gsap.utils.interpolate(window.innerHeight * 1.1, 0, esp) });
+                            gsap.set(card, {
+                                y: gsap.utils.interpolate(window.innerHeight * 1.1, 0, esp),
+                                rotation: gsap.utils.interpolate(0, targetRot, esp)
+                            });
                         } else {
-                            gsap.set(card, { y: 0 }); // resting at center
+                            gsap.set(card, { y: 0, rotation: targetRot }); // resting securely at perfect angle
                         }
                     });
                 }
@@ -1536,55 +1735,69 @@
             if (!shopSection || !scenarioSection || !overlay) return;
 
             /* ── Build pixel grid ── */
-            const vW = window.innerWidth;
-            const vH = window.innerHeight;
-            const PX = vW < 768 ? 14 : 22;       // pixel tile size in px
-            const overscan = PX * 2;
-            const cols = Math.ceil((vW + overscan) / PX);
-            const rows = Math.ceil((vH + overscan) / PX);
-            const total = cols * rows;
+            let ordered = [];
+            function initGrid1() {
+                overlay.innerHTML = '';
+                const vW = window.innerWidth;
+                const vH = window.innerHeight;
+                const PX = vW < 768 ? 14 : 22;       // pixel tile size in px
+                const overscan = PX * 2;
+                const cols = Math.ceil((vW + overscan) / PX);
+                const rows = Math.ceil((vH + overscan) / PX);
+                const total = cols * rows;
 
-            overlay.style.width = `${vW + overscan}px`;
-            overlay.style.height = `${vH + overscan}px`;
-            overlay.style.left = `${-overscan / 2}px`;
-            overlay.style.top = `${-overscan / 2}px`;
+                overlay.style.width = `${vW + overscan}px`;
+                overlay.style.height = `${vH + overscan}px`;
+                overlay.style.left = `${-overscan / 2}px`;
+                overlay.style.top = `${-overscan / 2}px`;
 
-            /* Create tiles */
-            const tiles = [];
-            for (let i = 0; i < total; i++) {
-                const el = document.createElement('div');
-                el.style.cssText = `width:${PX}px;height:${PX}px;background:#5BC0EB;opacity:0;flex-shrink:0;`;
-                overlay.appendChild(el);
-                tiles.push(el);
-            }
-
-            /* Sort tiles: bottom rows animate first (bottom→top), with randomness */
-            const weighted = [];
-            for (let row = 0; row < rows; row++) {
-                for (let col = 0; col < cols; col++) {
-                    const idx = row * cols + col;
-                    /* Invert row index so bottom row = weight 0 (fires first) */
-                    const weight = (rows - 1 - row) + Math.random() * 12;
-                    weighted.push({ el: tiles[idx], weight });
+                const tiles = [];
+                for (let i = 0; i < total; i++) {
+                    const el = document.createElement('div');
+                    el.style.cssText = `width:${PX}px;height:${PX}px;background:#5BC0EB;opacity:0;flex-shrink:0;`;
+                    overlay.appendChild(el);
+                    tiles.push(el);
                 }
+
+                const weighted = [];
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        const idx = row * cols + col;
+                        /* Invert row index so bottom row = weight 0 (fires first) */
+                        const weight = (rows - 1 - row) + Math.random() * 12;
+                        weighted.push({ el: tiles[idx], weight });
+                    }
+                }
+                weighted.sort((a, b) => a.weight - b.weight);
+                ordered = weighted.map(w => w.el);
             }
-            weighted.sort((a, b) => a.weight - b.weight);
-            const ordered = weighted.map(w => w.el);
+
+            initGrid1();
+
+            let resizeTimer1;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer1);
+                resizeTimer1 = setTimeout(() => { initGrid1(); ScrollTrigger.refresh(); }, 250);
+            });
 
             /* ── ScrollTrigger: pin #shop-section so it stays visible while pixels fill ── */
             let scenarioRevealed = false;
 
             ScrollTrigger.create({
                 trigger: shopSection,
-                start: 'bottom bottom',  /* fires when shop section bottom hits viewport bottom */
-                end: '+=100%',           /* 1.0 viewport of scroll budget for the pixel fill */
+                start: 'top top',        /* fires when shop section top hits viewport top */
+                endTrigger: scenarioSection,
+                end: 'top top',          /* closes exactly when scenarioSection bounds hit the top */
                 scrub: 1.2,
                 pin: true,
                 pinSpacing: false,       /* MUST BE FALSE to let scenario section naturally slide up */
                 onUpdate(self) {
                     const p = self.progress;  /* 0 → 1 */
 
-                    if (p <= 0.01) {
+                    // Map the second half of the scroll (0.5 to 1.0) to pixel progress
+                    const pixelProgress = p < 0.5 ? 0 : (p - 0.5) / 0.5;
+
+                    if (pixelProgress <= 0.01) {
                         gsap.set(overlay, { opacity: 0 });
                         ordered.forEach(t => gsap.set(t, { opacity: 0 }));
                         return;
@@ -1592,8 +1805,8 @@
 
                     gsap.set(overlay, { opacity: 1 });
 
-                    /* Fill completes at 90% of scroll progress */
-                    const fillP = Math.min(p / 0.9, 1);
+                    /* Fill completes at 90% of the pixel progress */
+                    const fillP = Math.min(pixelProgress / 0.9, 1);
 
                     ordered.forEach((tile, i) => {
                         const threshold = i / ordered.length;
@@ -1619,6 +1832,123 @@
     </script>
 
     <!-- ============================================================
+         SCENARIO → JOURNEY PIXEL TRANSITION
+         ============================================================ -->
+    <script>
+        window.addEventListener('load', () => {
+            const scenarioSection = document.querySelector('#scenario-section');
+            const journeySection = document.querySelector('#journey-section');
+            const overlay3 = document.getElementById('scenario-pixel-overlay');
+
+            if (!scenarioSection || !journeySection || !overlay3) return;
+
+            /* ── Build pixel grid ── */
+            let ordered3 = [];
+            function initGrid3() {
+                overlay3.innerHTML = '';
+                const vW = window.innerWidth;
+                const vH = window.innerHeight;
+                const PX = vW < 768 ? 14 : 22;       // pixel tile size in px
+                const overscan = PX * 2;
+                const cols = Math.ceil((vW + overscan) / PX);
+                const rows = Math.ceil((vH + overscan) / PX);
+                const total = cols * rows;
+
+                overlay3.style.width = `${vW + overscan}px`;
+                overlay3.style.height = `${vH + overscan}px`;
+                overlay3.style.left = `${-overscan / 2}px`;
+                overlay3.style.top = `${-overscan / 2}px`;
+
+                const tiles3 = [];
+                for (let i = 0; i < total; i++) {
+                    const el = document.createElement('div');
+                    el.style.cssText = `width:${PX}px;height:${PX}px;background:#000000;opacity:0;flex-shrink:0;`;
+                    overlay3.appendChild(el);
+                    tiles3.push(el);
+                }
+
+                const weighted3 = [];
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        const idx = row * cols + col;
+                        const weight = (rows - 1 - row) + Math.random() * 12;
+                        weighted3.push({ el: tiles3[idx], weight });
+                    }
+                }
+                weighted3.sort((a, b) => a.weight - b.weight);
+                ordered3 = weighted3.map(w => w.el);
+            }
+            initGrid3();
+
+            let resizeTimer3;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer3);
+                resizeTimer3 = setTimeout(() => { initGrid3(); ScrollTrigger.refresh(); }, 250);
+            });
+
+            /* Initial state */
+            gsap.set(journeySection, { background: 'transparent' });
+
+            ScrollTrigger.create({
+                trigger: scenarioSection,
+                start: 'bottom bottom',
+                endTrigger: journeySection,
+                end: 'top top',
+                scrub: 1.2,
+                pin: true,
+                pinSpacing: false,
+                onUpdate(self) {
+                    const p = self.progress;
+
+                    if (p <= 0.01) {
+                        gsap.set(overlay3, { opacity: 0 });
+                        ordered3.forEach(t => gsap.set(t, { opacity: 0 }));
+                        return;
+                    }
+
+                    gsap.set(overlay3, { opacity: 1 });
+                    const fillP = Math.min(p / 0.9, 1);
+
+                    ordered3.forEach((tile, i) => {
+                        const threshold = i / ordered3.length;
+                        gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
+                    });
+                },
+                onLeave() {
+                    gsap.set(journeySection, { background: '#000000' });
+                    gsap.set(overlay3, { opacity: 0 });
+                    ordered3.forEach(t => gsap.set(t, { opacity: 0 }));
+                    gsap.set(scenarioSection, { opacity: 0 });
+                },
+                onEnterBack() {
+                    gsap.set(journeySection, { background: 'transparent' });
+                    gsap.set(overlay3, { opacity: 1 });
+                    ordered3.forEach(t => gsap.set(t, { opacity: 1 }));
+                    gsap.set(scenarioSection, { opacity: 1 });
+                }
+            });
+
+            /* ── MOBILE PWA CARD DWELL ── */
+            ScrollTrigger.matchMedia({
+                "(max-width: 767px)": function () {
+                    const toolsSection = document.getElementById('tools-section');
+                    const pwaCard = document.getElementById('pwa-card');
+
+                    if (toolsSection && pwaCard) {
+                        ScrollTrigger.create({
+                            trigger: pwaCard,
+                            start: 'top 180px', // When the PWA card reaches its stacking limit
+                            end: '+=10%',      // Keep it pinned for one viewport scroll
+                            pin: toolsSection,  // Pin the entire tools section container
+                            pinSpacing: true    // Add actual spacing so the scroll happens smoothly without jumping
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+    <!-- ============================================================
          WHY NAZR → FAQ PIXEL TRANSITION
          ============================================================ -->
     <script>
@@ -1630,39 +1960,48 @@
             if (!whynazrSection || !faqSection || !overlay2) return;
 
             /* ── Build pixel grid ── */
-            const vW = window.innerWidth;
-            const vH = window.innerHeight;
-            const PX = vW < 768 ? 14 : 22;       // pixel tile size in px
-            const overscan = PX * 2;
-            const cols = Math.ceil((vW + overscan) / PX);
-            const rows = Math.ceil((vH + overscan) / PX);
-            const total = cols * rows;
+            let ordered = [];
+            function initGrid2() {
+                overlay2.innerHTML = '';
+                const vW = window.innerWidth;
+                const vH = window.innerHeight;
+                const PX = vW < 768 ? 14 : 22;       // pixel tile size in px
+                const overscan = PX * 2;
+                const cols = Math.ceil((vW + overscan) / PX);
+                const rows = Math.ceil((vH + overscan) / PX);
+                const total = cols * rows;
 
-            overlay2.style.width = `${vW + overscan}px`;
-            overlay2.style.height = `${vH + overscan}px`;
-            overlay2.style.left = `${-overscan / 2}px`;
-            overlay2.style.top = `${-overscan / 2}px`;
+                overlay2.style.width = `${vW + overscan}px`;
+                overlay2.style.height = `${vH + overscan}px`;
+                overlay2.style.left = `${-overscan / 2}px`;
+                overlay2.style.top = `${-overscan / 2}px`;
 
-            /* Create tiles */
-            const tiles = [];
-            for (let i = 0; i < total; i++) {
-                const el = document.createElement('div');
-                el.style.cssText = `width:${PX}px;height:${PX}px;background:#711149;opacity:0;flex-shrink:0;`;
-                overlay2.appendChild(el);
-                tiles.push(el);
-            }
-
-            /* Sort tiles: bottom rows animate first (bottom→top), with randomness */
-            const weighted = [];
-            for (let row = 0; row < rows; row++) {
-                for (let col = 0; col < cols; col++) {
-                    const idx = row * cols + col;
-                    const weight = (rows - 1 - row) + Math.random() * 12;
-                    weighted.push({ el: tiles[idx], weight });
+                const tiles = [];
+                for (let i = 0; i < total; i++) {
+                    const el = document.createElement('div');
+                    el.style.cssText = `width:${PX}px;height:${PX}px;background:#711149;opacity:0;flex-shrink:0;`;
+                    overlay2.appendChild(el);
+                    tiles.push(el);
                 }
+
+                const weighted = [];
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        const idx = row * cols + col;
+                        const weight = (rows - 1 - row) + Math.random() * 12;
+                        weighted.push({ el: tiles[idx], weight });
+                    }
+                }
+                weighted.sort((a, b) => a.weight - b.weight);
+                ordered = weighted.map(w => w.el);
             }
-            weighted.sort((a, b) => a.weight - b.weight);
-            const ordered = weighted.map(w => w.el);
+            initGrid2();
+
+            let resizeTimer2;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer2);
+                resizeTimer2 = setTimeout(() => { initGrid2(); ScrollTrigger.refresh(); }, 250);
+            });
 
             /* ── ScrollTrigger: pin #whynazr-section so it stays visible while pixels fill ── */
             ScrollTrigger.create({
@@ -1840,6 +2179,15 @@
                                     slidesPerView: 1.5,
                                     spaceBetween: 24,
                                 }
+                            },
+                            pagination: {
+                                el: '.journey-swiper-pagination',
+                                clickable: true,
+                                bulletClass: 'w-2 h-2 rounded-full bg-white/40 cursor-pointer transition-all duration-300 inline-block',
+                                bulletActiveClass: '!bg-white !w-3 !h-3',
+                                renderBullet: function (index, className) {
+                                    return '<span class="' + className + '"></span>';
+                                }
                             }
                         });
                     }
@@ -1848,6 +2196,21 @@
 
             initJourneySwiper();
             window.addEventListener('resize', initJourneySwiper);
+
+            /* Initialize New Top Banner Swiper */
+            const topBannerSwiper = new Swiper('.top-banner-swiper', {
+                loop: true,
+                speed: 800,
+                grabCursor: true,
+                pagination: {
+                    el: '.top-banner-swiper .swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.top-swiper-next',
+                    prevEl: '.top-swiper-prev',
+                },
+            });
         });
     </script>
 
@@ -1857,24 +2220,25 @@
         document.addEventListener('DOMContentLoaded', () => {
             const menuBtn = document.getElementById('menuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
-            const bars = menuBtn.querySelectorAll('span');
+            const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+            const bars = menuBtn ? menuBtn.querySelectorAll('.menu-bar') : [];
             const mobileLinks = document.querySelectorAll('.mobile-link');
 
-            const dropdownBtn = document.getElementById('dropdownBtn');
-            const dropdownMenu = document.getElementById('dropdownMenu');
-
             let isMenuOpen = false;
-            let isDropdownOpen = false;
 
             // Initialize menu state for GSAP
-            gsap.set(mobileMenu, { opacity: 0, scale: 0.95, y: -10, pointerEvents: 'none' });
+            gsap.set(mobileMenu, { display: 'none', opacity: 0, scale: 0.95, y: -10, pointerEvents: 'none' });
 
-            menuBtn.addEventListener('click', () => {
+            function toggleMenu() {
                 isMenuOpen = !isMenuOpen;
 
                 if (isMenuOpen) {
+                    // Set overflow hidden
+                    document.body.style.overflow = 'hidden';
+
                     // Animate Menu Panel In
                     gsap.to(mobileMenu, {
+                        display: 'flex',
                         opacity: 1,
                         scale: 1,
                         y: 0,
@@ -1884,9 +2248,11 @@
                     });
 
                     // Animate Hamburger to X
-                    gsap.to(bars[0], { y: 7, rotation: 45, duration: 0.3 });
-                    gsap.to(bars[1], { opacity: 0, duration: 0.2 });
-                    gsap.to(bars[2], { y: -7, rotation: -45, duration: 0.3 });
+                    if (bars.length >= 3) {
+                        gsap.to(bars[0], { y: 7, rotation: 45, duration: 0.3 });
+                        gsap.to(bars[1], { opacity: 0, duration: 0.2 });
+                        gsap.to(bars[2], { y: -7, rotation: -45, duration: 0.3 });
+                    }
 
                     // Stagger links
                     gsap.fromTo(mobileLinks,
@@ -1894,8 +2260,12 @@
                         { opacity: 1, y: 0, stagger: 0.1, duration: 0.4, delay: 0.1 }
                     );
                 } else {
+                    // Set overflow auto
+                    document.body.style.overflow = '';
+
                     // Animate Menu Panel Out
                     gsap.to(mobileMenu, {
+                        display: 'none',
                         opacity: 0,
                         scale: 0.95,
                         y: -10,
@@ -1905,32 +2275,22 @@
                     });
 
                     // Animate X to Hamburger
-                    gsap.to(bars[0], { y: 0, rotation: 0, duration: 0.3 });
-                    gsap.to(bars[1], { opacity: 1, duration: 0.3 });
-                    gsap.to(bars[2], { y: 0, rotation: 0, duration: 0.3 });
+                    if (bars.length >= 3) {
+                        gsap.to(bars[0], { y: 0, rotation: 0, duration: 0.3 });
+                        gsap.to(bars[1], { opacity: 1, duration: 0.3 });
+                        gsap.to(bars[2], { y: 0, rotation: 0, duration: 0.3 });
+                    }
                 }
-            });
+            }
 
-            dropdownBtn.addEventListener('click', () => {
-                isDropdownOpen = !isDropdownOpen;
-
-                if (isDropdownOpen) {
-                    dropdownMenu.classList.remove('hidden');
-                    gsap.fromTo(dropdownMenu, { height: 0, opacity: 0 }, { height: 'auto', opacity: 1, duration: 0.3 });
-                } else {
-                    gsap.to(dropdownMenu, {
-                        height: 0,
-                        opacity: 0,
-                        duration: 0.3,
-                        onComplete: () => dropdownMenu.classList.add('hidden')
-                    });
-                }
-            });
+            if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+            if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', () => { if (isMenuOpen) toggleMenu(); });
 
             // Close menu on click outside
             document.addEventListener('click', (e) => {
-                if (isMenuOpen && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                    menuBtn.click();
+                const nav = document.getElementById('main-nav');
+                if (isMenuOpen && !mobileMenu.contains(e.target) && !nav.contains(e.target)) {
+                    toggleMenu();
                 }
             });
         });
