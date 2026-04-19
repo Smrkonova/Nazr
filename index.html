@@ -18,6 +18,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        /* Fix: GSAP pin-spacer for scenario section should never be blank */
+        .pin-spacer:has(#scenario-section) {
+            background: #5BC0EB !important;
+        }
+
+        /* Fallback for browsers without :has() support */
+        #scenario-section {
+            background: #5BC0EB;
+        }
+    </style>
 </head>
 
 <body>
@@ -326,7 +337,7 @@
 
         <!-- SHOP SECTION -->
         <section id="shop-section"
-            class="bg-black py-16 md:py-28 overflow-hidden relative z-[60] border-t border-white/10 px-4">
+            class="bg-black py-16 md:py-28 overflow-hidden relative z-[50] border-t border-white/10 px-4">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 md:mb-16">
                 <h2
                     class="font-bebas text-[50px] md:text-[80px] text-white text-center tracking-wide leading-none mb-3">
@@ -504,130 +515,137 @@
 
         </section>
 
-        <div class="w-full">
+        <!-- Wave divider hidden: pixel transition replaces it -->
+        <div class="w-full" style="display:none;">
             <img src="./assets/images/wave/time-1.png" alt="" class="w-full h-auto">
         </div>
 
         <!-- TIME SECTION: Scenario Cards -->
-        <section id="scenario-section" class="relative min-h-screen overflow-hidden PX-4"
-            style="background:#5BC0EB; z-index:60;">
+        <section id="scenario-section" class="relative PX-4" style="background:transparent; z-index:60; height: 500vh;">
 
-            <!-- Background headline text -->
-            <div
-                class="absolute inset-0 flex mt-4 md:mt-0 items-start md:items-center justify-center pointer-events-none select-none overflow-hidden px-4">
-                <h2 class="font-bebas text-center  text-[64px] xl:text-[200px] text-[#E6007E] leading-[0.9] uppercase">
-                    TIMES YOU'LL WANT<br>NAZR ON YOU
-                </h2>
-            </div>
-
-            <!-- Card stack: all absolute, centered, GSAP moves them up one by one -->
-            <div id="card-stack" class="absolute inset-0">
-
-                <!-- Card 1 -->
-                <div class="rotate-[9deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
-                    style="z-index:1;">
-                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
-                        <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
-                                class="w-full h-auto brightness-0"></div>
-                        <div class="space-y-2 md:space-y-3">
-                            <h3
-                                class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
-                                11:11PM IN A CAB.<br>PHONE AT 2%. NOT GOOD.</h3>
-                            <p
-                                class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
-                                Your battery's blinking. You're 20 minutes from home. You need Nazr ready before the
-                                screen goes dark.</p>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
-                        <div
-                            class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
-                            <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
-                        </div>
-                    </div>
+            <div class="sticky top-0 w-full h-screen overflow-hidden">
+                <!-- Background headline text -->
+                <div
+                    class="absolute inset-0 flex mt-4 md:mt-0 items-start md:items-center justify-center pointer-events-none select-none overflow-hidden px-4">
+                    <h2
+                        class="font-bebas text-center  text-[64px] xl:text-[200px] text-[#E6007E] leading-[0.9] uppercase">
+                        TIMES YOU'LL WANT<br>NAZR ON YOU
+                    </h2>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="rotate-[6deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
-                    style="z-index:2;">
-                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
-                        <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
-                                class="w-full h-auto brightness-0"></div>
-                        <div class="space-y-2 md:space-y-3">
-                            <h3
-                                class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
-                                LEAVING THE BAR<br>ALONE AT MIDNIGHT.</h3>
-                            <p
-                                class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
-                                Your friends are inside. You're at the door. That feeling in your gut is telling you to
-                                have something on you.</p>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
-                        <div
-                            class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
-                            <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
-                        </div>
-                    </div>
-                </div>
+                <!-- Card stack: all absolute, centered, GSAP moves them up one by one -->
+                <div id="card-stack" class="absolute inset-0">
 
-                <!-- Card 3 -->
-                <div class="rotate-[3deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
-                    style="z-index:3;">
-                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
-                        <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
-                                class="w-full h-auto brightness-0"></div>
-                        <div class="space-y-2 md:space-y-3">
-                            <h3
-                                class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
-                                SOLO TRAVEL.<br>UNFAMILIAR CITY.</h3>
-                            <p
-                                class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
-                                New city, no one knows you're here. That's exactly when you need something that confirms
-                                you're safe.</p>
+                    <!-- Card 1 -->
+                    <div class="rotate-[9deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                        style="z-index:1;">
+                        <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
+                            <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
+                                    class="w-full h-auto brightness-0"></div>
+                            <div class="space-y-2 md:space-y-3">
+                                <h3
+                                    class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
+                                    11:11PM IN A CAB.<br>PHONE AT 2%. NOT GOOD.</h3>
+                                <p
+                                    class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
+                                    Your battery's blinking. You're 20 minutes from home. You need Nazr ready before the
+                                    screen goes dark.</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
+                            <div
+                                class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
+                                <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
+                            </div>
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
-                        <div
-                            class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
-                            <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Card 4 -->
-                <div class="rotate-[0deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
-                    style="z-index:4;">
-                    <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
-                        <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
-                                class="w-full h-auto brightness-0"></div>
-                        <div class="space-y-2 md:space-y-3">
-                            <h3
-                                class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
-                                SIPPING SOMETHING<br>THAT TASTES OFF.</h3>
-                            <p
-                                class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
-                                One moment of doubt can change everything. Sip 'N Check is there before you second-guess
-                                yourself.</p>
+                    <!-- Card 2 -->
+                    <div class="rotate-[6deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                        style="z-index:2;">
+                        <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
+                            <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
+                                    class="w-full h-auto brightness-0"></div>
+                            <div class="space-y-2 md:space-y-3">
+                                <h3
+                                    class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
+                                    LEAVING THE BAR<br>ALONE AT MIDNIGHT.</h3>
+                                <p
+                                    class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
+                                    Your friends are inside. You're at the door. That feeling in your gut is telling you
+                                    to
+                                    have something on you.</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
+                            <div
+                                class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
+                                <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
+                            </div>
                         </div>
                     </div>
-                    <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
-                        <div
-                            class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
-                            <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
-                        </div>
-                    </div>
-                </div>
 
+                    <!-- Card 3 -->
+                    <div class="rotate-[3deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                        style="z-index:3;">
+                        <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
+                            <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
+                                    class="w-full h-auto brightness-0"></div>
+                            <div class="space-y-2 md:space-y-3">
+                                <h3
+                                    class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
+                                    SOLO TRAVEL.<br>UNFAMILIAR CITY.</h3>
+                                <p
+                                    class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
+                                    New city, no one knows you're here. That's exactly when you need something that
+                                    confirms
+                                    you're safe.</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
+                            <div
+                                class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
+                                <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="rotate-[0deg] scenario-card bg-white border border-black rounded-[24px] sm:rounded-[32px] md:rounded-[40px] p-4 sm:p-6 md:p-10 flex flex-col md:flex-row items-center justify-between w-[80%] md:w-[90%] max-w-4xl shadow-2xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                        style="z-index:4;">
+                        <div class="w-full md:w-1/2 flex flex-col items-start gap-4 md:gap-6 z-10">
+                            <div class="w-12 sm:w-16 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
+                                    class="w-full h-auto brightness-0"></div>
+                            <div class="space-y-2 md:space-y-3">
+                                <h3
+                                    class="font-bebas text-black text-xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide uppercase leading-none">
+                                    SIPPING SOMETHING<br>THAT TASTES OFF.</h3>
+                                <p
+                                    class="font-lexend text-black/80 text-xs sm:text-sm md:text-base leading-relaxed max-w-xs">
+                                    One moment of doubt can change everything. Sip 'N Check is there before you
+                                    second-guess
+                                    yourself.</p>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center md:justify-end">
+                            <div
+                                class="w-full max-w-[180px] sm:max-w-[240px] md:max-w-[300px] aspect-square rounded-[20px] md:rounded-[32px] border-[6px] border-black/10 overflow-hidden shadow-inner">
+                                <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
-        <div class="w-full">
+        <div class="w-full relative z-[65]">
             <img src="./assets/images/wave/time-2.png" alt="" class="w-full h-auto">
         </div>
 
         <!-- HOW ITS WORK  -->
-        <section class="text-[#FFF9EB] relative z-[60] bg-black overflow-hidden min-h-screen pt-16 px-4">
+        <section class="text-[#FFF9EB] relative z-[65] bg-black overflow-hidden min-h-screen pt-16 px-4"
+            style="position:relative;z-index:65;">
             <div class="max-w-7xl mx-auto">
 
                 <!-- HEADER -->
@@ -864,7 +882,7 @@
 
         <!-- TOOLS SECTION -->
 
-        <section class=" text-white py-20 px-4 md:px-16 relative z-[60] bg-black">
+        <section class=" text-white pt-20 pb-10  md:pb-20 px-4 md:px-16 relative z-[60] bg-black">
             <div class="max-w-7xl mx-auto">
 
                 <!-- HEADER -->
@@ -879,33 +897,38 @@
                 </div>
 
                 <!-- GRID -->
-                <div class="grid md:grid-cols-2 gap-8">
+                <div class="grid md:grid-cols-2 gap-8 relative">
 
                     <!-- LEFT COLUMN -->
-                    <div class="flex flex-col gap-8">
+                    <div class="contents md:flex md:flex-col md:gap-8">
 
                         <!-- CARD 1 -->
                         <div
-                            class="border border-pink-500/60 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center">
+                            class="sticky md:relative top-[40px] md:top-0 z-10 bg-white md:bg-transparent text-black md:text-white rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center shadow-lg border border-gray-100 md:border-[#F80090]/60 md:flex-1">
 
                             <!-- TEXT -->
-                            <div class="flex-1">
-                                <h3 class="text-sm font-semibold mb-3 font-inter">ON ME PEPPER SPRAY</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed mb-4 font-inter">
-                                    High-pressure, compact, and built to be seen. This glow-in-the-dark canister lives
-                                    on your bag,
-                                    not buried in it. Anti-dig architecture means it's in your hand in one motion.
-                                    This is readiness, redesigned.
-                                </p>
+                            <div class="flex-1 flex flex-col justify-between h-full">
+                                <div>
+                                    <h3 class="text-xl md:text-sm font-bebas md:font-semibold mb-3 tracking-wide">ON ME
+                                        PEPPER SPRAY</h3>
+                                    <p class="text-black/70 md:text-gray-400 text-sm leading-relaxed mb-4 font-inter">
+                                        High-pressure, compact, and built to be seen. This glow-in-the-dark canister
+                                        lives
+                                        on your bag,
+                                        not buried in it. Anti-dig architecture means it's in your hand in one motion.
+                                        This is readiness, redesigned.
+                                    </p>
+                                </div>
                                 <button
-                                    class="bg-white text-[#E6007E] h-[35px] flex items-center gap-1 justify-center text-[16px] px-4 py-2 rounded hover:bg-gray-200">
+                                    class="bg-black text-white md:bg-white md:text-[#E6007E] w-fit h-[35px] flex items-center gap-1 justify-center text-[16px] px-4 py-2 rounded hover:bg-gray-200">
                                     <span>OWN IT</span>
-                                    <img src="./assets/images/icons/spray.svg" alt="">
+                                    <img src="./assets/images/icons/spray.svg" alt=""
+                                        class="brightness-0 invert md:invert-0">
                                 </button>
                             </div>
 
                             <!-- IMAGE -->
-                            <div class="flex-1 flex justify-center h-[300px]">
+                            <div class="flex-1 flex justify-center h-[200px] md:h-[300px]">
                                 <img src="./assets/images/tools/1.png" alt="pepper spray" class=" object-contain" />
                             </div>
 
@@ -913,23 +936,26 @@
 
                         <!-- CARD 2 -->
                         <div
-                            class="border border-pink-500/60 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center">
+                            class="sticky md:relative top-[110px] md:top-0 z-20 bg-[#5BC0EB] md:bg-transparent text-black md:text-white rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center shadow-lg order-2 md:order-3 md:border md:border-[#F80090]/60 md:flex-1">
 
-                            <div class="flex-1">
-                                <h3 class="text-sm font-semibold mb-3 font-inter">SIP CHECK</h3>
-                                <p class="text-gray-400 text-sm leading-relaxed mb-4 font-inter">
-                                    Quick Nazr Check on your drink and it's built for the lighting at every venue.
-                                    Place one on your glass. Trust what you're drinking. Move without compromise.
-                                </p>
+                            <div class="flex-1 flex flex-col justify-between h-full">
+                                <div>
+                                    <h3 class="text-xl md:text-sm font-bebas md:font-semibold mb-3 tracking-wide">SIP
+                                        CHECK</h3>
+                                    <p class="text-black/70 md:text-gray-400 text-sm leading-relaxed mb-4 font-inter">
+                                        Quick Nazr Check on your drink and it's built for the lighting at every venue.
+                                        Place one on your glass. Trust what you're drinking. Move without compromise.
+                                    </p>
+                                </div>
                                 <button
-                                    class="bg-white text-[#E6007E] h-[35px] flex items-center gap-1 justify-center text-[16px] px-4 py-2 rounded hover:bg-gray-200">
+                                    class="bg-white text-black md:text-[#E6007E] w-fit h-[35px] flex items-center gap-1 justify-center text-[16px] px-4 py-2 rounded hover:bg-gray-200">
                                     <span>OWN IT</span>
-                                    <img src="./assets/images/icons/spray.svg" alt="">
+                                    <img src="./assets/images/icons/spray.svg" alt="" class="brightness-0">
                                 </button>
                             </div>
 
                             <!-- IMAGE -->
-                            <div class="flex-1 flex justify-center h-[300px]">
+                            <div class="flex-1 flex justify-center h-[200px] md:h-[300px]">
                                 <img src="./assets/images/tools/2.png" alt="pepper spray" class="object-contain" />
                             </div>
 
@@ -937,25 +963,26 @@
 
                     </div>
 
-                    <!-- RIGHT COLUMN -->
-                    <div class="border border-pink-500/60 rounded-2xl overflow-hidden flex flex-col justify-between">
+                    <!-- CARD 3 (Desktop Right / Mobile Bottom) -->
+                    <div
+                        class="sticky md:relative top-[180px] md:top-0 z-30 bg-[#F80090] md:bg-transparent text-white rounded-2xl overflow-hidden flex flex-col justify-between shadow-lg order-3 md:order-2 md:border md:border-[#F80090]/60">
 
                         <!-- TEXT -->
                         <div class="p-6">
-                            <h3 class="text-sm font-semibold mb-3 font-inter">PWA</h3>
-                            <p class="text-gray-400 text-sm leading-relaxed mb-4 font-inter">
+                            <h3 class="text-xl md:text-sm font-bebas md:font-semibold mb-3 tracking-wide">PWA</h3>
+                            <p class="text-white/80 md:text-gray-400 text-sm leading-relaxed mb-4 font-inter">
                                 Scan the QR Code. SOS lives one tap away. A heartbeat keeps watch.
                                 A crumbly trail runs quietly in the background. This is the one that knows
                                 when to surface — and knows when to disappear.
                             </p>
                             <button
-                                class="bg-white text-[#E6007E] h-[35px] flex items-center justify-center text-[16px] px-4 py-2 rounded hover:bg-gray-200">
+                                class="bg-white text-[#F80090] h-[35px] flex items-center justify-center text-[16px] px-4 py-2 rounded hover:bg-gray-200">
                                 JOIN NOW
                             </button>
                         </div>
 
                         <!-- IMAGE -->
-                        <div class="h-[425px]">
+                        <div class="flex-1 h-[300px] md:h-full min-h-[425px]">
                             <img src="./assets/images/tools/3.png" alt="pwa preview"
                                 class="w-full h-full object-cover" />
                         </div>
@@ -968,7 +995,8 @@
 
 
         <!-- WHY NAZR  -->
-        <section class=" text-white min-h-screen flex items-center px-4 relative z-[60] bg-black pb-16">
+        <section id="whynazr-section"
+            class=" text-white min-h-screen flex items-center px-4 relative z-[50] bg-black pb-16">
             <div class="max-w-7xl mx-auto w-full ">
 
                 <!-- Grid Layout -->
@@ -1033,12 +1061,14 @@
 
 
 
-        <div class="w-full">
+        <!-- Wave divider hidden: pixel transition replaces it -->
+        <div class="w-full" style="display:none;">
             <img src="./assets/images/wave/faq-1.png" alt="" class="w-full h-auto">
         </div>
 
         <!-- FAQ SECTION -->
-        <section class="flex items-center justify-center min-h-screen px-4 relative z-[60] bg-[#711149]">
+        <section id="faq-section" class="flex items-center justify-center min-h-screen px-4 relative z-[60]"
+            style="background:transparent;">
             <div class="w-full max-w-4xl mx-auto">
 
                 <!-- Heading -->
@@ -1225,6 +1255,33 @@
     <!-- Zoom overlay image -->
     <img id="zoom-img" src="./assets/images/banner/1.webp" class="fixed pointer-events-none object-cover"
         style="z-index:80; opacity:0; top:0; left:0; width:0; height:0;" />
+
+    <!-- Why Nazr → FAQ pixel transition overlay -->
+    <div id="whynazr-pixel-overlay" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100dvh;
+        display: flex;
+        flex-wrap: wrap;
+        pointer-events: none;
+        z-index: 55;
+        overflow: hidden;
+        opacity: 0;
+    "></div>
+
+    <!-- Shop → Scenario pixel transition overlay -->
+    <div id="shop-pixel-overlay" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100dvh;
+        display: flex;
+        flex-wrap: wrap;
+        pointer-events: none;
+        z-index: 55;
+        overflow: hidden;
+        opacity: 0;
+    "></div>
+
     <script src="./assets/js/shared-partials.js" defer></script>
     <script src="./assets/js/main.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -1434,12 +1491,11 @@
             // All cards start below viewport
             gsap.set(cards, { y: '110vh' });
 
-            ScrollTrigger.create({
+            const st = ScrollTrigger.create({
                 trigger: scenarioSection,
                 start: 'top top',
-                end: '+=400%',   // 4 cards × 100vh
+                end: 'bottom bottom',   // triggers over the 500vh span (resulting in 400vh scrub distance)
                 scrub: 1,
-                pin: true,
                 onUpdate(self) {
                     const p = self.progress;
                     const n = cards.length; // 4
@@ -1458,6 +1514,192 @@
                             gsap.set(card, { y: 0 }); // resting at center
                         }
                     });
+                }
+            });
+
+
+        });
+    </script>
+
+    <!-- ============================================================
+         SHOP → SCENARIO PIXEL TRANSITION
+         Bottom-to-top fill overlays the screen as shop scrolls out.
+         At 60% fill the scenario section becomes visible beneath.
+         ============================================================ -->
+    <script>
+        window.addEventListener('load', () => {
+            const shopSection = document.querySelector('#shop-section');
+            const scenarioSection = document.querySelector('#scenario-section');
+            const overlay = document.getElementById('shop-pixel-overlay');
+
+            if (!shopSection || !scenarioSection || !overlay) return;
+
+            /* ── Build pixel grid ── */
+            const vW = window.innerWidth;
+            const vH = window.innerHeight;
+            const PX = vW < 768 ? 14 : 22;       // pixel tile size in px
+            const overscan = PX * 2;
+            const cols = Math.ceil((vW + overscan) / PX);
+            const rows = Math.ceil((vH + overscan) / PX);
+            const total = cols * rows;
+
+            overlay.style.width = `${vW + overscan}px`;
+            overlay.style.height = `${vH + overscan}px`;
+            overlay.style.left = `${-overscan / 2}px`;
+            overlay.style.top = `${-overscan / 2}px`;
+
+            /* Create tiles */
+            const tiles = [];
+            for (let i = 0; i < total; i++) {
+                const el = document.createElement('div');
+                el.style.cssText = `width:${PX}px;height:${PX}px;background:#5BC0EB;opacity:0;flex-shrink:0;`;
+                overlay.appendChild(el);
+                tiles.push(el);
+            }
+
+            /* Sort tiles: bottom rows animate first (bottom→top), with randomness */
+            const weighted = [];
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const idx = row * cols + col;
+                    /* Invert row index so bottom row = weight 0 (fires first) */
+                    const weight = (rows - 1 - row) + Math.random() * 12;
+                    weighted.push({ el: tiles[idx], weight });
+                }
+            }
+            weighted.sort((a, b) => a.weight - b.weight);
+            const ordered = weighted.map(w => w.el);
+
+            /* ── ScrollTrigger: pin #shop-section so it stays visible while pixels fill ── */
+            let scenarioRevealed = false;
+
+            ScrollTrigger.create({
+                trigger: shopSection,
+                start: 'bottom bottom',  /* fires when shop section bottom hits viewport bottom */
+                end: '+=100%',           /* 1.0 viewport of scroll budget for the pixel fill */
+                scrub: 1.2,
+                pin: true,
+                pinSpacing: false,       /* MUST BE FALSE to let scenario section naturally slide up */
+                onUpdate(self) {
+                    const p = self.progress;  /* 0 → 1 */
+
+                    if (p <= 0.01) {
+                        gsap.set(overlay, { opacity: 0 });
+                        ordered.forEach(t => gsap.set(t, { opacity: 0 }));
+                        return;
+                    }
+
+                    gsap.set(overlay, { opacity: 1 });
+
+                    /* Fill completes at 90% of scroll progress */
+                    const fillP = Math.min(p / 0.9, 1);
+
+                    ordered.forEach((tile, i) => {
+                        const threshold = i / ordered.length;
+                        gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
+                    });
+                },
+                onLeave() {
+                    gsap.set(scenarioSection, { background: '#5BC0EB' });
+                    /* Pin released — hide overlay and hide shop so scenario section is seamlessly revealed */
+                    gsap.set(overlay, { opacity: 0 });
+                    ordered.forEach(t => gsap.set(t, { opacity: 0 }));
+                    gsap.set(shopSection, { opacity: 0 });
+                },
+                onEnterBack() {
+                    gsap.set(scenarioSection, { background: 'transparent' });
+                    /* Restore overlay and shop when scrolling backward */
+                    gsap.set(overlay, { opacity: 1 });
+                    ordered.forEach(t => gsap.set(t, { opacity: 1 }));
+                    gsap.set(shopSection, { opacity: 1 });
+                }
+            });
+        });
+    </script>
+
+    <!-- ============================================================
+         WHY NAZR → FAQ PIXEL TRANSITION
+         ============================================================ -->
+    <script>
+        window.addEventListener('load', () => {
+            const whynazrSection = document.querySelector('#whynazr-section');
+            const faqSection = document.querySelector('#faq-section');
+            const overlay2 = document.getElementById('whynazr-pixel-overlay');
+
+            if (!whynazrSection || !faqSection || !overlay2) return;
+
+            /* ── Build pixel grid ── */
+            const vW = window.innerWidth;
+            const vH = window.innerHeight;
+            const PX = vW < 768 ? 14 : 22;       // pixel tile size in px
+            const overscan = PX * 2;
+            const cols = Math.ceil((vW + overscan) / PX);
+            const rows = Math.ceil((vH + overscan) / PX);
+            const total = cols * rows;
+
+            overlay2.style.width = `${vW + overscan}px`;
+            overlay2.style.height = `${vH + overscan}px`;
+            overlay2.style.left = `${-overscan / 2}px`;
+            overlay2.style.top = `${-overscan / 2}px`;
+
+            /* Create tiles */
+            const tiles = [];
+            for (let i = 0; i < total; i++) {
+                const el = document.createElement('div');
+                el.style.cssText = `width:${PX}px;height:${PX}px;background:#711149;opacity:0;flex-shrink:0;`;
+                overlay2.appendChild(el);
+                tiles.push(el);
+            }
+
+            /* Sort tiles: bottom rows animate first (bottom→top), with randomness */
+            const weighted = [];
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    const idx = row * cols + col;
+                    const weight = (rows - 1 - row) + Math.random() * 12;
+                    weighted.push({ el: tiles[idx], weight });
+                }
+            }
+            weighted.sort((a, b) => a.weight - b.weight);
+            const ordered = weighted.map(w => w.el);
+
+            /* ── ScrollTrigger: pin #whynazr-section so it stays visible while pixels fill ── */
+            ScrollTrigger.create({
+                trigger: whynazrSection,
+                start: 'bottom bottom',
+                end: '+=100%',
+                scrub: 1.2,
+                pin: true,
+                pinSpacing: false,
+                onUpdate(self) {
+                    const p = self.progress;
+
+                    if (p <= 0.01) {
+                        gsap.set(overlay2, { opacity: 0 });
+                        ordered.forEach(t => gsap.set(t, { opacity: 0 }));
+                        return;
+                    }
+
+                    gsap.set(overlay2, { opacity: 1 });
+
+                    const fillP = Math.min(p / 0.8, 1);
+
+                    ordered.forEach((tile, i) => {
+                        const threshold = i / ordered.length;
+                        gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
+                    });
+                },
+                onLeave() {
+                    gsap.set(faqSection, { background: '#711149' });
+                    gsap.set(overlay2, { opacity: 0 });
+                    ordered.forEach(t => gsap.set(t, { opacity: 0 }));
+                    gsap.set(whynazrSection, { opacity: 0 });
+                },
+                onEnterBack() {
+                    gsap.set(faqSection, { background: 'transparent' });
+                    gsap.set(overlay2, { opacity: 1 });
+                    ordered.forEach(t => gsap.set(t, { opacity: 1 }));
+                    gsap.set(whynazrSection, { opacity: 1 });
                 }
             });
         });
