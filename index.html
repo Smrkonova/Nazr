@@ -165,11 +165,11 @@
 
             <!-- Desktop icons -->
             <div class="hidden md:flex items-center gap-4">
-                <a href="https://shop.nazrco.in/cart" target="_blank"
-                    class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                <a href="https://shopify.com/authentication/79314714861/login?client_id=373ca0c6-5009-4c7c-8e3d-2188c0f69837&locale=en-IN&redirect_uri=%2Fauthentication%2F79314714861%2Foauth%2Fauthorize%3Fbuyer_flags%3DeyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ5MWdwanItZnIubXlzaG9waWZ5LmNvbSIsImZsYWdzIjpbXSwiZXhwIjoxNzc3MjIyNTU0LCJuYmYiOjE3NzY2MTc3NTR9.KwYjUJ7NeU2FZhc00V3Oz_zQ2EKRui_i2gdZJnal5iw%26client_id%3D373ca0c6-5009-4c7c-8e3d-2188c0f69837%26locale%3Den-IN%26nonce%3D3e343cf8-f106-4aa9-a10a-6a4b8ee064f4%26redirect_uri%3Dhttps%253A%252F%252Fshopify.com%252F79314714861%252Faccount%252Fcallback%26region_country%3DIN%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3DhWNBD8jhNavPNejPKbVNrRE9&region_country=IN"
+                    target="_blank" class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
                     <img src="./assets/images/icons/user.svg" alt="Account">
                 </a>
-                <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                <a href="https://shop.nazrco.in/cart" target="_blank"
                     class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
                     <img src="./assets/images/icons/cart.svg" alt="Cart">
                 </a>
@@ -300,11 +300,12 @@
 
             <!-- Mobile CTA -->
             <div class="mt-8 flex flex-col gap-3">
-                <a href="https://shop.nazrco.in/cart" target="_blank"
+                <a href="https://shopify.com/authentication/79314714861/login?client_id=373ca0c6-5009-4c7c-8e3d-2188c0f69837&locale=en-IN&redirect_uri=%2Fauthentication%2F79314714861%2Foauth%2Fauthorize%3Fbuyer_flags%3DeyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ5MWdwanItZnIubXlzaG9waWZ5LmNvbSIsImZsYWdzIjpbXSwiZXhwIjoxNzc3MjIyNTU0LCJuYmYiOjE3NzY2MTc3NTR9.KwYjUJ7NeU2FZhc00V3Oz_zQ2EKRui_i2gdZJnal5iw%26client_id%3D373ca0c6-5009-4c7c-8e3d-2188c0f69837%26locale%3Den-IN%26nonce%3D3e343cf8-f106-4aa9-a10a-6a4b8ee064f4%26redirect_uri%3Dhttps%253A%252F%252Fshopify.com%252F79314714861%252Faccount%252Fcallback%26region_country%3DIN%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3DhWNBD8jhNavPNejPKbVNrRE9&region_country=IN"
+                    target="_blank"
                     class="w-full py-3 text-center border border-white/30 rounded-full text-sm font-bold hover:bg-white/10 transition-colors text-white">
                     My Account
                 </a>
-                <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray" target="_blank"
+                <a href="https://shop.nazrco.in/cart" target="_blank"
                     class="w-full py-3 text-center bg-[#E6007E] text-white rounded-full text-sm font-bold hover:bg-[#ff1a96] transition-colors shadow-lg">
                     Shop Now
                 </a>
@@ -748,10 +749,10 @@
         </section>
 
         <!-- Spacer to hold scroll for 1 viewport while shop dwells -->
-        <div class="w-full h-[100svh] relative z-[51] pointer-events-none"></div>
+        <div class="hidden md:block w-full h-[100svh] relative z-[51] pointer-events-none"></div>
 
-        <!-- Wave divider hidden: pixel transition replaces it -->
-        <div class="w-full" style="display:none;">
+        <!-- Wave divider hidden: pixel transition replaces it on desktop, shown on mobile -->
+        <div class="block md:hidden w-full relative z-[55] bg-black">
             <img src="./assets/images/wave/time-1.png" alt="" class="w-full h-auto">
         </div>
 
@@ -1679,42 +1680,106 @@
 
             if (!scenarioSection || !cards.length) return;
 
-            // All cards start below viewport
-            gsap.set(cards, { y: '110vh' });
+            let mmCards = gsap.matchMedia();
+            const targetRotations = [9, 6, 3, 0];
 
-            const st = ScrollTrigger.create({
-                trigger: scenarioSection,
-                start: 'top top',
-                end: 'bottom bottom',   // triggers over the 500vh span (resulting in 400vh scrub distance)
-                scrub: 1,
-                onUpdate(self) {
-                    const p = self.progress;
-                    const n = cards.length; // 4
+            mmCards.add("(min-width: 768px)", () => {
+                // All cards start below viewport on Desktop
+                gsap.set(cards, { y: '110vh' });
 
-                    // DWELL DELAY: Reserve first 25% of scroll for the title text alone
-                    const waitPhase = 0.25;
-                    const cardDist = (1 - waitPhase) / n; // distribute remaining 75% across 4 cards
-                    const targetRotations = [9, 6, 3, 0];
+                ScrollTrigger.create({
+                    trigger: scenarioSection,
+                    start: 'top top',
+                    end: 'bottom bottom',   // triggers over the 500vh span (resulting in 400vh scrub distance)
+                    scrub: 1,
+                    onUpdate(self) {
+                        const p = self.progress;
+                        const n = cards.length; // 4
 
-                    cards.forEach((card, i) => {
-                        const phaseStart = waitPhase + (i * cardDist);
-                        const phaseEnd = phaseStart + cardDist;
-                        const targetRot = targetRotations[i] || 0;
+                        // DWELL DELAY: Reserve first 25% of scroll for the title text alone
+                        const waitPhase = 0.25;
+                        const cardDist = (1 - waitPhase) / n; // distribute remaining 75% across 4 cards
 
-                        if (p < phaseStart) {
-                            gsap.set(card, { y: window.innerHeight * 1.1, rotation: 0 }); // wait off screen securely straight
-                        } else if (p < phaseEnd) {
-                            const sp = (p - phaseStart) / cardDist; // 0→1 within this phase
-                            const esp = 1 - Math.pow(1 - sp, 2);    // ease-out
-                            gsap.set(card, {
-                                y: gsap.utils.interpolate(window.innerHeight * 1.1, 0, esp),
-                                rotation: gsap.utils.interpolate(0, targetRot, esp)
-                            });
-                        } else {
-                            gsap.set(card, { y: 0, rotation: targetRot }); // resting securely at perfect angle
-                        }
-                    });
-                }
+                        cards.forEach((card, i) => {
+                            const phaseStart = waitPhase + (i * cardDist);
+                            const phaseEnd = phaseStart + cardDist;
+                            const targetRot = targetRotations[i] || 0;
+
+                            if (p < phaseStart) {
+                                gsap.set(card, { y: window.innerHeight * 1.1, rotation: 0 }); // wait off screen securely straight
+                            } else if (p < phaseEnd) {
+                                const sp = (p - phaseStart) / cardDist; // 0→1 within this phase
+                                const esp = 1 - Math.pow(1 - sp, 2);    // ease-out
+                                gsap.set(card, {
+                                    y: gsap.utils.interpolate(window.innerHeight * 1.1, 0, esp),
+                                    rotation: gsap.utils.interpolate(0, targetRot, esp)
+                                });
+                            } else {
+                                gsap.set(card, { y: 0, rotation: targetRot }); // resting securely at perfect angle
+                            }
+                        });
+                    }
+                });
+            });
+
+            mmCards.add("(max-width: 767px)", () => {
+                // Mobile: All cards begin off-screen
+                gsap.set(cards, { y: '110vh', rotation: 0 });
+                const remainingCards = cards.slice(1);
+
+                ScrollTrigger.create({
+                    trigger: scenarioSection,
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1,
+                    onEnter: () => {
+                        // First card animates into center automatically when section arrives
+                        gsap.to(cards[0], { 
+                            y: 0, 
+                            rotation: targetRotations[0], 
+                            duration: 0.8, 
+                            ease: "power3.out",
+                            overwrite: "auto"
+                        });
+                    },
+                    onLeaveBack: () => {
+                        // Reset if scrolled backward
+                        gsap.to(cards[0], { 
+                            y: window.innerHeight * 1.1, 
+                            rotation: 0, 
+                            duration: 0.5, 
+                            ease: "power2.in",
+                            overwrite: "auto"
+                        });
+                    },
+                    onUpdate(self) {
+                        const p = self.progress;
+                        const n = remainingCards.length; // 3
+
+                        // Distribute the remaining 3 cards over the full 100% of scrub
+                        const cardDist = 1 / n; 
+
+                        remainingCards.forEach((card, i) => {
+                            const phaseStart = i * cardDist;
+                            const phaseEnd = phaseStart + cardDist;
+                            // Target rotation for the remaining cards corresponds to index 1,2,3
+                            const targetRot = targetRotations[i + 1] || 0;
+
+                            if (p < phaseStart) {
+                                gsap.set(card, { y: window.innerHeight * 1.1, rotation: 0 });
+                            } else if (p < phaseEnd) {
+                                const sp = (p - phaseStart) / cardDist;
+                                const esp = 1 - Math.pow(1 - sp, 2);
+                                gsap.set(card, {
+                                    y: gsap.utils.interpolate(window.innerHeight * 1.1, 0, esp),
+                                    rotation: gsap.utils.interpolate(0, targetRot, esp)
+                                });
+                            } else {
+                                gsap.set(card, { y: 0, rotation: targetRot });
+                            }
+                        });
+                    }
+                });
             });
 
 
@@ -1734,99 +1799,114 @@
 
             if (!shopSection || !scenarioSection || !overlay) return;
 
-            /* ── Build pixel grid ── */
-            let ordered = [];
-            function initGrid1() {
-                overlay.innerHTML = '';
-                const vW = window.innerWidth;
-                const vH = window.innerHeight;
-                const PX = vW < 768 ? 14 : 22;       // pixel tile size in px
-                const overscan = PX * 2;
-                const cols = Math.ceil((vW + overscan) / PX);
-                const rows = Math.ceil((vH + overscan) / PX);
-                const total = cols * rows;
+            let mm1 = gsap.matchMedia();
 
-                overlay.style.width = `${vW + overscan}px`;
-                overlay.style.height = `${vH + overscan}px`;
-                overlay.style.left = `${-overscan / 2}px`;
-                overlay.style.top = `${-overscan / 2}px`;
+            mm1.add("(min-width: 768px)", () => {
+                /* ── Build pixel grid ── */
+                let ordered = [];
+                function initGrid1() {
+                    overlay.innerHTML = '';
+                    const vW = window.innerWidth;
+                    const vH = window.innerHeight;
+                    const PX = 22;       // pixel tile size in px
+                    const overscan = PX * 2;
+                    const cols = Math.ceil((vW + overscan) / PX);
+                    const rows = Math.ceil((vH + overscan) / PX);
+                    const total = cols * rows;
 
-                const tiles = [];
-                for (let i = 0; i < total; i++) {
-                    const el = document.createElement('div');
-                    el.style.cssText = `width:${PX}px;height:${PX}px;background:#5BC0EB;opacity:0;flex-shrink:0;`;
-                    overlay.appendChild(el);
-                    tiles.push(el);
-                }
+                    overlay.style.width = `${vW + overscan}px`;
+                    overlay.style.height = `${vH + overscan}px`;
+                    overlay.style.left = `${-overscan / 2}px`;
+                    overlay.style.top = `${-overscan / 2}px`;
 
-                const weighted = [];
-                for (let row = 0; row < rows; row++) {
-                    for (let col = 0; col < cols; col++) {
-                        const idx = row * cols + col;
-                        /* Invert row index so bottom row = weight 0 (fires first) */
-                        const weight = (rows - 1 - row) + Math.random() * 12;
-                        weighted.push({ el: tiles[idx], weight });
+                    const tiles = [];
+                    for (let i = 0; i < total; i++) {
+                        const el = document.createElement('div');
+                        el.style.cssText = `width:${PX}px;height:${PX}px;background:#5BC0EB;opacity:0;flex-shrink:0;`;
+                        overlay.appendChild(el);
+                        tiles.push(el);
                     }
+
+                    const weighted = [];
+                    for (let row = 0; row < rows; row++) {
+                        for (let col = 0; col < cols; col++) {
+                            const idx = row * cols + col;
+                            /* Invert row index so bottom row = weight 0 (fires first) */
+                            const weight = (rows - 1 - row) + Math.random() * 12;
+                            weighted.push({ el: tiles[idx], weight });
+                        }
+                    }
+                    weighted.sort((a, b) => a.weight - b.weight);
+                    ordered = weighted.map(w => w.el);
                 }
-                weighted.sort((a, b) => a.weight - b.weight);
-                ordered = weighted.map(w => w.el);
-            }
 
-            initGrid1();
+                initGrid1();
 
-            let resizeTimer1;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer1);
-                resizeTimer1 = setTimeout(() => { initGrid1(); ScrollTrigger.refresh(); }, 250);
-            });
+                let resizeTimer1;
+                const onResize = () => {
+                    clearTimeout(resizeTimer1);
+                    resizeTimer1 = setTimeout(() => { initGrid1(); ScrollTrigger.refresh(); }, 250);
+                };
+                window.addEventListener('resize', onResize);
 
-            /* ── ScrollTrigger: pin #shop-section so it stays visible while pixels fill ── */
-            let scenarioRevealed = false;
+                /* ── ScrollTrigger: pin #shop-section so it stays visible while pixels fill ── */
+                ScrollTrigger.create({
+                    trigger: shopSection,
+                    start: 'top top',        /* fires when shop section top hits viewport top */
+                    endTrigger: scenarioSection,
+                    end: 'top top',          /* closes exactly when scenarioSection bounds hit the top */
+                    scrub: 1.2,
+                    pin: true,
+                    pinSpacing: false,       /* MUST BE FALSE to let scenario section naturally slide up */
+                    onUpdate(self) {
+                        const p = self.progress;  /* 0 → 1 */
 
-            ScrollTrigger.create({
-                trigger: shopSection,
-                start: 'top top',        /* fires when shop section top hits viewport top */
-                endTrigger: scenarioSection,
-                end: 'top top',          /* closes exactly when scenarioSection bounds hit the top */
-                scrub: 1.2,
-                pin: true,
-                pinSpacing: false,       /* MUST BE FALSE to let scenario section naturally slide up */
-                onUpdate(self) {
-                    const p = self.progress;  /* 0 → 1 */
+                        // Map the second half of the scroll (0.5 to 1.0) to pixel progress
+                        const pixelProgress = p < 0.5 ? 0 : (p - 0.5) / 0.5;
 
-                    // Map the second half of the scroll (0.5 to 1.0) to pixel progress
-                    const pixelProgress = p < 0.5 ? 0 : (p - 0.5) / 0.5;
+                        if (pixelProgress <= 0.01) {
+                            gsap.set(overlay, { opacity: 0 });
+                            ordered.forEach(t => gsap.set(t, { opacity: 0 }));
+                            return;
+                        }
 
-                    if (pixelProgress <= 0.01) {
+                        gsap.set(overlay, { opacity: 1 });
+
+                        /* Fill completes at 90% of the pixel progress */
+                        const fillP = Math.min(pixelProgress / 0.9, 1);
+
+                        ordered.forEach((tile, i) => {
+                            const threshold = i / ordered.length;
+                            gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
+                        });
+                    },
+                    onLeave() {
+                        gsap.set(scenarioSection, { background: '#5BC0EB' });
+                        /* Pin released — hide overlay and hide shop so scenario section is seamlessly revealed */
                         gsap.set(overlay, { opacity: 0 });
                         ordered.forEach(t => gsap.set(t, { opacity: 0 }));
-                        return;
+                        gsap.set(shopSection, { opacity: 0 });
+                    },
+                    onEnterBack() {
+                        gsap.set(scenarioSection, { background: 'transparent' });
+                        /* Restore overlay and shop when scrolling backward */
+                        gsap.set(overlay, { opacity: 1 });
+                        ordered.forEach(t => gsap.set(t, { opacity: 1 }));
+                        gsap.set(shopSection, { opacity: 1 });
                     }
+                });
 
-                    gsap.set(overlay, { opacity: 1 });
-
-                    /* Fill completes at 90% of the pixel progress */
-                    const fillP = Math.min(pixelProgress / 0.9, 1);
-
-                    ordered.forEach((tile, i) => {
-                        const threshold = i / ordered.length;
-                        gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
-                    });
-                },
-                onLeave() {
-                    gsap.set(scenarioSection, { background: '#5BC0EB' });
-                    /* Pin released — hide overlay and hide shop so scenario section is seamlessly revealed */
+                return () => {
+                    window.removeEventListener('resize', onResize);
+                    gsap.set(scenarioSection, { clearProps: "background" });
+                    gsap.set(shopSection, { clearProps: "opacity" });
                     gsap.set(overlay, { opacity: 0 });
-                    ordered.forEach(t => gsap.set(t, { opacity: 0 }));
-                    gsap.set(shopSection, { opacity: 0 });
-                },
-                onEnterBack() {
-                    gsap.set(scenarioSection, { background: 'transparent' });
-                    /* Restore overlay and shop when scrolling backward */
-                    gsap.set(overlay, { opacity: 1 });
-                    ordered.forEach(t => gsap.set(t, { opacity: 1 }));
-                    gsap.set(shopSection, { opacity: 1 });
-                }
+                };
+            });
+
+            mm1.add("(max-width: 767px)", () => {
+                gsap.set(scenarioSection, { background: '#5BC0EB' });
+                gsap.set(overlay, { display: 'none' });
             });
         });
     </script>
@@ -1842,90 +1922,107 @@
 
             if (!scenarioSection || !journeySection || !overlay3) return;
 
-            /* ── Build pixel grid ── */
-            let ordered3 = [];
-            function initGrid3() {
-                overlay3.innerHTML = '';
-                const vW = window.innerWidth;
-                const vH = window.innerHeight;
-                const PX = vW < 768 ? 14 : 22;       // pixel tile size in px
-                const overscan = PX * 2;
-                const cols = Math.ceil((vW + overscan) / PX);
-                const rows = Math.ceil((vH + overscan) / PX);
-                const total = cols * rows;
+            let mm2 = gsap.matchMedia();
 
-                overlay3.style.width = `${vW + overscan}px`;
-                overlay3.style.height = `${vH + overscan}px`;
-                overlay3.style.left = `${-overscan / 2}px`;
-                overlay3.style.top = `${-overscan / 2}px`;
+            mm2.add("(min-width: 768px)", () => {
+                /* ── Build pixel grid ── */
+                let ordered3 = [];
+                function initGrid3() {
+                    overlay3.innerHTML = '';
+                    const vW = window.innerWidth;
+                    const vH = window.innerHeight;
+                    const PX = 22;       // pixel tile size in px
+                    const overscan = PX * 2;
+                    const cols = Math.ceil((vW + overscan) / PX);
+                    const rows = Math.ceil((vH + overscan) / PX);
+                    const total = cols * rows;
 
-                const tiles3 = [];
-                for (let i = 0; i < total; i++) {
-                    const el = document.createElement('div');
-                    el.style.cssText = `width:${PX}px;height:${PX}px;background:#000000;opacity:0;flex-shrink:0;`;
-                    overlay3.appendChild(el);
-                    tiles3.push(el);
-                }
+                    overlay3.style.width = `${vW + overscan}px`;
+                    overlay3.style.height = `${vH + overscan}px`;
+                    overlay3.style.left = `${-overscan / 2}px`;
+                    overlay3.style.top = `${-overscan / 2}px`;
 
-                const weighted3 = [];
-                for (let row = 0; row < rows; row++) {
-                    for (let col = 0; col < cols; col++) {
-                        const idx = row * cols + col;
-                        const weight = (rows - 1 - row) + Math.random() * 12;
-                        weighted3.push({ el: tiles3[idx], weight });
+                    const tiles3 = [];
+                    for (let i = 0; i < total; i++) {
+                        const el = document.createElement('div');
+                        el.style.cssText = `width:${PX}px;height:${PX}px;background:#000000;opacity:0;flex-shrink:0;`;
+                        overlay3.appendChild(el);
+                        tiles3.push(el);
                     }
+
+                    const weighted3 = [];
+                    for (let row = 0; row < rows; row++) {
+                        for (let col = 0; col < cols; col++) {
+                            const idx = row * cols + col;
+                            const weight = (rows - 1 - row) + Math.random() * 12;
+                            weighted3.push({ el: tiles3[idx], weight });
+                        }
+                    }
+                    weighted3.sort((a, b) => a.weight - b.weight);
+                    ordered3 = weighted3.map(w => w.el);
                 }
-                weighted3.sort((a, b) => a.weight - b.weight);
-                ordered3 = weighted3.map(w => w.el);
-            }
-            initGrid3();
+                initGrid3();
 
-            let resizeTimer3;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer3);
-                resizeTimer3 = setTimeout(() => { initGrid3(); ScrollTrigger.refresh(); }, 250);
-            });
+                let resizeTimer3;
+                const onResize3 = () => {
+                    clearTimeout(resizeTimer3);
+                    resizeTimer3 = setTimeout(() => { initGrid3(); ScrollTrigger.refresh(); }, 250);
+                };
+                window.addEventListener('resize', onResize3);
 
-            /* Initial state */
-            gsap.set(journeySection, { background: 'transparent' });
+                /* Initial state */
+                gsap.set(journeySection, { background: 'transparent' });
 
-            ScrollTrigger.create({
-                trigger: scenarioSection,
-                start: 'bottom bottom',
-                endTrigger: journeySection,
-                end: 'top top',
-                scrub: 1.2,
-                pin: true,
-                pinSpacing: false,
-                onUpdate(self) {
-                    const p = self.progress;
+                ScrollTrigger.create({
+                    trigger: scenarioSection,
+                    start: 'bottom bottom',
+                    endTrigger: journeySection,
+                    end: 'top top',
+                    scrub: 1.2,
+                    pin: true,
+                    pinSpacing: false,
+                    onUpdate(self) {
+                        const p = self.progress;
 
-                    if (p <= 0.01) {
+                        if (p <= 0.01) {
+                            gsap.set(overlay3, { opacity: 0 });
+                            ordered3.forEach(t => gsap.set(t, { opacity: 0 }));
+                            return;
+                        }
+
+                        gsap.set(overlay3, { opacity: 1 });
+                        const fillP = Math.min(p / 0.9, 1);
+
+                        ordered3.forEach((tile, i) => {
+                            const threshold = i / ordered3.length;
+                            gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
+                        });
+                    },
+                    onLeave() {
+                        gsap.set(journeySection, { background: '#000000' });
                         gsap.set(overlay3, { opacity: 0 });
                         ordered3.forEach(t => gsap.set(t, { opacity: 0 }));
-                        return;
+                        gsap.set(scenarioSection, { opacity: 0 });
+                    },
+                    onEnterBack() {
+                        gsap.set(journeySection, { background: 'transparent' });
+                        gsap.set(overlay3, { opacity: 1 });
+                        ordered3.forEach(t => gsap.set(t, { opacity: 1 }));
+                        gsap.set(scenarioSection, { opacity: 1 });
                     }
+                });
 
-                    gsap.set(overlay3, { opacity: 1 });
-                    const fillP = Math.min(p / 0.9, 1);
-
-                    ordered3.forEach((tile, i) => {
-                        const threshold = i / ordered3.length;
-                        gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
-                    });
-                },
-                onLeave() {
-                    gsap.set(journeySection, { background: '#000000' });
+                return () => {
+                    window.removeEventListener('resize', onResize3);
+                    gsap.set(journeySection, { clearProps: "background" });
+                    gsap.set(scenarioSection, { clearProps: "opacity" });
                     gsap.set(overlay3, { opacity: 0 });
-                    ordered3.forEach(t => gsap.set(t, { opacity: 0 }));
-                    gsap.set(scenarioSection, { opacity: 0 });
-                },
-                onEnterBack() {
-                    gsap.set(journeySection, { background: 'transparent' });
-                    gsap.set(overlay3, { opacity: 1 });
-                    ordered3.forEach(t => gsap.set(t, { opacity: 1 }));
-                    gsap.set(scenarioSection, { opacity: 1 });
-                }
+                };
+            });
+
+            mm2.add("(max-width: 767px)", () => {
+                gsap.set(journeySection, { background: '#000000' });
+                gsap.set(overlay3, { display: 'none' });
             });
 
             /* ── MOBILE PWA CARD DWELL ── */
@@ -1959,88 +2056,105 @@
 
             if (!whynazrSection || !faqSection || !overlay2) return;
 
-            /* ── Build pixel grid ── */
-            let ordered = [];
-            function initGrid2() {
-                overlay2.innerHTML = '';
-                const vW = window.innerWidth;
-                const vH = window.innerHeight;
-                const PX = vW < 768 ? 14 : 22;       // pixel tile size in px
-                const overscan = PX * 2;
-                const cols = Math.ceil((vW + overscan) / PX);
-                const rows = Math.ceil((vH + overscan) / PX);
-                const total = cols * rows;
+            let mm3 = gsap.matchMedia();
 
-                overlay2.style.width = `${vW + overscan}px`;
-                overlay2.style.height = `${vH + overscan}px`;
-                overlay2.style.left = `${-overscan / 2}px`;
-                overlay2.style.top = `${-overscan / 2}px`;
+            mm3.add("(min-width: 768px)", () => {
+                /* ── Build pixel grid ── */
+                let ordered = [];
+                function initGrid2() {
+                    overlay2.innerHTML = '';
+                    const vW = window.innerWidth;
+                    const vH = window.innerHeight;
+                    const PX = 22;       // pixel tile size in px
+                    const overscan = PX * 2;
+                    const cols = Math.ceil((vW + overscan) / PX);
+                    const rows = Math.ceil((vH + overscan) / PX);
+                    const total = cols * rows;
 
-                const tiles = [];
-                for (let i = 0; i < total; i++) {
-                    const el = document.createElement('div');
-                    el.style.cssText = `width:${PX}px;height:${PX}px;background:#711149;opacity:0;flex-shrink:0;`;
-                    overlay2.appendChild(el);
-                    tiles.push(el);
-                }
+                    overlay2.style.width = `${vW + overscan}px`;
+                    overlay2.style.height = `${vH + overscan}px`;
+                    overlay2.style.left = `${-overscan / 2}px`;
+                    overlay2.style.top = `${-overscan / 2}px`;
 
-                const weighted = [];
-                for (let row = 0; row < rows; row++) {
-                    for (let col = 0; col < cols; col++) {
-                        const idx = row * cols + col;
-                        const weight = (rows - 1 - row) + Math.random() * 12;
-                        weighted.push({ el: tiles[idx], weight });
+                    const tiles = [];
+                    for (let i = 0; i < total; i++) {
+                        const el = document.createElement('div');
+                        el.style.cssText = `width:${PX}px;height:${PX}px;background:#711149;opacity:0;flex-shrink:0;`;
+                        overlay2.appendChild(el);
+                        tiles.push(el);
                     }
+
+                    const weighted = [];
+                    for (let row = 0; row < rows; row++) {
+                        for (let col = 0; col < cols; col++) {
+                            const idx = row * cols + col;
+                            const weight = (rows - 1 - row) + Math.random() * 12;
+                            weighted.push({ el: tiles[idx], weight });
+                        }
+                    }
+                    weighted.sort((a, b) => a.weight - b.weight);
+                    ordered = weighted.map(w => w.el);
                 }
-                weighted.sort((a, b) => a.weight - b.weight);
-                ordered = weighted.map(w => w.el);
-            }
-            initGrid2();
+                initGrid2();
 
-            let resizeTimer2;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer2);
-                resizeTimer2 = setTimeout(() => { initGrid2(); ScrollTrigger.refresh(); }, 250);
-            });
+                let resizeTimer2;
+                const onResize2 = () => {
+                    clearTimeout(resizeTimer2);
+                    resizeTimer2 = setTimeout(() => { initGrid2(); ScrollTrigger.refresh(); }, 250);
+                };
+                window.addEventListener('resize', onResize2);
 
-            /* ── ScrollTrigger: pin #whynazr-section so it stays visible while pixels fill ── */
-            ScrollTrigger.create({
-                trigger: whynazrSection,
-                start: 'bottom bottom',
-                end: '+=100%',
-                scrub: 1.2,
-                pin: true,
-                pinSpacing: false,
-                onUpdate(self) {
-                    const p = self.progress;
+                /* ── ScrollTrigger: pin #whynazr-section so it stays visible while pixels fill ── */
+                ScrollTrigger.create({
+                    trigger: whynazrSection,
+                    start: 'bottom bottom',
+                    end: '+=100%',
+                    scrub: 1.2,
+                    pin: true,
+                    pinSpacing: false,
+                    onUpdate(self) {
+                        const p = self.progress;
 
-                    if (p <= 0.01) {
+                        if (p <= 0.01) {
+                            gsap.set(overlay2, { opacity: 0 });
+                            ordered.forEach(t => gsap.set(t, { opacity: 0 }));
+                            return;
+                        }
+
+                        gsap.set(overlay2, { opacity: 1 });
+
+                        const fillP = Math.min(p / 0.8, 1);
+
+                        ordered.forEach((tile, i) => {
+                            const threshold = i / ordered.length;
+                            gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
+                        });
+                    },
+                    onLeave() {
+                        gsap.set(faqSection, { background: '#711149' });
                         gsap.set(overlay2, { opacity: 0 });
                         ordered.forEach(t => gsap.set(t, { opacity: 0 }));
-                        return;
+                        gsap.set(whynazrSection, { opacity: 0 });
+                    },
+                    onEnterBack() {
+                        gsap.set(faqSection, { background: 'transparent' });
+                        gsap.set(overlay2, { opacity: 1 });
+                        ordered.forEach(t => gsap.set(t, { opacity: 1 }));
+                        gsap.set(whynazrSection, { opacity: 1 });
                     }
+                });
 
-                    gsap.set(overlay2, { opacity: 1 });
-
-                    const fillP = Math.min(p / 0.8, 1);
-
-                    ordered.forEach((tile, i) => {
-                        const threshold = i / ordered.length;
-                        gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
-                    });
-                },
-                onLeave() {
-                    gsap.set(faqSection, { background: '#711149' });
+                return () => {
+                    window.removeEventListener('resize', onResize2);
+                    gsap.set(faqSection, { clearProps: "background" });
+                    gsap.set(whynazrSection, { clearProps: "opacity" });
                     gsap.set(overlay2, { opacity: 0 });
-                    ordered.forEach(t => gsap.set(t, { opacity: 0 }));
-                    gsap.set(whynazrSection, { opacity: 0 });
-                },
-                onEnterBack() {
-                    gsap.set(faqSection, { background: 'transparent' });
-                    gsap.set(overlay2, { opacity: 1 });
-                    ordered.forEach(t => gsap.set(t, { opacity: 1 }));
-                    gsap.set(whynazrSection, { opacity: 1 });
-                }
+                };
+            });
+
+            mm3.add("(max-width: 767px)", () => {
+                gsap.set(faqSection, { background: '#711149' });
+                gsap.set(overlay2, { display: 'none' });
             });
         });
     </script>
