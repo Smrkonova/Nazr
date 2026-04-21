@@ -874,7 +874,7 @@
             </div>
 
             <!-- Marquee Section -->
-            <div class="absolute bottom-[-50px] left-0 w-full py-4 marquee-container">
+            <div class="absolute bottom-0 left-0 w-full py-4 marquee-container">
                 <div class="marquee-content gap-8 md:gap-12 lg:gap-16">
                     <!-- Half 1 -->
                     <span
@@ -922,6 +922,10 @@
             </div>
 
         </section>
+
+        <div class="w-full">
+            <img src="./assets/images/wave/footer-wave.png" alt="" class="w-full h-auto">
+        </div>
 
 
         <!-- ─────────────────────────────────────────────────────────────
@@ -1038,7 +1042,7 @@
              05. SHOP SECTION — Product cards (mobile swiper / desktop CSS grid)
              ───────────────────────────────────────────────────────────── -->
         <section id="shop-section"
-            class="bg-black py-16 md:py-16 lg:py-28 overflow-hidden lg:overflow-visible relative z-[50] px-5 lg:px-20 min-h-[100dvh] flex flex-col justify-center">
+            class="bg-black py-16 md:py-16 lg:py-28 overflow-hidden lg:overflow-visible relative z-[50] px-5 lg:px-20 h-full xl:min-h-screen flex flex-col justify-center">
             <div class="max-w-7xl mx-auto mb-8 md:mb-10 lg:mb-16 w-full">
                 <h2
                     class="section-title font-bebas text-[clamp(40px,8vw,100px)] text-[#FFF9EB] text-center tracking-wide leading-none mb-3">
@@ -1231,15 +1235,16 @@
         <div class="hidden md:block w-full h-[30svh] relative z-[51] pointer-events-none"></div>
 
         <!-- Wave divider hidden: pixel transition replaces it on desktop, shown on mobile -->
-        <!-- <div class="block md:hidden w-full relative z-[55] bg-black">
+        <div class="block xl:hidden w-full relative z-[55] bg-black">
             <img src="./assets/images/wave/time-1.png" alt="" class="w-full h-auto">
-        </div> -->
+        </div>
 
         <!-- ─────────────────────────────────────────────────────────────
              06. SCENARIO SECTION — GSAP-animated card stack
              Cards enter one-by-one as the user scrolls through the 500vh span.
              ───────────────────────────────────────────────────────────── -->
-        <section id="scenario-section" class="relative PX-4" style="background:transparent; z-index:60; height: 500vh;">
+        <section id="scenario-section" class="relative px-4 !bg-[#5BC0EB] xl:!bg-transparent"
+            style="background:transparent; z-index:60; height: 500vh;">
 
             <div class="sticky top-0 w-full h-screen overflow-hidden">
                 <!-- Background headline text -->
@@ -1258,7 +1263,7 @@
                     <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[80%] md:w-[85%] max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:1;">
                         <div class="w-full md:hidden flex-shrink-0">
-                            <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
+                            <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:248px;"
                                 alt="">
                         </div>
                         <div
@@ -1280,7 +1285,7 @@
                     <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[80%] md:w-[85%] max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:2;">
                         <div class="w-full md:hidden flex-shrink-0">
-                            <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
+                            <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:248px;"
                                 alt="">
                         </div>
                         <div
@@ -1302,7 +1307,7 @@
                     <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[80%] md:w-[85%] max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:3;">
                         <div class="w-full md:hidden flex-shrink-0">
-                            <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
+                            <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:248;"
                                 alt="">
                         </div>
                         <div
@@ -1324,7 +1329,7 @@
                     <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[80%] md:w-[85%] max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:4;">
                         <div class="w-full md:hidden flex-shrink-0">
-                            <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
+                            <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:248px;"
                                 alt="">
                         </div>
                         <div
@@ -1346,9 +1351,9 @@
             </div>
         </section>
 
-        <!-- <div id="journey-wave" class="w-full relative z-[65]">
+        <div id="journey-wave" class="w-full relative z-[65] block xl:hidden">
             <img src="./assets/images/wave/time-2.png" alt="" class="w-full h-auto">
-        </div> -->
+        </div>
 
         <!-- ─────────────────────────────────────────────────────────────
              07. JOURNEY SECTION — "The Nazr Journey" 3-step How It Works
@@ -1787,16 +1792,15 @@
 
 
         <!-- Wave divider hidden: pixel transition replaces it -->
-        <!-- <div class="w-full block md:hidden">
-            <img src="./assets/images/wave/faq-1.png" alt="" class="w-full h-auto">
-        </div> -->
+        <div class="w-full block xl:hidden">
+            <img src="./assets/images/wave/footer-top.png" alt="" class="w-full h-auto">
+        </div>
 
         <!-- ─────────────────────────────────────────────────────────────
              10. FAQ SECTION — Accordion-style FAQ (GSAP animated expand/collapse)
              ───────────────────────────────────────────────────────────── -->
         <section id="faq-section"
-            class="flex items-center justify-center min-h-screen py-28 px-5 lg:px-20 relative z-[60]"
-            style="background:transparent;">
+            class="bg-[#F80090] xl:bg-transparent flex items-center justify-center h-full xl:min-h-screen  px-5 lg:px-20 relative z-[60]">
             <div class="w-full max-w-4xl mx-auto">
 
                 <!-- Heading -->
@@ -1964,9 +1968,9 @@
     <!-- ═══════════════════════════════════════════════════════════════
          11. FOOTER — Newsletter sign-up, navigation columns, social links, legal
          ═══════════════════════════════════════════════════════════════ -->
-    <!-- <div id="footer-wave" class="w-full relative z-[70]">
+    <div id="footer-wave" class="w-full relative z-[70] block xl:hidden">
         <img src="./assets/images/wave/footer-wave.png" alt="" class="w-full h-auto">
-    </div> -->
+    </div>
 
     <footer id="footer-section" class="bg-black text-[#FFF9EB] px-4 md:px-12 py-6 md:py-14 relative z-[70]">
         <!-- FAQ → Footer pixel transition overlay (position absolute above footer) -->
