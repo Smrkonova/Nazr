@@ -110,29 +110,24 @@
             pointer-events: all;
             will-change: opacity;
             overflow: hidden;
-            /* prevent any child overflow */
             touch-action: none;
-            /* block iOS rubber-band scroll through overlay */
         }
-
         #nazr-loader.loader-hidden {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
             transition: opacity 0.55s ease, visibility 0.55s ease;
         }
-
         /* Brand name above bar */
         #loader-brand {
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(36px, 8vw, 72px);
             letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.92);
+            color: rgba(255,255,255,0.92);
             line-height: 1;
             margin-bottom: 48px;
             user-select: none;
         }
-
         /* Row: bar + percentage */
         #loader-row {
             display: flex;
@@ -140,7 +135,6 @@
             gap: 20px;
             width: min(560px, calc(100vw - 64px));
         }
-
         /* Bar wrapper: relative so owl can be positioned within it */
         #loader-bar-wrap {
             position: relative;
@@ -148,11 +142,9 @@
             height: 52px;
             display: flex;
             align-items: center;
-            /* Left padding gives owl room to be fully visible at 0% */
             padding-left: 22px;
             box-sizing: border-box;
         }
-
         /* Grey track */
         #loader-bar-track {
             position: absolute;
@@ -161,10 +153,9 @@
             right: 0;
             transform: translateY(-50%);
             height: 2px;
-            background: rgba(255, 255, 255, 0.28);
+            background: rgba(255,255,255,0.28);
             border-radius: 99px;
         }
-
         /* White fill — animates width */
         #loader-bar-fill {
             height: 100%;
@@ -173,7 +164,6 @@
             border-radius: 99px;
             will-change: width;
         }
-
         /* Owl logo — rides on top of the bar end */
         #loader-owl {
             position: absolute;
@@ -183,19 +173,17 @@
             width: 44px;
             height: 44px;
             object-fit: contain;
-            /* Make SVG white on pink */
             filter: brightness(0) invert(1);
             will-change: left;
             pointer-events: none;
             user-select: none;
         }
-
         /* Percentage counter */
         #loader-percent {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 16px;
             letter-spacing: 3px;
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255,255,255,0.75);
             min-width: 46px;
             text-align: right;
             flex-shrink: 0;
@@ -214,20 +202,14 @@
          PAGE LOADER — Branded preloader (removed after page ready)
          ═══════════════════════════════════════════════════════════════ -->
     <div id="nazr-loader" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-        <!-- Brand name -->
         <div id="loader-brand">NAZR</div>
-        <!-- Progress row -->
         <div id="loader-row">
             <div id="loader-bar-wrap">
-                <!-- Background track -->
                 <div id="loader-bar-track">
-                    <!-- Animated fill -->
                     <div id="loader-bar-fill"></div>
                 </div>
-                <!-- Owl rides along the bar -->
                 <img id="loader-owl" src="./assets/images/logo.svg" alt="Nazr">
             </div>
-            <!-- Live percentage -->
             <span id="loader-percent">0%</span>
         </div>
     </div>
@@ -243,99 +225,78 @@
             /* ── iOS-safe scroll lock: save position → fix body → restore on dismiss ── */
             var _savedScrollY = window.scrollY || 0;
             document.body.style.position = 'fixed';
-            document.body.style.top = '-' + _savedScrollY + 'px';
-            document.body.style.left = '0';
-            document.body.style.right = '0';
+            document.body.style.top      = '-' + _savedScrollY + 'px';
+            document.body.style.left     = '0';
+            document.body.style.right    = '0';
             document.body.style.overflow = 'hidden';
-            document.body.style.width = '100%';
+            document.body.style.width    = '100%';
 
-            var loader = document.getElementById('nazr-loader');
-            var fill = document.getElementById('loader-bar-fill');
-            var owl = document.getElementById('loader-owl');
+            var loader    = document.getElementById('nazr-loader');
+            var fill      = document.getElementById('loader-bar-fill');
+            var owl       = document.getElementById('loader-owl');
             var percentEl = document.getElementById('loader-percent');
 
             if (!loader || !fill || !owl) {
+                document.body.style.position = '';
                 document.body.style.overflow = '';
+                document.body.style.width    = '';
                 return;
             }
 
-            var current = 0;     // currently rendered progress (0-100)
-            var target = 0;     // target progress to ease toward
+            var current    = 0;
+            var target     = 0;
             var pageLoaded = false;
-            var dismissed = false;
+            var dismissed  = false;
             var slowTickId = null;
-            var rafId = null;
+            var rafId      = null;
 
-            /* ── Render bar + owl + label at value p (0-100) ── */
             function render(p) {
                 p = Math.min(100, Math.max(0, p));
                 fill.style.width = p + '%';
-
-                /* Clamp owl so it stays visually on the track */
-                var pct = Math.max(0, Math.min(100, p));
-                owl.style.left = pct + '%';
-
+                owl.style.left = Math.max(0, Math.min(100, p)) + '%';
                 if (percentEl) {
                     percentEl.textContent = Math.floor(p) + '%';
                     loader.setAttribute('aria-valuenow', Math.floor(p));
                 }
             }
 
-            /* ── RAF easing loop: smoothly chase target ── */
             function tick() {
                 if (dismissed) return;
-
                 var delta = target - current;
-                /* Ease with a guaranteed minimum step so it never stalls */
                 if (Math.abs(delta) > 0.05) {
                     current += delta * 0.07 + (delta > 0 ? 0.1 : 0);
                 } else {
                     current = target;
                 }
-
                 render(current);
-
                 if (current >= 100 && !dismissed) {
                     dismissed = true;
                     dismissLoader();
                     return;
                 }
-
                 rafId = requestAnimationFrame(tick);
             }
 
-            /* ── Slowly push target toward 70% before page load fires ── */
             function slowTick() {
                 if (pageLoaded) return;
-                if (target < 70) {
-                    target = Math.min(70, target + 0.5);
-                }
+                if (target < 70) target = Math.min(70, target + 0.5);
                 slowTickId = setTimeout(slowTick, 80);
             }
 
-            /* ── Dismiss: pause at 100%, fade out, unlock, refresh ── */
             function dismissLoader() {
                 clearTimeout(slowTickId);
                 render(100);
-
-                /* Brief pause so the user sees 100% */
                 setTimeout(function () {
                     loader.classList.add('loader-hidden');
-
-                    /* After CSS fade completes (~570ms) clean up */
                     setTimeout(function () {
                         loader.style.display = 'none';
-
-                        /* Restore scroll — undo iOS-safe lock */
                         document.body.style.position = '';
-                        document.body.style.top = '';
-                        document.body.style.left = '';
-                        document.body.style.right = '';
+                        document.body.style.top      = '';
+                        document.body.style.left     = '';
+                        document.body.style.right    = '';
                         document.body.style.overflow = '';
-                        document.body.style.width = '';
+                        document.body.style.width    = '';
                         window.scrollTo(0, _savedScrollY);
-
-                        /* Refresh ScrollTrigger so all pinned sections compute correctly */
                         if (typeof ScrollTrigger !== 'undefined') {
                             ScrollTrigger.refresh();
                         }
@@ -343,19 +304,13 @@
                 }, 380);
             }
 
-            /* ── Kick off ── */
             slowTick();
             rafId = requestAnimationFrame(tick);
 
-            /* ── When all assets are loaded, race to 100% ── */
             window.addEventListener('load', function () {
                 pageLoaded = true;
                 clearTimeout(slowTickId);
-
-                /* 450 ms grace for pixel grids to render before we close */
-                setTimeout(function () {
-                    target = 100;
-                }, 450);
+                setTimeout(function () { target = 100; }, 450);
             });
         })();
     </script>

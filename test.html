@@ -109,30 +109,25 @@
             visibility: visible;
             pointer-events: all;
             will-change: opacity;
-            overflow: hidden;
-            /* prevent any child overflow */
-            touch-action: none;
-            /* block iOS rubber-band scroll through overlay */
+            overflow: hidden;          /* prevent any child overflow */
+            touch-action: none;        /* block iOS rubber-band scroll through overlay */
         }
-
         #nazr-loader.loader-hidden {
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
             transition: opacity 0.55s ease, visibility 0.55s ease;
         }
-
         /* Brand name above bar */
         #loader-brand {
             font-family: 'Bebas Neue', sans-serif;
             font-size: clamp(36px, 8vw, 72px);
             letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.92);
+            color: rgba(255,255,255,0.92);
             line-height: 1;
             margin-bottom: 48px;
             user-select: none;
         }
-
         /* Row: bar + percentage */
         #loader-row {
             display: flex;
@@ -140,7 +135,6 @@
             gap: 20px;
             width: min(560px, calc(100vw - 64px));
         }
-
         /* Bar wrapper: relative so owl can be positioned within it */
         #loader-bar-wrap {
             position: relative;
@@ -152,7 +146,6 @@
             padding-left: 22px;
             box-sizing: border-box;
         }
-
         /* Grey track */
         #loader-bar-track {
             position: absolute;
@@ -161,10 +154,9 @@
             right: 0;
             transform: translateY(-50%);
             height: 2px;
-            background: rgba(255, 255, 255, 0.28);
+            background: rgba(255,255,255,0.28);
             border-radius: 99px;
         }
-
         /* White fill — animates width */
         #loader-bar-fill {
             height: 100%;
@@ -173,7 +165,6 @@
             border-radius: 99px;
             will-change: width;
         }
-
         /* Owl logo — rides on top of the bar end */
         #loader-owl {
             position: absolute;
@@ -189,13 +180,12 @@
             pointer-events: none;
             user-select: none;
         }
-
         /* Percentage counter */
         #loader-percent {
             font-family: 'Bebas Neue', sans-serif;
             font-size: 16px;
             letter-spacing: 3px;
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255,255,255,0.75);
             min-width: 46px;
             text-align: right;
             flex-shrink: 0;
@@ -243,15 +233,15 @@
             /* ── iOS-safe scroll lock: save position → fix body → restore on dismiss ── */
             var _savedScrollY = window.scrollY || 0;
             document.body.style.position = 'fixed';
-            document.body.style.top = '-' + _savedScrollY + 'px';
-            document.body.style.left = '0';
-            document.body.style.right = '0';
+            document.body.style.top      = '-' + _savedScrollY + 'px';
+            document.body.style.left     = '0';
+            document.body.style.right    = '0';
             document.body.style.overflow = 'hidden';
-            document.body.style.width = '100%';
+            document.body.style.width    = '100%';
 
-            var loader = document.getElementById('nazr-loader');
-            var fill = document.getElementById('loader-bar-fill');
-            var owl = document.getElementById('loader-owl');
+            var loader    = document.getElementById('nazr-loader');
+            var fill      = document.getElementById('loader-bar-fill');
+            var owl       = document.getElementById('loader-owl');
             var percentEl = document.getElementById('loader-percent');
 
             if (!loader || !fill || !owl) {
@@ -259,12 +249,12 @@
                 return;
             }
 
-            var current = 0;     // currently rendered progress (0-100)
-            var target = 0;     // target progress to ease toward
+            var current    = 0;     // currently rendered progress (0-100)
+            var target     = 0;     // target progress to ease toward
             var pageLoaded = false;
-            var dismissed = false;
+            var dismissed  = false;
             var slowTickId = null;
-            var rafId = null;
+            var rafId      = null;
 
             /* ── Render bar + owl + label at value p (0-100) ── */
             function render(p) {
@@ -328,11 +318,11 @@
 
                         /* Restore scroll — undo iOS-safe lock */
                         document.body.style.position = '';
-                        document.body.style.top = '';
-                        document.body.style.left = '';
-                        document.body.style.right = '';
+                        document.body.style.top      = '';
+                        document.body.style.left     = '';
+                        document.body.style.right    = '';
                         document.body.style.overflow = '';
-                        document.body.style.width = '';
+                        document.body.style.width    = '';
                         window.scrollTo(0, _savedScrollY);
 
                         /* Refresh ScrollTrigger so all pinned sections compute correctly */

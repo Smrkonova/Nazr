@@ -23,23 +23,20 @@ body {
 
 .marquee-container {
     overflow: hidden;
-    white-space: nowrap;
     position: relative;
 }
 
 .marquee-content {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    width: max-content;
     animation: marquee 30s linear infinite;
+    will-change: transform;
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
 }
 
 .mobile-menu-active {
@@ -95,6 +92,13 @@ body {
     z-index: 10;
 }
 
+/* Mobile only: active (center) card always shows product-bg image */
+@media (max-width: 1023px) {
+    .shop-swiper .swiper-slide-active .product-bg-img {
+        opacity: 1 !important;
+    }
+}
+
 @media (min-width: 1024px) {
 
     /* On desktop, reset swiper scales completely */
@@ -127,4 +131,20 @@ body {
         opacity: 1 !important;
         transform: none !important;
     }
+}
+
+/* Journey swiper: keep overflow visible for side cards, style dots */
+.journey-swiper-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.journey-swiper-pagination .swiper-pagination-bullet-active {
+    background: #000;
+    transform: scale(1.3);
 }
