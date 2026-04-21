@@ -86,8 +86,10 @@ body {
     }
 }
 
-.shop-swiper {
-    overflow: visible !important;
+@media (max-width: 1023px) {
+    .shop-swiper {
+        overflow: visible !important;
+    }
 }
 
 .shop-swiper .swiper-slide {
