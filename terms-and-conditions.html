@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions — Nazr</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <style>
+        .terms-content h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
+            color: #FFF9EB;
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+
+        .terms-content h2,
+        .terms-content h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            /* font-family: "Inter", sans-serif; */
+
+            letter-spacing: 0.05em;
+            color: #FFF9EB;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .terms-content p,
+        .terms-content li {
+            color: rgba(255, 249, 235, 0.85);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+            font-size: clamp(14px, 1.8vw, 16px);
+            font-family: "Inter", sans-serif;
+
+        }
+
+        .terms-content a {
+            color: #E6007E;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.3s;
+        }
+
+        .terms-content a:hover {
+            color: #ff1a96;
+        }
+
+        .terms-content strong {
+            color: #FFF9EB;
+            font-weight: 700;
+        }
+
+        .section-divider {
+            border-bottom: 1px solid rgba(255, 249, 235, 0.1);
+            margin: 4rem 0;
+        }
+
+        /* Ensure content doesn't hide behind absolute header */
+        .page-content-wrapper {
+            padding-top: 140px;
+        }
+
+        @media (max-width: 768px) {
+            .page-content-wrapper {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         02. HEADER — Navbar (desktop menu, products mega-drop, mobile hamburger)
+         ═══════════════════════════════════════════════════════════════ -->
+    <header class="w-full absolute top-0 left-0 right-0 z-[200] pt-5 px-4 md:px-8">
+
+        <!-- Main nav pill -->
+        <nav id="main-nav"
+            class="relative max-w-7xl mx-auto bg-[#50002e] border border-white/10 rounded-full px-6 py-3 flex items-center justify-between gap-8 shadow-2xl backdrop-blur-xl transition-all duration-300">
+
+            <!-- Logo -->
+            <a href="/" class="flex-shrink-0">
+                <img src="assets/images/logo.svg" alt="Nazr Logo" class="h-8 w-auto object-contain">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-7 text-[#FFF9EB] text-[clamp(16px,2.5vw,20px)] font-normal">
+                <a href="/" class=" transition-colors hover:text-[#E6007E]">HOME</a>
+
+                <!-- PRODUCTS mega-menu trigger -->
+                <div id="products-menu">
+                    <button id="products-btn"
+                        class="flex items-center gap-1.5 transition-colors py-1 hover:text-[#E6007E]"
+                        aria-haspopup="true" aria-expanded="false">
+                        PRODUCTS
+                        <svg id="products-arrow" class="w-3 h-3 transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <a href="#" class=" transition-colors hover:text-[#E6007E]">PWA</a>
+                <a href="#" class=" transition-colors hover:text-[#E6007E]">NAZR ECOSYSTEM</a>
+            </div>
+
+            <!-- Desktop icons -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://shop.nazrco.in/account/login"
+                    class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="./assets/images/icons/user.svg" alt="Account">
+                </a>
+                <a href="https://shop.nazrco.in/cart" class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="./assets/images/icons/cart.svg" alt="Cart">
+                </a>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <button id="menuBtn" aria-label="Open menu"
+                class="md:hidden flex flex-col gap-[5px] p-2 z-[210] focus:outline-none">
+                <span
+                    class="menu-bar w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span
+                    class="menu-bar w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span
+                    class="menu-bar w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"></span>
+            </button>
+        </nav>
+
+        <!-- ─── MOBILE FULL-SCREEN MENU ─── -->
+        <div id="mobileMenu"
+            class="fixed inset-0 z-[205] bg-[#0a0a0a] flex-col pt-8 px-6 pb-10 overflow-y-auto md:hidden"
+            style="display: none; opacity: 0; pointer-events: none;">
+
+            <!-- Mobile Menu Header -->
+            <div class="flex items-center justify-between pb-8 border-b border-white/10 mb-4">
+                <a href="/" class="flex-shrink-0">
+                    <img src="assets/images/logo.svg" alt="Nazr Logo" class="h-8 w-auto object-contain">
+                </a>
+                <button id="mobileCloseBtn"
+                    class="text-[#FFF9EB]/60 hover:text-[#FFF9EB] transition-colors focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-1 text-[#FFF9EB] font-roboto">
+                <a href="/"
+                    class="mobile-link py-4 text-xl font-bold border-b border-white/10 transition-colors">HOME</a>
+
+                <!-- PRODUCTS accordion -->
+                <div class="border-b border-white/10">
+                    <button id="mobileProductsBtn"
+                        class="w-full py-4 text-xl font-bold flex items-center justify-between transition-colors">
+                        PRODUCTS
+                        <svg id="mobileProductsArrow" class="w-5 h-5 transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- 3 product grid -->
+                    <div id="mobileProductsPanel" class="hidden pb-4">
+                        <div class="grid grid-cols-3 gap-3">
+                            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                                class="relative rounded-[14px] overflow-hidden border border-white/10">
+                                <div class="aspect-[3/4]">
+                                    <img src="./assets/images/product/1.png" alt="Impower"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-center justify-between">
+                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">IMPOWER</span>
+                                    <span
+                                        class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-3 h-3 text-[#FFF9EB]" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h14m-7-7 7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                                class="relative rounded-[14px] overflow-hidden border border-white/10">
+                                <div class="aspect-[3/4]">
+                                    <img src="./assets/images/product/2.png" alt="Shield"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-end justify-between">
+                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">SHIELD</span>
+                                    <span
+                                        class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-3 h-3 text-[#FFF9EB]" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h14m-7-7 7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                                class="relative rounded-[14px] overflow-hidden border border-white/10">
+                                <div class="aspect-[3/4]">
+                                    <img src="./assets/images/product/3.png" alt="Guard"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-end justify-between">
+                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">GUARD</span>
+                                    <span
+                                        class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-3 h-3 text-[#FFF9EB]" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h14m-7-7 7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#"
+                    class="mobile-link py-4 text-xl font-bold border-b border-white/10 transition-colors">PWA</a>
+                <a href="#" class="mobile-link py-4 text-xl font-bold border-b border-white/10 transition-colors">NAZR
+                    ECOSYSTEM</a>
+            </div>
+
+            <!-- Mobile CTA -->
+            <div class="mt-8 flex flex-col gap-3">
+                <a href="https://shop.nazrco.in/account/login"
+                    class="w-full py-3 text-center border border-white/30 rounded-full text-sm font-bold hover:bg-white/10 transition-colors text-[#FFF9EB]">
+                    My Account
+                </a>
+                <a href="https://shop.nazrco.in/cart"
+                    class="w-full py-3 text-center bg-[#E6007E] text-[#FFF9EB] rounded-full text-sm font-bold hover:bg-[#ff1a96] transition-colors shadow-lg">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         Products Mega Menu Panel
+         Intentionally placed OUTSIDE <header> so the z-251 backdrop
+         can cover the entire header. This panel sits at z-300, above
+         the backdrop, and is positioned dynamically via JS.
+         ───────────────────────────────────────────────────────────── -->
+    <div id="products-panel" style="
+             position: fixed;
+             top: 80px;
+             left: 0; right: 0;
+             z-index: 300;
+             padding: 0 16px;
+             opacity: 0;
+             visibility: hidden;
+             transform: translateY(12px);
+             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+             pointer-events: none;
+         ">
+        <div
+            class="max-w-7xl mx-auto bg-black/95 backdrop-blur-xl border border-white/10 rounded-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.7)] p-6 grid grid-cols-3 gap-[16px]">
+
+            <!-- Product 1 -->
+            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                class="group/card relative rounded-[16px] overflow-hidden border border-white/10 hover:border-[#E6007E]/60 transition-all duration-300">
+                <div
+                    class="aspect-square relative overflow-hidden bg-white/5 group-hover/card:bg-transparent transition-colors duration-500 flex items-center justify-center p-4">
+                    <img src="./assets/images/product-bg.png" alt=""
+                        class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <img src="./assets/images/product/1.png" alt="Nazr Impower"
+                        class="relative z-10 w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
+                    <span
+                        class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">IMPOWER</span>
+                    <span class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-[#FFF9EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14m-7-7 7 7-7 7" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Product 2 -->
+            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                class="group/card relative rounded-[16px] overflow-hidden border border-white/10 hover:border-[#E6007E]/60 transition-all duration-300">
+                <div
+                    class="aspect-square relative overflow-hidden bg-white/5 group-hover/card:bg-transparent transition-colors duration-500 flex items-center justify-center p-4">
+                    <img src="./assets/images/product-bg.png" alt=""
+                        class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <img src="./assets/images/product/2.png" alt="Nazr Shield"
+                        class="relative z-10 w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
+                    <span
+                        class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">SHIELD</span>
+                    <span class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-[#FFF9EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14m-7-7 7 7-7 7" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Product 3 -->
+            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                class="group/card relative rounded-[16px] overflow-hidden border border-white/10 hover:border-[#E6007E]/60 transition-all duration-300">
+                <div
+                    class="aspect-square relative overflow-hidden bg-white/5 group-hover/card:bg-transparent transition-colors duration-500 flex items-center justify-center p-4">
+                    <img src="./assets/images/product-bg.png" alt=""
+                        class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <img src="./assets/images/product/3.png" alt="Nazr Guard"
+                        class="relative z-10 w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
+                    <span
+                        class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">GUARD</span>
+                    <span class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-[#FFF9EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14m-7-7 7 7-7 7" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- Products dropdown backdrop — z-190 blurs page content without hiding header -->
+    <div id="products-backdrop" style="
+             position: fixed;
+             inset: 0;
+             z-index: 190;
+             background: rgba(230,0,126,0.45);
+             backdrop-filter: blur(16px);
+             -webkit-backdrop-filter: blur(16px);
+             opacity: 0;
+             pointer-events: none;
+             transition: opacity 0.3s ease;
+         ">
+    </div>
+
+    <main class="page-content-wrapper pb-20 px-6">
+        <div class="max-w-4xl mx-auto terms-content">
+            <h1 class="text-5xl md:text-7xl mb-8">Website Terms of Use</h1>
+
+            <p>
+                The NAZR™ website located at <a href="http://www.nazrco.in">www.nazrco.in</a> is a copyrighted work
+                belonging to <strong>Lumina Hospitality Private Limited</strong>. Certain features of the Site may be
+                subject to additional guidelines, terms, or rules, which will be posted on the Site in connection with
+                such features.
+            </p>
+
+            <p>
+                All such additional terms, guidelines, and rules are incorporated by reference into these Terms.
+                These Terms of Use describe the legally binding terms and conditions that oversee your use of the Site.
+                <strong>BY LOGGING INTO THE SITE, YOU ARE BEING COMPLIANT THAT THESE TERMS</strong> and you represent
+                that you have the authority and capacity to enter into these Terms. <strong>YOU SHOULD BE AT LEAST 16
+                    YEARS OF AGE TO ACCESS THE SITE.</strong> IF YOU DISAGREE WITH ALL OF THE PROVISION OF THESE TERMS,
+                DO NOT LOG INTO AND/OR USE THE SITE.
+            </p>
+
+            <div class="section-divider"></div>
+
+            <h2>1. Access to the Site</h2>
+            <p>
+                <strong>Subject to these Terms.</strong> Company grants you a non-transferable, non-exclusive,
+                revocable, limited license to access the Site solely for your own personal, non-commercial use.
+            </p>
+            <p>
+                <strong>Certain Restrictions.</strong> The rights approved to you in these Terms are subject to the
+                following restrictions: (a) you shall not sell, rent, lease, transfer, assign, distribute, host, or
+                otherwise commercially exploit the Site; (b) you shall not change, make derivative works of,
+                disassemble, reverse compile or reverse engineer any part of the Site; (c) you shall not access the Site
+                in order to build a similar or competitive website; and (d) except as expressly stated herein, no part
+                of the Site may be copied, reproduced, distributed, republished, downloaded, displayed, posted or
+                transmitted in any form or by any means unless otherwise indicated, any future release, update, or other
+                addition to functionality of the Site shall be subject to these Terms. All copyright and other
+                proprietary notices on the Site must be retained on all copies thereof.
+            </p>
+            <p>
+                The company reserves the right to change, suspend, or cease the Site with or without notice to you. You
+                approved that the Company will not be held liable to you or any third-party for any change,
+                interruption, or termination of the Site or any part.
+            </p>
+            <p>
+                <strong>No Support or Maintenance.</strong> You agree that the Company will have no obligation to
+                provide you with any support in connection with the Site.
+            </p>
+
+            <h2>2. Intellectual Property</h2>
+            <p>
+                Excluding any User Content that you may provide, you are aware that all the intellectual property
+                rights, including copyrights, patents, trademarks, and trade secrets, in the Site and its content are
+                owned by Company or Company's suppliers. Note that these Terms and access to the Site do not give you
+                any rights, title or interest in or to any intellectual property rights, except for the limited access
+                rights expressed in Section 2.1. The company and its suppliers reserve all rights not granted in these
+                Terms.
+            </p>
+
+            <div class="section-divider"></div>
+
+            <h2>3. Terms and Conditions</h2>
+            <p>
+                The Website Owner, including subsidiaries and affiliates (“Website” or “Website Owner” or “we” or “us”
+                or “our”) provides the information contained on the website or any of the pages comprising the website
+                (“website”) to visitors (“visitors”) (cumulatively referred to as “you” or “your” hereinafter) subject
+                to the terms and conditions set out in these website terms and conditions, the privacy policy and any
+                other relevant terms and conditions, policies and notices which may be applicable to a specific section
+                or module of the website.
+            </p>
+            <p>
+                Welcome to our website. If you continue to browse and use this website you are agreeing to comply with
+                and be bound by the following terms and conditions of use, which together with our privacy policy govern
+                Lumina Hospitality Private Limited’s relationship with you in relation to this website.
+            </p>
+            <p>
+                The term <strong>'Lumina Hospitality Private Limited'</strong> or 'us' or 'we' refers to the owner of
+                the website whose registered/operational office is 802, HARSHVARDHAN, OPP, SAKI VIHAR TELEPHONE, Mumbai,
+                Mumbai, Mumbai- 400076, Maharashtra. The term 'you' refers to the user or viewer of our website.
+            </p>
+
+            <h2>4. Use of the Website</h2>
+            <p>The use of this website is subject to the following terms of use:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>The content of the pages of this website is for your general information and use only. It is subject
+                    to change without notice.</li>
+                <li>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness,
+                    performance, completeness or suitability of the information and materials found or offered on this
+                    website for any particular purpose. You acknowledge that such information and materials may contain
+                    inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the
+                    fullest extent permitted by law.</li>
+                <li>Your use of any information or materials on this website is entirely at your own risk, for which we
+                    shall not be liable. It shall be your own responsibility to ensure that any products, services or
+                    information available through this website meet your specific requirements.</li>
+                <li>This website contains material which is owned by or licensed to us. This material includes, but is
+                    not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other
+                    than in accordance with the copyright notice, which forms part of these terms and conditions.</li>
+                <li>All trademarks reproduced in this website which are not the property of, or licensed to, the
+                    operator are acknowledged on the website.</li>
+                <li>Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offense.
+                </li>
+                <li>From time to time this website may also include links to other websites. These links are provided
+                    for your convenience to provide further information.</li>
+                <li>You may not create a link to this website from another website or document without Lumina
+                    Hospitality Private Limited's prior written consent.</li>
+                <li>Your use of this website and any dispute arising out of such use of the website is subject to the
+                    laws of India or other regulatory authority.</li>
+            </ul>
+
+            <div class="section-divider"></div>
+
+            <h2>5. Liability and Warranties</h2>
+            <p>
+                We as a merchant shall be under no liability whatsoever in respect of any loss or damage arising
+                directly or indirectly out of the decline of authorization for any Transaction, on Account of the
+                Cardholder having exceeded the preset limit mutually agreed by us with our acquiring bank from time to
+                time.
+            </p>
+
+            <h2>6. Communication and Legal</h2>
+            <p>
+                <strong>Electronic Communications.</strong> The communications between you and Company use electronic
+                means, whether you use the Site or send us emails, or whether Company posts notices on the Site or
+                communicates with you via email. For contractual purposes, you (a) consent to receive communications
+                from Company in an electronic form; and (b) agree that all terms and conditions, agreements, notices,
+                disclosures, and other communications that Company provides to you electronically satisfy any legal
+                obligation that such communications would satisfy if it were be in a hard copy writing.
+            </p>
+            <p>
+                <strong>Entire Terms.</strong> These Terms constitute the entire agreement between you and us regarding
+                the use of the Site. Our failure to exercise or enforce any right or provision of these Terms shall not
+                operate as a waiver of such right or provision. The section titles in these Terms are for convenience
+                only and have no legal or contractual effect. The word "including" means "including without limitation".
+            </p>
+            <p>
+                <strong>Governing Law.</strong> These Terms of Service and any separate agreements whereby we provide
+                you Services shall be governed by and construed in accordance with the laws of India.
+            </p>
+
+            <div class="section-divider"></div>
+
+            <h2>Contact Information</h2>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 space-y-4">
+                <p><strong>Address:</strong> 802, HARSHVARDHAN, OPP, SAKI VIHAR TELEPHONE, Mumbai, Mumbai, Mumbai-
+                    400076, Maharashtra</p>
+                <p><strong>Email:</strong> <a href="mailto:support@nazrco.in">support@nazrco.in</a></p>
+                <p><strong>Powered by:</strong> Lumina Hospitality Private Limited</p>
+            </div>
+
+            <p class="mt-12 text-sm opacity-50">
+                Copyright © 2026 NAZR. All rights reserved. All trademarks, logos and service marks displayed on the
+                Site are our property or the property of other third-parties.
+            </p>
+        </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         11. FOOTER — Reused from index.html
+         ═══════════════════════════════════════════════════════════════ -->
+    <footer id="footer-section" class="bg-black text-[#FFF9EB] px-4 md:px-12 py-6 md:py-14 relative z-[70]">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="rounded-[24px] bg-[#ff0095] border border-[#FFF9EB] p-6 md:p-10 lg:p-12">
+                <div class="grid grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
+                    <div class="col-span-2 lg:col-span-6">
+                        <div class="w-24 mb-6">
+                            <img src="./assets/images/logo.svg" alt="Nazr Logo" class="w-full h-auto">
+                        </div>
+                        <p class="font-roboto text-sm md:text-base text-[#FFF9EB]/90 mb-5 max-w-lg">
+                            Join our newsletter to stay up to date on features and releases.
+                        </p>
+                        <form class="flex flex-col sm:flex-row gap-3 sm:items-center max-w-md">
+                            <input type="email" placeholder="Enter your email"
+                                class="h-12 px-4 rounded-md border border-white/50 bg-transparent text-[#FFF9EB] placeholder-white/70 font-roboto text-sm outline-none focus:ring-2 focus:ring-white/60">
+                            <button type="submit"
+                                class="h-12 px-6 rounded-md border border-white/60 tracking-wide text-sm md:text-base hover:bg-white hover:text-[#ff0095] transition-colors">
+                                Subscribe
+                            </button>
+                        </form>
+                        <p class="font-roboto text-xs text-[#FFF9EB]/80 mt-4 max-w-lg">
+                            By subscribing you agree to with our Privacy Policy and provide consent to receive updates
+                            from
+                            our company.
+                        </p>
+                    </div>
+
+                    <div class="col-span-1 lg:col-span-2">
+                        <h3 class="text-sm md:text-base uppercase tracking-widest text-[#FFF9EB]/90 mb-5">Column One
+                        </h3>
+                        <ul class="space-y-3 font-roboto text-sm text-[#FFF9EB]/90">
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link One</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Two</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Three</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Four</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Five</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-span-1 lg:col-span-2">
+                        <h3 class="text-sm md:text-base uppercase tracking-widest text-[#FFF9EB]/90 mb-5">Column Two
+                        </h3>
+                        <ul class="space-y-3 font-roboto text-sm text-[#FFF9EB]/90">
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Six</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Seven</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Eight</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Nine</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Ten</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-span-2 lg:col-span-2">
+                        <h3 class="text-sm md:text-base uppercase tracking-widest text-[#FFF9EB]/90 mb-5">Follow Us</h3>
+                        <ul class="space-y-3 font-roboto text-sm text-[#FFF9EB]/90">
+                            <li>
+                                <a href="#" class="hover:text-[#FFF9EB] transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/facebook.svg" alt="Facebook" class="w-4 h-4">
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-[#FFF9EB] transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/instagram.svg" alt="Instagram" class="w-4 h-4">
+                                    <span>Instagram</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-[#FFF9EB] transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/x.svg" alt="X" class="w-4 h-4">
+                                    <span>X</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-[#FFF9EB] transition-colors flex items-center gap-3">
+                                    <span
+                                        class="w-4 h-4 rounded-sm border border-white/70 flex items-center justify-center text-[9px] leading-none">in</span>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-[#FFF9EB] transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/youtube.svg" alt="YouTube" class="w-4 h-4">
+                                    <span>Youtube</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+                <!-- Left: copyright -->
+                <p class="font-roboto text-sm text-[#FFF9EB]/75">
+                    © 2026 Lumina Hospitality – Nazr. All rights reserved.
+                </p>
+                <!-- Right: legal links + developer credit -->
+                <div class="flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-6 flex-wrap">
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+                        <a href="privacy-policy.html"
+                            class="font-roboto text-sm text-[#FFF9EB]/85 hover:text-[#FFF9EB] underline underline-offset-2">Privacy
+                            Policy</a>
+                        <a href="terms-and-conditions.html"
+                            class="font-roboto text-sm text-[#FFF9EB]/85 hover:text-[#FFF9EB] underline underline-offset-2">Terms
+                            of Service</a>
+                        <a href="shipping-and-returns.html"
+                            class="font-roboto text-sm text-[#FFF9EB]/85 hover:text-[#FFF9EB] underline underline-offset-2">Shipping
+                            & Returns</a>
+                        <a href="#"
+                            class="font-roboto text-sm text-[#FFF9EB]/85 hover:text-[#FFF9EB] underline underline-offset-2">Cookies
+                            Settings</a>
+                    </div>
+                    <!-- Developer credit -->
+                    <p class="font-roboto text-sm text-[#FFF9EB]/75">
+                        Developed by
+                        <a href="https://smrkonova.com/" rel="follow" target="_blank"
+                            class="text-[#FFF9EB] hover:text-white underline underline-offset-2 transition-colors">Smrkonova</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         EXTERNAL SCRIPTS — Third-party CDN libraries
+         ═══════════════════════════════════════════════════════════════ -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S1a : Desktop Products Mega-Menu — Click Toggle
+         ───────────────────────────────────────────────────────────── -->
+    <script>
+        (function () {
+            const btn = document.getElementById('products-btn');
+            const panel = document.getElementById('products-panel');
+            const arrow = document.getElementById('products-arrow');
+            const backdrop = document.getElementById('products-backdrop');
+
+            if (!btn || !panel) return;
+
+            let _savedScrollY = 0;
+            let isOpen = false;
+
+            function lockScroll() {
+                _savedScrollY = window.scrollY;
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${_savedScrollY}px`;
+                document.body.style.left = '0';
+                document.body.style.right = '0';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function unlockScroll() {
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.left = '';
+                document.body.style.right = '';
+                document.body.style.overflow = '';
+                window.scrollTo(0, _savedScrollY);
+            }
+
+            function positionPanel() {
+                const nav = document.getElementById('main-nav');
+                if (!nav) return;
+                const rect = nav.getBoundingClientRect();
+                panel.style.top = (rect.bottom + 12) + 'px';
+            }
+
+            function openMenu() {
+                isOpen = true;
+                positionPanel();
+                panel.style.transition = 'opacity 0.3s ease, transform 0.3s ease, visibility 0s';
+                panel.style.opacity = '1';
+                panel.style.visibility = 'visible';
+                panel.style.transform = 'translateY(0)';
+                panel.style.pointerEvents = 'auto';
+                arrow.style.transform = 'rotate(180deg)';
+                btn.setAttribute('aria-expanded', 'true');
+                if (backdrop) {
+                    backdrop.style.opacity = '1';
+                    backdrop.style.pointerEvents = 'auto';
+                }
+                lockScroll();
+            }
+
+            function closeMenu() {
+                isOpen = false;
+                panel.style.transition = 'opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s';
+                panel.style.opacity = '0';
+                panel.style.visibility = 'hidden';
+                panel.style.transform = 'translateY(12px)';
+                panel.style.pointerEvents = 'none';
+                arrow.style.transform = '';
+                btn.setAttribute('aria-expanded', 'false');
+                if (backdrop) {
+                    backdrop.style.opacity = '0';
+                    backdrop.style.pointerEvents = 'none';
+                }
+                unlockScroll();
+            }
+
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                isOpen ? closeMenu() : openMenu();
+            });
+
+            if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+            document.addEventListener('click', function (e) {
+                const menu = document.getElementById('products-menu');
+                if (isOpen && !panel.contains(e.target) && menu && !menu.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            window.addEventListener('resize', function () {
+                if (isOpen) positionPanel();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && isOpen) closeMenu();
+            });
+        })();
+    </script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S1b : Mobile Products Accordion
+         ───────────────────────────────────────────────────────────── -->
+    <script>
+        (function () {
+            const mobileProductsBtn = document.getElementById('mobileProductsBtn');
+            const mobileProductsPanel = document.getElementById('mobileProductsPanel');
+            const mobileProductsArrow = document.getElementById('mobileProductsArrow');
+
+            if (mobileProductsBtn) {
+                mobileProductsBtn.addEventListener('click', function () {
+                    const isOpen = !mobileProductsPanel.classList.contains('hidden');
+                    if (isOpen) {
+                        mobileProductsPanel.classList.add('hidden');
+                        mobileProductsArrow.style.transform = '';
+                    } else {
+                        mobileProductsPanel.classList.remove('hidden');
+                        mobileProductsArrow.style.transform = 'rotate(180deg)';
+                    }
+                });
+            }
+        })();
+    </script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S9 : Mobile Header Menu (GSAP)
+         ───────────────────────────────────────────────────────────── -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+            const bars = menuBtn ? menuBtn.querySelectorAll('.menu-bar') : [];
+
+            let isMenuOpen = false;
+            let _savedMobileScrollY = 0;
+
+            function lockMobileScroll() {
+                _savedMobileScrollY = window.scrollY;
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${_savedMobileScrollY}px`;
+                document.body.style.left = '0';
+                document.body.style.right = '0';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function unlockMobileScroll() {
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.left = '';
+                document.body.style.right = '';
+                document.body.style.overflow = '';
+                window.scrollTo(0, _savedMobileScrollY);
+            }
+
+            gsap.set(mobileMenu, { display: 'none', opacity: 0, scale: 0.95, y: -10, pointerEvents: 'none' });
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    lockMobileScroll();
+                    gsap.to(mobileMenu, {
+                        display: 'flex', opacity: 1, scale: 1, y: 0,
+                        pointerEvents: 'auto', duration: 0.4, ease: "back.out(1.7)"
+                    });
+                    if (bars.length >= 3) {
+                        gsap.to(bars[0], { y: 7, rotation: 45, duration: 0.3 });
+                        gsap.to(bars[1], { opacity: 0, duration: 0.2 });
+                        gsap.to(bars[2], { y: -7, rotation: -45, duration: 0.3 });
+                    }
+                } else {
+                    unlockMobileScroll();
+                    gsap.to(mobileMenu, {
+                        display: 'none', opacity: 0, scale: 0.95, y: -10,
+                        pointerEvents: 'none', duration: 0.3, ease: "power2.in"
+                    });
+                    if (bars.length >= 3) {
+                        gsap.to(bars[0], { y: 0, rotation: 0, duration: 0.3 });
+                        gsap.to(bars[1], { opacity: 1, duration: 0.3 });
+                        gsap.to(bars[2], { y: 0, rotation: 0, duration: 0.3 });
+                    }
+                }
+            }
+
+            if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+            if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', () => { if (isMenuOpen) toggleMenu(); });
+
+            document.addEventListener('click', (e) => {
+                const nav = document.getElementById('main-nav');
+                if (isMenuOpen && !mobileMenu.contains(e.target) && !nav.contains(e.target)) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

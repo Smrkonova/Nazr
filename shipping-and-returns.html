@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping and Returns — Nazr</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <style>
+        .shipping-content h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
+            color: #FFF9EB;
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+
+        .shipping-content h2,
+        .shipping-content h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
+            color: #FFF9EB;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .shipping-content p,
+        .shipping-content li {
+            color: rgba(255, 249, 235, 0.85);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+            font-size: clamp(14px, 1.8vw, 16px);
+            font-family: "Inter", sans-serif;
+        }
+
+        .shipping-content a {
+            color: #E6007E;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.3s;
+        }
+
+        .shipping-content a:hover {
+            color: #ff1a96;
+        }
+
+        .shipping-content strong {
+            color: #FFF9EB;
+            font-weight: 700;
+        }
+
+        .section-divider {
+            border-bottom: 1px solid rgba(255, 249, 235, 0.1);
+            margin: 4rem 0;
+        }
+
+        /* Ensure content doesn't hide behind absolute header */
+        .page-content-wrapper {
+            padding-top: 140px;
+        }
+
+        @media (max-width: 768px) {
+            .page-content-wrapper {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         02. HEADER — Navbar (desktop menu, products mega-drop, mobile hamburger)
+         ═══════════════════════════════════════════════════════════════ -->
+    <header class="w-full absolute top-0 left-0 right-0 z-[200] pt-5 px-4 md:px-8">
+
+        <!-- Main nav pill -->
+        <nav id="main-nav"
+            class="relative max-w-7xl mx-auto bg-[#50002e] border border-white/10 rounded-full px-6 py-3 flex items-center justify-between gap-8 shadow-2xl backdrop-blur-xl transition-all duration-300">
+
+            <!-- Logo -->
+            <a href="/" class="flex-shrink-0">
+                <img src="assets/images/logo.svg" alt="Nazr Logo" class="h-8 w-auto object-contain">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-7 text-[#FFF9EB] text-[clamp(16px,2.5vw,20px)] font-normal">
+                <a href="/" class=" transition-colors hover:text-[#E6007E]">HOME</a>
+
+                <!-- PRODUCTS mega-menu trigger -->
+                <div id="products-menu">
+                    <button id="products-btn"
+                        class="flex items-center gap-1.5 transition-colors py-1 hover:text-[#E6007E]"
+                        aria-haspopup="true" aria-expanded="false">
+                        PRODUCTS
+                        <svg id="products-arrow" class="w-3 h-3 transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </div>
+
+                <a href="#" class=" transition-colors hover:text-[#E6007E]">PWA</a>
+                <a href="#" class=" transition-colors hover:text-[#E6007E]">NAZR ECOSYSTEM</a>
+            </div>
+
+            <!-- Desktop icons -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://shop.nazrco.in/account/login"
+                    class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="./assets/images/icons/user.svg" alt="Account">
+                </a>
+                <a href="https://shop.nazrco.in/cart" class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="./assets/images/icons/cart.svg" alt="Cart">
+                </a>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <button id="menuBtn" aria-label="Open menu"
+                class="md:hidden flex flex-col gap-[5px] p-2 z-[210] focus:outline-none">
+                <span
+                    class="menu-bar w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span
+                    class="menu-bar w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span
+                    class="menu-bar w-6 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"></span>
+            </button>
+        </nav>
+
+        <!-- ─── MOBILE FULL-SCREEN MENU ─── -->
+        <div id="mobileMenu"
+            class="fixed inset-0 z-[205] bg-[#0a0a0a] flex-col pt-8 px-6 pb-10 overflow-y-auto md:hidden"
+            style="display: none; opacity: 0; pointer-events: none;">
+
+            <!-- Mobile Menu Header -->
+            <div class="flex items-center justify-between pb-8 border-b border-white/10 mb-4">
+                <a href="/" class="flex-shrink-0">
+                    <img src="assets/images/logo.svg" alt="Nazr Logo" class="h-8 w-auto object-contain">
+                </a>
+                <button id="mobileCloseBtn"
+                    class="text-[#FFF9EB]/60 hover:text-[#FFF9EB] transition-colors focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex flex-col gap-1 text-[#FFF9EB] font-roboto">
+                <a href="/"
+                    class="mobile-link py-4 text-xl font-bold border-b border-white/10 transition-colors">HOME</a>
+
+                <!-- PRODUCTS accordion -->
+                <div class="border-b border-white/10">
+                    <button id="mobileProductsBtn"
+                        class="w-full py-4 text-xl font-bold flex items-center justify-between transition-colors">
+                        PRODUCTS
+                        <svg id="mobileProductsArrow" class="w-5 h-5 transition-transform duration-300" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- 3 product grid -->
+                    <div id="mobileProductsPanel" class="hidden pb-4">
+                        <div class="grid grid-cols-3 gap-3">
+                            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                                class="relative rounded-[14px] overflow-hidden border border-white/10">
+                                <div class="aspect-[3/4]">
+                                    <img src="./assets/images/product/1.png" alt="Impower"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-center justify-between">
+                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">IMPOWER</span>
+                                    <span
+                                        class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-3 h-3 text-[#FFF9EB]" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h14m-7-7 7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                                class="relative rounded-[14px] overflow-hidden border border-white/10">
+                                <div class="aspect-[3/4]">
+                                    <img src="./assets/images/product/2.png" alt="Shield"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-end justify-between">
+                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">SHIELD</span>
+                                    <span
+                                        class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-3 h-3 text-[#FFF9EB]" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h14m-7-7 7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+                            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                                class="relative rounded-[14px] overflow-hidden border border-white/10">
+                                <div class="aspect-[3/4]">
+                                    <img src="./assets/images/product/3.png" alt="Guard"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-end justify-between">
+                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">GUARD</span>
+                                    <span
+                                        class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-3 h-3 text-[#FFF9EB]" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 12h14m-7-7 7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#"
+                    class="mobile-link py-4 text-xl font-bold border-b border-white/10 transition-colors">PWA</a>
+                <a href="#" class="mobile-link py-4 text-xl font-bold border-b border-white/10 transition-colors">NAZR
+                    ECOSYSTEM</a>
+            </div>
+
+            <!-- Mobile CTA -->
+            <div class="mt-8 flex flex-col gap-3">
+                <a href="https://shop.nazrco.in/account/login"
+                    class="w-full py-3 text-center border border-white/30 rounded-full text-sm font-bold hover:bg-white/10 transition-colors text-[#FFF9EB]">
+                    My Account
+                </a>
+                <a href="https://shop.nazrco.in/cart"
+                    class="w-full py-3 text-center bg-[#E6007E] text-[#FFF9EB] rounded-full text-sm font-bold hover:bg-[#ff1a96] transition-colors shadow-lg">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         Products Mega Menu Panel
+         Intentionally placed OUTSIDE <header> so the z-251 backdrop
+         can cover the entire header. This panel sits at z-300, above
+         the backdrop, and is positioned dynamically via JS.
+         ───────────────────────────────────────────────────────────── -->
+    <div id="products-panel" style="
+             position: fixed;
+             top: 80px;
+             left: 0; right: 0;
+             z-index: 300;
+             padding: 0 16px;
+             opacity: 0;
+             visibility: hidden;
+             transform: translateY(12px);
+             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+             pointer-events: none;
+         ">
+        <div
+            class="max-w-7xl mx-auto bg-black/95 backdrop-blur-xl border border-white/10 rounded-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.7)] p-6 grid grid-cols-3 gap-[16px]">
+
+            <!-- Product 1 -->
+            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                class="group/card relative rounded-[16px] overflow-hidden border border-white/10 hover:border-[#E6007E]/60 transition-all duration-300">
+                <div
+                    class="aspect-square relative overflow-hidden bg-white/5 group-hover/card:bg-transparent transition-colors duration-500 flex items-center justify-center p-4">
+                    <img src="./assets/images/product-bg.png" alt=""
+                        class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <img src="./assets/images/product/1.png" alt="Nazr Impower"
+                        class="relative z-10 w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
+                    <span
+                        class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">IMPOWER</span>
+                    <span class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-[#FFF9EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14m-7-7 7 7-7 7" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Product 2 -->
+            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                class="group/card relative rounded-[16px] overflow-hidden border border-white/10 hover:border-[#E6007E]/60 transition-all duration-300">
+                <div
+                    class="aspect-square relative overflow-hidden bg-white/5 group-hover/card:bg-transparent transition-colors duration-500 flex items-center justify-center p-4">
+                    <img src="./assets/images/product-bg.png" alt=""
+                        class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <img src="./assets/images/product/2.png" alt="Nazr Shield"
+                        class="relative z-10 w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
+                    <span
+                        class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">SHIELD</span>
+                    <span class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-[#FFF9EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14m-7-7 7 7-7 7" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Product 3 -->
+            <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
+                class="group/card relative rounded-[16px] overflow-hidden border border-white/10 hover:border-[#E6007E]/60 transition-all duration-300">
+                <div
+                    class="aspect-square relative overflow-hidden bg-white/5 group-hover/card:bg-transparent transition-colors duration-500 flex items-center justify-center p-4">
+                    <img src="./assets/images/product-bg.png" alt=""
+                        class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <img src="./assets/images/product/3.png" alt="Nazr Guard"
+                        class="relative z-10 w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
+                    <span
+                        class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">GUARD</span>
+                    <span class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-[#FFF9EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14m-7-7 7 7-7 7" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- Products dropdown backdrop — z-190 blurs page content without hiding header -->
+    <div id="products-backdrop" style="
+             position: fixed;
+             inset: 0;
+             z-index: 190;
+             background: rgba(230,0,126,0.45);
+             backdrop-filter: blur(16px);
+             -webkit-backdrop-filter: blur(16px);
+             opacity: 0;
+             pointer-events: none;
+             transition: opacity 0.3s ease;
+         ">
+    </div>
+
+    <main class="page-content-wrapper pb-20 px-6">
+        <div class="max-w-4xl mx-auto shipping-content">
+            <h1 class="text-5xl md:text-7xl mb-8">Shipping & Delivery Policy</h1>
+
+            <p>
+                This Shipping & Delivery Policy forms part of and should be read in conjunction with our <a href="terms-and-conditions.html">Terms of Service</a>.
+            </p>
+
+            <div class="section-divider"></div>
+
+            <h2>1. Order Processing</h2>
+            <p>
+                All orders are processed within <strong>1–3 business days</strong> from the date of order confirmation.
+            </p>
+            <p>
+                Orders are not processed or shipped on weekends or public holidays. Products once opened or used are not eligible for return or replacement unless defective.
+            </p>
+
+            <h2>2. Shipping</h2>
+            <p>Orders are shipped through registered courier partners and/or speed post.</p>
+            <p><strong>Estimated delivery timelines:</strong></p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li><strong>Metro cities:</strong> 3–5 business days</li>
+                <li><strong>Non-metro locations:</strong> 5–10 business days</li>
+            </ul>
+            <p>
+                Delivery timelines are estimates and may vary depending on location, logistics, and external factors.
+            </p>
+
+            <h2>3. Delivery Disclaimer</h2>
+            <p>While we aim to deliver within the estimated timelines, delays may occur due to:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>courier partner issues</li>
+                <li>weather conditions</li>
+                <li>operational constraints</li>
+            </ul>
+            <p>
+                Nazr shall not be liable for delays caused by third-party logistics providers.
+            </p>
+
+            <h2>4. International Shipping</h2>
+            <p>We currently do not offer international shipping.</p>
+
+            <div class="section-divider"></div>
+
+            <h2>5. Order Cancellation</h2>
+            <p>Orders may be cancelled only <strong>before dispatch</strong>.</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>A 10% deduction may be applied to cover transaction and processing fees.</li>
+                <li>Cancellation requests must be sent to <a href="mailto:support@nazrco.in">support@nazrco.in</a> within 24 hours of placing the order.</li>
+                <li>Once an order has been dispatched, it cannot be cancelled.</li>
+            </ul>
+
+            <h2>6. Returns Policy</h2>
+            <p>
+                Due to the nature of the product category (personal safety and hygiene-sensitive products), returns are not accepted once the product has been delivered, except in cases of:
+            </p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>manufacturing defects</li>
+                <li>damage during transit</li>
+                <li>incorrect or missing items</li>
+            </ul>
+
+            <div class="section-divider"></div>
+
+            <h2>7. Replacement / Refund — Damaged or Defective Products</h2>
+            <p>In rare cases of damage or manufacturing defects:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Notify us within <strong>48 hours</strong> of delivery.</li>
+                <li>Email <a href="mailto:support@nazrco.in">support@nazrco.in</a> with: photos and videos of product, packaging, shipping label, and invoice.</li>
+            </ul>
+            <p><strong>Eligible cases include:</strong></p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>physical damage to product</li>
+                <li>leakage or malfunction</li>
+                <li>tampered or broken seal</li>
+            </ul>
+            <p>Upon verification, we will provide a replacement or initiate a refund.</p>
+
+            <h2>8. Replacement — Incorrect or Missing Items</h2>
+            <p>
+                If you receive incorrect or missing items, notify within 48 hours of delivery and provide photo/video evidence. We will arrange a replacement shipment or refund (as applicable).
+            </p>
+
+            <h2>9. Refunds</h2>
+            <p>
+                Refunds, where applicable, will be processed to the original payment method within <strong>5–10 business days</strong> after approval.
+            </p>
+
+            <div class="section-divider"></div>
+
+            <h2>10. Refusal of Delivery</h2>
+            <p>Customers are requested not to refuse delivery arbitrarily.</p>
+            <p>In cases where an order is returned to us due to refusal or failed delivery attempts:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>re-shipping charges may apply</li>
+                <li>refund (if applicable) will be processed after deducting logistics and handling costs</li>
+            </ul>
+
+            <h2>11. Contact</h2>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 space-y-4">
+                <p>For any questions or support regarding shipping and returns:</p>
+                <p><strong>Email:</strong> <a href="mailto:support@nazrco.in">support@nazrco.in</a></p>
+            </div>
+
+            <p class="mt-12 text-sm opacity-50">
+                © 2026 NAZR. All rights reserved.
+            </p>
+        </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         11. FOOTER — Reused from index.html
+         ═══════════════════════════════════════════════════════════════ -->
+    <footer id="footer-section" class="bg-black text-[#FFF9EB] px-4 md:px-12 py-6 md:py-14 relative z-[70]">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="rounded-[24px] bg-[#ff0095] border border-[#FFF9EB] p-6 md:p-10 lg:p-12">
+                <div class="grid grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
+                    <div class="col-span-2 lg:col-span-6">
+                        <div class="w-24 mb-6">
+                            <img src="./assets/images/logo.svg" alt="Nazr Logo" class="w-full h-auto">
+                        </div>
+                        <p class="font-roboto text-sm md:text-base text-[#FFF9EB]/90 mb-5 max-w-lg">
+                            Join our newsletter to stay up to date on features and releases.
+                        </p>
+                        <form class="flex flex-col sm:flex-row gap-3 sm:items-center max-w-md">
+                            <input type="email" placeholder="Enter your email"
+                                class="h-12 px-4 rounded-md border border-white/50 bg-transparent text-[#FFF9EB] placeholder-white/70 font-roboto text-sm outline-none focus:ring-2 focus:ring-white/60">
+                            <button type="submit"
+                                class="h-12 px-6 rounded-md border border-white/60 tracking-wide text-sm md:text-base hover:bg-white hover:text-[#ff0095] transition-colors">
+                                Subscribe
+                            </button>
+                        </form>
+                        <p class="font-roboto text-xs text-[#FFF9EB]/80 mt-4 max-w-lg">
+                            By subscribing you agree to with our Privacy Policy and provide consent to receive updates
+                            from
+                            our company.
+                        </p>
+                    </div>
+
+                    <div class="col-span-1 lg:col-span-2">
+                        <h3 class="text-sm md:text-base uppercase tracking-widest text-[#FFF9EB]/90 mb-5">Column One
+                        </h3>
+                        <ul class="space-y-3 font-roboto text-sm text-[#FFF9EB]/90">
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link One</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Two</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Three</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Four</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Five</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-span-1 lg:col-span-2">
+                        <h3 class="text-sm md:text-base uppercase tracking-widest text-[#FFF9EB]/90 mb-5">Column Two
+                        </h3>
+                        <ul class="space-y-3 font-roboto text-sm text-[#FFF9EB]/90">
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Six</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Seven</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Eight</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Nine</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Link Ten</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-span-2 lg:col-span-2">
+                        <h3 class="text-sm md:text-base uppercase tracking-widest text-[#FFF9EB]/90 mb-5">Follow Us</h3>
+                        <ul class="space-y-3 font-roboto text-sm text-[#FFF9EB]/90">
+                            <li>
+                                <a href="#" class="hover:text-[#FFF9EB] transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/facebook.svg" alt="Facebook" class="w-4 h-4">
+                                    <span>Facebook</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-[#FFF9EB] transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/instagram.svg" alt="Instagram" class="w-4 h-4">
+                                    <span>Instagram</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-[#FFF9EB] transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/x.svg" alt="X" class="w-4 h-4">
+                                    <span>X</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-[#FFF9EB] transition-colors flex items-center gap-3">
+                                    <span
+                                        class="w-4 h-4 rounded-sm border border-white/70 flex items-center justify-center text-[9px] leading-none">in</span>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-[#FFF9EB] transition-colors flex items-center gap-3">
+                                    <img src="./assets/images/icons/youtube.svg" alt="YouTube" class="w-4 h-4">
+                                    <span>Youtube</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+                <!-- Left: copyright -->
+                <p class="font-roboto text-sm text-[#FFF9EB]/75">
+                    © 2026 Lumina Hospitality – Nazr. All rights reserved.
+                </p>
+                <!-- Right: legal links + developer credit -->
+                <div class="flex flex-col sm:flex-row sm:items-center gap-y-2 gap-x-6 flex-wrap">
+                    <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+                        <a href="privacy-policy.html"
+                            class="font-roboto text-sm text-[#FFF9EB]/85 hover:text-[#FFF9EB] underline underline-offset-2">Privacy
+                            Policy</a>
+                        <a href="terms-and-conditions.html"
+                            class="font-roboto text-sm text-[#FFF9EB]/85 hover:text-[#FFF9EB] underline underline-offset-2">Terms
+                            of Service</a>
+                        <a href="shipping-and-returns.html"
+                            class="font-roboto text-sm text-[#FFF9EB]/85 hover:text-[#FFF9EB] underline underline-offset-2">Shipping
+                            & Returns</a>
+                        <a href="#"
+                            class="font-roboto text-sm text-[#FFF9EB]/85 hover:text-[#FFF9EB] underline underline-offset-2">Cookies
+                            Settings</a>
+                    </div>
+                    <!-- Developer credit -->
+                    <p class="font-roboto text-sm text-[#FFF9EB]/75">
+                        Developed by
+                        <a href="https://smrkonova.com/" rel="follow" target="_blank"
+                            class="text-[#FFF9EB] hover:text-white underline underline-offset-2 transition-colors">Smrkonova</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         EXTERNAL SCRIPTS — Third-party CDN libraries
+         ═══════════════════════════════════════════════════════════════ -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S1a : Desktop Products Mega-Menu — Click Toggle
+         ───────────────────────────────────────────────────────────── -->
+    <script>
+        (function () {
+            const btn = document.getElementById('products-btn');
+            const panel = document.getElementById('products-panel');
+            const arrow = document.getElementById('products-arrow');
+            const backdrop = document.getElementById('products-backdrop');
+
+            if (!btn || !panel) return;
+
+            let _savedScrollY = 0;
+            let isOpen = false;
+
+            function lockScroll() {
+                _savedScrollY = window.scrollY;
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${_savedScrollY}px`;
+                document.body.style.left = '0';
+                document.body.style.right = '0';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function unlockScroll() {
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.left = '';
+                document.body.style.right = '';
+                document.body.style.overflow = '';
+                window.scrollTo(0, _savedScrollY);
+            }
+
+            function positionPanel() {
+                const nav = document.getElementById('main-nav');
+                if (!nav) return;
+                const rect = nav.getBoundingClientRect();
+                panel.style.top = (rect.bottom + 12) + 'px';
+            }
+
+            function openMenu() {
+                isOpen = true;
+                positionPanel();
+                panel.style.transition = 'opacity 0.3s ease, transform 0.3s ease, visibility 0s';
+                panel.style.opacity = '1';
+                panel.style.visibility = 'visible';
+                panel.style.transform = 'translateY(0)';
+                panel.style.pointerEvents = 'auto';
+                arrow.style.transform = 'rotate(180deg)';
+                btn.setAttribute('aria-expanded', 'true');
+                if (backdrop) {
+                    backdrop.style.opacity = '1';
+                    backdrop.style.pointerEvents = 'auto';
+                }
+                lockScroll();
+            }
+
+            function closeMenu() {
+                isOpen = false;
+                panel.style.transition = 'opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s';
+                panel.style.opacity = '0';
+                panel.style.visibility = 'hidden';
+                panel.style.transform = 'translateY(12px)';
+                panel.style.pointerEvents = 'none';
+                arrow.style.transform = '';
+                btn.setAttribute('aria-expanded', 'false');
+                if (backdrop) {
+                    backdrop.style.opacity = '0';
+                    backdrop.style.pointerEvents = 'none';
+                }
+                unlockScroll();
+            }
+
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                isOpen ? closeMenu() : openMenu();
+            });
+
+            if (backdrop) backdrop.addEventListener('click', closeMenu);
+
+            document.addEventListener('click', function (e) {
+                const menu = document.getElementById('products-menu');
+                if (isOpen && !panel.contains(e.target) && menu && !menu.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            window.addEventListener('resize', function () {
+                if (isOpen) positionPanel();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && isOpen) closeMenu();
+            });
+        })();
+    </script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S1b : Mobile Products Accordion
+         ───────────────────────────────────────────────────────────── -->
+    <script>
+        (function () {
+            const mobileProductsBtn = document.getElementById('mobileProductsBtn');
+            const mobileProductsPanel = document.getElementById('mobileProductsPanel');
+            const mobileProductsArrow = document.getElementById('mobileProductsArrow');
+
+            if (mobileProductsBtn) {
+                mobileProductsBtn.addEventListener('click', function () {
+                    const isOpen = !mobileProductsPanel.classList.contains('hidden');
+                    if (isOpen) {
+                        mobileProductsPanel.classList.add('hidden');
+                        mobileProductsArrow.style.transform = '';
+                    } else {
+                        mobileProductsPanel.classList.remove('hidden');
+                        mobileProductsArrow.style.transform = 'rotate(180deg)';
+                    }
+                });
+            }
+        })();
+    </script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S9 : Mobile Header Menu (GSAP)
+         ───────────────────────────────────────────────────────────── -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+            const bars = menuBtn ? menuBtn.querySelectorAll('.menu-bar') : [];
+
+            let isMenuOpen = false;
+            let _savedMobileScrollY = 0;
+
+            function lockMobileScroll() {
+                _savedMobileScrollY = window.scrollY;
+                document.body.style.position = 'fixed';
+                document.body.style.top = `-${_savedMobileScrollY}px`;
+                document.body.style.left = '0';
+                document.body.style.right = '0';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function unlockMobileScroll() {
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.left = '';
+                document.body.style.right = '';
+                document.body.style.overflow = '';
+                window.scrollTo(0, _savedMobileScrollY);
+            }
+
+            gsap.set(mobileMenu, { display: 'none', opacity: 0, scale: 0.95, y: -10, pointerEvents: 'none' });
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    lockMobileScroll();
+                    gsap.to(mobileMenu, {
+                        display: 'flex', opacity: 1, scale: 1, y: 0,
+                        pointerEvents: 'auto', duration: 0.4, ease: "back.out(1.7)"
+                    });
+                    if (bars.length >= 3) {
+                        gsap.to(bars[0], { y: 7, rotation: 45, duration: 0.3 });
+                        gsap.to(bars[1], { opacity: 0, duration: 0.2 });
+                        gsap.to(bars[2], { y: -7, rotation: -45, duration: 0.3 });
+                    }
+                } else {
+                    unlockMobileScroll();
+                    gsap.to(mobileMenu, {
+                        display: 'none', opacity: 0, scale: 0.95, y: -10,
+                        pointerEvents: 'none', duration: 0.3, ease: "power2.in"
+                    });
+                    if (bars.length >= 3) {
+                        gsap.to(bars[0], { y: 0, rotation: 0, duration: 0.3 });
+                        gsap.to(bars[1], { opacity: 1, duration: 0.3 });
+                        gsap.to(bars[2], { y: 0, rotation: 0, duration: 0.3 });
+                    }
+                }
+            }
+
+            if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+            if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', () => { if (isMenuOpen) toggleMenu(); });
+
+            document.addEventListener('click', (e) => {
+                const nav = document.getElementById('main-nav');
+                if (isMenuOpen && !mobileMenu.contains(e.target) && !nav.contains(e.target)) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
