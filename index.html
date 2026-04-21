@@ -1360,8 +1360,8 @@
              Desktop: static 3-column grid. Mobile: Swiper carousel.
              ───────────────────────────────────────────────────────────── -->
         <section id="journey-section"
-            class="text-[#FFF9EB] relative z-[65] bg-black overflow-hidden min-h-[100%]  pt-16 px-5 lg:px-20"
-            style="position:relative;z-index:65;">
+            class="text-[#FFF9EB] relative z-[70] bg-black overflow-hidden min-h-[100%] pt-16 xl:pt-40 px-5 lg:px-20"
+            style="position:relative;z-index:70;">
             <div class="max-w-7xl mx-auto">
 
                 <!-- HEADER -->
@@ -2150,7 +2150,7 @@
         display: flex;
         flex-wrap: wrap;
         pointer-events: none;
-        z-index: 62;
+        z-index: 61;
         overflow: hidden;
         opacity: 0;
     "></div>
@@ -2334,26 +2334,33 @@
                     end: 'bottom bottom',
                     scrub: 1,
                     onEnter: () => {
-                        gsap.to(cards[0], {
+                        // First card animates into center: Slides up, starts tilting almost immediately
+                        const tl = gsap.timeline();
+                        tl.to(cards[0], {
                             y: 0,
-                            rotation: targetRotations[0],
                             duration: 0.8,
-                            ease: "power3.out",
-                            overwrite: "auto"
-                        });
+                            ease: "power2.out"
+                        }).to(cards[0], {
+                            rotation: targetRotations[0],
+                            duration: 0.6,
+                            ease: "power2.out"
+                        }, "-=0.7"); // High overlap: starts tilting immediately
                     },
                     onLeaveBack: () => {
-                        gsap.to(cards[0], {
-                            y: window.innerHeight * 1.1,
+                        // Reset if scrolled backward
+                        const tl = gsap.timeline();
+                        tl.to(cards[0], {
                             rotation: 0,
+                            duration: 0.3
+                        }).to(cards[0], {
+                            y: window.innerHeight * 1.1,
                             duration: 0.5,
-                            ease: "power2.in",
-                            overwrite: "auto"
+                            ease: "power2.in"
                         });
                     },
                     onUpdate(self) {
                         const p = self.progress;
-                        const n = remainingDesktopCards.length; // 3
+                        const n = remainingDesktopCards.length;
                         const cardDist = 1 / n;
 
                         remainingDesktopCards.forEach((card, i) => {
@@ -2365,11 +2372,25 @@
                                 gsap.set(card, { y: window.innerHeight * 1.1, rotation: 0 });
                             } else if (p < phaseEnd) {
                                 const sp = (p - phaseStart) / cardDist;
-                                const esp = 1 - Math.pow(1 - sp, 2);
-                                gsap.set(card, {
-                                    y: gsap.utils.interpolate(window.innerHeight * 1.1, 0, esp),
-                                    rotation: gsap.utils.interpolate(0, targetRot, esp)
-                                });
+                                const moveEnd = 0.95; 
+                                const rotateStart = 0.05;
+
+                                // Y movement logic
+                                if (sp < moveEnd) {
+                                    const ssp = sp / moveEnd;
+                                    const esp = 1 - Math.pow(1 - ssp, 2);
+                                    gsap.set(card, { y: gsap.utils.interpolate(window.innerHeight * 1.1, 0, esp) });
+                                } else {
+                                    gsap.set(card, { y: 0 });
+                                }
+
+                                // Rotation logic: starts almost immediately
+                                if (sp < rotateStart) {
+                                    gsap.set(card, { rotation: 0 });
+                                } else {
+                                    const ssp = (sp - rotateStart) / (1 - rotateStart);
+                                    gsap.set(card, { rotation: gsap.utils.interpolate(0, targetRot, ssp) });
+                                }
                             } else {
                                 gsap.set(card, { y: 0, rotation: targetRot });
                             }
@@ -2389,23 +2410,26 @@
                     end: 'bottom bottom',
                     scrub: 1,
                     onEnter: () => {
-                        // First card animates into center automatically when section arrives
-                        gsap.to(cards[0], {
+                        const tl = gsap.timeline();
+                        tl.to(cards[0], {
                             y: 0,
-                            rotation: targetRotations[0],
                             duration: 0.8,
-                            ease: "power3.out",
-                            overwrite: "auto"
-                        });
+                            ease: "power3.out"
+                        }).to(cards[0], {
+                            rotation: targetRotations[0],
+                            duration: 0.6,
+                            ease: "power3.out"
+                        }, "-=0.7");
                     },
                     onLeaveBack: () => {
-                        // Reset if scrolled backward
-                        gsap.to(cards[0], {
-                            y: window.innerHeight * 1.1,
+                        const tl = gsap.timeline();
+                        tl.to(cards[0], {
                             rotation: 0,
+                            duration: 0.3
+                        }).to(cards[0], {
+                            y: window.innerHeight * 1.1,
                             duration: 0.5,
-                            ease: "power2.in",
-                            overwrite: "auto"
+                            ease: "power2.in"
                         });
                     },
                     onUpdate(self) {
@@ -2425,11 +2449,23 @@
                                 gsap.set(card, { y: window.innerHeight * 1.1, rotation: 0 });
                             } else if (p < phaseEnd) {
                                 const sp = (p - phaseStart) / cardDist;
-                                const esp = 1 - Math.pow(1 - sp, 2);
-                                gsap.set(card, {
-                                    y: gsap.utils.interpolate(window.innerHeight * 1.1, 0, esp),
-                                    rotation: gsap.utils.interpolate(0, targetRot, esp)
-                                });
+                                const moveEnd = 0.95;
+                                const rotateStart = 0.05;
+                                
+                                if (sp < moveEnd) {
+                                    const ssp = sp / moveEnd;
+                                    const esp = 1 - Math.pow(1 - ssp, 2);
+                                    gsap.set(card, { y: gsap.utils.interpolate(window.innerHeight * 1.1, 0, esp) });
+                                } else {
+                                    gsap.set(card, { y: 0 });
+                                }
+
+                                if (sp < rotateStart) {
+                                    gsap.set(card, { rotation: 0 });
+                                } else {
+                                    const ssp = (sp - rotateStart) / (1 - rotateStart);
+                                    gsap.set(card, { rotation: gsap.utils.interpolate(0, targetRot, ssp) });
+                                }
                             } else {
                                 gsap.set(card, { y: 0, rotation: targetRot });
                             }
@@ -2687,6 +2723,9 @@
 
                         gsap.set(overlay3, { opacity: 1 });
                         const fillP = p;
+
+                        // Fade out the previous section as pixels fill up
+                        gsap.set(scenarioSection, { opacity: 1 - p });
 
                         ordered3.forEach((tile, i) => {
                             const threshold = i / ordered3.length;
