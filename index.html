@@ -1307,7 +1307,7 @@
                     <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[80%] md:w-[85%] max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:3;">
                         <div class="w-full md:hidden flex-shrink-0">
-                            <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298;"
+                            <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
                                 alt="">
                         </div>
                         <div
@@ -2372,7 +2372,7 @@
                                 gsap.set(card, { y: window.innerHeight * 1.1, rotation: 0 });
                             } else if (p < phaseEnd) {
                                 const sp = (p - phaseStart) / cardDist;
-                                const moveEnd = 0.95; 
+                                const moveEnd = 0.95;
                                 const rotateStart = 0.05;
 
                                 // Y movement logic
@@ -2451,7 +2451,7 @@
                                 const sp = (p - phaseStart) / cardDist;
                                 const moveEnd = 0.95;
                                 const rotateStart = 0.05;
-                                
+
                                 if (sp < moveEnd) {
                                     const ssp = sp / moveEnd;
                                     const esp = 1 - Math.pow(1 - ssp, 2);
