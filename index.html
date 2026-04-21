@@ -815,14 +815,14 @@
              03. HERO SECTION — Full-screen hero with headline, CTA, and marquee
              ───────────────────────────────────────────────────────────── -->
 
-        <section id="hero-section" class="relative min-h-[100dvh] md:min-h-[120vh]
+        <section id="hero-section" class="relative min-h-[100dvh] md:min-h-screen
          flex items-center justify-center 
          px-5 lg:px-20 overflow-hidden 
          bg-cover bg-center
          
          bg-[url('/assets/images/hero-mobile.svg')]
          md:bg-[url('/assets/images/hero-banner.svg')]">
-            <div id="hero-content" class="w-full max-w-6xl flex flex-col items-center text-center md:pb-[200px]">
+            <div id="hero-content" class="w-full max-w-6xl flex flex-col items-center text-center">
                 <!-- Top Badge -->
                 <div class="mb-8 ">
                     <span
@@ -2454,14 +2454,14 @@
 
             let mm1 = gsap.matchMedia();
 
-            mm1.add("(min-width: 0px)", () => {
+            mm1.add("(min-width: 1280px)", () => {
                 /* ── Build pixel grid ── */
                 let ordered = [];
                 function initGrid1() {
                     overlay.innerHTML = '';
                     const vW = window.innerWidth;
                     const vH = window.innerHeight;
-                    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+                    const isDesktop = window.matchMedia("(min-width: 1280px)").matches;
                     const PX = isDesktop ? 22 : 16;
                     const overscan = PX * 2;
                     const cols = Math.ceil((vW + overscan) / PX);
@@ -2520,7 +2520,7 @@
                     endTrigger: scenarioSection,
                     end: 'top top',          /* closes exactly when scenarioSection bounds hit the top */
                     scrub: 1.2,
-                    pin: window.matchMedia("(min-width: 768px)").matches,
+                    pin: window.matchMedia("(min-width: 1280px)").matches,
                     pinSpacing: false,       /* MUST BE FALSE to let scenario section naturally slide up */
                     onUpdate(self) {
                         const p = self.progress;  /* 0 → 1 */
@@ -2577,93 +2577,7 @@
                 };
             });
 
-            mm1.add("(min-width: 99999px)", () => {
-                gsap.set(scenarioSection, { background: '#5BC0EB' });
-                overlay.style.removeProperty('display');
-
-                let orderedM1 = [];
-                function initGridM1() {
-                    overlay.innerHTML = '';
-                    const vW = window.innerWidth;
-                    const vH = window.innerHeight;
-                    const PX = 16;
-                    const overscan = PX * 2;
-                    const cols = Math.ceil((vW + overscan) / PX);
-                    const rows = Math.ceil((vH + overscan) / PX);
-                    overlay.style.width = `${vW + overscan}px`;
-                    overlay.style.height = `${vH + overscan}px`;
-                    overlay.style.left = `${-overscan / 2}px`;
-                    overlay.style.top = `${-overscan / 2}px`;
-                    const tiles = [];
-                    for (let i = 0; i < cols * rows; i++) {
-                        const el = document.createElement('div');
-                        el.style.cssText = `width:${PX}px;height:${PX}px;background:#5BC0EB;opacity:0;flex-shrink:0;`;
-                        overlay.appendChild(el);
-                        tiles.push(el);
-                    }
-                    const weighted = [];
-                    for (let row = 0; row < rows; row++) {
-                        for (let col = 0; col < cols; col++) {
-                            const weight = (rows - 1 - row) + Math.random() * 12;
-                            weighted.push({ el: tiles[row * cols + col], weight });
-                        }
-                    }
-                    weighted.sort((a, b) => a.weight - b.weight);
-                    orderedM1 = weighted.map(w => w.el);
-                }
-                initGridM1();
-
-                let resizeTimerM1;
-                const onResizeM1 = () => {
-                    clearTimeout(resizeTimerM1);
-                    resizeTimerM1 = setTimeout(() => {
-                        gsap.set(overlay, { opacity: 0 });
-                        orderedM1.forEach(t => gsap.set(t, { opacity: 0 }));
-                        initGridM1();
-                        ScrollTrigger.refresh();
-                    }, 250);
-                };
-                window.addEventListener('resize', onResizeM1);
-
-                ScrollTrigger.create({
-                    trigger: shopSection,
-                    start: 'bottom bottom',
-                    end: 'bottom top',
-                    scrub: 1.2,
-                    onUpdate(self) {
-                        const p = self.progress;
-                        if (p >= 1) {
-                            gsap.set(overlay, { opacity: 0 });
-                            orderedM1.forEach(t => gsap.set(t, { opacity: 0 }));
-                            return;
-                        }
-                        if (p <= 0.01) {
-                            gsap.set(overlay, { opacity: 0 });
-                            orderedM1.forEach(t => gsap.set(t, { opacity: 0 }));
-                            return;
-                        }
-                        gsap.set(overlay, { opacity: 1 });
-                        const fillP = p;
-                        orderedM1.forEach((tile, i) => {
-                            gsap.set(tile, { opacity: fillP >= i / orderedM1.length ? 1 : 0 });
-                        });
-                    },
-                    onLeave() {
-                        gsap.set(overlay, { opacity: 0 });
-                        orderedM1.forEach(t => gsap.set(t, { opacity: 0 }));
-                    },
-                    onEnterBack() {
-                        gsap.set(overlay, { opacity: 1 });
-                        orderedM1.forEach(t => gsap.set(t, { opacity: 1 }));
-                    }
-                });
-
-                return () => {
-                    window.removeEventListener('resize', onResizeM1);
-                    gsap.set(scenarioSection, { clearProps: "background" });
-                    gsap.set(overlay, { opacity: 0 });
-                };
-            });
+            // Pixel animation disabled below 1280px (XL)
         });
     </script>
 
@@ -2682,7 +2596,7 @@
 
             let mm2 = gsap.matchMedia();
 
-            mm2.add("(min-width: 0px)", () => {
+            mm2.add("(min-width: 1280px)", () => {
                 /* ── Build pixel grid ── */
                 let ordered3 = [];
                 function initGrid3() {
@@ -2748,7 +2662,7 @@
                     endTrigger: journeySection,
                     end: 'top top',
                     scrub: 1.2,
-                    pin: window.matchMedia("(min-width: 768px)").matches,
+                    pin: window.matchMedia("(min-width: 1280px)").matches,
                     pinSpacing: false,
                     onUpdate(self) {
                         const p = self.progress;
@@ -2797,93 +2711,7 @@
                 };
             });
 
-            mm2.add("(min-width: 99999px)", () => {
-                gsap.set(journeySection, { background: '#000000' });
-                overlay3.style.removeProperty('display');
-
-                let orderedM2 = [];
-                function initGridM2() {
-                    overlay3.innerHTML = '';
-                    const vW = window.innerWidth;
-                    const vH = window.innerHeight;
-                    const PX = 16;
-                    const overscan = PX * 2;
-                    const cols = Math.ceil((vW + overscan) / PX);
-                    const rows = Math.ceil((vH + overscan) / PX);
-                    overlay3.style.width = `${vW + overscan}px`;
-                    overlay3.style.height = `${vH + overscan}px`;
-                    overlay3.style.left = `${-overscan / 2}px`;
-                    overlay3.style.top = `${-overscan / 2}px`;
-                    const tiles = [];
-                    for (let i = 0; i < cols * rows; i++) {
-                        const el = document.createElement('div');
-                        el.style.cssText = `width:${PX}px;height:${PX}px;background:#000000;opacity:0;flex-shrink:0;`;
-                        overlay3.appendChild(el);
-                        tiles.push(el);
-                    }
-                    const weighted = [];
-                    for (let row = 0; row < rows; row++) {
-                        for (let col = 0; col < cols; col++) {
-                            const weight = (rows - 1 - row) + Math.random() * 12;
-                            weighted.push({ el: tiles[row * cols + col], weight });
-                        }
-                    }
-                    weighted.sort((a, b) => a.weight - b.weight);
-                    orderedM2 = weighted.map(w => w.el);
-                }
-                initGridM2();
-
-                let resizeTimerM2;
-                const onResizeM2 = () => {
-                    clearTimeout(resizeTimerM2);
-                    resizeTimerM2 = setTimeout(() => {
-                        gsap.set(overlay3, { opacity: 0 });
-                        orderedM2.forEach(t => gsap.set(t, { opacity: 0 }));
-                        initGridM2();
-                        ScrollTrigger.refresh();
-                    }, 250);
-                };
-                window.addEventListener('resize', onResizeM2);
-
-                ScrollTrigger.create({
-                    trigger: scenarioSection,
-                    start: 'bottom bottom',
-                    end: 'bottom top',
-                    scrub: 1.2,
-                    onUpdate(self) {
-                        const p = self.progress;
-                        if (p >= 1) {
-                            gsap.set(overlay3, { opacity: 0 });
-                            orderedM2.forEach(t => gsap.set(t, { opacity: 0 }));
-                            return;
-                        }
-                        if (p <= 0.01) {
-                            gsap.set(overlay3, { opacity: 0 });
-                            orderedM2.forEach(t => gsap.set(t, { opacity: 0 }));
-                            return;
-                        }
-                        gsap.set(overlay3, { opacity: 1 });
-                        const fillP = p;
-                        orderedM2.forEach((tile, i) => {
-                            gsap.set(tile, { opacity: fillP >= i / orderedM2.length ? 1 : 0 });
-                        });
-                    },
-                    onLeave() {
-                        gsap.set(overlay3, { opacity: 0 });
-                        orderedM2.forEach(t => gsap.set(t, { opacity: 0 }));
-                    },
-                    onEnterBack() {
-                        gsap.set(overlay3, { opacity: 1 });
-                        orderedM2.forEach(t => gsap.set(t, { opacity: 1 }));
-                    }
-                });
-
-                return () => {
-                    window.removeEventListener('resize', onResizeM2);
-                    gsap.set(journeySection, { clearProps: "background" });
-                    gsap.set(overlay3, { opacity: 0 });
-                };
-            });
+            // mm2.add("(max-width: 1279px)", () => { ... removed ... });
 
 
         });
@@ -2904,14 +2732,14 @@
 
             let mm3 = gsap.matchMedia();
 
-            mm3.add("(min-width: 0px)", () => {
+            mm3.add("(min-width: 1280px)", () => {
                 /* ── Build pixel grid ── */
                 let ordered = [];
                 function initGrid2() {
                     overlay2.innerHTML = '';
                     const vW = window.innerWidth;
                     const vH = window.innerHeight;
-                    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+                    const isDesktop = window.matchMedia("(min-width: 1280px)").matches;
                     const PX = isDesktop ? 22 : 16;
                     const overscan = PX * 2;
                     const cols = Math.ceil((vW + overscan) / PX);
@@ -2967,7 +2795,7 @@
                     start: 'bottom bottom',
                     end: '+=100%',
                     scrub: 1.2,
-                    pin: window.matchMedia("(min-width: 768px)").matches,
+                    pin: window.matchMedia("(min-width: 1280px)").matches,
                     pinSpacing: false,
                     onUpdate(self) {
                         const p = self.progress;
@@ -3017,93 +2845,7 @@
                 };
             });
 
-            mm3.add("(min-width: 99999px)", () => {
-                gsap.set(faqSection, { background: '#F80090' });
-                overlay2.style.removeProperty('display');
-
-                let orderedM3 = [];
-                function initGridM3() {
-                    overlay2.innerHTML = '';
-                    const vW = window.innerWidth;
-                    const vH = window.innerHeight;
-                    const PX = 16;
-                    const overscan = PX * 2;
-                    const cols = Math.ceil((vW + overscan) / PX);
-                    const rows = Math.ceil((vH + overscan) / PX);
-                    overlay2.style.width = `${vW + overscan}px`;
-                    overlay2.style.height = `${vH + overscan}px`;
-                    overlay2.style.left = `${-overscan / 2}px`;
-                    overlay2.style.top = `${-overscan / 2}px`;
-                    const tiles = [];
-                    for (let i = 0; i < cols * rows; i++) {
-                        const el = document.createElement('div');
-                        el.style.cssText = `width:${PX}px;height:${PX}px;background:#F80090;opacity:0;flex-shrink:0;`;
-                        overlay2.appendChild(el);
-                        tiles.push(el);
-                    }
-                    const weighted = [];
-                    for (let row = 0; row < rows; row++) {
-                        for (let col = 0; col < cols; col++) {
-                            const weight = (rows - 1 - row) + Math.random() * 12;
-                            weighted.push({ el: tiles[row * cols + col], weight });
-                        }
-                    }
-                    weighted.sort((a, b) => a.weight - b.weight);
-                    orderedM3 = weighted.map(w => w.el);
-                }
-                initGridM3();
-
-                let resizeTimerM3;
-                const onResizeM3 = () => {
-                    clearTimeout(resizeTimerM3);
-                    resizeTimerM3 = setTimeout(() => {
-                        gsap.set(overlay2, { opacity: 0 });
-                        orderedM3.forEach(t => gsap.set(t, { opacity: 0 }));
-                        initGridM3();
-                        ScrollTrigger.refresh();
-                    }, 250);
-                };
-                window.addEventListener('resize', onResizeM3);
-
-                ScrollTrigger.create({
-                    trigger: whynazrSection,
-                    start: 'bottom bottom',
-                    end: 'bottom top',
-                    scrub: 1.2,
-                    onUpdate(self) {
-                        const p = self.progress;
-                        if (p >= 1) {
-                            gsap.set(overlay2, { opacity: 0 });
-                            orderedM3.forEach(t => gsap.set(t, { opacity: 0 }));
-                            return;
-                        }
-                        if (p <= 0.01) {
-                            gsap.set(overlay2, { opacity: 0 });
-                            orderedM3.forEach(t => gsap.set(t, { opacity: 0 }));
-                            return;
-                        }
-                        gsap.set(overlay2, { opacity: 1 });
-                        const fillP = p;
-                        orderedM3.forEach((tile, i) => {
-                            gsap.set(tile, { opacity: fillP >= i / orderedM3.length ? 1 : 0 });
-                        });
-                    },
-                    onLeave() {
-                        gsap.set(overlay2, { opacity: 0 });
-                        orderedM3.forEach(t => gsap.set(t, { opacity: 0 }));
-                    },
-                    onEnterBack() {
-                        gsap.set(overlay2, { opacity: 1 });
-                        orderedM3.forEach(t => gsap.set(t, { opacity: 1 }));
-                    }
-                });
-
-                return () => {
-                    window.removeEventListener('resize', onResizeM3);
-                    gsap.set(faqSection, { clearProps: "background" });
-                    gsap.set(overlay2, { opacity: 0 });
-                };
-            });
+            // Pixel animation disabled below 1280px (XL)
         });
     </script>
 
@@ -3247,10 +2989,10 @@
             let mm4 = gsap.matchMedia();
 
             /* ── DESKTOP ── */
-            mm4.add("(min-width: 0px)", () => {
+            mm4.add("(min-width: 1280px)", () => {
                 let ordered4 = [];
                 function initGrid4() {
-                    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+                    const isDesktop = window.matchMedia("(min-width: 1280px)").matches;
                     ordered4 = buildGrid(overlay4, isDesktop ? 22 : 16, '#000000');
                 }
                 initGrid4();
@@ -3290,40 +3032,7 @@
             });
 
             /* ── MOBILE ── */
-            mm4.add("(min-width: 99999px)", () => {
-                let orderedM4 = [];
-                function initGridM4() { orderedM4 = buildGrid(overlay4, 16, '#000000'); }
-                initGridM4();
-
-                let resizeTimerM4;
-                const onResizeM4 = () => {
-                    clearTimeout(resizeTimerM4);
-                    resizeTimerM4 = setTimeout(() => {
-                        orderedM4.forEach(t => gsap.set(t, { opacity: 0 }));
-                        initGridM4();
-                        ScrollTrigger.refresh();
-                    }, 250);
-                };
-                window.addEventListener('resize', onResizeM4);
-
-                ScrollTrigger.create({
-                    trigger: footerSection,
-                    start: 'top bottom',
-                    end: 'top top',
-                    scrub: 1.2,
-                    onUpdate(self) {
-                        const p = self.progress;
-
-                        const fillP = Math.min(p * 2, 1);
-                        orderedM4.forEach((tile, i) => {
-                            const threshold = i / orderedM4.length;
-                            gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
-                        });
-                    }
-                });
-
-                return () => window.removeEventListener('resize', onResizeM4);
-            });
+            // Pixel animation disabled below 1280px (XL)
         });
     </script>
 
@@ -3338,7 +3047,7 @@
             let shopSwiperInstance = null;
 
             function initShopSwiper() {
-                const isDesktop = window.innerWidth >= 1024;
+                const isDesktop = window.innerWidth >= 1280;
 
                 if (isDesktop) {
                     // Destroy Swiper on Desktop to utilize static CSS Grid
@@ -3381,7 +3090,7 @@
             let journeySwiper = null;
 
             function initJourneySwiper() {
-                const isDesktop = window.innerWidth >= 1024;
+                const isDesktop = window.innerWidth >= 1280;
 
                 if (isDesktop) {
                     if (journeySwiper) {
@@ -3584,7 +3293,7 @@
                 overlay11.innerHTML = '';
                 const vW = window.innerWidth;
                 const vH = window.innerHeight; // 100vh Full height
-                const isDesktop = matchMedia("(min-width: 768px)").matches;
+                const isDesktop = matchMedia("(min-width: 1280px)").matches;
                 const PX = isDesktop ? 22 : 16;
                 const overscan = PX * 2;
                 const cols = Math.ceil((vW + overscan) / PX);
@@ -3618,7 +3327,7 @@
             }
 
             let mm11 = gsap.matchMedia();
-            const matchAll = "(min-width: 0px)";
+            const matchAll = "(min-width: 1280px)";
 
             mm11.add(matchAll, (context) => {
                 initGrid11();
@@ -3649,7 +3358,7 @@
                     endTrigger: topSliderSection,
                     end: 'top top',
                     scrub: 1.2,
-                    pin: window.matchMedia("(min-width: 768px)").matches,
+                    pin: window.matchMedia("(min-width: 1280px)").matches,
                     pinSpacing: false,
                     onUpdate(self) {
                         const p = self.progress;
