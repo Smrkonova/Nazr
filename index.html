@@ -1053,8 +1053,8 @@
             </div>
 
             <!-- Swiper Container -->
-            <div class="swiper shop-swiper w-full pb-10 lg:pb-16 max-w-[1400px] mx-auto">
-                <div class="swiper-wrapper flex items-center lg:!grid lg:grid-cols-3 lg:gap-0 lg:w-full">
+            <div class="swiper shop-swiper w-full pb-10 lg:pb-16">
+                <div class="swiper-wrapper flex items-center  lg:grid-cols-3 lg:gap-0 lg:w-full">
 
                     <!-- Card 1 -->
                     <div class="swiper-slide">
@@ -3051,21 +3051,18 @@
             let shopSwiperInstance = null;
 
             function initShopSwiper() {
-                const isDesktop = window.innerWidth >= 1280;
+                const isDesktop = window.innerWidth >= 1024; // ✅ FIXED
 
                 if (isDesktop) {
-                    // Destroy Swiper on Desktop to utilize static CSS Grid
                     if (shopSwiperInstance !== null) {
                         shopSwiperInstance.destroy(true, true);
                         shopSwiperInstance = null;
                     }
                 } else {
-                    // Initialize or Keep Swiper on Mobile/Tablet
                     if (shopSwiperInstance === null) {
                         shopSwiperInstance = new Swiper('.shop-swiper', {
                             centeredSlides: true,
                             loop: true,
-                            loopedSlides: 3,
                             speed: 800,
                             grabCursor: true,
                             slidesPerView: 1.5,
@@ -3081,10 +3078,7 @@
                 }
             }
 
-            // Initial check
             initShopSwiper();
-
-            // Re-evaluate on window resize to ensure correct state natively
             window.addEventListener('resize', initShopSwiper);
         });
     </script>
