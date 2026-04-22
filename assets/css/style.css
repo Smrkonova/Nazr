@@ -55,9 +55,15 @@ body {
 
 /* Responsive adjustments (same behavior as index) */
 @media (max-width: 768px) {
+    /* Use small viewport height (svh) for stable sizing — excludes browser chrome */
+    #scenario-section > .sticky {
+        height: 100svh !important;
+    }
+
     .scenario-card {
+        top: 22svh !important;
         max-width: calc(100vw - 24px) !important;
-        max-height: calc(100vh - 140px) !important;
+        max-height: calc(100svh - 140px) !important;
         padding: 18px !important;
         border-radius: 28px !important;
         overflow-y: auto;
