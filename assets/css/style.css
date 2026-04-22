@@ -7,9 +7,9 @@
     /* font-size: clamp(14px, 1.2vw, 120px); */
 }
 
-/* * {
+* {
     transition: all 0.35s ease;
-} */
+}
 
 body {
     margin: 0;
