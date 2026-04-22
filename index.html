@@ -201,6 +201,12 @@
             flex-shrink: 0;
             user-select: none;
         }
+
+        @media (max-width:1025px) {
+            body {
+                overflow-x: hidden !important;
+            }
+        }
     </style>
 </head>
 
@@ -371,7 +377,7 @@
 
         <!-- Main nav pill -->
         <nav id="main-nav"
-            class="relative max-w-7xl mx-auto bg-[#000000AD] border border-white/10 rounded-full px-6 py-3 flex items-center justify-between gap-8 shadow-2xl backdrop-blur-xl transition-all duration-300">
+            class="relative max-w-[140rem] mx-auto bg-[#000000AD] border border-white/10 rounded-full px-6 py-3 flex items-center justify-between gap-8 shadow-2xl backdrop-blur-xl transition-all duration-300">
 
             <!-- Logo -->
             <a href="/" class="flex-shrink-0">
@@ -570,7 +576,7 @@
              pointer-events: none;
          ">
         <div
-            class="max-w-7xl mx-auto bg-black/95 backdrop-blur-xl border border-white/10 rounded-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.7)] p-6 grid grid-cols-3 gap-[16px]">
+            class="max-w-[140rem] mx-auto bg-black/95 backdrop-blur-xl border border-white/10 rounded-[24px] shadow-[0_30px_80px_rgba(0,0,0,0.7)] p-6 grid grid-cols-3 gap-[16px]">
 
             <!-- Product 1 -->
             <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
@@ -949,7 +955,7 @@
 
             <!-- Carousel Slider -->
             <div
-                class="top-slider-box max-w-7xl mx-auto relative z-[90] rounded-[24px] border-[2px] border-[#E6007E] overflow-hidden bg-black shadow-[0_0_30px_rgba(230,0,126,0.15)]">
+                class="top-slider-box max-w-[140rem] mx-auto relative z-[90] rounded-[24px] border-[2px] border-[#E6007E] overflow-hidden bg-black shadow-[0_0_30px_rgba(230,0,126,0.15)]">
                 <div
                     class="swiper top-banner-swiper w-full h-auto aspect-[3/4] md:aspect-[16/9] rounded-[20px] overflow-hidden">
                     <div class="swiper-wrapper">
@@ -1043,7 +1049,7 @@
              ───────────────────────────────────────────────────────────── -->
         <section id="shop-section"
             class="bg-black py-16 md:py-16 lg:py-28 overflow-hidden relative z-[50] px-5 lg:px-20 h-full xl:min-h-screen flex flex-col justify-center">
-            <div class="max-w-7xl mx-auto mb-8 md:mb-10 lg:mb-16 w-full">
+            <div class="max-w-[140rem] mx-auto mb-8 md:mb-10 lg:mb-16 w-full">
                 <h2
                     class="section-title font-bebas text-[clamp(40px,8vw,100px)] text-[#FFF9EB] text-center tracking-wide leading-none mb-3">
                     SHOP</h2>
@@ -1256,11 +1262,11 @@
                     </h2>
                 </div>
 
-                <!-- Card stack: all absolute, centered, GSAP moves them up one by one -->
+                <!-- Card stack: all absolute, centered, GSAP moves them up one-by-one -->
                 <div id="card-stack" class="absolute inset-0">
 
                     <!-- Card 1 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[80%] md:w-[85%] max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col lg:flex-row w-[300px] md:w-[400px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:1;">
                         <div class="w-full md:hidden flex-shrink-0">
                             <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
@@ -1282,7 +1288,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[80%] md:w-[85%] max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col lg:flex-row w-[300px]  md:w-[400px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:2;">
                         <div class="w-full md:hidden flex-shrink-0">
                             <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
@@ -1304,7 +1310,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[80%] md:w-[85%] max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col lg:flex-row w-[300px]  md:w-[400px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:3;">
                         <div class="w-full md:hidden flex-shrink-0">
                             <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
@@ -1326,7 +1332,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[80%] md:w-[85%] max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col lg:flex-row w-[300px]  md:w-[400px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:4;">
                         <div class="w-full md:hidden flex-shrink-0">
                             <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
@@ -1362,7 +1368,7 @@
         <section id="journey-section"
             class="text-[#FFF9EB] relative z-[70] bg-black overflow-hidden min-h-[100%] pt-16 xl:pt-40 px-5 lg:px-20"
             style="position:relative;z-index:70;">
-            <div class="max-w-7xl mx-auto">
+            <div class="max-w-[140rem] mx-auto">
 
                 <!-- HEADER -->
                 <div class="text-center mb-16">
@@ -1596,7 +1602,7 @@
              ───────────────────────────────────────────────────────────── -->
 
         <section id="tools-section" class=" text-[#FFF9EB] pt-20 pb-10 md:pb-20 px-5 lg:px-20 relative z-[60] bg-black">
-            <div class="max-w-7xl mx-auto">
+            <div class="max-w-[140rem] mx-auto">
 
                 <!-- HEADER -->
                 <div class="text-center mb-16">
@@ -1727,7 +1733,7 @@
              ───────────────────────────────────────────────────────────── -->
         <section id="whynazr-section"
             class=" text-[#FFF9EB] min-h-screen flex items-center px-5 lg:px-20 relative z-[50] bg-black pb-16">
-            <div class="max-w-7xl mx-auto w-full ">
+            <div class="max-w-[140rem] mx-auto w-full ">
 
                 <!-- Grid Layout -->
                 <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
@@ -1783,8 +1789,8 @@
                     </div>
 
                 </div>
-                <div class="mt-[80px] w-full">
-                    <img src="./assets/images/why-nazr.png" alt="">
+                <div class="mt-[80px] w-full ">
+                    <img src="./assets/images/why-nazr.png" alt="" class="w-full">
                 </div>
             </div>
         </section>
@@ -1972,7 +1978,8 @@
         <img src="./assets/images/wave/footer-wave.png" alt="" class="w-full h-auto">
     </div>
 
-    <footer id="footer-section" class="bg-black text-[#FFF9EB] px-4 md:px-12 pt-20 md:pt-40 pb-6 md:pb-14 relative z-[70]">
+    <footer id="footer-section"
+        class="bg-black text-[#FFF9EB] px-4 md:px-12 pt-20 md:pt-40 pb-6 md:pb-14 relative z-[70]">
         <!-- FAQ → Footer pixel transition overlay (position absolute above footer) -->
         <div id="faq-footer-pixel-overlay" style="
             position: absolute;
@@ -1986,7 +1993,7 @@
             overflow: hidden;
             opacity: 1; 
         "></div>
-        <div class="max-w-7xl mx-auto relative z-10">
+        <div class="max-w-[140rem] mx-auto relative z-10">
             <div class="rounded-[24px] bg-[#ff0095] border border-[#FFF9EB] p-6 md:p-10 lg:p-12">
                 <div class="grid grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
                     <div class="col-span-2 lg:col-span-6">
@@ -2224,15 +2231,15 @@
 
                 gsap.set(zoomImg, {
                     position: "absolute",
-                    top: initTop, 
+                    top: initTop,
                     left: initLeft,
-                    width: initWidth, 
+                    width: initWidth,
                     height: initHeight,
-                    rotation: 0, 
+                    rotation: 0,
                     borderRadius: "8px",
-                    scale: 1, 
+                    scale: 1,
                     opacity: 0,
-                    x: 0, 
+                    x: 0,
                     y: 0
                 });
             };
