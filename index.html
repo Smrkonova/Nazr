@@ -2222,9 +2222,13 @@
 
             const captureInitial = () => {
                 if (!banner) return;
+                // Force layout flush and use robust scroll capture
                 const r = banner.getBoundingClientRect();
-                initTop = r.top + window.scrollY;
-                initLeft = r.left + window.scrollX;
+                const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+
+                initTop = r.top + scrollY;
+                initLeft = r.left + scrollX;
                 initWidth = r.width;
                 initHeight = r.height;
 
@@ -2241,6 +2245,9 @@
                     x: 0,
                     y: 0
                 });
+                
+                // Ensure original banner is visible at start
+                gsap.set(bannerImg, { opacity: 1 });
             };
 
             captureInitial();
@@ -2263,26 +2270,28 @@
                 onUpdate(self) {
                     const p = self.progress;
 
-                    if (p < 0.02) {
+                    // INSTANT SWITCH at the very beginning to prevent ghosting
+                    if (p <= 0.001) {
                         gsap.set(zoomImg, { opacity: 0 });
                         gsap.set(bannerImg, { opacity: 1 });
                         if (pageBg) gsap.set(pageBg, { opacity: 1 });
                         return;
                     }
 
-                    const sp = (p - 0.02) / 0.98;
+                    // Map progress to start immediately
+                    const esp = p * p * (3 - 2 * p); // smoothstep
 
-                    // Smoothstep (ease-in-out). Starts very slowly, speeds up smoothly, and docks gently.
-                    const esp = sp * sp * (3 - 2 * sp);
-
-                    // Smooth tilt mid-air (starts at 0, tilts to -4, ends at 0)
+                    // Smooth tilt mid-air
                     const smoothRotation = Math.sin(esp * Math.PI) * -4;
 
                     const topSliderBox = document.querySelector('.top-slider-box');
 
                     const tRect = targetEl.getBoundingClientRect();
-                    const endY = tRect.top + window.scrollY;
-                    const endX = tRect.left + window.scrollX;
+                    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                    const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+                    
+                    const endY = tRect.top + scrollY;
+                    const endX = tRect.left + scrollX;
                     const endW = tRect.width;
                     const endH = tRect.height;
 
@@ -2297,12 +2306,12 @@
                         opacity: 1
                     });
 
-                    // Hide original image as clone drops
-                    gsap.set(bannerImg, { opacity: sp < 0.05 ? Math.max(0, 1 - sp / 0.05) : 0 });
+                    // Hide original image instantly when transition is active
+                    gsap.set(bannerImg, { opacity: 0 });
 
                     // Only reveal the actual slider box UI when the image has largely landed
                     if (topSliderBox) {
-                        gsap.set(topSliderBox, { opacity: sp > 0.9 ? (sp - 0.9) / 0.1 : 0 });
+                        gsap.set(topSliderBox, { opacity: p > 0.9 ? (p - 0.9) / 0.1 : 0 });
                     }
                 },
                 onLeave() {
@@ -2313,6 +2322,7 @@
                 },
                 onEnterBack() {
                     gsap.set(zoomImg, { opacity: 1 });
+                    gsap.set(bannerImg, { opacity: 0 });
                 }
             });
 
