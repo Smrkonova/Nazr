@@ -138,7 +138,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            width: min(560px, calc(100vw - 64px));
+            width: min(560px, calc(100% - 64px));
         }
 
         /* Bar wrapper: relative so owl can be positioned within it */
@@ -202,10 +202,8 @@
             user-select: none;
         }
 
-        @media (max-width:1025px) {
-            body {
-                overflow-x: hidden !important;
-            }
+        body {
+            overflow-x: hidden !important;
         }
     </style>
 </head>
@@ -942,7 +940,7 @@
             <div id="hero-slider-pixel-overlay" style="
                 position: fixed;
                 top: 0; left: 0;
-                width: 100vw; height: 100vh;
+                width: 100%; height: 100vh;
                 display: flex;
                 flex-wrap: wrap;
                 align-content: flex-start;
@@ -1266,7 +1264,7 @@
                 <div id="card-stack" class="absolute inset-0">
 
                     <!-- Card 1 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col lg:flex-row w-[300px] md:w-[400px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[300px] md:w-[600px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:1;">
                         <div class="w-full md:hidden flex-shrink-0">
                             <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
@@ -1288,7 +1286,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col lg:flex-row w-[300px]  md:w-[400px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[300px]  md:w-[600px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:2;">
                         <div class="w-full md:hidden flex-shrink-0">
                             <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
@@ -1310,7 +1308,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col lg:flex-row w-[300px]  md:w-[400px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[300px]  md:w-[600px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:3;">
                         <div class="w-full md:hidden flex-shrink-0">
                             <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
@@ -1332,7 +1330,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col lg:flex-row w-[300px]  md:w-[400px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex flex-col md:flex-row w-[300px]  md:w-[600px] lg:w-[700px] xl:w-[800px] max-w-8xl md:max-w-4xl shadow-2xl absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:4;">
                         <div class="w-full md:hidden flex-shrink-0">
                             <img src="./assets/images/slider/1.png" class="w-full object-cover" style="height:298px;"
@@ -1984,7 +1982,7 @@
         <div id="faq-footer-pixel-overlay" style="
             position: absolute;
             bottom: 100%; left: 0;
-            width: 100vw; height: 50vh;
+            width: 100%; height: 50vh;
             display: flex;
             flex-wrap: wrap;
             align-content: flex-end;
@@ -2127,7 +2125,7 @@
     <div id="whynazr-pixel-overlay" style="
         position: fixed;
         top: 0; left: 0;
-        width: 100vw; height: 100dvh;
+        width: 100%; height: 100dvh;
         display: flex;
         flex-wrap: wrap;
         pointer-events: none;
@@ -2140,7 +2138,7 @@
     <div id="shop-pixel-overlay" style="
         position: fixed;
         top: 0; left: 0;
-        width: 100vw; height: 100dvh;
+        width: 100%; height: 100dvh;
         display: flex;
         flex-wrap: wrap;
         pointer-events: none;
@@ -2153,7 +2151,7 @@
     <div id="scenario-pixel-overlay" style="
         position: fixed;
         top: 0; left: 0;
-        width: 100vw; height: 100dvh;
+        width: 100%; height: 100dvh;
         display: flex;
         flex-wrap: wrap;
         pointer-events: none;
@@ -2512,7 +2510,7 @@
                 let ordered = [];
                 function initGrid1() {
                     overlay.innerHTML = '';
-                    const vW = window.innerWidth;
+                    const vW = document.documentElement.clientWidth;
                     const vH = window.innerHeight;
                     const isDesktop = window.matchMedia("(min-width: 1280px)").matches;
                     const PX = isDesktop ? 22 : 16;
@@ -2654,7 +2652,7 @@
                 let ordered3 = [];
                 function initGrid3() {
                     overlay3.innerHTML = '';
-                    const vW = window.innerWidth;
+                    const vW = document.documentElement.clientWidth;
                     const vH = window.innerHeight;
                     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
                     const PX = isDesktop ? 22 : 16;
@@ -2793,7 +2791,7 @@
                 let ordered = [];
                 function initGrid2() {
                     overlay2.innerHTML = '';
-                    const vW = window.innerWidth;
+                    const vW = document.documentElement.clientWidth;
                     const vH = window.innerHeight;
                     const isDesktop = window.matchMedia("(min-width: 1280px)").matches;
                     const PX = isDesktop ? 22 : 16;
@@ -2988,7 +2986,7 @@
 
             function buildGrid(overlay, PX, color) {
                 overlay.innerHTML = '';
-                const vW = window.innerWidth;
+                const vW = document.documentElement.clientWidth;
                 const vH = window.innerHeight * 0.25; // 25vh bounded transition
                 const overscan = PX * 2;
                 const cols = Math.ceil((vW + overscan) / PX);
@@ -3341,7 +3339,7 @@
             let ordered11 = [];
             function initGrid11() {
                 overlay11.innerHTML = '';
-                const vW = window.innerWidth;
+                const vW = document.documentElement.clientWidth;
                 const vH = window.innerHeight; // 100vh Full height
                 const isDesktop = matchMedia("(min-width: 1280px)").matches;
                 const PX = isDesktop ? 22 : 16;
