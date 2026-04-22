@@ -1805,7 +1805,7 @@
              ───────────────────────────────────────────────────────────── -->
         <section id="faq-section"
             class="bg-[#F80090] xl:bg-transparent flex items-center justify-center h-full xl:min-h-screen  px-5 lg:px-20 relative z-[60]">
-            <div class="w-full max-w-4xl mx-auto xl:pt-24 pb-20 md:pb-32">
+            <div class="w-full max-w-4xl mx-auto xl:pt-24 pb-32 xl:pb-52 relative z-10">
 
                 <!-- Heading -->
                 <div class="text-center mb-8">
@@ -1815,7 +1815,7 @@
                 </div>
 
                 <!-- Accordion -->
-                <div class="space-y-4">
+                <div class="space-y-4 relative z-10">
 
                     <!-- Item -->
                     <div class="faq-item bg-[#FFF9EB] rounded-[10px] p-4 md:p-4 cursor-pointer">
@@ -1964,6 +1964,20 @@
 
                 </div>
             </div>
+
+            <!-- FAQ → Footer pixel transition overlay -->
+            <div id="faq-footer-pixel-overlay" style="
+                position: absolute;
+                bottom: 0; left: 0;
+                width: 100%; height: 50vh;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: flex-end;
+                pointer-events: none;
+                z-index: 5;
+                overflow: hidden;
+                opacity: 1; 
+            "></div>
         </section>
 
 
@@ -1977,20 +1991,7 @@
     </div>
 
     <footer id="footer-section"
-        class="bg-black text-[#FFF9EB] px-4 md:px-12 pt-10 md:pt-10 pb-6 md:pb-14 relative z-[70]">
-        <!-- FAQ → Footer pixel transition overlay (position absolute above footer) -->
-        <div id="faq-footer-pixel-overlay" style="
-            position: absolute;
-            bottom: 100%; left: 0;
-            width: 100%; height: 50vh;
-            display: flex;
-            flex-wrap: wrap;
-            align-content: flex-end;
-            pointer-events: none;
-            z-index: 65;
-            overflow: hidden;
-            opacity: 1; 
-        "></div>
+        class="bg-black text-[#FFF9EB] px-4 md:px-12 pt-20 md:pt-32 pb-6 md:pb-14 relative z-[70]">
         <div class="max-w-[140rem] mx-auto relative z-10">
             <div class="rounded-[24px] bg-[#ff0095] border border-[#FFF9EB] p-6 md:p-10 lg:p-12">
                 <div class="grid grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
