@@ -937,7 +937,8 @@
         <!-- ─────────────────────────────────────────────────────────────
              04. TOP SLIDER SECTION — "Times you'll want Nazr" image carousel
              ───────────────────────────────────────────────────────────── -->
-        <section id="top-slider-section" class="relative z-[90] bg-black px-5 lg:px-20 pt-16 pb-10 md:pt-24 md:pb-16">
+        <section id="top-slider-section"
+            class="relative z-[90] bg-black px-5 lg:px-20 pt-16 pb-10 md:pt-24 md:pb-16 image-section min-h-screen flex items-center justify-center">
             <!-- Hero → Slider pixel transition overlay -->
             <div id="hero-slider-pixel-overlay" style="
                 position: fixed;
@@ -2667,141 +2668,216 @@
         window.addEventListener('load', () => {
             const scenarioSection = document.querySelector('#scenario-section');
             const journeySection = document.querySelector('#journey-section');
-            const overlay = document.getElementById('scenario-pixel-overlay');
+            const overlay3 = document.getElementById('scenario-pixel-overlay');
 
-            if (!scenarioSection || !journeySection || !overlay) return;
+            if (!scenarioSection || !journeySection || !overlay3) return;
 
-            let mm = gsap.matchMedia();
+            let mm2 = gsap.matchMedia();
 
-            mm.add("(min-width: 1280px)", () => {
-
-                let ordered = [];
-
-                function initGrid() {
-                    overlay.innerHTML = '';
-
-                    const vW = document.documentElement.clientWidth;
+            mm2.add("(min-width: 0px)", () => {
+                /* ── Build pixel grid ── */
+                let ordered3 = [];
+                function initGrid3() {
+                    overlay3.innerHTML = '';
+                    const vW = window.innerWidth;
                     const vH = window.innerHeight;
-
-                    const PX = 22;
+                    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+                    const PX = isDesktop ? 22 : 16;
                     const overscan = PX * 2;
-
                     const cols = Math.ceil((vW + overscan) / PX);
                     const rows = Math.ceil((vH + overscan) / PX);
+                    const total = cols * rows;
 
-                    overlay.style.width = `${vW + overscan}px`;
-                    overlay.style.height = `${vH + overscan}px`;
-                    overlay.style.left = `${-overscan / 2}px`;
-                    overlay.style.top = `${-overscan / 2}px`;
+                    overlay3.style.width = `${vW + overscan}px`;
+                    overlay3.style.height = `${vH + overscan}px`;
+                    overlay3.style.left = `${-overscan / 2}px`;
+                    overlay3.style.top = `${-overscan / 2}px`;
 
-                    const tiles = [];
-
-                    for (let i = 0; i < cols * rows; i++) {
+                    const tiles3 = [];
+                    for (let i = 0; i < total; i++) {
                         const el = document.createElement('div');
-                        el.style.cssText = `
-                    width:${PX}px;
-                    height:${PX}px;
-                    background:#000;
-                    opacity:0;
-                    flex-shrink:0;
-                `;
-                        overlay.appendChild(el);
-                        tiles.push(el);
+                        el.style.cssText = `width:${PX}px;height:${PX}px;background:#000000;opacity:0;flex-shrink:0;`;
+                        overlay3.appendChild(el);
+                        tiles3.push(el);
                     }
 
-                    const weighted = [];
-
+                    const weighted3 = [];
                     for (let row = 0; row < rows; row++) {
                         for (let col = 0; col < cols; col++) {
                             const idx = row * cols + col;
-                            const weight = (rows - row) + Math.random() * 10;
-                            weighted.push({ el: tiles[idx], weight });
+                            const weight = (rows - 1 - row) + Math.random() * 12;
+                            weighted3.push({ el: tiles3[idx], weight });
                         }
                     }
-
-                    weighted.sort((a, b) => a.weight - b.weight);
-                    ordered = weighted.map(w => w.el);
+                    weighted3.sort((a, b) => a.weight - b.weight);
+                    ordered3 = weighted3.map(w => w.el);
                 }
+                initGrid3();
 
-                initGrid();
-
-                /* Resize */
-                let resizeTimer;
-                let lastW = window.innerWidth;
-
-                const onResize = () => {
-                    if (window.innerWidth === lastW) return;
-                    lastW = window.innerWidth;
-
-                    clearTimeout(resizeTimer);
-                    resizeTimer = setTimeout(() => {
-                        gsap.set(overlay, { opacity: 0 });
-                        ordered.forEach(t => gsap.set(t, { opacity: 0 }));
-
-                        initGrid();
+                let resizeTimer3;
+                let lastW3 = window.innerWidth;
+                const onResize3 = () => {
+                    if (window.innerWidth === lastW3) return;
+                    lastW3 = window.innerWidth;
+                    clearTimeout(resizeTimer3);
+                    resizeTimer3 = setTimeout(() => {
+                        gsap.set(scenarioSection, { clearProps: "opacity" });
+                        gsap.set(journeySection, { clearProps: "background" });
+                        gsap.set(overlay3, { opacity: 0 });
+                        ordered3.forEach(t => gsap.set(t, { opacity: 0 }));
+                        initGrid3();
                         ScrollTrigger.refresh();
-                    }, 200);
+                    }, 250);
                 };
+                window.addEventListener('resize', onResize3);
 
-                window.addEventListener('resize', onResize);
-
-                /* Initial */
+                /* Initial state */
                 gsap.set(journeySection, { background: 'transparent' });
 
                 ScrollTrigger.create({
                     trigger: scenarioSection,
                     start: 'bottom bottom',
-                    end: '+=100%',
+                    endTrigger: journeySection,
+                    end: 'top top',
                     scrub: 1.2,
-                    pin: true,
+                    pin: window.matchMedia("(min-width: 768px)").matches,
                     pinSpacing: false,
-
                     onUpdate(self) {
                         const p = self.progress;
 
-                        if (p <= 0.01) {
-                            gsap.set(overlay, { opacity: 0 });
-                            ordered.forEach(t => gsap.set(t, { opacity: 0 }));
-                            return;
-                        }
-
                         if (p >= 1) {
-                            gsap.set(journeySection, { background: '#000' });
+                            gsap.set(overlay3, { opacity: 0 });
+                            ordered3.forEach(t => gsap.set(t, { opacity: 0 }));
+                            gsap.set(journeySection, { background: '#000000' });
                             gsap.set(scenarioSection, { opacity: 0 });
-                            gsap.set(overlay, { opacity: 0 });
                             return;
                         }
 
-                        gsap.set(overlay, { opacity: 1 });
+                        if (p <= 0.01) {
+                            gsap.set(overlay3, { opacity: 0 });
+                            ordered3.forEach(t => gsap.set(t, { opacity: 0 }));
+                            return;
+                        }
 
-                        // fade section
-                        gsap.set(scenarioSection, { opacity: 1 - p });
+                        gsap.set(overlay3, { opacity: 1 });
+                        const fillP = p;
 
-                        ordered.forEach((tile, i) => {
-                            const threshold = i / ordered.length;
-                            gsap.set(tile, {
-                                opacity: p >= threshold ? 1 : 0
-                            });
+                        ordered3.forEach((tile, i) => {
+                            const threshold = i / ordered3.length;
+                            gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
                         });
                     },
-
                     onLeave() {
-                        gsap.set(journeySection, { background: '#000' });
+                        gsap.set(journeySection, { background: '#000000' });
+                        gsap.set(overlay3, { opacity: 0 });
+                        ordered3.forEach(t => gsap.set(t, { opacity: 0 }));
                         gsap.set(scenarioSection, { opacity: 0 });
-                        gsap.set(overlay, { opacity: 0 });
                     },
-
                     onEnterBack() {
                         gsap.set(journeySection, { background: 'transparent' });
+                        gsap.set(overlay3, { opacity: 1 });
+                        ordered3.forEach(t => gsap.set(t, { opacity: 1 }));
                         gsap.set(scenarioSection, { opacity: 1 });
-                        gsap.set(overlay, { opacity: 1 });
                     }
                 });
 
                 return () => {
-                    window.removeEventListener('resize', onResize);
+                    window.removeEventListener('resize', onResize3);
+                    gsap.set(journeySection, { clearProps: "background" });
+                    gsap.set(scenarioSection, { clearProps: "opacity" });
+                    gsap.set(overlay3, { opacity: 0 });
                 };
             });
+
+            mm2.add("(min-width: 99999px)", () => {
+                gsap.set(journeySection, { background: '#000000' });
+                overlay3.style.removeProperty('display');
+
+                let orderedM2 = [];
+                function initGridM2() {
+                    overlay3.innerHTML = '';
+                    const vW = window.innerWidth;
+                    const vH = window.innerHeight;
+                    const PX = 16;
+                    const overscan = PX * 2;
+                    const cols = Math.ceil((vW + overscan) / PX);
+                    const rows = Math.ceil((vH + overscan) / PX);
+                    overlay3.style.width = `${vW + overscan}px`;
+                    overlay3.style.height = `${vH + overscan}px`;
+                    overlay3.style.left = `${-overscan / 2}px`;
+                    overlay3.style.top = `${-overscan / 2}px`;
+                    const tiles = [];
+                    for (let i = 0; i < cols * rows; i++) {
+                        const el = document.createElement('div');
+                        el.style.cssText = `width:${PX}px;height:${PX}px;background:#000000;opacity:0;flex-shrink:0;`;
+                        overlay3.appendChild(el);
+                        tiles.push(el);
+                    }
+                    const weighted = [];
+                    for (let row = 0; row < rows; row++) {
+                        for (let col = 0; col < cols; col++) {
+                            const weight = (rows - 1 - row) + Math.random() * 12;
+                            weighted.push({ el: tiles[row * cols + col], weight });
+                        }
+                    }
+                    weighted.sort((a, b) => a.weight - b.weight);
+                    orderedM2 = weighted.map(w => w.el);
+                }
+                initGridM2();
+
+                let resizeTimerM2;
+                const onResizeM2 = () => {
+                    clearTimeout(resizeTimerM2);
+                    resizeTimerM2 = setTimeout(() => {
+                        gsap.set(overlay3, { opacity: 0 });
+                        orderedM2.forEach(t => gsap.set(t, { opacity: 0 }));
+                        initGridM2();
+                        ScrollTrigger.refresh();
+                    }, 250);
+                };
+                window.addEventListener('resize', onResizeM2);
+
+                ScrollTrigger.create({
+                    trigger: scenarioSection,
+                    start: 'bottom bottom',
+                    end: 'bottom top',
+                    scrub: 1.2,
+                    onUpdate(self) {
+                        const p = self.progress;
+                        if (p >= 1) {
+                            gsap.set(overlay3, { opacity: 0 });
+                            orderedM2.forEach(t => gsap.set(t, { opacity: 0 }));
+                            return;
+                        }
+                        if (p <= 0.01) {
+                            gsap.set(overlay3, { opacity: 0 });
+                            orderedM2.forEach(t => gsap.set(t, { opacity: 0 }));
+                            return;
+                        }
+                        gsap.set(overlay3, { opacity: 1 });
+                        const fillP = p;
+                        orderedM2.forEach((tile, i) => {
+                            gsap.set(tile, { opacity: fillP >= i / orderedM2.length ? 1 : 0 });
+                        });
+                    },
+                    onLeave() {
+                        gsap.set(overlay3, { opacity: 0 });
+                        orderedM2.forEach(t => gsap.set(t, { opacity: 0 }));
+                    },
+                    onEnterBack() {
+                        gsap.set(overlay3, { opacity: 1 });
+                        orderedM2.forEach(t => gsap.set(t, { opacity: 1 }));
+                    }
+                });
+
+                return () => {
+                    window.removeEventListener('resize', onResizeM2);
+                    gsap.set(journeySection, { clearProps: "background" });
+                    gsap.set(overlay3, { opacity: 0 });
+                };
+            });
+
+
         });
     </script>
 
@@ -3624,6 +3700,17 @@
                     });
                 }
             });
+        });
+    </script>
+    <script>
+        gsap.to(".image-section", {
+            scrollTrigger: {
+                trigger: ".image-section",
+                start: "top top",
+                end: "+=300",
+                scrub: 2,
+                pin: true,
+            }
         });
     </script>
 </body>
