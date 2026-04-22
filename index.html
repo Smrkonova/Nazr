@@ -929,9 +929,9 @@
 
         </section>
 
-        <div class="w-full block xl:hidden">
+        <!-- <div class="w-full block xl:hidden">
             <img src="./assets/images/wave/footer-wave.png" alt="" class="w-full h-auto">
-        </div>
+        </div> -->
 
 
         <!-- ─────────────────────────────────────────────────────────────
@@ -1242,9 +1242,9 @@
         <div class="hidden xl:block w-full h-[30svh] relative z-[51] pointer-events-none"></div>
 
         <!-- Wave divider hidden: pixel transition replaces it on desktop, shown on mobile -->
-        <div class="block xl:hidden w-full relative z-[55] bg-black">
+        <!-- <div class="block xl:hidden w-full relative z-[55] bg-black">
             <img src="./assets/images/wave/time-1.png" alt="" class="w-full h-auto">
-        </div>
+        </div> -->
 
         <!-- ─────────────────────────────────────────────────────────────
              06. SCENARIO SECTION — GSAP-animated card stack
@@ -1358,9 +1358,9 @@
             </div>
         </section>
 
-        <div id="journey-wave" class="w-full relative z-[65] block xl:hidden">
+        <!-- <div id="journey-wave" class="w-full relative z-[65] block xl:hidden">
             <img src="./assets/images/wave/time-2.png" alt="" class="w-full h-auto">
-        </div>
+        </div> -->
 
         <!-- ─────────────────────────────────────────────────────────────
              07. JOURNEY SECTION — "The Nazr Journey" 3-step How It Works
@@ -1799,9 +1799,9 @@
 
 
         <!-- Wave divider hidden: pixel transition replaces it -->
-        <div class="w-full block xl:hidden">
+        <!-- <div class="w-full block xl:hidden">
             <img src="./assets/images/wave/footer-top.png" alt="" class="w-full h-auto">
-        </div>
+        </div> -->
 
         <!-- ─────────────────────────────────────────────────────────────
              10. FAQ SECTION — Accordion-style FAQ (GSAP animated expand/collapse)
@@ -1959,12 +1959,6 @@
                             </p>
                         </div>
                     </div>
-
-
-
-
-
-
                 </div>
             </div>
 
@@ -1989,9 +1983,9 @@
     <!-- ═══════════════════════════════════════════════════════════════
          11. FOOTER — Newsletter sign-up, navigation columns, social links, legal
          ═══════════════════════════════════════════════════════════════ -->
-    <div id="footer-wave" class="w-full relative z-[70] block xl:hidden">
+    <!-- <div id="footer-wave" class="w-full relative z-[70] block xl:hidden">
         <img src="./assets/images/wave/footer-wave.png" alt="" class="w-full h-auto">
-    </div>
+    </div> -->
 
     <footer id="footer-section"
         class="bg-black text-[#FFF9EB] px-4 md:px-12 pt-20 md:pt-32 pb-6 md:pb-14 relative z-[70]">
@@ -2674,14 +2668,15 @@
 
             let mm2 = gsap.matchMedia();
 
-            mm2.add("(min-width: 0px)", () => {
+            mm2.add("(min-width: 1280px)", () => {
+
                 /* ── Build pixel grid ── */
                 let ordered3 = [];
                 function initGrid3() {
                     overlay3.innerHTML = '';
                     const vW = window.innerWidth;
                     const vH = window.innerHeight;
-                    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+                    const isDesktop = window.matchMedia("(min-width: 1280px)").matches;
                     const PX = isDesktop ? 22 : 16;
                     const overscan = PX * 2;
                     const cols = Math.ceil((vW + overscan) / PX);
