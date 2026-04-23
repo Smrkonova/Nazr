@@ -54,7 +54,7 @@ body {
 }
 
 /* Responsive adjustments (same behavior as index) */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     /* Use small viewport height (svh) for stable sizing — excludes browser chrome */
     #scenario-section > .sticky {
         height: 100svh !important;
