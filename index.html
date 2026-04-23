@@ -1360,7 +1360,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[45vw] aspect-auto md:aspect-[16/10] max-w-[95vw] md:max-w-[900px] absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex  flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[45vw] aspect-auto md:aspect-[16/10] max-w-[95vw] md:max-w-[900px] absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden"
                         style="z-index:4;">
                         <div class="w-full md:hidden flex-shrink-0 aspect-[4/5]">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
@@ -1416,7 +1416,7 @@
 
                         <!-- ITEM -->
                         <div class="journey-item flex flex-col items-center">
-                            <img src="./assets/images/work/1.png" class="mb-10 h-[256px] object-contain" />
+                            <img src="./assets/images/work/1.png" class="mb-10 h-[256px] 2xl:h-[350px] aspect-auto 2xl:aspect-square object-contain" />
 
                             <!-- LINE + DOT -->
                             <div class="flex items-center w-full mb-6">
@@ -1436,7 +1436,7 @@
 
                         <!-- ITEM -->
                         <div class="journey-item flex flex-col items-center">
-                            <img src="./assets/images/work/2.png" class="mb-10 h-[256px] object-contain" />
+                            <img src="./assets/images/work/2.png" class="mb-10 h-[256px] 2xl:h-[350px] aspect-auto 2xl:aspect-square object-contain" />
 
                             <div class="flex items-center w-full mb-6">
                                 <div class="flex-1 h-[3px] bg-[#FFF9EB]"></div>
@@ -1454,7 +1454,7 @@
 
                         <!-- ITEM -->
                         <div class="journey-item flex flex-col items-center">
-                            <img src="./assets/images/work/3.png" class="mb-10 h-[256px] object-contain" />
+                            <img src="./assets/images/work/3.png" class="mb-10 h-[256px] 2xl:h-[350px] aspect-auto 2xl:aspect-square object-contain" />
 
                             <div class="flex items-center w-full mb-6">
                                 <div class="flex-1 h-[3px] bg-[#FFF9EB]"></div>
@@ -1654,7 +1654,7 @@
 
                         <!-- CARD 1 -->
                         <div
-                            class="tool-card tools-left sticky md:relative top-[40px] md:top-0 z-10 bg-white xl:bg-transparent text-black xl:text-[#FFF9EB] rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center shadow-lg border border-gray-100 md:border-[#F80090]/60 md:flex-1">
+                            class="tool-card tools-left sticky md:relative top-[40px] md:top-0 z-10 bg-white xl:bg-transparent text-black xl:text-[#FFF9EB] rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center shadow-lg border border-gray-100 md:border-[#F80090]/60 md:flex-1 2xl:aspect-[2/1]">
 
                             <!-- TEXT -->
                             <div class="flex-1 flex flex-col justify-start md:justify-center h-full">
@@ -1689,7 +1689,7 @@
 
                         <!-- CARD 2 -->
                         <div
-                            class="tool-card tools-left sticky md:relative top-[90px] md:top-0 z-20 bg-[#002636] xl:bg-[#5BC0EB] xl:bg-transparent text-black md:text-[#FFF9EB] rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center shadow-lg order-2 md:order-3 md:border md:border-[#F80090]/60 md:flex-1">
+                            class="tool-card tools-left sticky md:relative top-[90px] md:top-0 z-20 bg-[#002636] xl:bg-[#5BC0EB] xl:bg-transparent text-black md:text-[#FFF9EB] rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-center shadow-lg order-2 md:order-3 md:border md:border-[#F80090]/60 md:flex-1 2xl:aspect-[2/1]">
 
                             <div class="flex-1 flex flex-col justify-start md:justify-center h-full">
                                 <div>
@@ -1721,7 +1721,7 @@
 
                     <!-- CARD 3 (Desktop Right / Mobile Bottom) -->
                     <div id="pwa-card"
-                        class="tool-card tools-right sticky md:relative top-[140px] md:top-0 z-30 bg-[#F80090] xl:bg-transparent text-[#FFF9EB] rounded-2xl overflow-hidden flex flex-col justify-between shadow-lg order-3 md:order-2 md:border md:border-[#F80090]/60">
+                        class="tool-card tools-right sticky md:relative top-[140px] md:top-0 z-30 bg-[#F80090] xl:bg-transparent text-[#FFF9EB] rounded-2xl overflow-hidden flex flex-col justify-between shadow-lg order-3 md:order-2 md:border md:border-[#F80090]/60 2xl:aspect-[4/5]">
 
                         <!-- TEXT -->
                         <div class="p-6 md:p-[48px] ">
@@ -3650,25 +3650,25 @@
                 });
             };
 
-            document.querySelectorAll('.section-title').forEach(title => {
-                // Remove existing formatting if re-ran, though this runs strictly once on load
-                wrapWordsForReveal(title);
-                const words = title.querySelectorAll('.title-word-inner');
+            // document.querySelectorAll('.section-title').forEach(title => {
+            //     // Remove existing formatting if re-ran, though this runs strictly once on load
+            //     wrapWordsForReveal(title);
+            //     const words = title.querySelectorAll('.title-word-inner');
 
-                ScrollTrigger.create({
-                    trigger: title,
-                    start: "top 85%", // trigger when title enters view
-                    onEnter: () => {
-                        gsap.to(words, {
-                            y: "0%",
-                            rotation: 0,
-                            duration: 0.8,    // slightly longer duration allows the bounce out
-                            stagger: 0.08,    // snappy stagger between words
-                            ease: "back.out(1.5)" // creates the "bounce" effect at the top
-                        });
-                    }
-                });
-            });
+            //     ScrollTrigger.create({
+            //         trigger: title,
+            //         start: "top 85%", // trigger when title enters view
+            //         onEnter: () => {
+            //             gsap.to(words, {
+            //                 y: "0%",
+            //                 rotation: 0,
+            //                 duration: 0.8,    // slightly longer duration allows the bounce out
+            //                 stagger: 0.08,    // snappy stagger between words
+            //                 ease: "back.out(1.5)" // creates the "bounce" effect at the top
+            //             });
+            //         }
+            //     });
+            // });
         });
     </script>
     </script>
