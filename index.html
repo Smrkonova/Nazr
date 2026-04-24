@@ -93,6 +93,21 @@
             }
         }
 
+        /* ── Shop Menu Active State ── */
+        #products-btn.menu-active {
+            background-color: #fff !important;
+            color: #F80090 !important;
+            border-radius: 6px;
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+            margin-left: -0.6rem;
+            margin-right: -0.6rem;
+        }
+
+        #products-btn.menu-active #products-arrow {
+            transform: rotate(180deg);
+        }
+
         /* ══════════════════════════════════════════════════
            PAGE LOADER — Full-screen branded preloader
            ══════════════════════════════════════════════════ */
@@ -479,7 +494,7 @@
                 <div class="border-b border-white/10">
                     <button id="mobileProductsBtn"
                         class="w-full py-4 text-xl font-bold flex items-center justify-between  transition-colors">
-                        PRODUCTS
+                        SHOP
                         <svg id="mobileProductsArrow" class="w-5 h-5 transition-transform duration-300" fill="none"
                             stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
@@ -556,9 +571,11 @@
                 </div>
 
                 <a href="#"
-                    class="mobile-link py-4 text-xl font-bold border-b border-white/10  transition-colors">PWA</a>
-                <a href="#" class="mobile-link py-4 text-xl font-bold border-b border-white/10  transition-colors">NAZR
-                    ECOSYSTEM</a>
+                    class="mobile-link py-4 text-xl font-bold border-b border-white/10  transition-colors uppercase">The
+                    Nazr App</a>
+                <a href="#"
+                    class="mobile-link py-4 text-xl font-bold border-b border-white/10  transition-colors uppercase">the
+                    NAZR Ecosystem</a>
             </div>
 
             <!-- Mobile Menu Image Slider -->
@@ -3780,6 +3797,31 @@
                     onLeaveBack: () => gsap.to("body", { "--mobile-bg": "#5BC0EB", duration: 1 }),
                 });
             });
+        });
+    </script>
+
+    <!-- S11. Products Mega Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productsBtn = document.getElementById('products-btn');
+            const productsMenu = document.getElementById('products-menu');
+
+            if (productsBtn) {
+                productsBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isExpanded = productsBtn.getAttribute('aria-expanded') === 'true';
+                    productsBtn.setAttribute('aria-expanded', !isExpanded);
+                    productsBtn.classList.toggle('menu-active');
+                });
+
+                // Close when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (productsMenu && !productsMenu.contains(e.target)) {
+                        productsBtn.setAttribute('aria-expanded', 'false');
+                        productsBtn.classList.remove('menu-active');
+                    }
+                });
+            }
         });
     </script>
 </body>
