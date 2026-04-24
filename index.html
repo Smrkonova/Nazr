@@ -328,7 +328,7 @@
                 var delta = target - current;
                 /* Ease with a guaranteed minimum step so it never stalls */
                 if (Math.abs(delta) > 0.05) {
-                    current += delta * 0.07 + (delta > 0 ? 0.1 : 0);
+                    current += delta * 0.15 + (delta > 0 ? 0.2 : 0);
                 } else {
                     current = target;
                 }
@@ -347,10 +347,10 @@
             /* ── Slowly push target toward 70% before page load fires ── */
             function slowTick() {
                 if (pageLoaded) return;
-                if (target < 70) {
-                    target = Math.min(70, target + 0.5);
+                if (target < 85) {
+                    target = Math.min(85, target + 1.2);
                 }
-                slowTickId = setTimeout(slowTick, 80);
+                slowTickId = setTimeout(slowTick, 40);
             }
 
             /* ── Dismiss: pause at 100%, fade out, unlock, refresh ── */
@@ -382,7 +382,7 @@
                             setTimeout(function () { ScrollTrigger.refresh(true); }, 600);
                         }
                     }, 600);
-                }, 380);
+                }, 100);
             }
 
             /* ── Kick off ── */
@@ -394,10 +394,10 @@
                 pageLoaded = true;
                 clearTimeout(slowTickId);
 
-                /* 450 ms grace for pixel grids to render before we close */
+                /* 100 ms grace for pixel grids to render before we close */
                 setTimeout(function () {
                     target = 100;
-                }, 450);
+                }, 100);
             });
         })();
     </script>
