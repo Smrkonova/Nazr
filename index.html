@@ -1277,7 +1277,7 @@
              06. SCENARIO SECTION — GSAP-animated card stack
              Cards enter one-by-one as the user scrolls through the 500vh span.
              ───────────────────────────────────────────────────────────── -->
-        <section id="scenario-section" class="relative PX-4" style="background:transparent; z-index:60; height: 500vh;">
+        <section id="scenario-section" class="relative px-0" style="background:transparent; z-index:60; height: 500vh;">
 
             <div class="sticky top-0 w-full h-screen overflow-hidden">
                 <!-- Background headline text -->
@@ -1297,7 +1297,7 @@
                 <div id="card-stack" class="absolute inset-0">
 
                     <!-- Card 1 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px] md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden p-[1.5rem]"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px] md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
                         style="z-index:1;">
                         <div class="w-full md:hidden flex-shrink-0 aspect-[1/1]">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
@@ -1318,7 +1318,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden p-[1.5rem]"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
                         style="z-index:2;">
                         <div class="w-full md:hidden flex-shrink-0 aspect-[1/1]">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
@@ -1339,7 +1339,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden p-[1.5rem]"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
                         style="z-index:3;">
                         <div class="w-full md:hidden flex-shrink-0 aspect-[1/1]">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
@@ -1362,7 +1362,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex  flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 overflow-hidden p-[1.5rem]"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex  flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
                         style="z-index:4;">
                         <div class="w-full md:hidden flex-shrink-0 aspect-[1/1]">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
@@ -2397,7 +2397,7 @@
                 // All cards start below viewport on Desktop
                 const stableVH = document.documentElement.clientHeight;
                 const offScreen = stableVH * 1.1;
-                gsap.set(cards, { y: offScreen, xPercent: -50, yPercent: -50, rotation: 0 });
+                gsap.set(cards, { y: offScreen, xPercent: -50, yPercent: -50, left: "50%", rotation: 0 });
                 const remainingDesktopCards = cards.slice(1);
 
                 ScrollTrigger.create({
@@ -2455,7 +2455,7 @@
                                 if (sp < moveEnd) {
                                     const ssp = sp / moveEnd;
                                     const esp = 1 - Math.pow(1 - ssp, 2);
-                                    gsap.set(card, { y: gsap.utils.interpolate(offScreen, 0, esp), xPercent: -50, yPercent: -50 });
+                                    gsap.set(card, { y: gsap.utils.interpolate(offScreen, 0, esp), left: "50%", xPercent: -50, yPercent: -50 });
                                 } else {
                                     gsap.set(card, { y: 0, xPercent: -50, yPercent: -50 });
                                 }
@@ -2479,7 +2479,7 @@
                 // Mobile: All cards begin off-screen
                 const stableVH = document.documentElement.clientHeight;
                 const offScreen = stableVH * 1.1;
-                gsap.set(cards, { y: offScreen, xPercent: -50, rotation: 0 });
+                gsap.set(cards, { y: offScreen, xPercent: -50, left: "50%", rotation: 0 });
                 const remainingCards = cards.slice(1);
 
                 ScrollTrigger.create({
@@ -2492,6 +2492,7 @@
                         tl.to(cards[0], {
                             y: 0,
                             xPercent: -50,
+                            left: "50%",
                             duration: 0.8,
                             ease: "power3.out"
                         }).to(cards[0], {
@@ -2524,7 +2525,7 @@
                             const targetRot = targetRotations[i + 1] || 0;
 
                             if (p < phaseStart) {
-                                gsap.set(card, { y: offScreen, xPercent: -50, rotation: 0 });
+                                gsap.set(card, { y: offScreen, xPercent: -50, left: "50%", rotation: 0 });
                             } else if (p < phaseEnd) {
                                 const sp = (p - phaseStart) / cardDist;
                                 const moveEnd = 0.95;
@@ -2533,7 +2534,7 @@
                                 if (sp < moveEnd) {
                                     const ssp = sp / moveEnd;
                                     const esp = 1 - Math.pow(1 - ssp, 2);
-                                    gsap.set(card, { y: gsap.utils.interpolate(offScreen, 0, esp), xPercent: -50 });
+                                    gsap.set(card, { y: gsap.utils.interpolate(offScreen, 0, esp), xPercent: -50, left: "50%" });
                                 } else {
                                     gsap.set(card, { y: 0, xPercent: -50 });
                                 }
