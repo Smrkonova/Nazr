@@ -1787,25 +1787,31 @@
                         </p>
 
                         <!-- INPUT + BUTTON -->
-                        <div class="flex flex-col sm:flex-row gap-3 mb-3">
+                        <form id="subscribeForm2" class="flex flex-col sm:flex-row gap-3 mb-3">
 
-                            <input type="email" placeholder="Enter your email" class="w-full bg-transparent border text-[#002636] xl:text-[#FFF9EB] 
-  border-[#002636] xl:border-gray-600 font-inter px-4 py-3 text-sm 
-  focus:outline-none focus:border-white 
-  placeholder:text-white xl:placeholder:text-gray-300" />
+                            <input id="email2" type="email" placeholder="Enter your email" class="w-full bg-transparent border text-[#002636] xl:text-[#FFF9EB] 
+    border-[#002636] xl:border-gray-600 font-inter px-4 py-3 text-sm 
+    focus:outline-none focus:border-white 
+    placeholder:text-white xl:placeholder:text-gray-300" />
 
-                            <button href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
-                                class="bg-[#002636] xl:bg-[#FFF9EB] whitespace-nowrap text-white xl:text-[#E6007E] text-[20px] font-lexend font-normal px-[18px] py-3 rounded-md inline-flex items-center justify-center gap-0 transition-all transform hover:scale-105 active:scale-95 shadow-2xl h-[42px] leading-0 ">
-                                <span>Join Now</span>
+                            <button id="subscribeBtn2" type="submit"
+                                class="bg-[#002636] xl:bg-[#FFF9EB] text-white xl:text-[#E6007E] px-[18px] py-3 rounded-md flex items-center justify-center gap-2 h-[42px] disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap">
+
+                                <span id="btnText2">Join Now</span>
+
+                                <!-- Loader -->
+                                <svg id="loader2" class="w-4 h-4 animate-spin hidden" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" />
+                                </svg>
+
                             </button>
-
-                        </div>
+                        </form>
 
                         <!-- TERMS -->
                         <div class="flex flex-col gap-3 mt-6">
                             <label class="flex items-start gap-3 cursor-pointer group">
                                 <div class="relative flex items-center justify-center mt-0.5">
-                                    <input type="checkbox" class="peer sr-only" checked />
+                                    <input id="termsCheck" type="checkbox" class="peer sr-only" checked />
                                     <div
                                         class="w-[18px] h-[18px] border border-[#002636] xl:border-[#FFF9EB] rounded-[4px] transition-all peer-checked:bg-[#E6007E] peer-checked:border-[#E6007E]">
                                     </div>
@@ -1825,7 +1831,7 @@
 
                             <label class="flex items-start gap-3 cursor-pointer group">
                                 <div class="relative flex items-center justify-center mt-0.5">
-                                    <input type="checkbox" class="peer sr-only" />
+                                    <input id="marketingCheck" type="checkbox" class="peer sr-only" />
                                     <div
                                         class="w-[18px] h-[18px] border border-[#002636] xl:border-[#FFF9EB] rounded-[4px] transition-all peer-checked:bg-[#E6007E] peer-checked:border-[#E6007E]">
                                     </div>
@@ -3906,6 +3912,81 @@
                     subscribeBtnText.innerText = "Subscribe";
                     subscribeBtn.disabled = false;
                 }, 3000);
+            }
+        });
+    </script>
+
+    <script>
+        const email = document.getElementById("email2");
+        const btn = document.getElementById("subscribeBtn2");
+        const btnText = document.getElementById("btnText2");
+        const loader = document.getElementById("loader2");
+
+        const terms = document.getElementById("termsCheck");
+        const marketing = document.getElementById("marketingCheck");
+        const form1 = document.getElementById("subscribeForm2");
+
+        // ✅ Email validation
+        function isValidEmail(value) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        }
+
+        // ✅ Enable/Disable button
+        function checkForm() {
+            if (
+                isValidEmail(email.value) &&
+                terms.checked &&
+                marketing.checked
+            ) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        }
+
+        // listen changes
+        email.addEventListener("input", checkForm);
+        terms.addEventListener("change", checkForm);
+        marketing.addEventListener("change", checkForm);
+
+        // initial state
+        btn.disabled = true;
+
+        // ✅ Submit
+        form1.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            btn.disabled = true;
+            btnText.innerText = "Subscribing...";
+            loader.classList.remove("hidden");
+
+            try {
+                // Using text/plain + JSON.stringify avoids CORS preflight while sending JSON
+                await fetch("https://script.google.com/macros/s/AKfycbysDTz0DbNajUUa7U1fImxXUHquJ0J_3pY40usvK1xG_pi0qZuDSXQSMYvfVcclXyGg/exec", {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: {
+                        "Content-Type": "text/plain"
+                    },
+                    body: JSON.stringify({
+                        email: email.value,
+                    })
+                });
+
+                // ✅ success state
+                loader.classList.add("hidden");
+                btnText.innerText = "Subscribed ✓";
+
+                setTimeout(() => {
+                    btnText.innerText = "Join Now";
+                    btn.disabled = true;
+                    form1.reset(); // ✅ Fixed variable name to clear the correct form
+                }, 2000);
+
+            } catch (err) {
+                console.error(err);
+                loader.classList.add("hidden");
+                btnText.innerText = "Try Again";
             }
         });
     </script>
