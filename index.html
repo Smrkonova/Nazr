@@ -102,6 +102,7 @@
             padding-right: 1.2rem;
             margin-left: -0.6rem;
             margin-right: -0.6rem;
+            line-height: 31px;
         }
 
         #products-btn.menu-active #products-arrow {
@@ -416,13 +417,15 @@
             class="relative max-w-[140rem] mx-auto bg-[#6A023E] xl:bg-[#000000AD] border border-white/10 rounded-full px-6 py-3 flex items-center justify-between gap-8 shadow-2xl backdrop-blur-xl transition-all duration-300 md:pl-[30px] ">
 
             <!-- Logo -->
-            <a href="/" class="flex-shrink-0">
-                <img src="assets/images/logo.svg" alt="Nazr Logo" class="w-[4rem] object-contain">
-            </a>
+            <div class="flex-1">
+                <a href="/" class="flex-shrink-0">
+                    <img src="assets/images/logo.svg" alt="Nazr Logo" class="w-[4rem] object-contain">
+                </a>
+            </div>
 
             <!-- Desktop Menu -->
             <div
-                class="hidden md:flex items-center gap-7 text-[#FFF9EB] text-[clamp(20px,2vw,26px)] tracking-[0] font-normal">
+                class="hidden whitespace-nowrap flex-1 md:flex items-center gap-7 text-[#FFF9EB] text-[clamp(20px,2vw,26px)] tracking-[0] font-normal">
                 <a href="/" class=" transition-colors">HOME</a>
 
                 <!-- PRODUCTS mega-menu trigger -->
@@ -443,7 +446,7 @@
             </div>
 
             <!-- Desktop icons -->
-            <div class="hidden md:flex items-center gap-4">
+            <div class="hidden md:flex items-center gap-4 justify-end flex-1">
                 <a href="https://shopify.com/authentication/..."
                     class="w-[3rem] h-[3rem] opacity-80 hover:opacity-100 transition-opacity">
                     <img src="./assets/images/icons/user.svg" alt="Account" class="w-full h-full object-contain">
@@ -514,7 +517,8 @@
                                 </div>
                                 <div
                                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-center justify-between">
-                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">IMPOWER</span>
+                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">On Me Pepper Spray
+                                    </span>
                                     <span
                                         class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
                                         <svg class="w-3 h-3 text-[#FFF9EB]" fill="none" stroke="currentColor"
@@ -534,7 +538,8 @@
                                 </div>
                                 <div
                                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-end justify-between">
-                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">SHIELD</span>
+                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">Sip Check Anti- Spike
+                                        Stickers</span>
                                     <span
                                         class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
                                         <svg class="w-3 h-3 text-[#FFF9EB]" fill="none" stroke="currentColor"
@@ -554,7 +559,7 @@
                                 </div>
                                 <div
                                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-3 flex items-end justify-between">
-                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">GUARD</span>
+                                    <span class="text-[#FFF9EB] font-bebas text-sm tracking-wider">The Nazr Core</span>
                                     <span
                                         class="w-5 h-5 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
                                         <svg class="w-3 h-3 text-[#FFF9EB]" fill="none" stroke="currentColor"
@@ -609,7 +614,7 @@
              top: 80px;
              left: 0; right: 0;
              z-index: 300;
-             padding: 0 16px;
+             padding: 0 2rem;
              opacity: 0;
              visibility: hidden;
              transform: translateY(12px);
@@ -626,13 +631,13 @@
                     class="aspect-square relative overflow-hidden bg-white/5 group-hover/card:bg-transparent transition-colors duration-500 flex items-center justify-center p-4">
                     <img src="./assets/images/product-bg.png" alt=""
                         class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <img src="./assets/images/product/1.png" alt="Nazr Impower"
+                    <img src="./assets/images/product/3.png" alt="Nazr Impower"
                         class="relative z-10 w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500">
                 </div>
                 <div
-                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
-                    <span
-                        class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">IMPOWER</span>
+                    class=" bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
+                    <span class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">On Me
+                        Pepper Spray</span>
                     <span class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
                         <svg class="w-4 h-4 text-[#FFF9EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -649,13 +654,13 @@
                     class="aspect-square relative overflow-hidden bg-white/5 group-hover/card:bg-transparent transition-colors duration-500 flex items-center justify-center p-4">
                     <img src="./assets/images/product-bg.png" alt=""
                         class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <img src="./assets/images/product/2.png" alt="Nazr Shield"
+                    <img src="./assets/images/product/1.png" alt="Nazr Shield"
                         class="relative z-10 w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500">
                 </div>
                 <div
-                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
-                    <span
-                        class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">SHIELD</span>
+                    class=" bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
+                    <span class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">Sip
+                        Check Anti-Spike Stickers</span>
                     <span class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
                         <svg class="w-4 h-4 text-[#FFF9EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -672,13 +677,13 @@
                     class="aspect-square relative overflow-hidden bg-white/5 group-hover/card:bg-transparent transition-colors duration-500 flex items-center justify-center p-4">
                     <img src="./assets/images/product-bg.png" alt=""
                         class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <img src="./assets/images/product/3.png" alt="Nazr Guard"
+                    <img src="./assets/images/product/2.png" alt="Nazr Guard"
                         class="relative z-10 w-full h-full object-contain group-hover/card:scale-105 transition-transform duration-500">
                 </div>
                 <div
-                    class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
-                    <span
-                        class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">GUARD</span>
+                    class=" bg-gradient-to-t from-black/90 via-black/40 to-transparent p-3 flex items-center justify-between">
+                    <span class="text-[#FFF9EB] font-bebas text-[clamp(24px,4vw,32px)] tracking-wider uppercase">The
+                        Nazr Core</span>
                     <span class="w-6 h-6 rounded-full bg-[#E6007E] flex items-center justify-center flex-shrink-0">
                         <svg class="w-4 h-4 text-[#FFF9EB]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -921,50 +926,59 @@
             </div>
 
             <!-- Marquee Section -->
-            <div class="absolute bottom-0 left-0 w-full pt-4 marquee-container">
+            <div class="absolute bottom-[-10px] left-0 w-full  marquee-container">
                 <div class="marquee-content gap-8 md:gap-12 lg:gap-16">
                     <!-- Half 1 -->
                     <span
-                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[80px]">keep
-                        apne kaam se kaa</span>
+                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[110px]">For
+                        Kalesh-Free Nights
+                    </span>
                     <img src="assets/images/logo.svg" alt="Owl Logo"
-                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80 ">
                     <span
-                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[80px]">keep
-                        apne kaam se kaa</span>
+                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[110px]">Creep
+                        Repellant Technology
+                    </span>
                     <img src="assets/images/logo.svg" alt="Owl Logo"
-                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80 ">
                     <span
-                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[80px]">keep
-                        apne kaam se kaa</span>
+                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[110px]">boundary-aware
+                        design</span>
                     <img src="assets/images/logo.svg" alt="Owl Logo"
-                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80 ">
                     <span
-                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[80px]">keep
-                        apne kaam se kaa</span>
+                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[110px]">For
+                        Kalesh-Free Nights
+                    </span>
                     <img src="assets/images/logo.svg" alt="Owl Logo"
-                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                    <!-- Half 2 (exact duplicate — enables seamless -50% loop) -->
+                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80 ">
                     <span
-                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[80px]">keep
-                        apne kaam se kaa</span>
+                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[110px]">Creep
+                        Repellant Technology
+                    </span>
                     <img src="assets/images/logo.svg" alt="Owl Logo"
-                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80 ">
                     <span
-                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[80px]">keep
-                        apne kaam se kaa</span>
+                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[110px]">boundary-aware
+                        design</span>
                     <img src="assets/images/logo.svg" alt="Owl Logo"
-                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80 ">
                     <span
-                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[80px]">keep
-                        apne kaam se kaa</span>
+                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[110px]">For
+                        Kalesh-Free Nights
+                    </span>
                     <img src="assets/images/logo.svg" alt="Owl Logo"
-                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80 ">
                     <span
-                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[80px]">keep
-                        apne kaam se kaa</span>
+                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[110px]">Creep
+                        Repellant Technology
+                    </span>
                     <img src="assets/images/logo.svg" alt="Owl Logo"
-                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                        class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80 ">
+                    <span
+                        class="text-[#6A023E99] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0 leading-[110px]">boundary-aware
+                        design</span>
+
                 </div>
             </div>
 
@@ -1107,7 +1121,7 @@
                                 class="w-full aspect-[4/5] md:aspect-[4/3] relative overflow-hidden flex items-center justify-center p-6 lg:p-10">
                                 <img src="./assets/images/product-bg.png" alt=""
                                     class="product-bg-img absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                                <img src="./assets/images/product/1.png"
+                                <img src="./assets/images/product/3.png"
                                     class="relative z-10 w-full h-full object-contain mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
                                     alt="On Me Pepper Spray">
                             </div>
@@ -1116,7 +1130,7 @@
                                 class="p-4 md:p-5 border-t border-[#6A023E] xl:border-[#FFF9EB] flex justify-between items-end bg-transparent xl:bg-black z-10 shrink-0 min-h-[85px]">
                                 <div class="flex flex-col justify-center">
                                     <h3
-                                        class="font-bebas text-[28px] md:text-[clamp(24px,4vw,32px)] text-[#6A023E] xl:text-[#FFF9EB] uppercase tracking-wider leading-none">
+                                        class="font-bebas text-[28px] md:text-[clamp(24px,4vw,30px)] text-[#6A023E] xl:text-[#FFF9EB] uppercase tracking-wider leading-none">
                                         ON ME PEPPER SPRAY</h3>
                                     <span
                                         class="text-[#6A023E] xl:text-[#FFF9EB] text-[20px] md:text-[clamp(14px,2vw,16px)] font-inter mt-1.5 leading-none">Variant</span>
@@ -1138,7 +1152,7 @@
                                 class="w-full aspect-[4/5] md:aspect-[4/3] relative overflow-hidden flex items-center justify-center p-6 lg:p-10">
                                 <img src="./assets/images/product-bg.png" alt=""
                                     class="product-bg-img absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                                <img src="./assets/images/product/2.png"
+                                <img src="./assets/images/product/1.png"
                                     class="relative z-10 w-full h-full object-contain mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
                                     alt="Sip Check Stickers">
                             </div>
@@ -1147,8 +1161,8 @@
                                 class="p-4 md:p-5 border-t border-[#6A023E] xl:border-[#FFF9EB] flex justify-between items-end bg-transparent xl:bg-black z-10 shrink-0 min-h-[85px]">
                                 <div class="flex flex-col justify-center">
                                     <h3
-                                        class="font-bebas text-[28px] md:text-[clamp(24px,4vw,32px)] text-[#6A023E] xl:text-[#FFF9EB] uppercase tracking-wider leading-none">
-                                        SIP 'N CHECK STICKERS</h3>
+                                        class="font-bebas text-[28px] md:text-[clamp(24px,4vw,30px)] text-[#6A023E] xl:text-[#FFF9EB] uppercase tracking-wider leading-none uppercase">
+                                        Sip check anti-spike Stickers</h3>
                                     <span
                                         class="text-[#6A023E] xl:text-[#FFF9EB] text-[20px] md:text-[clamp(14px,2vw,16px)] font-inter mt-1.5 leading-none">Variant</span>
                                 </div>
@@ -1169,7 +1183,7 @@
                                 class="w-full aspect-[4/5] md:aspect-[4/3] relative overflow-hidden flex items-center justify-center p-6 lg:p-10">
                                 <img src="./assets/images/product-bg.png" alt=""
                                     class="product-bg-img absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                                <img src="./assets/images/product/3.png"
+                                <img src="./assets/images/product/2.png"
                                     class="relative z-10 w-full h-full object-contain mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
                                     alt="Combo Pack">
                             </div>
@@ -1178,8 +1192,8 @@
                                 class="p-4 md:p-5 border-t border-[#6A023E] xl:border-[#FFF9EB] flex justify-between items-end bg-transparent xl:bg-black z-10 shrink-0 min-h-[85px]">
                                 <div class="flex flex-col justify-center">
                                     <h3
-                                        class="font-bebas text-[28px] md:text-[clamp(24px,4vw,32px)] text-[#6A023E] xl:text-[#FFF9EB] uppercase tracking-wider leading-none">
-                                        ON ME + SIP CHECK COMBO</h3>
+                                        class="font-bebas text-[28px] md:text-[clamp(24px,4vw,30px)] text-[#6A023E] xl:text-[#FFF9EB] uppercase tracking-wider leading-none uppercase">
+                                        the Nazr core</h3>
                                     <span
                                         class="text-[#6A023E] xl:text-[#FFF9EB] text-[20px] md:text-[clamp(14px,2vw,16px)] font-inter mt-1.5 leading-none">Variant</span>
                                 </div>
@@ -1200,7 +1214,7 @@
                                 class="w-full aspect-[4/5] md:aspect-[4/3] relative overflow-hidden flex items-center justify-center p-6 lg:p-10">
                                 <img src="./assets/images/product-bg.png" alt=""
                                     class="product-bg-img absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                                <img src="./assets/images/product/1.png"
+                                <img src="./assets/images/product/3.png"
                                     class="relative z-10 w-full h-full object-contain mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
                                     alt="On Me Pepper Spray">
                             </div>
@@ -1228,7 +1242,7 @@
                                 class="w-full aspect-[4/5] md:aspect-[4/3] relative overflow-hidden flex items-center justify-center p-6 lg:p-10">
                                 <img src="./assets/images/product-bg.png" alt=""
                                     class="product-bg-img absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                                <img src="./assets/images/product/2.png"
+                                <img src="./assets/images/product/1.png"
                                     class="relative z-10 w-full h-full object-contain mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
                                     alt="Sip Check Stickers">
                             </div>
@@ -1237,7 +1251,7 @@
                                 <div class="flex flex-col justify-center">
                                     <h3
                                         class="font-bebas text-[28px] md:text-[clamp(24px,4vw,32px)] text-[#6A023E] xl:text-[#FFF9EB] uppercase tracking-wider leading-none">
-                                        SIP 'N CHECK STICKERS</h3>
+                                        Sip check anti-spike Stickers</h3>
                                     <span
                                         class="text-[#6A023E] xl:text-[#FFF9EB] text-[20px] md:text-[clamp(14px,2vw,16px)] font-inter mt-1.5 leading-none">Variant</span>
                                 </div>
@@ -1256,7 +1270,7 @@
                                 class="w-full aspect-[4/5] md:aspect-[4/3] relative overflow-hidden flex items-center justify-center p-6 lg:p-10">
                                 <img src="./assets/images/product-bg.png" alt=""
                                     class="product-bg-img absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                                <img src="./assets/images/product/3.png"
+                                <img src="./assets/images/product/2.png"
                                     class="relative z-10 w-full h-full object-contain mix-blend-normal opacity-90 lg:group-hover:scale-105 transition-transform duration-700"
                                     alt="Combo Pack">
                             </div>
@@ -1265,7 +1279,7 @@
                                 <div class="flex flex-col justify-center">
                                     <h3
                                         class="font-bebas text-[28px] md:text-[clamp(24px,4vw,32px)] text-[#6A023E] xl:text-[#FFF9EB] uppercase tracking-wider leading-none">
-                                        ON ME + SIP CHECK COMBO</h3>
+                                        the Nazr core</h3>
                                     <span
                                         class="text-[#6A023E] xl:text-[#FFF9EB] text-[20px] md:text-[clamp(14px,2vw,16px)] font-inter mt-1.5 leading-none">Variant</span>
                                 </div>
@@ -1314,18 +1328,20 @@
                 <div id="card-stack" class="absolute inset-0">
 
                     <!-- Card 1 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px] md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px] md:w-[70vw] lg:w-[60vw] xl:w-[60vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
                         style="z-index:1;">
                         <div class="w-full md:hidden flex-shrink-0 aspect-[1/1]">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
                         </div>
-                        <div class="w-full md:w-1/2 flex flex-col items-start gap-3 p-4 pt-3 pb-3  md:justify-center">
+                        <div
+                            class="w-full md:w-1/2 flex flex-col items-start gap-[1.75rem] p-4 pt-3 pb-3  md:justify-center">
                             <div class="w-10 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
                                     class="w-full h-auto brightness-0"></div>
                             <h3
-                                class="font-bebas text-black text-[26px] xl:text-[clamp(26px,6vw,48px)] tracking-wide uppercase leading-none">
+                                class="font-bebas text-black text-[26px] xl:text-[clamp(26px,6vw,46px)] tracking-wide uppercase leading-none">
                                 11:11 at night. Cab ride home. You’re relaxed, not alert. <span
-                                    class="text-[#F80090]">On Me</span> by Nazr, is On You.</h3>
+                                    class="text-[#F80090] text-[30px] xl:text-[clamp(26px,6vw,50px)]">On Me</span> by
+                                Nazr, is On You.</h3>
                         </div>
                         <div class="hidden md:flex w-1/2 justify-end ">
                             <div class="w-full  aspect-[1/1] rounded-2xl overflow-hidden">
@@ -1335,18 +1351,20 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[60vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
                         style="z-index:2;">
                         <div class="w-full md:hidden flex-shrink-0 aspect-[1/1]">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
                         </div>
-                        <div class="w-full md:w-1/2 flex flex-col items-start gap-3 p-4 pt-3 pb-3  md:justify-center">
+                        <div
+                            class="w-full md:w-1/2 flex flex-col items-start gap-[1.75rem] p-4 pt-3 pb-3  md:justify-center">
                             <div class="w-10 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
                                     class="w-full h-auto brightness-0"></div>
                             <h3
-                                class="font-bebas text-black text-[26px] xl:text-[clamp(26px,6vw,48px)] tracking-wide uppercase leading-none">
-                                New city. First girls night. They feel safe because they’ve got you and you’ve got <span
-                                    class="text-[#F80090]">Nazr Core</span>.</h3>
+                                class="font-bebas text-black text-[26px] xl:text-[clamp(26px,6vw,46px)] tracking-wide uppercase leading-none">
+                                New city. First night out. They’ve got you. You’ve got <span
+                                    class="text-[#F80090] text-[30px] xl:text-[clamp(26px,6vw,56px)]">Nazr Core</span>.
+                            </h3>
                         </div>
                         <div class="hidden md:flex w-1/2 justify-end ">
                             <div class="w-full  aspect-[1/1] rounded-2xl overflow-hidden">
@@ -1356,20 +1374,22 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex items-center flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[60vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
                         style="z-index:3;">
                         <div class="w-full md:hidden flex-shrink-0 aspect-[1/1]">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
                         </div>
-                        <div class="w-full md:w-1/2 flex flex-col items-start gap-3 p-4 pt-3 pb-3  md:justify-center">
+                        <div
+                            class="w-full md:w-1/2 flex flex-col items-start gap-[1.75rem] p-4 pt-3 pb-3  md:justify-center">
                             <div class="w-10 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
                                     class="w-full h-auto brightness-0"></div>
                             <h3
-                                class="font-bebas text-black text-[26px] xl:text-[clamp(26px,6vw,48px)] tracking-wide uppercase leading-none">
+                                class="font-bebas text-black text-[26px] xl:text-[clamp(26px,6vw,46px)] tracking-wide uppercase leading-none">
                                 “Here, your drink.”
-                                You didn’t see it being made. <br>
-                                You <span class="text-[#F80090]">check</span> before you <span
-                                    class="text-[#F80090]">sip</span>.</h3>
+                                You didn’t see it being made.
+                                You <span class="text-[#F80090] text-[30px] xl:text-[clamp(26px,6vw,56px)]">check</span>
+                                before you <span
+                                    class="text-[#F80090] text-[30px] xl:text-[clamp(26px,6vw,56px)]">sip</span>.</h3>
                         </div>
                         <div class="hidden md:flex w-1/2 justify-end ">
                             <div class="w-full  aspect-[1/1] rounded-2xl overflow-hidden">
@@ -1379,19 +1399,22 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex  flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[55vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
+                    <div class="scenario-card bg-[#FCF9F0] border border-black rounded-[24px] flex  flex-col md:flex-row w-[280px]  md:w-[70vw] lg:w-[60vw] xl:w-[60vw] aspect-auto md:aspect-[15/8] max-w-[95vw] absolute left-1/2 top-[22vh] md:top-1/2 overflow-hidden p-[1.5rem]"
                         style="z-index:4;">
                         <div class="w-full md:hidden flex-shrink-0 aspect-[1/1]">
                             <img src="./assets/images/slider/1.png" class="w-full h-full object-cover" alt="">
                         </div>
-                        <div class="w-full md:w-1/2 flex flex-col items-start gap-3 p-4 pt-3 pb-3  md:justify-center">
+                        <div
+                            class="w-full md:w-1/2 flex flex-col items-start gap-[1.75rem] p-4 pt-3 pb-3  md:justify-center">
                             <div class="w-10 md:w-20"><img src="assets/images/logo.svg" alt="Logo"
                                     class="w-full h-auto brightness-0"></div>
                             <h3
-                                class="font-bebas text-black text-[26px] xl:text-[clamp(26px,6vw,48px)] tracking-wide uppercase leading-none">
+                                class="font-bebas text-black text-[26px] xl:text-[clamp(26px,6vw,46px)] tracking-wide uppercase leading-none">
 
-                                11:11pm in a cab. Phone’s battery at 2%. Not good times Phone’s battery at 2%. Not good
-                                times </h3>
+                                Last metro, feeling eerie. <span
+                                    class="text-[#F80090] text-[30px] xl:text-[clamp(26px,6vw,56px)]">Nazr App</span>
+                                already mapped
+                                your way home.</h3>
                         </div>
                         <div class="hidden md:flex w-1/2 justify-end ">
                             <div class="w-full  aspect-[1/1] rounded-2xl overflow-hidden">
@@ -1420,13 +1443,12 @@
                 <!-- HEADER -->
                 <div class="text-center mb-16">
                     <h2
-                        class="section-title text-[80px] md:text-[clamp(40px,8vw,100px)] text-[#002636] xl:text-[#FFF9EB] font-normal leading-none tracking-[-0.04em]">
-                        THE NAZR JOURNEY
+                        class="section-title text-[80px] md:text-[clamp(40px,8vw,100px)] text-[#002636] xl:text-[#FFF9EB] font-normal leading-none tracking-[-0.04em] uppercase">
+                        Start With Nazr
                     </h2>
                     <p
                         class="text-[24px] md:text-[clamp(18px,3vw,24px)] font-inter font-normal text-[#002636] xl:text-[#FFF9EB]">
-                        This Is What
-                        Changes</p>
+                        Carry it. Scan it. Stay connected.</p>
                 </div>
 
                 <!-- DESKTOP TIMELINE -->
@@ -1448,11 +1470,12 @@
                                 <div class="flex-1 h-[3px] bg-[#FFF9EB]"></div>
                             </div>
 
-                            <h3 class="text-[clamp(18px,3vw,24px)] font-normal text-[#FFF9EB] tracking-wide mb-2">ARM
-                                YOUR AURA</h3>
-                            <p class="text-[#FFF9EB] text-[clamp(14px,2vw,16px)] font-normal max-w-xs font-inter">
-                                Pick your "Buri Nazar” blockers and shape your custom kit. Whether it’s the spray or the
-                                stickers, choose what makes you feel nazar-proof.
+                            <h3
+                                class="text-[clamp(18px,3vw,24px)] font-normal text-[#FFF9EB] tracking-wide mb-2 uppercase">
+                                Get Nazr</h3>
+                            <p
+                                class="text-[#FFF9EB] text-[clamp(14px,2vw,16px)] font-normal max-w-md mx-auto font-inter">
+                                Keep it within reach. Discreet, accessible, part of what you already carry.
                             </p>
                         </div>
 
@@ -1468,10 +1491,13 @@
                                 <div class="flex-1 h-[3px] bg-[#FFF9EB]"></div>
                             </div>
 
-                            <h3 class="text-[clamp(18px,3vw,24px)] font-normal text-[#FFF9EB] tracking-wide mb-2">ENTER
-                                THE CIRCLE</h3>
-                            <p class="text-[#FFF9EB] text-[clamp(14px,2vw,16px)] font-normal max-w-xs font-inter">
-                                Scan the QR code. Find a community that’s already looking out for you..
+                            <h3
+                                class="text-[clamp(18px,3vw,24px)] font-normal text-[#FFF9EB] tracking-wide mb-2 uppercase">
+                                Scan to Connect</h3>
+                            <p
+                                class="text-[#FFF9EB] text-[clamp(14px,2vw,16px)] font-normal max-w-md mx-auto font-inter">
+                                One scan links your product to your network.
+                                No setup, no delay.
                             </p>
                         </div>
 
@@ -1487,11 +1513,12 @@
                                 <div class="flex-1 h-[3px] bg-[#FFF9EB]"></div>
                             </div>
 
-                            <h3 class="text-[clamp(18px,3vw,24px)] font-normal text-[#FFF9EB] tracking-wide mb-2">FLIP
-                                THE SCRIPT</h3>
-                            <p class="text-[#FFF9EB] text-[clamp(14px,2vw,16px)] font-normal max-w-xs font-inter">
-                                Don't just ward off the gaze —command it. Transformation begins the moment you stop
-                                hiding and start thriving.
+                            <h3
+                                class="text-[clamp(18px,3vw,24px)] font-normal text-[#FFF9EB] tracking-wide mb-2 uppercase">
+                                Stay Connected</h3>
+                            <p
+                                class="text-[#FFF9EB] text-[clamp(14px,2vw,16px)] font-normal max-w-md mx-auto font-inter">
+                                Get help faster when it matters. And stay part of a community that looks out for you.
                             </p>
                         </div>
 
@@ -1507,12 +1534,11 @@
                             <div
                                 class="bg-[#FFF9EB] flex-1 rounded-[24px] p-4 pb-10 text-center h-full flex flex-col items-center">
                                 <img src="./assets/images/work/1.png" class="mx-auto mb-4 h-[298px] object-contain" />
-                                <h3 class="text-[28px] md:text-2xl font-bebas text-black tracking-wide mb-2">ARM YOUR
-                                    AURA
+                                <h3 class="text-[28px] md:text-2xl font-bebas text-black tracking-wide mb-2 uppercase">
+                                    Get Nazr
                                 </h3>
                                 <p class="text-black/80 text-[20px] md:text-sm font-inter leading-[1.6]">
-                                    Pick your "Buri Nazar” blockers and shape your custom kit. Whether it’s the spray or
-                                    the stickers, choose what makes you feel nazar-proof.
+                                    Keep it within reach. Discreet, accessible, part of what you already carry.
                                 </p>
                             </div>
                         </div>
@@ -1523,11 +1549,11 @@
                                 class="bg-[#FFF9EB] flex-1 rounded-[24px] p-4 pb-10 text-center h-full flex flex-col items-center">
                                 <img src="./assets/images/work/2.png" class="mx-auto mb-4 h-[298px] object-contain" />
                                 <h3
-                                    class=" text-[28px] md:text-2xl md:text-2xl font-bebas text-black tracking-wide mb-2">
-                                    ENTER THE
-                                    CIRCLE</h3>
+                                    class=" text-[28px] md:text-2xl md:text-2xl font-bebas text-black tracking-wide mb-2 uppercase">
+                                    Scan to Connect</h3>
                                 <p class="text-black/80 text-[20px] md:text-sm font-inter leading-[1.6]">
-                                    Scan the QR code. Find a community that's already looking out for you.
+                                    One scan links your product to your network.
+                                    No setup, no delay.
                                 </p>
                             </div>
                         </div>
@@ -1539,11 +1565,11 @@
                                 <img src="./assets/images/work/3.png" class="mx-auto mb-4 h-[298px] object-contain" />
                                 <h3
                                     class="text-[28px] md:text-2xl  md:text-2xl font-bebas text-black tracking-wide mb-2">
-                                    FLIP THE SCRIPT
+                                    Stay Connected
                                 </h3>
-                                <p class="text-black/80 text-[20px] md:text-sm font-inter leading-[1.6]">
-                                    Don't just ward off the gaze —command it. Transformation begins the moment you stop
-                                    hiding and start thriving.
+                                <p class="text-black/80 text-[20px] md:text-sm font-inter leading-[1.6] uppercase">
+                                    Get help faster when it matters. And stay part of a community that looks out for
+                                    you.
                                 </p>
                             </div>
                         </div>
@@ -1566,46 +1592,74 @@
             <div class="marquee-content gap-8 md:gap-12 lg:gap-16">
                 <!-- Half 1 -->
                 <span
-                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Buri
-                    Nazar</span>
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">For
+                    Kalesh-Free Nights </span>
                 <img src="assets/images/logo.svg" alt="Owl Logo"
                     class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
                 <span
-                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Buri
-                    Nazar</span>
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Creep
+                    Repellant Technology
+                </span>
                 <img src="assets/images/logo.svg" alt="Owl Logo"
                     class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
                 <span
-                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Buri
-                    Nazar</span>
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">boundary-aware
+                    design
+                </span>
                 <img src="assets/images/logo.svg" alt="Owl Logo"
                     class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
                 <span
-                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Buri
-                    Nazar</span>
-                <img src="assets/images/logo.svg" alt="Owl Logo"
-                    class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
-                <!-- Half 2 (exact duplicate — enables seamless -50% loop) -->
-                <span
-                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Buri
-                    Nazar</span>
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">For
+                    Kalesh-Free Nights </span>
                 <img src="assets/images/logo.svg" alt="Owl Logo"
                     class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
                 <span
-                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Buri
-                    Nazar</span>
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Creep
+                    Repellant Technology
+                </span>
                 <img src="assets/images/logo.svg" alt="Owl Logo"
                     class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
                 <span
-                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Buri
-                    Nazar</span>
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">boundary-aware
+                    design
+                </span>
                 <img src="assets/images/logo.svg" alt="Owl Logo"
                     class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
                 <span
-                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Buri
-                    Nazar</span>
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">For
+                    Kalesh-Free Nights </span>
                 <img src="assets/images/logo.svg" alt="Owl Logo"
                     class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                <span
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Creep
+                    Repellant Technology
+                </span>
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                <span
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">boundary-aware
+                    design
+                </span>
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                <span
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">For
+                    Kalesh-Free Nights </span>
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                <span
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">Creep
+                    Repellant Technology
+                </span>
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+                <span
+                    class="text-[#00263680] xl:text-[#FFF9EB99] font-bebas tracking-wider text-[clamp(48px,10vw,140px)] uppercase flex-shrink-0">boundary-aware
+                    design
+                </span>
+                <img src="assets/images/logo.svg" alt="Owl Logo"
+                    class="flex-shrink-0 w-[70px] h-[50px] sm:w-[90px] sm:h-[65px] md:w-[110px] md:h-[75px] lg:w-[123px] lg:h-[87px] brightness-0 invert opacity-80">
+
             </div>
         </div>
 
@@ -1624,12 +1678,12 @@
                 <div class="text-center mb-16">
                     <h2
                         class="section-title text-[80px] md:text-[clamp(40px,8vw,100px)] text-[#002636] xl:text-[#FFF9EB] font-normal leading-none tracking-[-0.04em]">
-                        THREE TOOLS. ONE STANDARD.
+                        Built To Back You
                     </h2>
                     <p
-                        class="text-[#002636] text-[24px] md:text-[clamp(18px,3vw,24px)] xl:text-[#FFF9EB] font-normal max-w-5xl mx-auto md:mt-[-20px] leading-[1.2] md:leading-normal font-inter">
-                        Nazr is built as a complete ecosystem — hardware you carry, intelligence you trust, and a
-                        community that moves with you.
+                        class="text-[#002636] text-[24px] md:text-[clamp(18px,3vw,24px)] xl:text-[#FFF9EB] font-normal max-w-5xl mx-auto md:mt-[10px] leading-[1.2] md:leading-normal font-inter ">
+                        Nazr™ is an intuitive, responsive ecosystem: carry-ready hardware, instant connection, and a
+                        community that has your back.
                     </p>
                 </div>
 
@@ -1647,15 +1701,12 @@
                             <div class="flex-1 flex flex-col justify-start md:justify-center h-full items-start">
                                 <div>
                                     <h3
-                                        class="text-[28px] md:text-[clamp(18px,3vw,24px)] text-black xl:text-[#FFF9EB] font-bebas font-normal mb-1 tracking-wide">
-                                        ON ME
-                                        PEPPER SPRAY</h3>
+                                        class="text-[28px] md:text-[clamp(18px,3vw,28px)] text-black xl:text-[#FFF9EB] font-bebas font-normal mb-1 tracking-wide uppercase">
+                                        On Me Pepper Spray</h3>
                                     <p
                                         class="text-[20px] md:text-[clamp(14px,2vw,16px)] text-black xl:text-[#FFF9EB] font-normal leading-[1.6] md:leading-relaxed mb-4 font-inter">
-                                        High-pressure, compact, and built to be seen. This glow-in-the-dark canister
-                                        lives
-                                        on your bag,
-                                        not buried in it.
+                                        Clips onto what you carry, staying visible and within reach.Compact,
+                                        high-pressure, and easy to locate - even in the dark.
                                     </p>
                                 </div>
                                 <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
@@ -1680,20 +1731,20 @@
                             <div class="flex-1 flex flex-col justify-start md:justify-center h-full items-start">
                                 <div>
                                     <h3 1
-                                        class="text-[28px] md:text-[clamp(18px,3vw,24px)] text-[#FFF9EB] font-bebas font-normal mb-1 tracking-wide">
+                                        class="text-[28px] md:text-[clamp(18px,3vw,28px)] text-[#FFF9EB] font-bebas font-normal mb-1 tracking-wide uppercase">
                                         SIP
                                         CHECK</h3>
                                     <p
                                         class="text-[20px] md:text-[clamp(14px,2vw,16px)] text-[#FFF9EB] font-normal leading-[1.6] md:leading-relaxed mb-4 font-inter">
-                                        Quick Nazr Check on your drink and it's built for the lighting at every venue.
-                                        Place one on your glass.
+                                        Place it on your glass and know what you’re about to sip. A quick check, without
+                                        interrupting your night.
                                     </p>
                                 </div>
                                 <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
-                                    class="bg-[#6A023E] xl:bg-[#FFF9EB] text-white xl:text-[#E6007E] text-[20px] font-lexend font-normal px-[18px] py-3 rounded-md flex items-center gap-0 transition-all transform hover:scale-105 active:scale-95 shadow-2xl h-[42px] leading-0 pl-[28px]">
+                                    class="gap-[8px] bg-[#6A023E] xl:bg-[#FFF9EB] text-white xl:text-[#E6007E] text-[20px] font-lexend font-normal px-[18px] py-3 rounded-md flex items-center gap-0 transition-all transform hover:scale-105 active:scale-95 shadow-2xl h-[42px] leading-0 pl-[28px]">
                                     <span>OWN IT</span>
-                                    <img src="./assets/images/icons/bottle.png"
-                                        class="filter brightness-0 invert xl:filter-none w-8" alt="">
+                                    <img src="./assets/images/icons/bottle-spray.png"
+                                        class="filter brightness-0 invert xl:filter-none w-[1.2rem]" alt="">
                                 </a>
                             </div>
 
@@ -1713,12 +1764,13 @@
                         <!-- TEXT -->
                         <div class="p-[1rem] md:p-[48px] ">
                             <h3
-                                class="text-[28px] md:text-[clamp(18px,3vw,24px)] text-[#FFF9EB] font-bebas font-normal mb-1 tracking-wide">
-                                PWA</h3>
+                                class="text-[28px] md:text-[clamp(18px,3vw,28px)] text-[#FFF9EB] font-bebas font-normal mb-1 tracking-wide up">
+                                The nazr app</h3>
                             <p
                                 class="text-[20px] md:text-[clamp(14px,2vw,16px)] text-[#FFF9EB] font-normal leading-[1.6] md:leading-relaxed mb-8 font-inter">
-                                Scan the QR Code. SOS lives one tap away. A heartbeat keeps watch.
-                                A crumbly trail runs quietly in the background.
+                                Turns what you carry into real-time support. Reducing the gap between reaching out and
+                                getting help, while keeping you connected to people who can step in - not just stay
+                                informed.
                             </p>
                             <a href="https://shop.nazrco.in/products/nazr-impower-pepper-spray"
                                 class="bg-[#6A023E] xl:bg-[#FFF9EB] text-white xl:text-[#E6007E] text-[20px] font-lexend font-normal px-[18px] py-3 rounded-md inline-flex items-center gap-0 transition-all transform hover:scale-105 active:scale-95 shadow-2xl h-[42px] leading-0 ">
@@ -1825,7 +1877,9 @@
                                 <p
                                     class="text-[#002636] xl:text-[#FFF9EB] text-[16px] md:text-[clamp(14px,2vw,16px)] leading-[1.6] md:leading-relaxed font-inter">
                                     By clicking Sign Up you're confirming that you agree with our
-                                    <span class="underline cursor-pointer">Terms and Conditions.</span>*
+                                    <a href="/pages/terms-and-conditions" class="underline cursor-pointer">
+                                        Terms and Conditions
+                                    </a>**
                                 </p>
                             </label>
 
@@ -2017,7 +2071,7 @@
                         <div class="flex justify-between items-start gap-4">
                             <p
                                 class="font-bebas text-[#FFF9EB] xl:text-[#000000] font-inter text-[20px] md:text-[clamp(16px,2.5vw,20px)] font-bold flex-1">
-                                What does the PWA app do?
+                                What does the NAZR app do?
                             </p>
                             <button class="faq-toggle flex items-center justify-center rotate-[45deg]">
                                 <img src="./assets/images/icons/close.svg"
@@ -2114,11 +2168,9 @@
                         </h3>
                         <ul
                             class="space-y-3 font-inter text-[16px] leading-[1.6] md:leading-normal md:text-[clamp(13px,1.4vw,14px)] text-[#FFF9EB]">
-                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Product</a></li>
-                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">The times you would want nazr
-                                    on you</a></li>
-                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">The nazr ecosystem</a></li>
-                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Tools</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Shop</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">The NAZR App</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">The Nazr Ecosystem</a></li>
                         </ul>
                     </div>
 
@@ -2129,9 +2181,10 @@
                         </h3>
                         <ul
                             class="space-y-3 font-inter text-[16px] leading-[1.6] md:leading-normal md:text-[clamp(13px,1.4vw,14px)] text-[#FFF9EB]">
-                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">On Me pepper spray</a></li>
-                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">sip check</a></li>
-                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Join our community</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">On Me Pepper Spray</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">Sip Check Anti-Spike
+                                    Stickers</a></li>
+                            <li><a href="#" class="hover:text-[#FFF9EB] transition-colors">The NAZR Core</a></li>
                         </ul>
                     </div>
 
