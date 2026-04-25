@@ -993,7 +993,7 @@
              04. TOP SLIDER SECTION — "Times you'll want Nazr" image carousel
              ───────────────────────────────────────────────────────────── -->
         <section id="top-slider-section"
-            class="relative z-[90] bg-black px-5 lg:px-20 pt-16 pb-10 md:pt-24 md:pb-16 image-section min-h-screen flex items-center justify-center">
+            class="relative z-[90] bg-black px-5 lg:px-20 pt-16 pb-10 md:pt-24 md:pb-16 image-section min-h-[100dvh] md:min-h-screen flex items-center justify-center">
             <!-- Hero → Slider pixel transition overlay -->
             <div id="hero-slider-pixel-overlay" style="
                 position: fixed;
@@ -2419,7 +2419,7 @@
                 trigger: hero,
                 start: "top top",
                 endTrigger: targetEl,
-                end: "bottom bottom",
+                end: "center center",
                 scrub: 0.8,
                 onUpdate(self) {
                     const p = self.progress;
