@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
   ╔══════════════════════════════════════════════════════════════╗
   ║                       NAZR — Main Page                      ║
@@ -1920,7 +1920,7 @@
              10. FAQ SECTION — Accordion-style FAQ (GSAP animated expand/collapse)
              ───────────────────────────────────────────────────────────── -->
         <section id="faq-section"
-            class="bg-[#F80090] xl:bg-transparent flex items-center justify-center h-full xl:min-h-screen pt  px-5 lg:px-20 relative z-[60]">
+            class="bg-[#F80090] xl:bg-black flex items-center justify-center h-full xl:min-h-screen pt  px-5 lg:px-20 relative z-[60]">
             <div class="w-full max-w-4xl mx-auto xl:pt-24 xl:pb-52 relative z-10">
 
                 <!-- Heading -->
@@ -2093,7 +2093,7 @@
             <canvas id="faq-footer-pixel-overlay" style="
                 position: absolute;
                 bottom: 0; left: 0;
-                width: 100%; height: 25vh;
+                width: 100%; height: 28vh;
                 pointer-events: none;
                 z-index: 5;
                 opacity: 0;
@@ -2772,12 +2772,12 @@
                     scrub: 1.2, pin: true, pinSpacing: false,
                     onUpdate(self) {
                         const p = self.progress;
-                        if (p >= 1) { canvas5.style.opacity='0'; gsap.set(journeySection,{background:'#000000'}); gsap.set(scenarioSection,{opacity:0}); return; }
-                        if (p <= 0.01) { canvas5.style.opacity='0'; return; }
-                        canvas5.style.opacity='1'; draw5(p);
+                        if (p >= 1) { canvas5.style.opacity = '0'; gsap.set(journeySection, { background: '#000000' }); gsap.set(scenarioSection, { opacity: 0 }); return; }
+                        if (p <= 0.01) { canvas5.style.opacity = '0'; return; }
+                        canvas5.style.opacity = '1'; draw5(p);
                     },
-                    onLeave() { canvas5.style.opacity='0'; gsap.set(journeySection,{background:'#000000'}); gsap.set(scenarioSection,{opacity:0}); },
-                    onEnterBack() { canvas5.style.opacity='1'; gsap.set(journeySection,{background:'transparent'}); gsap.set(scenarioSection,{opacity:1}); draw5(1); }
+                    onLeave() { canvas5.style.opacity = '0'; gsap.set(journeySection, { background: '#000000' }); gsap.set(scenarioSection, { opacity: 0 }); },
+                    onEnterBack() { canvas5.style.opacity = '1'; gsap.set(journeySection, { background: 'transparent' }); gsap.set(scenarioSection, { opacity: 1 }); draw5(1); }
                 });
                 return () => window.removeEventListener('resize', onR);
             });
@@ -2801,38 +2801,42 @@
             function initGrid6() {
                 const vW = window.innerWidth, vH = window.innerHeight;
                 PX6 = vW >= 1280 ? 22 : 16;
-                const c = Math.ceil(vW/PX6)+1, r = Math.ceil(vH/PX6)+1;
-                canvas6.width = c*PX6; canvas6.height = r*PX6;
-                canvas6.style.width='100%'; canvas6.style.height='100%';
+                const c = Math.ceil(vW / PX6) + 1, r = Math.ceil(vH / PX6) + 1;
+                canvas6.width = c * PX6; canvas6.height = r * PX6;
+                canvas6.style.width = '100%'; canvas6.style.height = '100%';
                 const w = [];
-                for (let ri=0;ri<r;ri++) for (let ci=0;ci<c;ci++) w.push({r:ri,c:ci,w:(r-1-ri)+Math.random()*12});
-                w.sort((a,b)=>a.w-b.w); ordered6=w;
+                for (let ri = 0; ri < r; ri++) for (let ci = 0; ci < c; ci++) w.push({ r: ri, c: ci, w: (r - 1 - ri) + Math.random() * 12 });
+                w.sort((a, b) => a.w - b.w); ordered6 = w;
             }
             function draw6(p) {
-                ctx6.clearRect(0,0,canvas6.width,canvas6.height);
-                ctx6.fillStyle='#F80090';
-                const n=Math.floor(p*ordered6.length);
-                for(let i=0;i<n;i++) ctx6.fillRect(ordered6[i].c*PX6,ordered6[i].r*PX6,PX6,PX6);
+                ctx6.clearRect(0, 0, canvas6.width, canvas6.height);
+                ctx6.fillStyle = '#F80090';
+                const n = Math.floor(p * ordered6.length);
+                for (let i = 0; i < n; i++) ctx6.fillRect(ordered6[i].c * PX6, ordered6[i].r * PX6, PX6, PX6);
             }
-            let mm3=gsap.matchMedia();
-            mm3.add('(min-width: 1280px)',()=>{
+            let mm3 = gsap.matchMedia();
+            mm3.add('(min-width: 1280px)', () => {
                 initGrid6();
-                let rt,lw=window.innerWidth;
-                const onR=()=>{if(window.innerWidth===lw)return;lw=window.innerWidth;clearTimeout(rt);rt=setTimeout(()=>{initGrid6();ScrollTrigger.refresh();},250);};
-                window.addEventListener('resize',onR);
+                let rt, lw = window.innerWidth;
+                const onR = () => { if (window.innerWidth === lw) return; lw = window.innerWidth; clearTimeout(rt); rt = setTimeout(() => { initGrid6(); ScrollTrigger.refresh(); }, 250); };
+                window.addEventListener('resize', onR);
+
+                gsap.set(faqSection, { background: 'transparent' });
                 ScrollTrigger.create({
-                    trigger:whynazrSection,start:'bottom bottom',end:'+=100%',
-                    scrub:1.2,pin:true,pinSpacing:false,
-                    onUpdate(self){
-                        const p=self.progress;
-                        if(p>=1){canvas6.style.opacity='0';gsap.set(faqSection,{background:'#F80090'});gsap.set(whynazrSection,{opacity:0});return;}
-                        if(p<=0.01){canvas6.style.opacity='0';return;}
-                        canvas6.style.opacity='1';draw6(p);
+                    trigger: whynazrSection, start: 'bottom bottom',
+                    endTrigger: faqSection, end: 'top top',
+                    scrub: 1.2, pin: true, pinSpacing: false,
+                    onUpdate(self) {
+                        const p = self.progress;
+                        if (p >= 1) { canvas6.style.opacity = '0'; gsap.set(faqSection, { background: '#F80090' }); gsap.set(whynazrSection, { opacity: 0 }); return; }
+                        if (p <= 0.01) { canvas6.style.opacity = '0'; return; }
+                        canvas6.style.opacity = '1'; draw6(p);
                     },
-                    onLeave(){canvas6.style.opacity='0';gsap.set(faqSection,{background:'#F80090'});gsap.set(whynazrSection,{opacity:0});},
-                    onEnterBack(){canvas6.style.opacity='1';gsap.set(faqSection,{background:'transparent'});gsap.set(whynazrSection,{opacity:1});draw6(1);}
+                    onLeave() { canvas6.style.opacity = '0'; gsap.set(faqSection, { background: '#F80090' }); gsap.set(whynazrSection, { opacity: 0 }); },
+                    onEnterBack() { canvas6.style.opacity = '1'; gsap.set(faqSection, { background: 'transparent' }); gsap.set(whynazrSection, { opacity: 1 }); draw6(1); }
                 });
-                return ()=>window.removeEventListener('resize',onR);
+
+                return () => window.removeEventListener('resize', onR);
             });
         });
     </script>
@@ -2919,36 +2923,37 @@
             const ctx10 = canvas10.getContext('2d');
             let ordered10 = [], PX10 = 22;
             function initGrid10() {
-                const vW = window.innerWidth, vH = window.innerHeight * 0.25;
+                const vW = window.innerWidth, vH = window.innerHeight * 0.28;
                 PX10 = vW >= 1280 ? 22 : 16;
-                const c = Math.ceil(vW/PX10)+1, r = Math.ceil(vH/PX10)+1;
-                canvas10.width = c*PX10; canvas10.height = r*PX10;
-                canvas10.style.width='100%'; canvas10.style.height='25vh';
-                const w=[];
-                for(let ri=0;ri<r;ri++) for(let ci=0;ci<c;ci++) w.push({r:ri,c:ci,w:(r-1-ri)+Math.random()*2});
-                w.sort((a,b)=>a.w-b.w); ordered10=w;
+                const c = Math.ceil(vW / PX10) + 1, r = Math.ceil(vH / PX10) + 1;
+                canvas10.width = c * PX10; canvas10.height = r * PX10;
+                canvas10.style.width = '100%'; canvas10.style.height = '28vh';
+                const w = [];
+                for (let ri = 0; ri < r; ri++) for (let ci = 0; ci < c; ci++) w.push({ r: ri, c: ci, w: (r - 1 - ri) + Math.random() * 2 });
+                w.sort((a, b) => a.w - b.w); ordered10 = w;
             }
             function draw10(p) {
-                ctx10.clearRect(0,0,canvas10.width,canvas10.height);
-                ctx10.fillStyle='#000000';
-                const n=Math.floor(p*ordered10.length);
-                for(let i=0;i<n;i++) ctx10.fillRect(ordered10[i].c*PX10,ordered10[i].r*PX10,PX10,PX10);
+                ctx10.clearRect(0, 0, canvas10.width, canvas10.height);
+                ctx10.fillStyle = '#000000';
+                const n = Math.floor(p * ordered10.length);
+                for (let i = 0; i < n; i++) ctx10.fillRect(ordered10[i].c * PX10, ordered10[i].r * PX10, PX10, PX10);
             }
-            let mm4=gsap.matchMedia();
-            mm4.add('(min-width: 1280px)',()=>{
+            let mm4 = gsap.matchMedia();
+            mm4.add('(min-width: 1280px)', () => {
                 initGrid10();
-                let rt,lw=window.innerWidth;
-                const onR=()=>{if(window.innerWidth===lw)return;lw=window.innerWidth;clearTimeout(rt);rt=setTimeout(()=>{initGrid10();ScrollTrigger.refresh();},250);};
-                window.addEventListener('resize',onR);
+                let rt, lw = window.innerWidth;
+                const onR = () => { if (window.innerWidth === lw) return; lw = window.innerWidth; clearTimeout(rt); rt = setTimeout(() => { initGrid10(); ScrollTrigger.refresh(); }, 250); };
+                window.addEventListener('resize', onR);
                 ScrollTrigger.create({
-                    trigger:footerSection,start:'top bottom',end:'top top',scrub:1.2,
-                    onUpdate(self){
-                        const fillP=Math.min(self.progress*2,1);
+                    trigger: footerSection, start: 'top bottom', end: 'top top', scrub: 1.5,
+                    onUpdate(self) {
+                        // Cap progress so it never reaches 100% solid fill, leaving scattered pixels
+                        const fillP = Math.min(self.progress, 0.88);
                         canvas10.style.opacity = fillP > 0 ? '1' : '0';
                         draw10(fillP);
                     }
                 });
-                return ()=>window.removeEventListener('resize',onR);
+                return () => window.removeEventListener('resize', onR);
             });
         });
     </script>
@@ -3202,40 +3207,40 @@
             function initGrid11() {
                 const vW = window.innerWidth, vH = window.innerHeight;
                 PX11 = vW >= 1280 ? 22 : 16;
-                const c = Math.ceil(vW/PX11)+1, r = Math.ceil(vH/PX11)+1;
-                canvas11.width = c*PX11; canvas11.height = r*PX11;
-                canvas11.style.width='100%'; canvas11.style.height='100vh';
-                const w=[];
-                for(let ri=0;ri<r;ri++) for(let ci=0;ci<c;ci++) w.push({r:ri,c:ci,w:(r-1-ri)+Math.random()*12});
-                w.sort((a,b)=>a.w-b.w); ordered11=w;
+                const c = Math.ceil(vW / PX11) + 1, r = Math.ceil(vH / PX11) + 1;
+                canvas11.width = c * PX11; canvas11.height = r * PX11;
+                canvas11.style.width = '100%'; canvas11.style.height = '100vh';
+                const w = [];
+                for (let ri = 0; ri < r; ri++) for (let ci = 0; ci < c; ci++) w.push({ r: ri, c: ci, w: (r - 1 - ri) + Math.random() * 12 });
+                w.sort((a, b) => a.w - b.w); ordered11 = w;
             }
             function draw11(p) {
-                ctx11.clearRect(0,0,canvas11.width,canvas11.height);
-                ctx11.fillStyle='#000000';
-                const n=Math.floor(p*ordered11.length);
-                for(let i=0;i<n;i++) ctx11.fillRect(ordered11[i].c*PX11,ordered11[i].r*PX11,PX11,PX11);
+                ctx11.clearRect(0, 0, canvas11.width, canvas11.height);
+                ctx11.fillStyle = '#000000';
+                const n = Math.floor(p * ordered11.length);
+                for (let i = 0; i < n; i++) ctx11.fillRect(ordered11[i].c * PX11, ordered11[i].r * PX11, PX11, PX11);
             }
-            let mm11=gsap.matchMedia();
-            mm11.add('(min-width: 1280px)',()=>{
+            let mm11 = gsap.matchMedia();
+            mm11.add('(min-width: 1280px)', () => {
                 initGrid11();
-                gsap.set(topSliderSection,{background:'transparent'});
-                let rt,lw=window.innerWidth;
-                const onR=()=>{if(window.innerWidth===lw)return;lw=window.innerWidth;clearTimeout(rt);rt=setTimeout(()=>{initGrid11();ScrollTrigger.refresh();},250);};
-                window.addEventListener('resize',onR);
+                gsap.set(topSliderSection, { background: 'transparent' });
+                let rt, lw = window.innerWidth;
+                const onR = () => { if (window.innerWidth === lw) return; lw = window.innerWidth; clearTimeout(rt); rt = setTimeout(() => { initGrid11(); ScrollTrigger.refresh(); }, 250); };
+                window.addEventListener('resize', onR);
                 ScrollTrigger.create({
-                    trigger:heroSection,start:'bottom bottom',
-                    endTrigger:topSliderSection,end:'top top',
-                    scrub:1.2,pin:true,pinSpacing:false,
-                    onUpdate(self){
-                        const p=self.progress;
-                        if(p>=1){canvas11.style.opacity='0';gsap.set(topSliderSection,{background:'#000000'});gsap.set(heroSection,{opacity:0});return;}
-                        if(p<=0.01){canvas11.style.opacity='0';return;}
-                        canvas11.style.opacity='1';draw11(p);
+                    trigger: heroSection, start: 'bottom bottom',
+                    endTrigger: topSliderSection, end: 'top 90%',
+                    scrub: 1.2, pin: true, pinSpacing: false,
+                    onUpdate(self) {
+                        const p = self.progress;
+                        if (p >= 1) { canvas11.style.opacity = '0'; gsap.set(topSliderSection, { background: '#000000' }); gsap.set(heroSection, { opacity: 0 }); return; }
+                        if (p <= 0.01) { canvas11.style.opacity = '0'; return; }
+                        canvas11.style.opacity = '1'; draw11(p);
                     },
-                    onLeave(){canvas11.style.opacity='0';gsap.set(topSliderSection,{background:'#000000'});gsap.set(heroSection,{opacity:0});},
-                    onEnterBack(){canvas11.style.opacity='1';gsap.set(topSliderSection,{background:'transparent'});gsap.set(heroSection,{opacity:1});draw11(1);}
+                    onLeave() { canvas11.style.opacity = '0'; gsap.set(topSliderSection, { background: '#000000' }); gsap.set(heroSection, { opacity: 0 }); },
+                    onEnterBack() { canvas11.style.opacity = '1'; gsap.set(topSliderSection, { background: 'transparent' }); gsap.set(heroSection, { opacity: 1 }); draw11(1); }
                 });
-                return ()=>window.removeEventListener('resize',onR);
+                return () => window.removeEventListener('resize', onR);
             });
         });
     </script>
