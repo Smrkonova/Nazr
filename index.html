@@ -994,15 +994,19 @@
              ───────────────────────────────────────────────────────────── -->
         <section id="top-slider-section"
             class="relative z-[90] bg-black px-5 lg:px-20 pt-16 pb-10 md:pt-24 md:pb-16 image-section min-h-[100dvh] md:min-h-screen flex items-center justify-center">
-            <!-- Hero → Slider pixel transition overlay (canvas) -->
-            <canvas id="hero-slider-pixel-overlay" style="
+            <!-- Hero → Slider pixel transition overlay -->
+            <div id="hero-slider-pixel-overlay" style="
                 position: fixed;
                 top: 0; left: 0;
                 width: 100%; height: 100vh;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: flex-start;
                 pointer-events: none;
                 z-index: 85;
-                opacity: 0;
-            "></canvas>
+                overflow: hidden;
+                opacity: 1; 
+            "></div>
 
 
             <!-- Carousel Slider -->
@@ -2259,6 +2263,13 @@
     <img id="zoom-img" src="./assets/images/banner/1.webp" class="absolute pointer-events-none object-cover"
         style="z-index:95; opacity:0; top:0; left:0; width:0; height:0; transform-origin: top left;" />
 
+    <!-- Hero → Slider pixel transition overlay (canvas) -->
+    <canvas id="hero-slider-pixel-overlay" style="
+        position: fixed; top: 0; left: 0;
+        width: 100%; height: 100dvh;
+        pointer-events: none; z-index: 65; opacity: 0;
+    "></canvas>
+
     <!-- Why Nazr → FAQ pixel transition overlay (canvas) -->
     <canvas id="whynazr-pixel-overlay" style="
         position: fixed; top: 0; left: 0;
@@ -3192,6 +3203,9 @@
             });
         });
     </script>
+
+
+
     <!-- ─────────────────────────────────────────────────────────────
          SCRIPT S11 : Hero → Slider — Pixel Grid Transition
          Black pixel fill completely covers the hero section while pinning.
@@ -3200,47 +3214,124 @@
         window.addEventListener('load', () => {
             const heroSection = document.getElementById('hero-section');
             const topSliderSection = document.getElementById('top-slider-section');
-            const canvas11 = document.getElementById('hero-slider-pixel-overlay');
-            if (!heroSection || !topSliderSection || !canvas11) return;
-            const ctx11 = canvas11.getContext('2d');
-            let ordered11 = [], PX11 = 22;
+            const overlay11 = document.getElementById('hero-slider-pixel-overlay');
+
+            if (!heroSection || !topSliderSection || !overlay11) return;
+
+            let ordered11 = [];
             function initGrid11() {
-                const vW = window.innerWidth, vH = window.innerHeight;
-                PX11 = vW >= 1280 ? 22 : 16;
-                const c = Math.ceil(vW / PX11) + 1, r = Math.ceil(vH / PX11) + 1;
-                canvas11.width = c * PX11; canvas11.height = r * PX11;
-                canvas11.style.width = '100%'; canvas11.style.height = '100vh';
-                const w = [];
-                for (let ri = 0; ri < r; ri++) for (let ci = 0; ci < c; ci++) w.push({ r: ri, c: ci, w: (r - 1 - ri) + Math.random() * 12 });
-                w.sort((a, b) => a.w - b.w); ordered11 = w;
+                overlay11.innerHTML = '';
+                const vW = document.documentElement.clientWidth;
+                const vH = window.innerHeight; // 100vh Full height
+                const isDesktop = matchMedia("(min-width: 1280px)").matches;
+                const PX = isDesktop ? 22 : 16;
+                const overscan = PX * 2;
+                const cols = Math.ceil((vW + overscan) / PX);
+                const rows = Math.ceil((vH + overscan) / PX);
+                const total = cols * rows;
+
+                overlay11.style.width = `${vW + overscan}px`;
+                overlay11.style.height = `${vH + overscan}px`;
+                overlay11.style.left = `${-overscan / 2}px`;
+                overlay11.style.top = `${-overscan / 2}px`;
+
+                const tiles = [];
+                for (let i = 0; i < total; i++) {
+                    const el = document.createElement('div');
+                    el.style.cssText = `width:${PX}px;height:${PX}px;background:#000000;opacity:0;flex-shrink:0;`;
+                    overlay11.appendChild(el);
+                    tiles.push(el);
+                }
+
+                const weighted = [];
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        const idx = row * cols + col;
+                        // Bottom row = weight 0 (fires first)
+                        const weight = (rows - 1 - row) + Math.random() * 12;
+                        weighted.push({ el: tiles[idx], weight });
+                    }
+                }
+                weighted.sort((a, b) => a.weight - b.weight);
+                ordered11 = weighted.map(w => w.el);
             }
-            function draw11(p) {
-                ctx11.clearRect(0, 0, canvas11.width, canvas11.height);
-                ctx11.fillStyle = '#000000';
-                const n = Math.floor(p * ordered11.length);
-                for (let i = 0; i < n; i++) ctx11.fillRect(ordered11[i].c * PX11, ordered11[i].r * PX11, PX11, PX11);
-            }
+
             let mm11 = gsap.matchMedia();
-            mm11.add('(min-width: 1280px)', () => {
+            const matchAll = "(min-width: 1280px)";
+
+            mm11.add(matchAll, (context) => {
                 initGrid11();
+
+                // Initialize the section as transparent to avoid straight lines over the hero section
                 gsap.set(topSliderSection, { background: 'transparent' });
-                let rt, lw = window.innerWidth;
-                const onR = () => { if (window.innerWidth === lw) return; lw = window.innerWidth; clearTimeout(rt); rt = setTimeout(() => { initGrid11(); ScrollTrigger.refresh(); }, 250); };
-                window.addEventListener('resize', onR);
+
+                let resizeTimer11;
+                let lastW11 = window.innerWidth;
+                const onResize11 = () => {
+                    if (window.innerWidth === lastW11) return;
+                    lastW11 = window.innerWidth;
+                    clearTimeout(resizeTimer11);
+                    resizeTimer11 = setTimeout(() => {
+                        gsap.set(heroSection, { clearProps: "opacity" });
+                        gsap.set(topSliderSection, { clearProps: "background" });
+                        gsap.set(overlay11, { opacity: 0 });
+                        ordered11.forEach(t => gsap.set(t, { opacity: 0 }));
+                        initGrid11();
+                        ScrollTrigger.refresh();
+                    }, 250);
+                };
+                window.addEventListener('resize', onResize11);
+
                 ScrollTrigger.create({
-                    trigger: heroSection, start: 'bottom bottom',
-                    endTrigger: topSliderSection, end: 'top 90%',
-                    scrub: 1.2, pin: true, pinSpacing: false,
+                    trigger: heroSection,
+                    start: 'bottom bottom', // Pin when hero full height is shown
+                    endTrigger: topSliderSection,
+                    end: 'top top',
+                    scrub: 1.2,
+                    pin: window.matchMedia("(min-width: 1280px)").matches,
+                    pinSpacing: false,
                     onUpdate(self) {
                         const p = self.progress;
-                        if (p >= 1) { canvas11.style.opacity = '0'; gsap.set(topSliderSection, { background: '#000000' }); gsap.set(heroSection, { opacity: 0 }); return; }
-                        if (p <= 0.01) { canvas11.style.opacity = '0'; return; }
-                        canvas11.style.opacity = '1'; draw11(p);
+
+                        if (p >= 1) {
+                            gsap.set(overlay11, { opacity: 0 });
+                            ordered11.forEach(t => gsap.set(t, { opacity: 0 }));
+                            gsap.set(topSliderSection, { background: '#000000' });
+                            gsap.set(heroSection, { opacity: 0 });
+                            return;
+                        }
+
+                        if (p <= 0.01) {
+                            gsap.set(overlay11, { opacity: 0 });
+                            ordered11.forEach(t => gsap.set(t, { opacity: 0 }));
+                            return;
+                        }
+
+                        gsap.set(overlay11, { opacity: 1 });
+
+                        // Start instantly without artificial delays
+                        const fillP = p;
+
+                        ordered11.forEach((tile, i) => {
+                            const threshold = i / ordered11.length;
+                            gsap.set(tile, { opacity: fillP >= threshold ? 1 : 0 });
+                        });
                     },
-                    onLeave() { canvas11.style.opacity = '0'; gsap.set(topSliderSection, { background: '#000000' }); gsap.set(heroSection, { opacity: 0 }); },
-                    onEnterBack() { canvas11.style.opacity = '1'; gsap.set(topSliderSection, { background: 'transparent' }); gsap.set(heroSection, { opacity: 1 }); draw11(1); }
+                    onLeave() {
+                        gsap.set(topSliderSection, { background: '#000000' });
+                        gsap.set(overlay11, { opacity: 0 });
+                        ordered11.forEach(t => gsap.set(t, { opacity: 0 }));
+                        gsap.set(heroSection, { opacity: 0 });
+                    },
+                    onEnterBack() {
+                        gsap.set(topSliderSection, { background: 'transparent' });
+                        gsap.set(overlay11, { opacity: 1 });
+                        ordered11.forEach(t => gsap.set(t, { opacity: 1 }));
+                        gsap.set(heroSection, { opacity: 1 });
+                    }
                 });
-                return () => window.removeEventListener('resize', onR);
+
+                return () => window.removeEventListener('resize', onResize11);
             });
         });
     </script>
