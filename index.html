@@ -887,7 +887,7 @@
                 <h1
                     class="font-bebas leading-[0.8]  text-[#6A023E] xl:text-[#FFF9EB] flex flex-col items-center gap-0 uppercase">
                     <div class="flex items-center gap-[1.25rem]">
-                        <span
+                        <span id="hero-word-1"
                             class="whitespace-nowrap text-[clamp(42px,1vw,130px)] md:text-[clamp(48px,10vw,130px)]">The
                             world</span>
                         <!-- Image Slot -->
@@ -896,9 +896,9 @@
                             <img src="./assets/images/banner/1.webp" class="w-[63px] h-[40px] md:w-auto md:h-[96px] "
                                 alt="">
                         </div>
-                        <span class="text-[clamp(42px,1vw,130px)] md:text-[clamp(48px,10vw,130px)]">stares,</span>
+                        <span id="hero-word-2" class="text-[clamp(42px,1vw,130px)] md:text-[clamp(48px,10vw,130px)]">stares,</span>
                     </div>
-                    <div class="mt-2 text-[#6A023E] xl:text-[#FFF9EB] text-[clamp(90px,1vw,160px)] xl:text-[160px]">
+                    <div id="hero-word-3" class="mt-2 text-[#6A023E] xl:text-[#FFF9EB] text-[clamp(90px,1vw,160px)] xl:text-[160px]">
                         stare back</div>
                 </h1>
 
@@ -1292,6 +1292,45 @@
 
         </section>
 
+        <!-- Product Hover Preview Overlay (desktop only) -->
+        <div id="shop-preview-overlay" aria-hidden="true" style="
+            position: fixed;
+            inset: 0;
+            z-index: 99998;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        ">
+            <!-- Blurred dark backdrop -->
+            <div id="shop-preview-backdrop" style="
+                position: absolute;
+                inset: 0;
+                background: rgba(0,0,0,0.72);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+                opacity: 0;
+            "></div>
+            <!-- Floating product image -->
+            <div id="shop-preview-img-wrap" style="
+                position: relative;
+                z-index: 1;
+                will-change: transform, opacity;
+                transform: translateY(60px) scale(0.82);
+                opacity: 0;
+            ">
+                <img id="shop-preview-img" src="" alt=""
+                    style="
+                        width: min(420px, 72vw);
+                        height: auto;
+                        object-fit: contain;
+                        filter: drop-shadow(0 40px 80px rgba(230,0,126,0.35)) drop-shadow(0 0 60px rgba(255,255,255,0.08));
+                        display: block;
+                    ">
+            </div>
+        </div>
+
         <!-- Spacer to hold scroll for 1 viewport while shop dwells -->
         <div class="hidden xl:block w-full h-[30svh] relative z-[51] pointer-events-none"></div>
 
@@ -1672,11 +1711,11 @@
 
                 <!-- HEADER -->
                 <div class="text-center mb-16">
-                    <h2
+                    <h2 id="tools-heading"
                         class="section-title text-[80px] md:text-[clamp(40px,8vw,100px)] text-[#002636] xl:text-[#FFF9EB] font-normal leading-none tracking-[-0.04em]">
                         Built To Back You
                     </h2>
-                    <p
+                    <p id="tools-subheading"
                         class="text-[#002636] text-[24px] md:text-[clamp(18px,3vw,24px)] xl:text-[#FFF9EB] font-normal max-w-5xl mx-auto md:mt-[10px] leading-[1.2] md:leading-normal font-inter ">
                         Nazr™ is an intuitive, responsive ecosystem: carry-ready hardware, instant connection, and a
                         community that has your back.
@@ -1714,8 +1753,8 @@
                             </div>
 
                             <!-- IMAGE -->
-                            <div class="flex-1 flex justify-center h-[200px] md:h-[300px]">
-                                <img src="./assets/images/tools/1.png" alt="pepper spray" class=" object-contain" />
+                            <div class="flex-1 flex justify-center h-[200px] md:h-[300px]" style="overflow:visible;">
+                                <img id="tool-img-1" src="./assets/images/tools/1.png" alt="pepper spray" class=" object-contain" style="will-change:transform;" />
                             </div>
 
                         </div>
@@ -1745,8 +1784,8 @@
                             </div>
 
                             <!-- IMAGE -->
-                            <div class="flex-1 flex justify-center h-[200px] md:h-[300px]">
-                                <img src="./assets/images/tools/2.png" alt="pepper spray" class="object-contain" />
+                            <div class="flex-1 flex justify-center h-[200px] md:h-[300px]" style="overflow:visible;">
+                                <img id="tool-img-2" src="./assets/images/tools/2.png" alt="pepper spray" class="object-contain" style="will-change:transform;" />
                             </div>
 
                         </div>
@@ -1775,9 +1814,9 @@
                         </div>
 
                         <!-- IMAGE -->
-                        <div class="flex-1 h-[260px] md:h-full">
-                            <img src="./assets/images/tools/3.png" alt="pwa preview"
-                                class="w-full h-full object-cover" />
+                        <div class="flex-1 h-[260px] md:h-full" style="overflow:hidden;">
+                            <img id="tool-img-3" src="./assets/images/tools/3.png" alt="pwa preview"
+                                class="w-full h-full object-cover" style="will-change:transform;" />
                         </div>
 
                     </div>
@@ -3637,6 +3676,509 @@
                 loader.classList.add("hidden");
                 btnText.innerText = "Try Again";
             }
+        });
+    </script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S15 : Hero Title — Letter Drop Animation
+         Splits "The world stares, stare back" into individual chars
+         and drops them in from above with a staggered GSAP animation.
+         ───────────────────────────────────────────────────────────── -->
+    <script>
+        window.addEventListener('load', () => {
+            /* ── Helper: split an element's text into per-letter spans ── */
+            function splitLetters(el) {
+                const text = el.innerText;
+                el.innerHTML = '';
+                text.split('').forEach(char => {
+                    const span = document.createElement('span');
+                    span.style.display = 'inline-block';
+                    span.style.willChange = 'transform, opacity';
+                    /* Preserve spaces so layout stays intact */
+                    span.innerHTML = char === ' ' ? '&nbsp;' : char;
+                    el.appendChild(span);
+                });
+                return el.querySelectorAll('span');
+            }
+
+            const w1 = document.getElementById('hero-word-1');
+            const w2 = document.getElementById('hero-word-2');
+            const w3 = document.getElementById('hero-word-3');
+
+            if (!w1 || !w2 || !w3) return;
+
+            /* Split all three text segments into letters */
+            const letters1 = splitLetters(w1);
+            const letters2 = splitLetters(w2);
+            const letters3 = splitLetters(w3);
+
+            /* Combine all letters into one ordered array */
+            const allLetters = [...letters1, ...letters2, ...letters3];
+
+            /* Set initial hidden state — letters sit above, tilted forward */
+            gsap.set(allLetters, {
+                y: -80,
+                opacity: 0,
+                rotateX: -90,
+                transformOrigin: 'top center'
+            });
+
+            /* Also animate the banner image slot, badge, subheading, and CTA */
+            const bannerImg   = document.getElementById('banner-img');
+            const badge       = document.querySelector('#hero-content .mb-4');
+            const subheading  = document.querySelector('#hero-content .max-w-2xl');
+            const cta         = document.querySelector('#hero-content a[href]');
+
+            gsap.set([badge, bannerImg, subheading, cta], { opacity: 0, y: 20 });
+
+            /* ── Main drop-in timeline ── */
+            const tl = gsap.timeline({ delay: 0.2 });
+
+            /* Badge fades in first */
+            tl.to(badge, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+
+            /* Letters drop in with stagger — bottom of line 1 first */
+            tl.to(allLetters, {
+                y: 0,
+                opacity: 1,
+                rotateX: 0,
+                duration: 1.0,
+                ease: 'back.out(1.4)',
+                stagger: 0.08
+            }, '-=0.2');
+
+            /* Banner image drops in alongside letters */
+            tl.to(bannerImg, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            }, '<0.3');
+
+            /* Subheading and CTA fade in after title lands */
+            tl.to([subheading, cta], {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                ease: 'power2.out',
+                stagger: 0.2
+            }, '-=0.1');
+
+            /* ── Per-Letter Wave Hover Effect ── */
+            /* Attach a mouseenter to every individual letter span */
+            const allLetterSpans = [...letters1, ...letters2, ...letters3];
+
+            allLetterSpans.forEach((letter) => {
+                let waving = false;
+
+                letter.addEventListener('mouseenter', () => {
+                    /* Don't re-trigger while this letter is mid-wave */
+                    if (waving) return;
+                    waving = true;
+
+                    /* Pop up */
+                    gsap.to(letter, {
+                        y: -24,
+                        duration: 0.2,
+                        ease: 'power3.out',
+                        onComplete() {
+                            /* Bounce back down */
+                            gsap.to(letter, {
+                                y: 0,
+                                duration: 0.5,
+                                ease: 'bounce.out',
+                                onComplete() {
+                                    waving = false;
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S16 : Canvas Liquid Splash — Click Effect
+         GPU-accelerated realistic liquid particles for perfect smoothness.
+         ───────────────────────────────────────────────────────────── -->
+    <script>
+        (function() {
+            const canvas = document.createElement('canvas');
+            canvas.style.cssText = 'position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:999999;';
+            document.body.appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            const COLORS = ['#F80090', '#E6007E', '#ff1aaa', '#ffffff', '#6A023E', '#ffb3e6'];
+            let particles = [];
+
+            function random(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            function createSplash(x, y) {
+                const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+                
+                // Central liquid blob pop
+                particles.push({
+                    type: 'pop',
+                    x: x,
+                    y: y,
+                    size: random(15, 25),
+                    maxSize: random(50, 90),
+                    color: color,
+                    alpha: 1,
+                    decay: random(0.03, 0.06)
+                });
+
+                // Flying droplets
+                const numDroplets = Math.floor(random(20, 35));
+                for (let i = 0; i < numDroplets; i++) {
+                    const angle = random(0, Math.PI * 2);
+                    // Bias speed upwards slightly to simulate splash bounce
+                    const speed = random(4, 18);
+                    const size = random(2, 12);
+                    
+                    particles.push({
+                        type: 'drop',
+                        x: x,
+                        y: y,
+                        vx: Math.cos(angle) * speed,
+                        vy: Math.sin(angle) * speed - 3, 
+                        size: size,
+                        color: Math.random() > 0.2 ? color : COLORS[Math.floor(Math.random() * COLORS.length)],
+                        alpha: 1,
+                        decay: random(0.015, 0.03),
+                        gravity: 0.5,
+                        drag: 0.92
+                    });
+                }
+            }
+
+            function loop() {
+                ctx.clearRect(0, 0, width, height);
+
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    let p = particles[i];
+                    
+                    if (p.type === 'pop') {
+                        // Ease size towards maxSize
+                        p.size += (p.maxSize - p.size) * 0.15;
+                        p.alpha -= p.decay;
+                        
+                        if (p.alpha <= 0) {
+                            particles.splice(i, 1);
+                            continue;
+                        }
+                        
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                        ctx.fillStyle = p.color;
+                        ctx.globalAlpha = p.alpha;
+                        ctx.fill();
+                        
+                    } else if (p.type === 'drop') {
+                        p.vx *= p.drag;
+                        p.vy *= p.drag;
+                        p.vy += p.gravity;
+                        
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        
+                        // Shrink slowly as it flies
+                        p.size *= 0.97;
+                        p.alpha -= p.decay;
+                        
+                        if (p.alpha <= 0 || p.size <= 0.1) {
+                            particles.splice(i, 1);
+                            continue;
+                        }
+                        
+                        // Stretch droplet based on velocity for realistic liquid look
+                        const velAngle = Math.atan2(p.vy, p.vx);
+                        const velMag = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                        const stretch = Math.max(1, velMag * 0.3);
+                        
+                        ctx.save();
+                        ctx.translate(p.x, p.y);
+                        ctx.rotate(velAngle);
+                        ctx.beginPath();
+                        // ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle)
+                        ctx.ellipse(0, 0, p.size * stretch, p.size, 0, 0, Math.PI * 2);
+                        ctx.fillStyle = p.color;
+                        ctx.globalAlpha = p.alpha;
+                        ctx.fill();
+                        ctx.restore();
+                    }
+                }
+                ctx.globalAlpha = 1;
+                requestAnimationFrame(loop);
+            }
+            
+            loop();
+
+            document.addEventListener('click', (e) => {
+                createSplash(e.clientX, e.clientY);
+            });
+        })();
+    </script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S17 : Shop Product Hover — Floating Preview
+         On desktop hover, the product PNG floats up into screen center
+         with GSAP spring physics. Leaves on mouseleave.
+         ───────────────────────────────────────────────────────────── -->
+    <script>
+        window.addEventListener('load', () => {
+            /* Only activate on pointer devices (desktop) */
+            if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+            const overlay   = document.getElementById('shop-preview-overlay');
+            const backdrop  = document.getElementById('shop-preview-backdrop');
+            const imgWrap   = document.getElementById('shop-preview-img-wrap');
+            const previewImg = document.getElementById('shop-preview-img');
+
+            if (!overlay || !previewImg) return;
+
+            let enterTween = null;
+            let leaveTween = null;
+            let activeCard = null;
+
+            /* Grab only the real product images inside the shop section (not duplicates) */
+            const shopSection = document.getElementById('shop-section');
+            const cards = shopSection ? shopSection.querySelectorAll('.swiper-slide:not([aria-hidden]) .swiper-slide img[src*="/product/"]') : [];
+
+            /* Also grab all product images including duplicates for the actual src list */
+            const allProductImgs = shopSection
+                ? shopSection.querySelectorAll('img[src*="/product/"]')
+                : [];
+
+            /* We listen on the image containers (the parent div with overflow-hidden) */
+            const imageAreas = shopSection
+                ? shopSection.querySelectorAll('.swiper-slide:not([aria-hidden]) a')
+                : [];
+
+            function showPreview(src, alt) {
+                /* Cancel any in-progress leave animation */
+                if (leaveTween) { leaveTween.kill(); leaveTween = null; }
+
+                previewImg.src = src;
+                previewImg.alt = alt || '';
+
+                /* Set start state */
+                gsap.set(overlay, { opacity: 1 });
+                gsap.set(imgWrap, { y: 70, scale: 0.8, opacity: 0 });
+                gsap.set(backdrop, { opacity: 0 });
+
+                enterTween = gsap.timeline();
+                enterTween
+                    .to(backdrop, {
+                        opacity: 1,
+                        duration: 0.28,
+                        ease: 'power2.out'
+                    })
+                    .to(imgWrap, {
+                        y: 0,
+                        scale: 1,
+                        opacity: 1,
+                        duration: 0.55,
+                        ease: 'back.out(1.5)'
+                    }, '<0.04');
+            }
+
+            function hidePreview() {
+                if (enterTween) { enterTween.kill(); enterTween = null; }
+
+                leaveTween = gsap.timeline({
+                    onComplete: () => {
+                        gsap.set(overlay, { opacity: 0 });
+                        previewImg.src = '';
+                    }
+                });
+                leaveTween
+                    .to(imgWrap, {
+                        y: 50,
+                        scale: 0.85,
+                        opacity: 0,
+                        duration: 0.35,
+                        ease: 'power3.in'
+                    })
+                    .to(backdrop, {
+                        opacity: 0,
+                        duration: 0.3,
+                        ease: 'power2.in'
+                    }, '<0.05');
+            }
+
+            imageAreas.forEach(card => {
+                const img = card.querySelector('img[src*="/product/"]');
+                if (!img) return;
+
+                card.addEventListener('mouseenter', () => {
+                    activeCard = card;
+                    showPreview(img.src, img.alt);
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    activeCard = null;
+                    hidePreview();
+                });
+            });
+
+            /* Safety: hide if mouse leaves the shop section entirely */
+            if (shopSection) {
+                shopSection.addEventListener('mouseleave', () => {
+                    if (activeCard) {
+                        activeCard = null;
+                        hidePreview();
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S18 : Tools Section — Words Fall From Top on Scroll
+         Each word in the heading + subheading drops from above into place
+         scrubbed to scroll; animation completes at section midpoint.
+         ───────────────────────────────────────────────────────────── -->
+    <style>
+        /* Clip words so they can fall in without overflow showing */
+        .word-fall-wrap {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+        .word-fall {
+            display: inline-block;
+            will-change: transform, opacity;
+        }
+        /* Preserve heading layout */
+        #tools-heading,
+        #tools-subheading {
+            overflow: visible;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+            const section   = document.getElementById('tools-section');
+            const heading   = document.getElementById('tools-heading');
+            const subhead   = document.getElementById('tools-subheading');
+            if (!section || !heading || !subhead) return;
+
+            /* ── Word splitter ────────────────────────────────────────────
+               Replaces plain text nodes with wrapperspans so each word
+               can be independently animated. Preserves spaces.
+            ──────────────────────────────────────────────────────────── */
+            function splitIntoWordSpans(el) {
+                const rawText = el.innerText.trim();
+                const words   = rawText.split(/\s+/);
+                el.innerHTML  = words.map(w =>
+                    `<span class="word-fall-wrap"><span class="word-fall">${w}</span></span>`
+                ).join(' ');
+                return el.querySelectorAll('.word-fall');
+            }
+
+            const headWords = splitIntoWordSpans(heading);
+            const subWords  = splitIntoWordSpans(subhead);
+            const allWords  = [...headWords, ...subWords];
+
+            /* ── Set initial state: each word high above, invisible ──── */
+            gsap.set(allWords, {
+                y: -90,
+                opacity: 0,
+                rotateX: -40
+            });
+
+            /* ── Build the scrubbed timeline ─────────────────────────── */
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 85%',       // begin when section top enters viewport
+                    end:   'center center', // complete exactly at section midpoint
+                    scrub: 0.6,
+                    once: false             // plays forward & reverses on scroll back
+                }
+            });
+
+            tl.to(headWords, {
+                y: 0,
+                opacity: 1,
+                rotateX: 0,
+                duration: 1,
+                ease: 'power3.out',
+                stagger: {
+                    each: 0.18,
+                    from: 'start'
+                }
+            });
+
+            tl.to(subWords, {
+                y: 0,
+                opacity: 1,
+                rotateX: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                stagger: {
+                    each: 0.04,
+                    from: 'start'
+                }
+            }, '-=0.4'); // slight overlap with heading landing
+        });
+    </script>
+
+    <!-- ─────────────────────────────────────────────────────────────
+         SCRIPT S19 : Tools Section — 3D Scroll-Scrubbed Image Burst
+         Images fly out of the screen in perfect sync with scroll position.
+         Scrolling back up reverses the animation exactly.
+         ───────────────────────────────────────────────────────────── -->
+    <script>
+        window.addEventListener('load', () => {
+            const section = document.getElementById('tools-section');
+            const img1    = document.getElementById('tool-img-1');
+            const img2    = document.getElementById('tool-img-2');
+            const img3    = document.getElementById('tool-img-3');
+
+            if (!section || !img1 || !img2 || !img3) return;
+
+            /* Each image starts deep behind the screen at a unique tilt */
+            gsap.set(img1, { transformPerspective: 900, z: -1200, rotateX: 35, rotateY: -40, x: -80, scale: 0.15, opacity: 0 });
+            gsap.set(img2, { transformPerspective: 900, z: -1200, rotateX: -30, rotateY: 45,  x:  80, scale: 0.15, opacity: 0 });
+            gsap.set(img3, { transformPerspective: 900, z: -1600, rotateX: 20,  rotateY: 10,  x:   0, scale: 0.10, opacity: 0 });
+
+            /*
+             * Single timeline, scrubbed to scroll.
+             * Position offsets (0, 0.12, 0.25) stagger the images inside the
+             * timeline so they burst out one after another as you scroll down.
+             * Scrub: 0.6 gives a slight lag that feels physical and weighty.
+             */
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    end:   'center center',
+                    scrub: 0.6
+                }
+            });
+
+            tl.to(img1, { transformPerspective: 900, z: 0, rotateX: 0, rotateY: 0, x: 0, scale: 1, opacity: 1, ease: 'power2.out', force3D: true }, 0);
+            tl.to(img3, { transformPerspective: 900, z: 0, rotateX: 0, rotateY: 0, x: 0, scale: 1, opacity: 1, ease: 'power2.out', force3D: true }, 0.12);
+            tl.to(img2, { transformPerspective: 900, z: 0, rotateX: 0, rotateY: 0, x: 0, scale: 1, opacity: 1, ease: 'power2.out', force3D: true }, 0.25);
         });
     </script>
 </body>
